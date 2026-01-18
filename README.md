@@ -1,20 +1,27 @@
-# 🎓 Academic ESL Hub | International Student Success
+# 📚 Academic ESL Hub | Linguistic Diagnostic Engine
 
-### "Standardizing English Proficiency for Global Education."
-Academic ESL Hub is a specialized resource center designed for students and educators preparing for university-level English assessments. We simplify complex scoring systems into actionable insights.
+### "Standardizing Language Proficiency for Global Scholars."
+Academic ESL Hub is a high-precision diagnostic utility designed to map international English language test scores (IELTS/TOEFL) to the **Common European Framework of Reference for Languages (CEFR)**. Part of the **DirectorLabsHQ** network.
 
-## 📈 Featured Tools
-- **The CEFR Scoring Engine:** Convert raw percentage scores into Common European Framework of Reference (CEFR) levels (A1 through C2).
-- **Exam Transition Logic:** Helping students understand their standing for TOEFL, IELTS, and PTE benchmarks.
-- **Academic Readiness:** Focus on the vocabulary and scoring structures required for higher education.
+## 🧪 Scientific Foundation
+Language proficiency is often fragmented across different testing standards. This hub utilizes the 2026 standardized mapping protocols to provide a unified view of a learner's mastery level.
 
-## 🛠️ The Technology
-- **Engine:** JavaScript-driven scoring logic based on international ESL standards.
-- **Frontend:** Responsive Tailwind CSS design for mobile-first learning.
-- **Architecture:** Part of the **DirectorLabsHQ** performance network.
+### Proficiency Hierarchy:
+- **C-Tier (C1-C2):** Proficient User (Advanced/Mastery)
+- **B-Tier (B1-B2):** Independent User (Intermediate/Upper)
+- **A-Tier (A1-A2):** Basic User (Beginner/Elementary)
 
-## 🎯 Our Mission
-To remove the guesswork from English language learning. By providing instant, accurate feedback on performance, we empower students to move from "learning" to "achieving."
+## 🛠️ Performance Features
+- **Equivalency Engine:** Instant cross-mapping between IELTS bands and TOEFL iBT ranges.
+- **Mastery Tier Projection:** Automated CEFR classification based on standardized metrics.
+- **Responsive UI:** Built with a "Mobile-First" philosophy for students on the move.
+- **Low-Latency Logic:** All calculations are performed client-side for immediate feedback.
 
----
-*Developed by DirectorLabsHQ. All scoring benchmarks are based on standard CEFR guidelines.*
+## 🔒 The DirectorLabsHQ Standard
+Academic ESL Hub adheres to the network-wide commitment to data privacy:
+- No tracking cookies.
+- No server-side data storage.
+- 100% transparent, client-side execution.
+
+## 🚀 Deployment
+This project is built using HTML5, CSS3 (Tailwind Framework), and Vanilla JavaScript. It is optimized for deployment via GitHub Pages.
