@@ -1,27 +1,38 @@
-# 📚 Academic ESL Hub | Linguistic Diagnostic Engine
+# Academic ESL Hub | Global Proficiency Matrix
+**Version 4.0 (Linguistic Data Engine)**
 
-### "Standardizing Language Proficiency for Global Scholars."
-Academic ESL Hub is a high-precision diagnostic utility designed to map international English language test scores (IELTS/TOEFL) to the **Common European Framework of Reference for Languages (CEFR)**. Part of the **DirectorLabsHQ** network.
+## 🏛️ Overview
+The **Academic ESL Hub** is a professional-grade linguistic diagnostic utility designed for high-stakes English assessment mapping. It provides precise, research-backed conversions between **IELTS, TOEFL iBT, TOEIC (L&R), OPIc,** and the **CEFR** framework.
 
-## 🧪 Scientific Foundation
-Language proficiency is often fragmented across different testing standards. This hub utilizes the 2026 standardized mapping protocols to provide a unified view of a learner's mastery level.
+Unlike generic converters, this engine utilizes a **Precise Threshold Mapping** algorithm to ensure alignment with university-level academic placement standards.
 
-### Proficiency Hierarchy:
-- **C-Tier (C1-C2):** Proficient User (Advanced/Mastery)
-- **B-Tier (B1-B2):** Independent User (Intermediate/Upper)
-- **A-Tier (A1-A2):** Basic User (Beginner/Elementary)
 
-## 🛠️ Performance Features
-- **Equivalency Engine:** Instant cross-mapping between IELTS bands and TOEFL iBT ranges.
-- **Mastery Tier Projection:** Automated CEFR classification based on standardized metrics.
-- **Responsive UI:** Built with a "Mobile-First" philosophy for students on the move.
-- **Low-Latency Logic:** All calculations are performed client-side for immediate feedback.
 
-## 🔒 The DirectorLabsHQ Standard
-Academic ESL Hub adheres to the network-wide commitment to data privacy:
-- No tracking cookies.
-- No server-side data storage.
-- 100% transparent, client-side execution.
+## 🎓 Research & Development (Authority)
+This project is developed and maintained by a **University Department Head** and Professor with over 27 years of experience in the South Korean and Chinese higher education sectors.
 
-## 🚀 Deployment
-This project is built using HTML5, CSS3 (Tailwind Framework), and Vanilla JavaScript. It is optimized for deployment via GitHub Pages.
+### Credentials:
+* **PhD in TEFL** (Research focused on Flipped Classroom Instructional Contexts).
+* **MA in Educational Technology** (Specializing in Adaptive Learning Systems).
+* **Developer of DU-PASS**: An adaptive learning algorithm for standardized test performance.
+* **Published Author**: Over 10 academic volumes and numerous peer-reviewed papers on Corrective Feedback and Learner Autonomy.
+
+## ⚙️ Technical Features
+* **Adaptive Logic Engine**: Real-time multi-way synchronization using proprietary linguistic thresholds.
+* **Precise Matching**: Moves beyond floor-thresholding to provide the closest academic statistical alignment.
+* **Accessibility First**: Built with ARIA-live protocols for screen-reader compatibility and high-contrast UI.
+* **Lightweight Architecture**: Zero-dependency Vanilla JS/Tailwind CSS for maximum performance and SEO indexing.
+
+## 📊 Mapping Protocols
+The matrix currently supports cross-referencing for:
+1. **IELTS Academic** (0.0 - 9.0)
+2. **TOEFL iBT** (0 - 120)
+3. **TOEIC Listening & Reading** (10 - 990)
+4. **OPIc** (Novice High through Advanced Low)
+5. **CEFR Tiers** (A1 through C2)
+
+## 🛡️ Privacy & Anonymity
+This repository is part of the **DirectorLabs HQ** network. While the logic is based on verified PhD-level research, the project maintains an anonymous "Director" profile to avoid institutional conflicts of interest while providing open-access tools to the global ESL community.
+
+---
+© 2026 DirectorLabs HQ | Academic Intelligence for Global Education
