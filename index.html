@@ -3,106 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic ESL Score Converter | AcademicESLHub.com</title>
+    <title>Academic ESL Hub | CEFR Linguistic Diagnostic</title>
+    
+    <meta name="description" content="Professional IELTS to TOEFL iBT and CEFR proficiency mapping. Part of the DirectorLabsHQ network for linguistic diagnostic assessment.">
+    <meta name="author" content="DirectorLabsHQ">
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary: #1e3a8a; --bg: #f8fafc; --text: #1e293b; --accent: #2563eb; --error: #dc2626; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 10px; }
-        .card { background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); width: 100%; max-width: 380px; border-top: 6px solid var(--primary); box-sizing: border-box; }
-        h1 { font-size: 1.35rem; margin-bottom: 0.5rem; text-align: center; color: var(--primary); letter-spacing: -0.025em; }
-        p { text-align: center; color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem; }
-        label { display: block; margin-top: 1rem; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; color: #475569; }
-        input { width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 2px solid #e2e8f0; border-radius: 0.5rem; font-size: 1.1rem; box-sizing: border-box; transition: border-color 0.2s; -moz-appearance: textfield; }
-        input:focus { outline: none; border-color: var(--accent); }
-        #error-msg { color: var(--error); font-size: 0.75rem; margin-top: 0.4rem; display: none; text-align: center; font-weight: 500; }
-        .results { margin-top: 1.5rem; background: #f1f5f9; border-radius: 0.75rem; padding: 1.25rem; transition: background-color 0.3s ease; }
-        .flash { background-color: #dbeafe; }
-        .result-row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid #e2e8f0; }
-        .result-row:last-child { border-bottom: none; }
-        .result-row span { font-size: 0.85rem; color: #64748b; }
-        .result-row strong { color: var(--primary); font-size: 1rem; transition: color 0.3s ease; }
-        .btn-reset { width: 100%; margin-top: 1rem; background: none; border: none; color: #94a3b8; font-size: 0.75rem; cursor: pointer; text-decoration: underline; padding: 5px; }
-        .disclaimer { font-size: 0.7rem; color: #94a3b8; margin-top: 1rem; text-align: center; font-style: italic; }
-        .footer { font-size: 10px; text-align: center; margin-top: 1.5rem; color: #94a3b8; line-height: 1.4; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
-        @media (max-width: 340px) { .card { padding: 1rem; } h1 { font-size: 1.1rem; } }
+        body { background-color: #0a0a0a; color: #e5e5e5; }
+        .safety-border { border-left: 4px solid #3b82f6; } /* Professional Blue */
+        .card-bg { background: #171717; border: 1px solid #262626; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        .flash { background-color: rgba(59, 130, 246, 0.1); border-color: #3b82f6; }
     </style>
 </head>
-<body>
-    <div class="card">
-        <h1>Score Converter</h1>
-        <p>IELTS to TOEFL iBT & CEFR mapping.</p>
-        
-        <label for="ielts">IELTS Band Score</label>
-        <input type="number" id="ielts" step="0.5" min="0" max="9" 
-               placeholder="Enter (e.g. 7.5)" 
-               title="Enter IELTS band score from 0 to 9"
-               oninput="convert()">
-        <div id="error-msg">Please enter a score between 0 and 9.</div>
+<body class="min-h-screen flex flex-col font-sans">
 
-        <div id="results-box" class="results" aria-live="polite">
-            <div class="result-row"><span>TOEFL iBT</span> <strong id="toefl">-</strong></div>
-            <div class="result-row"><span>CEFR Level</span> <strong id="cefr">-</strong></div>
+<header class="p-6 border-b border-neutral-800 bg-neutral-900/50">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</h1>
+        <div class="text-[10px] font-bold text-neutral-500 tracking-widest uppercase">Diagnostic Utility</div>
+    </div>
+</header>
+
+<main class="flex-grow max-w-5xl mx-auto p-4 md:p-8 w-full">
+    <div class="mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-4">
+        <div>
+            <h2 class="text-3xl font-bold mb-2 text-white uppercase tracking-tight">Linguistic Diagnostic</h2>
+            <p class="text-neutral-500 italic text-sm">Mapping IELTS bands to TOEFL iBT & CEFR Proficiency tiers.</p>
+        </div>
+        <button onclick="resetForm()" class="text-[10px] font-bold text-neutral-500 hover:text-blue-400 border border-neutral-800 px-4 py-2 rounded-lg transition-all uppercase tracking-widest active:scale-95">
+            Clear Calculator
+        </button>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6 lg:gap-10">
+        <div class="card-bg p-6 md:p-10 rounded-xl safety-border shadow-2xl">
+            <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-8 border-b border-neutral-800 pb-2">Input Metrics</h3>
+            <div class="space-y-8">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-neutral-400 mb-3 italic tracking-wide">IELTS Band Score</label>
+                    <input type="number" id="ielts" step="0.5" min="0" max="9" oninput="convert()" placeholder="0.0" 
+                           class="w-full bg-neutral-900 border border-neutral-700 rounded-lg p-5 outline-none text-white font-mono focus:border-blue-500 transition-all text-2xl shadow-inner">
+                    <div id="error-msg" class="mt-4 hidden animate-pulse">
+                        <span class="text-[10px] bg-red-400/10 text-red-400 px-3 py-1.5 rounded border border-red-400/20 font-bold uppercase italic">⚠ Score must be between 0.0 and 9.0</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="disclaimer">
-            Based on official IELTS-TOEFL-CEFR guidelines (2026 edition).
-        </div>
+        <div class="card-bg p-6 md:p-10 rounded-xl flex flex-col justify-center items-center text-center relative overflow-hidden">
+            <div id="placeholder" class="text-neutral-600 text-sm italic">Enter score to initialize diagnostic...</div>
 
-        <button class="btn-reset" onclick="resetForm()">Clear Calculator</button>
-        
-        <div class="footer">
-            &copy; 2026 AcademicESLHub.com<br>
-            A Professional Resource by <strong>DirectorLabsHQ</strong>
+            <div id="results-box" class="hidden w-full animate-fade-in" aria-live="polite">
+                <div class="flex justify-between items-center mb-6 border-b border-neutral-800 pb-3">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 font-mono">Mapped Equivalencies</span>
+                </div>
+                
+                <div class="space-y-6 text-left">
+                    <div class="p-4 rounded-lg bg-neutral-900/50 border border-neutral-800">
+                        <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">TOEFL iBT Projection</p>
+                        <p id="toefl" class="text-3xl font-bold text-white tracking-tighter">-</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-neutral-900/50 border border-neutral-800">
+                        <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">CEFR Mastery Tier</p>
+                        <p id="cefr" class="text-2xl font-bold text-blue-500 tracking-tight">-</p>
+                    </div>
+                </div>
+                
+                <p class="mt-8 text-[10px] text-neutral-600 italic">Data based on 2026 standardized mapping protocols.</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        const mapping = [
-            { min: 8.5, toefl: "115-120", cefr: "C2 (Mastery)" },
-            { min: 7.5, toefl: "102-114", cefr: "C1 (Advanced)" },
-            { min: 6.5, toefl: "79-101", cefr: "B2 (Upper Inter.)" },
-            { min: 5.5, toefl: "46-78", cefr: "B1 (Intermediate)" },
-            { min: 4.5, toefl: "32-45", cefr: "A2 (Elementary)" },
-            { min: 0, toefl: "0-31", cefr: "A1 (Beginner)" }
-        ];
+    <div class="mt-16 border-t border-neutral-800 pt-10 pb-10">
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-blue-500 mb-8 italic text-center">Diagnostic Protocols</h3>
+        
+        
 
-        function convert() {
-            const input = document.getElementById('ielts');
-            const val = parseFloat(input.value);
-            const tDisplay = document.getElementById('toefl');
-            const cDisplay = document.getElementById('cefr');
-            const error = document.getElementById('error-msg');
-            const box = document.getElementById('results-box');
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-neutral-900/40 p-6 rounded-xl border border-neutral-800">
+                <div class="text-blue-500 font-black text-xl mb-3 italic">01.</div>
+                <h4 class="text-sm font-bold text-white mb-2 uppercase">CEFR Hierarchy</h4>
+                <p class="text-neutral-500 text-xs leading-relaxed italic">The Common European Framework is categorized into three tiers: Basic User (A), Independent User (B), and Proficient User (C).</p>
+            </div>
+            <div class="bg-neutral-900/40 p-6 rounded-xl border border-neutral-800">
+                <div class="text-blue-500 font-black text-xl mb-3 italic">02.</div>
+                <h4 class="text-sm font-bold text-white mb-2 uppercase">Cross-Mapping</h4>
+                <p class="text-neutral-500 text-xs leading-relaxed italic">Equivalencies are modeled using standardized score ranges. While highly accurate, actual requirements vary by academic institution.</p>
+            </div>
+            <div class="bg-neutral-900/40 p-6 rounded-xl border border-neutral-800">
+                <div class="text-blue-500 font-black text-xl mb-3 italic">03.</div>
+                <h4 class="text-sm font-bold text-white mb-2 uppercase">Skill Acquisition</h4>
+                <p class="text-neutral-500 text-xs leading-relaxed italic"><strong>C1/C2:</strong> Native-like fluency.<br><strong>B1/B2:</strong> Professional working proficiency.<br><strong>A1/A2:</strong> Social & foundational competence.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="p-8 text-center text-neutral-700 text-[10px] tracking-[0.4em] uppercase mt-auto">
+    &copy; 2026 ACADEMIC ESL HUB | <span class="text-blue-600 font-bold">DIRECTORLABS HQ</span>
+</footer>
+
+<script>
+    const mapping = [
+        { min: 8.5, toefl: "115-120", cefr: "C2 (Mastery)" },
+        { min: 7.5, toefl: "102-114", cefr: "C1 (Advanced)" },
+        { min: 6.5, toefl: "79-101", cefr: "B2 (Upper Intermediate)" },
+        { min: 5.5, toefl: "46-78", cefr: "B1 (Intermediate)" },
+        { min: 4.5, toefl: "32-45", cefr: "A2 (Elementary)" },
+        { min: 0, toefl: "0-31", cefr: "A1 (Beginner)" }
+    ];
+
+    function convert() {
+        const input = document.getElementById('ielts');
+        const val = parseFloat(input.value);
+        const tDisplay = document.getElementById('toefl');
+        const cDisplay = document.getElementById('cefr');
+        const error = document.getElementById('error-msg');
+        const resultsBox = document.getElementById('results-box');
+        const placeholder = document.getElementById('placeholder');
+        
+        if (input.value === "") {
+            resetForm();
+            return;
+        }
+
+        if (isNaN(val) || val < 0 || val > 9) {
+            error.classList.remove('hidden');
+            resultsBox.classList.add('hidden');
+            placeholder.classList.remove('hidden');
+            return;
+        }
+
+        error.classList.add('hidden');
+        resultsBox.classList.remove('hidden');
+        placeholder.classList.add('hidden');
+
+        const match = mapping.find(range => val >= range.min);
+        if (match) {
+            tDisplay.innerText = match.toefl;
+            cDisplay.innerText = match.cefr;
             
-            if (input.value === "") {
-                resetForm();
-                return;
-            }
-
-            if (isNaN(val) || val < 0 || val > 9) {
-                error.style.display = "block";
-                tDisplay.innerText = "-";
-                cDisplay.innerText = "-";
-                return;
-            }
-
-            error.style.display = "none";
-            const match = mapping.find(range => val >= range.min);
-            if (match) {
-                // Flash effect
-                box.classList.add('flash');
-                setTimeout(() => box.classList.remove('flash'), 300);
-                
-                tDisplay.innerText = match.toefl;
-                cDisplay.innerText = match.cefr;
-            }
+            // Visual feedback animation
+            resultsBox.classList.add('flash');
+            setTimeout(() => resultsBox.classList.remove('flash'), 300);
         }
+    }
 
-        function resetForm() {
-            document.getElementById('ielts').value = '';
-            document.getElementById('toefl').innerText = '-';
-            document.getElementById('cefr').innerText = '-';
-            document.getElementById('error-msg').style.display = "none";
-        }
-    </script>
+    function resetForm() {
+        document.getElementById('ielts').value = '';
+        document.getElementById('results-box').classList.add('hidden');
+        document.getElementById('placeholder').classList.remove('hidden');
+        document.getElementById('error-msg').classList.add('hidden');
+    }
+</script>
 </body>
 </html>
