@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic ESL Score Converter | AcademicESLHub.com</title>
+    <style>
+        :root { --primary: #1e3a8a; --bg: #f8fafc; --text: #1e293b; --accent: #2563eb; --error: #dc2626; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 10px; }
+        .card { background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); width: 100%; max-width: 380px; border-top: 6px solid var(--primary); box-sizing: border-box; }
+        h1 { font-size: 1.35rem; margin-bottom: 0.5rem; text-align: center; color: var(--primary); letter-spacing: -0.025em; }
+        p { text-align: center; color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        label { display: block; margin-top: 1rem; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; color: #475569; }
+        input { width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 2px solid #e2e8f0; border-radius: 0.5rem; font-size: 1.1rem; box-sizing: border-box; transition: border-color 0.2s; -moz-appearance: textfield; }
+        input:focus { outline: none; border-color: var(--accent); }
+        #error-msg { color: var(--error); font-size: 0.75rem; margin-top: 0.4rem; display: none; text-align: center; font-weight: 500; }
+        .results { margin-top: 1.5rem; background: #f1f5f9; border-radius: 0.75rem; padding: 1.25rem; transition: background-color 0.3s ease; }
+        .flash { background-color: #dbeafe; }
+        .result-row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid #e2e8f0; }
+        .result-row:last-child { border-bottom: none; }
+        .result-row span { font-size: 0.85rem; color: #64748b; }
+        .result-row strong { color: var(--primary); font-size: 1rem; transition: color 0.3s ease; }
+        .btn-reset { width: 100%; margin-top: 1rem; background: none; border: none; color: #94a3b8; font-size: 0.75rem; cursor: pointer; text-decoration: underline; padding: 5px; }
+        .disclaimer { font-size: 0.7rem; color: #94a3b8; margin-top: 1rem; text-align: center; font-style: italic; }
+        .footer { font-size: 10px; text-align: center; margin-top: 1.5rem; color: #94a3b8; line-height: 1.4; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
+        @media (max-width: 340px) { .card { padding: 1rem; } h1 { font-size: 1.1rem; } }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Score Converter</h1>
+        <p>IELTS to TOEFL iBT & CEFR mapping.</p>
+        
+        <label for="ielts">IELTS Band Score</label>
+        <input type="number" id="ielts" step="0.5" min="0" max="9" 
+               placeholder="Enter (e.g. 7.5)" 
+               title="Enter IELTS band score from 0 to 9"
+               oninput="convert()">
+        <div id="error-msg">Please enter a score between 0 and 9.</div>
+
+        <div id="results-box" class="results" aria-live="polite">
+            <div class="result-row"><span>TOEFL iBT</span> <strong id="toefl">-</strong></div>
+            <div class="result-row"><span>CEFR Level</span> <strong id="cefr">-</strong></div>
+        </div>
+
+        <div class="disclaimer">
+            Based on official IELTS-TOEFL-CEFR guidelines (2026 edition).
+        </div>
+
+        <button class="btn-reset" onclick="resetForm()">Clear Calculator</button>
+        
+        <div class="footer">
+            &copy; 2026 AcademicESLHub.com<br>
+            A Professional Resource by <strong>DirectorLabsHQ</strong>
+        </div>
+    </div>
+
+    <script>
+        const mapping = [
+            { min: 8.5, toefl: "115-120", cefr: "C2 (Mastery)" },
+            { min: 7.5, toefl: "102-114", cefr: "C1 (Advanced)" },
+            { min: 6.5, toefl: "79-101", cefr: "B2 (Upper Inter.)" },
+            { min: 5.5, toefl: "46-78", cefr: "B1 (Intermediate)" },
+            { min: 4.5, toefl: "32-45", cefr: "A2 (Elementary)" },
+            { min: 0, toefl: "0-31", cefr: "A1 (Beginner)" }
+        ];
+
+        function convert() {
+            const input = document.getElementById('ielts');
+            const val = parseFloat(input.value);
+            const tDisplay = document.getElementById('toefl');
+            const cDisplay = document.getElementById('cefr');
+            const error = document.getElementById('error-msg');
+            const box = document.getElementById('results-box');
+            
+            if (input.value === "") {
+                resetForm();
+                return;
+            }
+
+            if (isNaN(val) || val < 0 || val > 9) {
+                error.style.display = "block";
+                tDisplay.innerText = "-";
+                cDisplay.innerText = "-";
+                return;
+            }
+
+            error.style.display = "none";
+            const match = mapping.find(range => val >= range.min);
+            if (match) {
+                // Flash effect
+                box.classList.add('flash');
+                setTimeout(() => box.classList.remove('flash'), 300);
+                
+                tDisplay.innerText = match.toefl;
+                cDisplay.innerText = match.cefr;
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('ielts').value = '';
+            document.getElementById('toefl').innerText = '-';
+            document.getElementById('cefr').innerText = '-';
+            document.getElementById('error-msg').style.display = "none";
+        }
+    </script>
+</body>
+</html>
