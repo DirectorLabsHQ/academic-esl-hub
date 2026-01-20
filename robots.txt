@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Focus on academic English and international student tools
+Sitemap: https://academiceslhub.com/sitemap.xml
