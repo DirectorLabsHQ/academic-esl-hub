@@ -4,14 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WPM Fluency Lab | Academic ESL Hub</title>
+    
+    <meta name="description" content="Professional ESL Reading Speed and Fluency Diagnostic. Measure your Effective WPM and academic processing speed.">
+    <meta name="keywords" content="ESL WPM Test, Reading Speed Calculator, English Fluency Diagnostic, Academic English Processing">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
-        .card-bg { background: #111; border: 1px solid #222; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body { 
+            background-color: #050505; 
+            color: #e5e5e5; 
+            font-family: 'Inter', system-ui, sans-serif; 
+        }
+        
+        .card-bg { 
+            background: #111; 
+            border: 1px solid #222; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .reading-text {
+            line-height: 1.8;
+            letter-spacing: -0.01em;
+            color: #d1d1d1;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
         .hidden { display: none; }
-        .accent-blue { color: #3b82f6; }
-        .btn-primary { background: #3b82f6; transition: all 0.3s; }
-        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in { animation: fadeIn 0.5s ease-out forwards; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -19,60 +49,117 @@
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
         <h1 class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</h1>
-        <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase">Fluency Diagnostic v1.0</span>
+        <div class="flex items-center gap-4">
+            <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase hidden sm:block">Fluency Diagnostic v1.0</span>
+            <div class="h-2 w-2 rounded-full bg-blue-500 animate-pulse"></div>
+        </div>
     </div>
 </header>
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
-    <div id="setup-area" class="text-center mb-12">
-        <h2 class="text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">WPM Fluency Lab</h2>
-        <p class="text-neutral-400 text-sm max-w-xl mx-auto mb-8 leading-relaxed text-center">
-            Measure your <span class="text-blue-500 font-bold">Effective Processing Speed</span>. Read the passage at your normal pace. You will be asked 3 comprehension questions afterward.
-        </p>
-        <button onclick="startTest()" class="btn-primary text-white px-10 py-4 rounded-full font-black uppercase italic tracking-widest text-sm">Start Random Test</button>
-    </div>
 
-    <div id="reading-area" class="hidden">
-        <div class="flex justify-between items-center mb-6">
-            <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Reading in progress...</span>
-            <div id="timer-display" class="font-mono text-xl text-white">00:00</div>
+    <div id="setup-area" class="animate-in">
+        <div class="mb-12">
+            <h2 class="text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">WPM Fluency Lab</h2>
+            <p class="text-neutral-400 text-sm max-w-2xl leading-relaxed">
+                A research-informed diagnostic to measure <span class="text-blue-500">Effective Processing Speed</span>. 
+                Read at your natural pace. Accuracy is weighted against speed to determine your true fluency tier.
+            </p>
         </div>
-        <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl leading-relaxed text-neutral-300 serif italic mb-8 select-none">
+        
+        <div class="card-bg p-8 rounded-[2.5rem] border-t border-white/10 text-center">
+            <div class="mb-8">
+                <div class="inline-block p-4 rounded-full bg-blue-500/10 mb-4">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Ready to begin?</h3>
+                <p class="text-neutral-500 text-xs uppercase tracking-widest">10 Randomized Academic Passages Available</p>
             </div>
-        <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all">I have finished reading</button>
+            <button onclick="startTest()" class="btn-glow bg-blue-600 text-white px-12 py-5 rounded-2xl font-black uppercase tracking-tighter italic text-lg transition-all w-full md:w-auto">
+                Launch Random Test
+            </button>
+        </div>
     </div>
 
-    <div id="quiz-area" class="hidden">
-        <h3 class="text-2xl font-bold text-white mb-6 uppercase italic">Comprehension Check</h3>
-        <div id="questions-container" class="space-y-6 mb-8">
+    <div id="reading-area" class="hidden animate-in">
+        <div class="flex justify-between items-end mb-6">
+            <div>
+                <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest block mb-1">Status: Active Reading</span>
+                <h3 class="text-white font-bold text-xl uppercase italic">Do not rush. Comprehend.</h3>
             </div>
-        <button onclick="calculateResults()" class="btn-primary w-full py-4 rounded-2xl font-black uppercase text-white">Calculate Fluency</button>
+            <div id="timer-display" class="font-mono text-3xl font-black text-white bg-white/5 px-4 py-2 rounded-xl">00:00</div>
+        </div>
+        
+        <div id="text-container" class="card-bg p-8 md:p-16 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-10 select-none">
+            </div>
+        
+        <button onclick="endReading()" class="w-full bg-white text-black py-6 rounded-2xl font-black uppercase text-lg hover:bg-blue-500 hover:text-white transition-all shadow-xl">
+            I have finished reading
+        </button>
     </div>
 
-    <div id="result-area" class="hidden">
-        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600">
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left mb-8">
+    <div id="quiz-area" class="hidden animate-in">
+        <div class="mb-8">
+            <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter">Comprehension Check</h3>
+            <p class="text-neutral-500 text-sm italic">Validation of processing accuracy required for final score.</p>
+        </div>
+        
+        <div id="questions-container" class="space-y-6 mb-10">
+            </div>
+        
+        <button onclick="calculateResults()" class="w-full bg-blue-600 py-6 rounded-2xl font-black uppercase text-white text-lg btn-glow transition-all">
+            Finalize Diagnostic
+        </button>
+    </div>
+
+    <div id="result-area" class="hidden animate-in">
+        <div class="card-bg p-10 rounded-[3rem] border-l-8 border-l-blue-600 overflow-hidden relative">
+            <div class="absolute top-0 right-0 p-8 opacity-5">
+                <svg class="w-32 h-32 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left relative z-10 mb-12">
                 <div>
-                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Raw WPM</p>
-                    <div id="raw-wpm" class="text-5xl font-black text-white">--</div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-[0.2em] mb-2">Raw Speed (WPM)</p>
+                    <div id="raw-wpm" class="text-6xl font-black text-white tracking-tighter">--</div>
                 </div>
                 <div>
-                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Accuracy</p>
-                    <div id="accuracy-pct" class="text-5xl font-black text-white">--</div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-[0.2em] mb-2">Accuracy Rate</p>
+                    <div id="accuracy-pct" class="text-6xl font-black text-white tracking-tighter">--</div>
                 </div>
                 <div>
-                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1 italic">Effective WPM</p>
-                    <div id="effective-wpm" class="text-5xl font-black text-blue-500 underline">--</div>
+                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] mb-2">Effective WPM</p>
+                    <div id="effective-wpm" class="text-7xl font-black text-blue-500 tracking-tighter underline">--</div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/5">
-                <h4 id="tier-label" class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Assessment Profile</h4>
-                <p id="tier-desc" class="text-neutral-500 text-sm leading-relaxed italic">--</p>
+
+            <div class="pt-10 border-t border-white/5">
+                <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Ph.D. Academic Assessment</p>
+                <h4 id="tier-label" class="text-4xl font-black text-white tracking-tighter uppercase italic mb-3">--</h4>
+                <p id="tier-desc" class="text-neutral-400 text-lg leading-relaxed italic max-w-2xl">--</p>
             </div>
         </div>
-        <button onclick="location.reload()" class="mt-8 text-neutral-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-all underline">Try another passage</button>
+
+        <div class="mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <button onclick="location.reload()" class="text-neutral-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-all border-b border-transparent hover:border-white">
+                Retest with New Passage
+            </button>
+            <div class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">Linguistic Protocol v1.0.4</div>
+        </div>
     </div>
 
+    <footer class="mt-24 border-t border-white/5 py-12">
+        <div class="grid md:grid-cols-2 gap-16">
+            <div>
+                <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4">Methodology</p>
+                <p class="text-neutral-500 text-[11px] leading-relaxed">
+                    This tool utilizes the <span class="text-neutral-300 italic">Effective Fluency Coefficient</span>. 
+                    Unlike standard WPM tests, we penalize raw speed if comprehension falls below 80%, 
+                    reflecting the "Structural Strain" levels identified in recent university EFL research.
+                </p>
+            </div>
+        </div>
+    </footer>
 </main>
 
 <script>
@@ -82,7 +169,7 @@
             questions: [
                 { q: "Where does Ji-hyun live now?", a: ["Dormitory", "Studio apartment", "At home"], correct: 1 },
                 { q: "What is her part-time job?", a: ["Cafeteria worker", "Clerk", "Economics tutor"], correct: 1 },
-                { q: "Why did she move?", a: ["To live alone", "To be closer to work", "Not mentioned"], correct: 2 }
+                { q: "Who is Katarina?", a: ["A senior student", "A new student", "Ji-hyun's roommate"], correct: 1 }
             ]
         },
         {
@@ -92,8 +179,71 @@
                 { q: "What is Boris's major?", a: ["Fashion design", "English", "Mechanical engineering"], correct: 2 },
                 { q: "Why does Boris want to move?", a: ["He wants a studio", "His roommate snores", "It's too expensive"], correct: 1 }
             ]
+        },
+        {
+            text: "My name is Mike Jones. I am a second-year student at NYU. My brother, Tom, is also a student here, but he is a freshman. Tom's major is nursing because he wants to be a nurse at a big hospital someday. He lives in a studio off campus, which is unusual because most freshmen live in the dormitory on campus. Tom has Biology at 9 a.m. on Mondays, while my first class is later in the day.",
+            questions: [
+                { q: "What is Tom’s year in university?", a: ["Freshman", "Sophomore", "Senior"], correct: 0 },
+                { q: "What is Tom's career goal?", a: ["To be a doctor", "To be a nurse", "To be a teacher"], correct: 1 },
+                { q: "Where does Tom live?", a: ["On campus", "In a dormitory", "Off campus"], correct: 2 }
+            ]
+        },
+        {
+            text: "Kwon Ju-hee is a new freshman. Her major is tourism management and she really likes her classes so far. She lives in the dormitory with a roommate. Her roommate is an art major who is very messy; she always leaves her paintings around the room. Ju-hee has a busy schedule, but she doesn't have any classes on Fridays. However, she doesn't use that time to rest because she works as a cashier at a convenience store.",
+            questions: [
+                { q: "What is Ju-hee’s major?", a: ["Art", "Nursing", "Tourism Management"], correct: 2 },
+                { q: "What is the problem with her roommate?", a: ["She is mean", "She is messy", "She snores"], correct: 1 },
+                { q: "Why is Ju-hee busy on Fridays?", a: ["She has Biology", "She studies at the library", "She has a job"], correct: 2 }
+            ]
+        },
+        {
+            text: "Bill is a very busy student. His first class starts at 9 a.m. every day, but he always wakes up at 5 a.m. He wakes up early because he likes to play smartphone games for two hours before he gets ready. He usually goes to bed at 1 a.m. because he plays computer games late at night. His friend Teresa thinks this is crazy. Teresa is a serious student who spends most of her time studying at the library.",
+            questions: [
+                { q: "What time does Bill wake up?", a: ["9 a.m.", "5 a.m.", "1 a.m."], correct: 1 },
+                { q: "How much sleep does Bill usually get?", a: ["4 hours", "8 hours", "2 hours"], correct: 0 },
+                { q: "Where does Teresa spend her time?", a: ["At a café", "In the dormitory", "At the library"], correct: 2 }
+            ]
+        },
+        {
+            text: "On the weekends, Teresa and her classmates like to hang out together. They almost always go downtown to go window shopping. Sometimes they visit a café to have coffee or hot chocolate. Teresa enjoys these outings because her classmates are very cool. Bill often asks Teresa to go on a date, but she is usually busy with her roommate or her studies. This Friday, she is planning to go to the movies.",
+            questions: [
+                { q: "What do the friends do downtown?", a: ["Study", "Window shop", "Work"], correct: 1 },
+                { q: "How often do they go downtown?", a: ["Rarely", "Almost always", "Never"], correct: 1 },
+                { q: "What is Teresa doing this Friday?", a: ["Going on a date", "Going to a party", "Watching a movie"], correct: 2 }
+            ]
+        },
+        {
+            text: "Many students at university have part-time jobs. Some work as clerks in convenience stores, while others work in the school cafeteria. Having a job is a good way to earn money, but it can be difficult to balance work and study. Students who work more than 20 hours a week often feel very tired in class. However, some jobs allow students to study when the store is not busy. This is why many students prefer working as cashiers.",
+            questions: [
+                { q: "What is a challenge of having a job?", a: ["Low pay", "Balancing study", "Finding a store"], correct: 1 },
+                { q: "Who feels most tired in class?", a: ["Freshmen", "Full-time workers", "Students working 20+ hours"], correct: 2 },
+                { q: "Why do students like cashier jobs?", a: ["Higher pay", "Free food", "Time to study"], correct: 2 }
+            ]
+        },
+        {
+            text: "Living on campus has many advantages. The dormitory is usually close to the library and the classrooms, so students don't need to take the bus. However, living on campus also means following many rules. For example, some dormitories do not allow students to cook in their rooms. In this case, students must eat all of their meals in the university cafeteria. While the food is cheap, some students prefer the freedom of living in a studio off campus.",
+            questions: [
+                { q: "What is an advantage of a dormitory?", a: ["Cheap rent", "Location", "Cooking"], correct: 1 },
+                { q: "Where do students eat if they can't cook?", a: ["Cafeteria", "Studio", "Convenience store"], correct: 0 },
+                { q: "Why move off campus?", a: ["To be closer to class", "For more freedom", "To meet roommates"], correct: 1 }
+            ]
+        },
+        {
+            text: "University schedules are often very different from high school schedules. In high school, students are in class all day. In university, a student might have a class at 9 a.m. and then no other classes until 2 p.m. This 'gap time' is very important. Successful students use this time to review their notes or meet with study groups. Students who waste this time often find that they have too much homework to finish late at night.",
+            questions: [
+                { q: "How are university schedules described?", a: ["Consistent", "Different from high school", "Shorter"], correct: 1 },
+                { q: "What is 'gap time'?", a: ["Time between classes", "Time after school", "Holiday time"], correct: 0 },
+                { q: "What do successful students do?", a: ["Go home", "Review notes", "Play games"], correct: 1 }
+            ]
+        },
+        {
+            text: "Choosing a major is a big decision for university students. Common majors include nursing, economics, engineering, and art. Some students choose their major because they have a specific career goal, like becoming a nurse. Others choose a major because they are interested in the subject, like fashion design. It is common for students to feel nervous during their first semester, but most students find that their classmates are helpful and friendly.",
+            questions: [
+                { q: "Which major is linked to a career goal?", a: ["Nursing", "Art", "Economics"], correct: 0 },
+                { q: "How do freshmen usually feel?", a: ["Bored", "Nervous", "Angry"], correct: 1 },
+                { q: "How are classmates described?", a: ["Busy", "Helpful and friendly", "Competitive"], correct: 1 }
+            ]
         }
-        // Add 8 more here following same structure...
     ];
 
     let currentPassage;
@@ -127,13 +277,13 @@
         
         const container = document.getElementById('questions-container');
         container.innerHTML = currentPassage.questions.map((q, i) => `
-            <div class="card-bg p-6 rounded-2xl">
+            <div class="card-bg p-6 rounded-2xl border-t border-white/5">
                 <p class="text-white font-bold mb-4">${q.q}</p>
-                <div class="flex flex-col gap-2">
+                <div class="grid grid-cols-1 gap-3">
                     ${q.a.map((opt, oi) => `
-                        <label class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 cursor-pointer">
-                            <input type="radio" name="q${i}" value="${oi}" class="accent-blue">
-                            <span class="text-sm text-neutral-400">${opt}</span>
+                        <label class="flex items-center gap-3 p-4 rounded-xl border border-white/5 hover:bg-white/5 cursor-pointer transition-colors group">
+                            <input type="radio" name="q${i}" value="${oi}" class="w-4 h-4 accent-blue-500">
+                            <span class="text-sm text-neutral-400 group-hover:text-white transition-colors">${opt}</span>
                         </label>
                     `).join('')}
                 </div>
@@ -148,8 +298,8 @@
             if (selected && parseInt(selected.value) === q.correct) correct++;
         });
 
-        const words = currentPassage.text.split(' ').length;
-        const rawWpm = Math.round((words / window.readingTime) * 60);
+        const wordCount = currentPassage.text.split(/\s+/).length;
+        const rawWpm = Math.round((wordCount / window.readingTime) * 60);
         const accuracy = (correct / currentPassage.questions.length);
         const effectiveWpm = Math.round(rawWpm * accuracy);
 
@@ -161,15 +311,18 @@
         document.getElementById('effective-wpm').innerText = effectiveWpm;
 
         let tier, desc;
-        if (effectiveWpm < 80) {
+        if (effectiveWpm < 85) {
             tier = "Developing Fluency";
-            desc = "Your processing speed suggests you are still translating individual words. Focus on core vocabulary to increase automaticity.";
-        } else if (effectiveWpm < 120) {
+            desc = "Your processing speed suggests 'sub-vocalizing' (translating word-by-word). You will likely struggle with the 'Structural Strain' of live university lectures. Focus on high-frequency phrase recognition.";
+        } else if (effectiveWpm < 135) {
             tier = "Functional Fluency";
-            desc = "You can handle daily communication well. To reach academic levels, practice 'Serial Reading' to increase stamina.";
+            desc = "Good operational speed for daily social contexts. However, your academic processing may bottleneck during complex input. Practice 'Serial Reading' to bridge the gap to university-level stamina.";
+        } else if (effectiveWpm < 180) {
+            tier = "Academic Proficient";
+            desc = "Excellent processing speed. You demonstrate the 'Linguistic Defense' needed to engage in high-level discussions. You are ready for unadapted academic texts and rapid-fire discourse.";
         } else {
-            tier = "Academic Ready";
-            desc = "Excellent processing speed. You are ready for high-level university lectures and complex structural discussions.";
+            tier = "Near-Native Mastery";
+            desc = "Exceptional processing. Your reading-to-comprehension ratio is equivalent to an educated native speaker. You can handle dense professional or literary content with ease.";
         }
         
         document.getElementById('tier-label').innerText = tier;
