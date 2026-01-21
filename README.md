@@ -1,38 +1,27 @@
-# Academic ESL Hub | Global Proficiency Matrix
-**Version 4.0 (Linguistic Data Engine)**
+# Academic ESL Hub | Diagnostic Suite v4.0
 
-## 🏛️ Overview
-The **Academic ESL Hub** is a professional-grade linguistic diagnostic utility designed for high-stakes English assessment mapping. It provides precise, research-backed conversions between **IELTS, TOEFL iBT, TOEIC (L&R), OPIc,** and the **CEFR** framework.
+A unified diagnostic ecosystem for advanced ESL learners, grounded in **Second Language Acquisition (SLA)** research and calibrated to post-secondary academic standards.
 
-Unlike generic converters, this engine utilizes a **Precise Threshold Mapping** algorithm to ensure alignment with university-level academic placement standards.
+## 🔬 Methodology & Framework
+Developed by **Patrick Travers (PhD, Foreign Language Education)**, this suite operationalizes lexical and fluency research into accessible diagnostics. 
 
+### Core Tools:
+* **Score Matrix:** A cross-referenced conversion engine for IELTS, TOEFL, and CEFR levels.
+* **WPM Fluency Lab:** A cognitive processing diagnostic that measures Words Per Minute (WPM) against comprehension accuracy.
+* **Vocab Estimator:** A statistical projection of headword count based on the **Academic Word List (AWL)** and Oxford 3000/5000.
 
+## 🛠️ Technical Stack
+* **Frontend:** HTML5, Tailwind CSS
+* **Logic:** Vanilla JavaScript (ES6+)
+* **Typography:** Inter (via Google Fonts)
+* **Deployment:** GitHub Pages
 
-## 🎓 Research & Development (Authority)
-This project is developed and maintained by a **University Department Head** and Professor with over 27 years of experience in the South Korean and Chinese higher education sectors.
+## 📖 How to Use
+1. Clone the repository.
+2. Open `index.html` in any modern browser.
+3. No build process required—zero dependencies.
 
-### Credentials:
-* **PhD in TEFL** (Research focused on Flipped Classroom Instructional Contexts).
-* **MA in Educational Technology** (Specializing in Adaptive Learning Systems).
-* **Developer of DU-PASS**: An adaptive learning algorithm for standardized test performance.
-* **Published Author**: Over 10 academic volumes and numerous peer-reviewed papers on Corrective Feedback and Learner Autonomy.
+## 📄 License & Research
+This project is part of a continuous commitment to academic English assessment. For research inquiries or data methodology, please visit my [ResearchGate Profile](https://www.researchgate.net/profile/Patrick-Travers).
 
-## ⚙️ Technical Features
-* **Adaptive Logic Engine**: Real-time multi-way synchronization using proprietary linguistic thresholds.
-* **Precise Matching**: Moves beyond floor-thresholding to provide the closest academic statistical alignment.
-* **Accessibility First**: Built with ARIA-live protocols for screen-reader compatibility and high-contrast UI.
-* **Lightweight Architecture**: Zero-dependency Vanilla JS/Tailwind CSS for maximum performance and SEO indexing.
-
-## 📊 Mapping Protocols
-The matrix currently supports cross-referencing for:
-1. **IELTS Academic** (0.0 - 9.0)
-2. **TOEFL iBT** (0 - 120)
-3. **TOEIC Listening & Reading** (10 - 990)
-4. **OPIc** (Novice High through Advanced Low)
-5. **CEFR Tiers** (A1 through C2)
-
-## 🛡️ Privacy & Anonymity
-This repository is part of the **DirectorLabs HQ** network. While the logic is based on verified PhD-level research, the project maintains an anonymous "Director" profile to avoid institutional conflicts of interest while providing open-access tools to the global ESL community.
-
----
-© 2026 DirectorLabs HQ | Academic Intelligence for Global Education
+© 2026 Academic ESL Hub • Daegu, South Korea
