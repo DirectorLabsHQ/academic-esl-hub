@@ -6,6 +6,7 @@
     <title>The Framework | Academic ESL Hub Methodology</title>
     
     <meta name="description" content="Technical overview of the Academic ESL Hub diagnostic framework. Grounded in Foreign Language Education research and academic English standards.">
+    <meta name="keywords" content="SLA research, Second Language Acquisition, Academic English framework, ESL methodology, CEFR mapping">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -13,8 +14,13 @@
         body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
         .card-bg { background: #111; border: 1px solid #1a1a1a; }
         .accent-border { border-left: 4px solid #3b82f6; }
-        .nav-link { font-size: 12px; font-weight: 700; color: #737373; transition: all 0.2s; }
+        .nav-link { font-size: 11px; font-weight: 700; color: #737373; transition: all 0.2s; }
         .nav-link:hover { color: white; }
+        
+        .animate-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        ::selection { background: #3b82f6; color: white; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -28,15 +34,19 @@
                 <a href="score-matrix.html" class="nav-link uppercase tracking-widest">Score Matrix</a>
                 <a href="wpm-lab.html" class="nav-link uppercase tracking-widest">Fluency Lab</a>
                 <a href="vocab-estimator.html" class="nav-link uppercase tracking-widest">Vocab Estimator</a>
+                <a href="about.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About the Research</a>
             </nav>
         </div>
-        <span class="text-[9px] font-black text-neutral-500 tracking-[0.3em] uppercase">Technical Briefing</span>
+        <div class="flex items-center gap-3">
+            <span class="text-[9px] font-black text-neutral-500 tracking-[0.3em] uppercase hidden sm:block italic">Technical Briefing v4.0</span>
+            <div class="h-2 w-2 rounded-full bg-blue-500"></div>
+        </div>
     </div>
 </header>
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-16 w-full">
     
-    <header class="mb-20">
+    <header class="mb-20 animate-in">
         <h2 class="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6 uppercase italic leading-none">The<br>Framework</h2>
         <div class="h-1 w-24 bg-blue-600 mb-8"></div>
         <p class="text-xl text-neutral-400 italic leading-relaxed">
@@ -44,7 +54,9 @@
         </p>
     </header>
 
-    <section class="space-y-12">
+    
+
+    <section class="space-y-12 animate-in" style="animation-delay: 0.1s;">
         <div class="accent-border pl-8">
             <h3 class="text-xs font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Research & Methodology</h3>
             <p class="text-neutral-300 leading-relaxed italic mb-4">
@@ -70,6 +82,8 @@
             </div>
         </div>
 
+        
+
         <article class="bg-white/5 p-10 rounded-[2.5rem] border border-white/10">
             <h3 class="text-white font-black text-xl mb-6 italic uppercase tracking-tight">Applied Standards</h3>
             <div class="space-y-6">
@@ -85,8 +99,8 @@
         </article>
     </section>
 
-    <div class="mt-20 text-center">
-        <a href="index.html" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-black uppercase tracking-widest hover:bg-blue-500 transition-all shadow-2xl shadow-blue-900/20">Return to Hub</a>
+    <div class="mt-20 text-center animate-in" style="animation-delay: 0.2s;">
+        <a href="index.html" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-black uppercase tracking-widest hover:bg-blue-500 transition-all shadow-2xl shadow-blue-900/20 italic">Return to Hub</a>
     </div>
 
 </main>
@@ -97,19 +111,19 @@
             <div class="max-w-md">
                 <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">Lead Researcher / Daegu University</p>
                 <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                    All tools are developed by <span class="text-white">Patrick Travers (PhD, Foreign Language Education)</span>. These diagnostics are part of a continuous commitment to improving academic English assessment.
+                    All tools are developed by <span class="text-white font-bold">Patrick Travers (PhD, Foreign Language Education)</span>. These diagnostics are part of a continuous commitment to improving academic English assessment.
                 </p>
             </div>
             <div class="flex flex-col md:items-end gap-3">
                 <a href="https://www.researchgate.net/profile/Patrick-Travers?ev=hdr_xprf" target="_blank" class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-xl hover:bg-blue-600 transition-all group">
-                    <span class="text-xs font-bold text-neutral-400 group-hover:text-white uppercase tracking-tighter">View ResearchGate Profile</span>
+                    <span class="text-xs font-bold text-neutral-400 group-hover:text-white uppercase tracking-tighter italic">View ResearchGate Profile</span>
                     <span class="text-blue-500 group-hover:text-white">→</span>
                 </a>
             </div>
         </div>
         <div class="flex justify-between items-center opacity-40 pt-8 border-t border-white/5">
-            <span class="text-[9px] font-bold uppercase tracking-[0.4em]">Academic ESL Hub • 2026</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.4em]">Daegu, South Korea</span>
+            <span class="text-[9px] font-bold uppercase tracking-[0.4em] italic">Academic ESL Hub • 2026</span>
+            <span class="text-[9px] font-bold uppercase tracking-[0.4em] italic">Daegu, South Korea</span>
         </div>
     </div>
 </footer>
