@@ -3,45 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPM Fluency Lab | Academic ESL Hub</title>
-    
-    <meta name="description" content="Professional ESL Reading Speed and Fluency Diagnostic. Measure your Effective WPM and academic processing speed.">
-    <meta name="keywords" content="ESL WPM Test, Reading Speed Calculator, English Fluency Diagnostic, Academic English Processing">
-    
+    <title>ESL Reading Speed Test - WPM Fluency Lab | Academic ESL Hub</title>
+    <meta name="description" content="Professional ESL Reading Speed and Fluency Diagnostic. Measure your Effective WPM and academic processing speed across three levels.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        
-        body { 
-            background-color: #050505; 
-            color: #e5e5e5; 
-            font-family: 'Inter', system-ui, sans-serif; 
-        }
-        
-        .card-bg { 
-            background: #111; 
-            border: 1px solid #222; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .reading-text {
-            line-height: 1.8;
-            letter-spacing: -0.01em;
-            color: #d1d1d1;
-        }
-
-        .btn-glow:hover {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-            transform: translateY(-2px);
-        }
-
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .card-bg { background: #111; border: 1px solid #222; }
         .hidden { display: none; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-in { animation: fadeIn 0.5s ease-out forwards; }
+        .btn-primary { background: #3b82f6; transition: all 0.3s; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+        .reading-text { line-height: 1.8; color: #d1d1d1; }
+        .animate-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        ::selection { background: #3b82f6; color: white; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -49,211 +24,131 @@
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
         <h1 class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</h1>
-        <div class="flex items-center gap-4">
-            <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase hidden sm:block">Fluency Diagnostic v1.0</span>
-            <div class="h-2 w-2 rounded-full bg-blue-500 animate-pulse"></div>
-        </div>
+        <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase">Fluency Diagnostic v1.2.5</span>
     </div>
 </header>
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
     <div id="setup-area" class="animate-in">
-        <div class="mb-12">
-            <h2 class="text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">WPM Fluency Lab</h2>
-            <p class="text-neutral-400 text-sm max-w-2xl leading-relaxed">
-                A research-informed diagnostic to measure <span class="text-blue-500">Effective Processing Speed</span>. 
-                Read at your natural pace. Accuracy is weighted against speed to determine your true fluency tier.
-            </p>
-        </div>
+        <h2 class="text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">WPM Fluency Lab</h2>
+        <p class="text-neutral-400 text-sm max-w-xl mb-12 leading-relaxed italic">Select your target proficiency. We measure <strong>Effective WPM</strong>—the balance of speed and deep comprehension.</p>
         
-        <div class="card-bg p-8 rounded-[2.5rem] border-t border-white/10 text-center">
-            <div class="mb-8">
-                <div class="inline-block p-4 rounded-full bg-blue-500/10 mb-4">
-                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Ready to begin?</h3>
-                <p class="text-neutral-500 text-xs uppercase tracking-widest">10 Randomized Academic Passages Available</p>
-            </div>
-            <button onclick="startTest()" class="btn-glow bg-blue-600 text-white px-12 py-5 rounded-2xl font-black uppercase tracking-tighter italic text-lg transition-all w-full md:w-auto">
-                Launch Random Test
+        <div class="grid md:grid-cols-3 gap-6">
+            <button onclick="startTest('foundational')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+                <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">A2 Level</span>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500">Foundational</h3>
+                <p class="text-neutral-500 text-xs mt-4">Everyday narratives and university life topics.</p>
+            </button>
+            <button onclick="startTest('academic')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+                <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">B1-B2 Level</span>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500">Intermediate</h3>
+                <p class="text-neutral-500 text-xs mt-4">Standard academic articles (Social Science/Tech).</p>
+            </button>
+            <button onclick="startTest('advanced')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+                <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">C1+ Level</span>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500">Advanced</h3>
+                <p class="text-neutral-500 text-xs mt-4">Dense scholarly texts and complex abstract theory.</p>
             </button>
         </div>
     </div>
 
     <div id="reading-area" class="hidden animate-in">
-        <div class="flex justify-between items-end mb-6">
-            <div>
-                <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest block mb-1">Status: Active Reading</span>
-                <h3 class="text-white font-bold text-xl uppercase italic">Do not rush. Comprehend.</h3>
-            </div>
-            <div id="timer-display" class="font-mono text-3xl font-black text-white bg-white/5 px-4 py-2 rounded-xl">00:00</div>
+        <div class="flex justify-between items-center mb-6">
+            <span id="level-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">--</span>
+            <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded">00:00</div>
         </div>
-        
-        <div id="text-container" class="card-bg p-8 md:p-16 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-10 select-none">
-            </div>
-        
-        <button onclick="endReading()" class="w-full bg-white text-black py-6 rounded-2xl font-black uppercase text-lg hover:bg-blue-500 hover:text-white transition-all shadow-xl">
-            I have finished reading
-        </button>
+        <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-8"></div>
+        <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg">I have finished reading</button>
     </div>
 
     <div id="quiz-area" class="hidden animate-in">
-        <div class="mb-8">
-            <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter">Comprehension Check</h3>
-            <p class="text-neutral-500 text-sm italic">Validation of processing accuracy required for final score.</p>
-        </div>
-        
-        <div id="questions-container" class="space-y-6 mb-10">
-            </div>
-        
-        <button onclick="calculateResults()" class="w-full bg-blue-600 py-6 rounded-2xl font-black uppercase text-white text-lg btn-glow transition-all">
-            Finalize Diagnostic
-        </button>
+        <h3 class="text-2xl font-bold text-white mb-6 uppercase italic">Comprehension Check</h3>
+        <div id="questions-container" class="space-y-6 mb-8"></div>
+        <button onclick="calculateResults()" class="btn-primary w-full py-4 rounded-2xl font-black uppercase text-white">Calculate Fluency</button>
     </div>
 
     <div id="result-area" class="hidden animate-in">
-        <div class="card-bg p-10 rounded-[3rem] border-l-8 border-l-blue-600 overflow-hidden relative">
-            <div class="absolute top-0 right-0 p-8 opacity-5">
-                <svg class="w-32 h-32 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
+        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left mb-8">
+                <div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Raw Speed</p>
+                    <div id="raw-wpm" class="text-5xl font-black text-white">--</div>
+                    <span class="text-[9px] text-neutral-500 uppercase">Words Per Min</span>
+                </div>
+                <div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Accuracy</p>
+                    <div id="accuracy-pct" class="text-5xl font-black text-white">--</div>
+                    <span class="text-[9px] text-neutral-500 uppercase">Comprehension</span>
+                </div>
+                <div>
+                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1 italic">Effective WPM</p>
+                    <div id="effective-wpm" class="text-5xl font-black text-blue-500 underline">--</div>
+                    <span class="text-[9px] text-blue-500 font-bold uppercase italic">Sustainable Speed</span>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left relative z-10 mb-12">
-                <div>
-                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-[0.2em] mb-2">Raw Speed (WPM)</p>
-                    <div id="raw-wpm" class="text-6xl font-black text-white tracking-tighter">--</div>
-                </div>
-                <div>
-                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-[0.2em] mb-2">Accuracy Rate</p>
-                    <div id="accuracy-pct" class="text-6xl font-black text-white tracking-tighter">--</div>
-                </div>
-                <div>
-                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] mb-2">Effective WPM</p>
-                    <div id="effective-wpm" class="text-7xl font-black text-blue-500 tracking-tighter underline">--</div>
-                </div>
-            </div>
-
-            <div class="pt-10 border-t border-white/5">
-                <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Ph.D. Academic Assessment</p>
-                <h4 id="tier-label" class="text-4xl font-black text-white tracking-tighter uppercase italic mb-3">--</h4>
-                <p id="tier-desc" class="text-neutral-400 text-lg leading-relaxed italic max-w-2xl">--</p>
+            <div class="pt-8 border-t border-white/5">
+                <h4 id="tier-label" class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Assessment Profile</h4>
+                <p id="tier-desc" class="text-neutral-500 text-sm leading-relaxed italic">--</p>
             </div>
         </div>
-
-        <div class="mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <button onclick="location.reload()" class="text-neutral-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-all border-b border-transparent hover:border-white">
-                Retest with New Passage
-            </button>
-            <div class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">Linguistic Protocol v1.0.4</div>
+        <div class="flex flex-col md:flex-row justify-between items-center mt-8 gap-4">
+            <button onclick="location.reload()" class="text-neutral-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-all underline">Try another level</button>
+            <p class="text-[10px] text-neutral-700 italic uppercase font-bold">Linguistic Data Integrity Protected</p>
         </div>
     </div>
-
-    <footer class="mt-24 border-t border-white/5 py-12">
-        <div class="grid md:grid-cols-2 gap-16">
-            <div>
-                <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4">Methodology</p>
-                <p class="text-neutral-500 text-[11px] leading-relaxed">
-                    This tool utilizes the <span class="text-neutral-300 italic">Effective Fluency Coefficient</span>. 
-                    Unlike standard WPM tests, we penalize raw speed if comprehension falls below 80%, 
-                    reflecting the "Structural Strain" levels identified in recent university EFL research.
-                </p>
-            </div>
-        </div>
-    </footer>
 </main>
 
 <script>
-    const passages = [
-        {
-            text: "Hi, my name is Ji-hyun. This is my third semester in university. I live off campus in a small studio apartment. Last year, I lived on campus in the dormitory. I have a part-time job as a clerk in a convenience store near campus. I had a roommate last year, but now I live alone. My friend Katarina is a new student here and her major is economics. We like to meet for lunch in the cafeteria. The food there is cheap and delicious.",
-            questions: [
-                { q: "Where does Ji-hyun live now?", a: ["Dormitory", "Studio apartment", "At home"], correct: 1 },
-                { q: "What is her part-time job?", a: ["Cafeteria worker", "Clerk", "Economics tutor"], correct: 1 },
-                { q: "Who is Katarina?", a: ["A senior student", "A new student", "Ji-hyun's roommate"], correct: 1 }
-            ]
-        },
-        {
-            text: "Welcome to our English club. This week we have two new members. Maria is from Brazil and Boris is from Russia. They both live in the dormitory, but Boris wants to move off campus next semester because his roommate snores too much. Maria is a fashion design major in her second year. Boris is studying mechanical engineering. We are going to meet in the café downstairs after the club meeting to get a drink.",
-            questions: [
-                { q: "Where is Maria from?", a: ["Russia", "Brazil", "Korea"], correct: 1 },
-                { q: "What is Boris's major?", a: ["Fashion design", "English", "Mechanical engineering"], correct: 2 },
-                { q: "Why does Boris want to move?", a: ["He wants a studio", "His roommate snores", "It's too expensive"], correct: 1 }
-            ]
-        },
-        {
-            text: "My name is Mike Jones. I am a second-year student at NYU. My brother, Tom, is also a student here, but he is a freshman. Tom's major is nursing because he wants to be a nurse at a big hospital someday. He lives in a studio off campus, which is unusual because most freshmen live in the dormitory on campus. Tom has Biology at 9 a.m. on Mondays, while my first class is later in the day.",
-            questions: [
-                { q: "What is Tom’s year in university?", a: ["Freshman", "Sophomore", "Senior"], correct: 0 },
-                { q: "What is Tom's career goal?", a: ["To be a doctor", "To be a nurse", "To be a teacher"], correct: 1 },
-                { q: "Where does Tom live?", a: ["On campus", "In a dormitory", "Off campus"], correct: 2 }
-            ]
-        },
-        {
-            text: "Kwon Ju-hee is a new freshman. Her major is tourism management and she really likes her classes so far. She lives in the dormitory with a roommate. Her roommate is an art major who is very messy; she always leaves her paintings around the room. Ju-hee has a busy schedule, but she doesn't have any classes on Fridays. However, she doesn't use that time to rest because she works as a cashier at a convenience store.",
-            questions: [
-                { q: "What is Ju-hee’s major?", a: ["Art", "Nursing", "Tourism Management"], correct: 2 },
-                { q: "What is the problem with her roommate?", a: ["She is mean", "She is messy", "She snores"], correct: 1 },
-                { q: "Why is Ju-hee busy on Fridays?", a: ["She has Biology", "She studies at the library", "She has a job"], correct: 2 }
-            ]
-        },
-        {
-            text: "Bill is a very busy student. His first class starts at 9 a.m. every day, but he always wakes up at 5 a.m. He wakes up early because he likes to play smartphone games for two hours before he gets ready. He usually goes to bed at 1 a.m. because he plays computer games late at night. His friend Teresa thinks this is crazy. Teresa is a serious student who spends most of her time studying at the library.",
-            questions: [
-                { q: "What time does Bill wake up?", a: ["9 a.m.", "5 a.m.", "1 a.m."], correct: 1 },
-                { q: "How much sleep does Bill usually get?", a: ["4 hours", "8 hours", "2 hours"], correct: 0 },
-                { q: "Where does Teresa spend her time?", a: ["At a café", "In the dormitory", "At the library"], correct: 2 }
-            ]
-        },
-        {
-            text: "On the weekends, Teresa and her classmates like to hang out together. They almost always go downtown to go window shopping. Sometimes they visit a café to have coffee or hot chocolate. Teresa enjoys these outings because her classmates are very cool. Bill often asks Teresa to go on a date, but she is usually busy with her roommate or her studies. This Friday, she is planning to go to the movies.",
-            questions: [
-                { q: "What do the friends do downtown?", a: ["Study", "Window shop", "Work"], correct: 1 },
-                { q: "How often do they go downtown?", a: ["Rarely", "Almost always", "Never"], correct: 1 },
-                { q: "What is Teresa doing this Friday?", a: ["Going on a date", "Going to a party", "Watching a movie"], correct: 2 }
-            ]
-        },
-        {
-            text: "Many students at university have part-time jobs. Some work as clerks in convenience stores, while others work in the school cafeteria. Having a job is a good way to earn money, but it can be difficult to balance work and study. Students who work more than 20 hours a week often feel very tired in class. However, some jobs allow students to study when the store is not busy. This is why many students prefer working as cashiers.",
-            questions: [
-                { q: "What is a challenge of having a job?", a: ["Low pay", "Balancing study", "Finding a store"], correct: 1 },
-                { q: "Who feels most tired in class?", a: ["Freshmen", "Full-time workers", "Students working 20+ hours"], correct: 2 },
-                { q: "Why do students like cashier jobs?", a: ["Higher pay", "Free food", "Time to study"], correct: 2 }
-            ]
-        },
-        {
-            text: "Living on campus has many advantages. The dormitory is usually close to the library and the classrooms, so students don't need to take the bus. However, living on campus also means following many rules. For example, some dormitories do not allow students to cook in their rooms. In this case, students must eat all of their meals in the university cafeteria. While the food is cheap, some students prefer the freedom of living in a studio off campus.",
-            questions: [
-                { q: "What is an advantage of a dormitory?", a: ["Cheap rent", "Location", "Cooking"], correct: 1 },
-                { q: "Where do students eat if they can't cook?", a: ["Cafeteria", "Studio", "Convenience store"], correct: 0 },
-                { q: "Why move off campus?", a: ["To be closer to class", "For more freedom", "To meet roommates"], correct: 1 }
-            ]
-        },
-        {
-            text: "University schedules are often very different from high school schedules. In high school, students are in class all day. In university, a student might have a class at 9 a.m. and then no other classes until 2 p.m. This 'gap time' is very important. Successful students use this time to review their notes or meet with study groups. Students who waste this time often find that they have too much homework to finish late at night.",
-            questions: [
-                { q: "How are university schedules described?", a: ["Consistent", "Different from high school", "Shorter"], correct: 1 },
-                { q: "What is 'gap time'?", a: ["Time between classes", "Time after school", "Holiday time"], correct: 0 },
-                { q: "What do successful students do?", a: ["Go home", "Review notes", "Play games"], correct: 1 }
-            ]
-        },
-        {
-            text: "Choosing a major is a big decision for university students. Common majors include nursing, economics, engineering, and art. Some students choose their major because they have a specific career goal, like becoming a nurse. Others choose a major because they are interested in the subject, like fashion design. It is common for students to feel nervous during their first semester, but most students find that their classmates are helpful and friendly.",
-            questions: [
-                { q: "Which major is linked to a career goal?", a: ["Nursing", "Art", "Economics"], correct: 0 },
-                { q: "How do freshmen usually feel?", a: ["Bored", "Nervous", "Angry"], correct: 1 },
-                { q: "How are classmates described?", a: ["Busy", "Helpful and friendly", "Competitive"], correct: 1 }
-            ]
-        }
-    ];
+    const data = {
+        foundational: [
+            { text: "Hi, my name is Ji-hyun. This is my third semester in university. I live off campus in a small studio apartment. Last year, I lived on campus in the dormitory. I have a part-time job as a clerk in a convenience store near campus. I had a roommate last year, but now I live alone. My friend Katarina is a new student here and her major is economics. We like to meet for lunch in the cafeteria. The food there is cheap and delicious.", questions: [{q:"Where does Ji-hyun live now?", a:["Dormitory","Studio apartment","At home"], correct:1}, {q:"What is her job?", a:["Clerk","Tutor","Cook"], correct:0}, {q:"Who is Katarina?", a:["Roommate","New student","Teacher"], correct:1}] },
+            { text: "Welcome to our English club. This week we have two new members. Maria is from Brazil and Boris is from Russia. They both live in the dormitory, but Boris wants to move off campus next semester because his roommate snores too much. Maria is a fashion design major in her second year. Boris is studying mechanical engineering. We are going to meet in the café downstairs after the club meeting to get a drink.", questions: [{q:"Where is Maria from?", a:["Russia","Brazil","Korea"], correct:1}, {q:"Boris's major?", a:["Fashion","English","Engineering"], correct:2}, {q:"Why move?", a:["Expensive","Snores","Studio"], correct:1}] },
+            { text: "My name is Mike Jones. I am a second-year student at NYU. My brother, Tom, is also a student here, but he is a freshman. Tom's major is nursing because he wants to be a nurse at a big hospital someday. He lives in a studio off campus, which is unusual because most freshmen live in the dormitory on campus. Tom has Biology at 9 a.m. on Mondays, while my first class is later in the day.", questions: [{q:"Tom's year?", a:["Freshman","Sophomore","Senior"], correct:0}, {q:"Career goal?", a:["Doctor","Nurse","Teacher"], correct:1}, {q:"Where lives?", a:["On campus","Dorm","Off campus"], correct:2}] },
+            { text: "Kwon Ju-hee is a new freshman. Her major is tourism management and she really likes her classes so far. She lives in the dormitory with a roommate. Her roommate is an art major who is very messy; she always leaves her paintings around the room. Ju-hee has a busy schedule, but she doesn't have any classes on Fridays. However, she doesn't use that time to rest because she works as a cashier at a convenience store.", questions: [{q:"Major?", a:["Art","Nursing","Tourism"], correct:2}, {q:"Roommate problem?", a:["Mean","Messy","Snores"], correct:1}, {q:"Friday activity?", a:["Biology","Library","Job"], correct:2}] },
+            { text: "Bill is a very busy student. His first class starts at 9 a.m. every day, but he always wakes up at 5 a.m. He wakes up early because he likes to play smartphone games for two hours before he gets ready. He usually goes to bed at 1 a.m. because he plays computer games late at night. His friend Teresa thinks this is crazy. Teresa is a serious student who spends most of her time studying at the library.", questions: [{q:"Wake up time?", a:["9 a.m.","5 a.m.","1 a.m."], correct:1}, {q:"Sleep duration?", a:["4 hours","8 hours","2 hours"], correct:0}, {q:"Where is Teresa?", a:["Café","Dorm","Library"], correct:2}] },
+            { text: "On the weekends, Teresa and her classmates like to hang out together. They almost always go downtown to go window shopping. Sometimes they visit a café to have coffee or hot chocolate. Teresa enjoys these outings because her classmates are very cool. Bill often asks Teresa to go on a date, but she is usually busy with her roommate or her studies. This Friday, she is planning to go to the movies.", questions: [{q:"Activity?", a:["Study","Window shop","Work"], correct:1}, {q:"Frequency?", a:["Rarely","Almost always","Never"], correct:1}, {q:"Friday plan?", a:["Date","Party","Movie"], correct:2}] },
+            { text: "Many students at university have part-time jobs. Some work as clerks in convenience stores, while others work in the school cafeteria. Having a job is a good way to earn money, but it can be difficult to balance work and study. Students who work more than 20 hours a week often feel very tired in class. However, some jobs allow students to study when the store is not busy. This is why many students prefer working as cashiers.", questions: [{q:"Challenge?", a:["Low pay","Balancing study","Finding store"], correct:1}, {q:"Most tired?", a:["Freshmen","Full-time","20+ hour workers"], correct:2}, {q:"Cashier benefit?", a:["Pay","Food","Study time"], correct:2}] },
+            { text: "Living on campus has many advantages. The dormitory is usually close to the library and the classrooms, so students don't need to take the bus. However, living on campus also means following many rules. For example, some dormitories do not allow students to cook in their rooms. In this case, students must eat all of their meals in the university cafeteria. While the food is cheap, some students prefer the freedom of living in a studio off campus.", questions: [{q:"Dorm advantage?", a:["Rent","Location","Cooking"], correct:1}, {q:"Where eat?", a:["Cafeteria","Studio","Store"], correct:0}, {q:"Why move off?", a:["Class","Freedom","Roommates"], correct:1}] },
+            { text: "University schedules are often very different from high school schedules. In high school, students are in class all day. In university, a student might have a class at 9 a.m. and then no other classes until 2 p.m. This 'gap time' is very important. Successful students use this time to review their notes or meet with study groups. Students who waste this time often find that they have too much homework to finish late at night.", questions: [{q:"Comparison?", a:["Consistent","Different","Shorter"], correct:1}, {q:"Gap time?", a:["Between classes","After school","Holiday"], correct:0}, {q:"Success tip?", a:["Go home","Review notes","Games"], correct:1}] },
+            { text: "Choosing a major is a big decision for university students. Common majors include nursing, economics, engineering, and art. Some students choose their major because they have a specific career goal, like becoming a nurse. Others choose a major because they are interested in the subject, like fashion design. It is common for students to feel nervous during their first semester, but most students find that their classmates are helpful and friendly.", questions: [{q:"Career choice?", a:["Nursing","Art","Economics"], correct:0}, {q:"Feeling?", a:["Bored","Nervous","Angry"], correct:1}, {q:"Classmates?", a:["Busy","Helpful","Competitive"], correct:1}] }
+        ],
+        academic: [
+            { text: "Procrastination is often misunderstood as simple laziness or poor time management. However, psychologists suggest that it is actually an emotional regulation strategy. When a student faces a task that causes anxiety or self-doubt, the brain seeks immediate relief by switching to a more pleasurable activity, such as scrolling through social media. While this provides short-term comfort, it creates a cycle of stress as the deadline approaches. To overcome this, experts recommend 'task-sharding,' which involves breaking a large project into tiny, manageable pieces. By completing a small five-minute task, the student gains a sense of achievement, which triggers dopamine and makes it easier to continue working.", questions: [{q:"Why do people procrastinate?", a:["Laziness","Emotional regulation","Bad clocks"], correct:1}, {q:"Short-term benefit?", a:["Grades","Immediate relief","Money"], correct:1}, {q:"Task-sharding?", a:["Small pieces","Harder work","Teamwork"], correct:0}] },
+            { text: "As global populations shift toward urban centers, the preservation of green spaces like parks and community gardens has become a public health priority. Urban environments often suffer from the 'heat island' effect, where concrete structures trap heat and raise local temperatures. Trees and plants mitigate this by providing shade and releasing moisture into the air. Furthermore, studies indicate that 'green exercise'—physical activity performed in natural settings—lowers cortisol levels more effectively than indoor workouts. Despite these benefits, many cities struggle to protect these areas due to the high value of real estate development. Therefore, urban planners must find creative ways to integrate nature into the 'gray' infrastructure of the city.", questions: [{q:"Heat island effect?", a:["City heat","Island weather","Ice melting"], correct:0}, {q:"Cooling method?", a:["Moisture","A/C","Real estate"], correct:0}, {q:"Green exercise?", a:["Gyms","Nature activity","Weightlifting"], correct:1}] },
+            { text: "In the last decade, the global economy has seen a massive shift from ownership to access. Previously, consumers bought software, music, and tools as one-time purchases. Today, the 'subscription model' dominates the marketplace. For companies, this provides a predictable stream of monthly revenue and allows for constant software updates. For consumers, it lowers the initial cost of entry to premium services. However, critics point to 'subscription fatigue,' where individuals lose track of their monthly spending across dozens of different platforms. There is also the concern that consumers no longer truly 'own' the products they use, as access can be revoked the moment a payment is missed.", questions: [{q:"Economic shift?", a:["Cash to card","Ownership to access","Local to global"], correct:1}, {q:"Company benefit?", a:["Lower tax","Revenue stream","No staff"], correct:1}, {q:"Subscription fatigue?", a:["Too many fees","Low quality","High speed"], correct:0}] },
+            { text: "The Silk Road was not a single path, but a vast network of trade routes connecting China to the Mediterranean Sea. While silk was the most famous commodity traded, the route was equally important for the exchange of ideas, religions, and technologies. For example, the secrets of papermaking traveled from East to West, while mathematical concepts moved in the opposite direction. Travelers rarely covered the entire 4,000-mile distance; instead, goods were traded from one middleman to another in various market cities. This interaction created a unique 'melting pot' of cultures, though it also facilitated the spread of diseases, such as the Black Death, which devastated populations across two continents.", questions: [{q:"One road?", a:["Yes","No","Only in China"], correct:1}, {q:"Exchange?", a:["Only silk","Ideas/Tech","Just money"], correct:1}, {q:"Middlemen?", a:["Market cities","Boats","Kings"], correct:0}] },
+            { text: "Modern digital screens emit a specific wavelength known as 'blue light,' which is similar to the light produced by the sun during midday. When we use smartphones or laptops late at night, this light enters our eyes and signals the brain to stop producing melatonin, the hormone responsible for sleep. This disrupts our circadian rhythm, making it difficult to fall asleep and reducing the quality of deep sleep. Health professionals suggest that individuals should use 'night mode' filters or avoid screens entirely for at least one hour before bed. By doing so, the body can naturally prepare for rest, leading to better focus and cognitive performance the following day.", questions: [{q:"Blue light effect?", a:["More sleep","Stop melatonin","Green eyes"], correct:1}, {q:"Melatonin?", a:["Food","Sleep hormone","Sugar"], correct:1}, {q:"Health tip?", a:["Night mode","Bright screen","Morning use"], correct:0}] },
+            { text: "One of the most fascinating stories in evolutionary biology is the transition of whales from land to sea. Approximately 50 million years ago, the ancestors of modern whales were small, four-legged mammals that lived in marshy environments. Over millions of years, their nostrils moved to the top of their heads to become blowholes, and their front limbs transformed into flippers. Their hind legs eventually disappeared entirely as they became fully aquatic. This transition is well-documented in the fossil record through intermediate species like Basilosaurus. Studying these changes helps scientists understand how environmental pressures can drive radical physical transformations in a relatively short geological timeframe.", questions: [{q:"50m years ago?", a:["Fishes","Land mammals","Birds"], correct:1}, {q:"Blowholes?", a:["Ears","Nostrils","Mouth"], correct:1}, {q:"Basilosaurus?", a:["Modern whale","Intermediate fossil","Shark"], correct:1}] },
+            { text: "With the global population expected to reach nearly 10 billion by 2050, traditional agriculture faces a crisis of space. Vertical farming offers a potential solution by growing crops in stacked layers, often inside controlled indoor environments. This method uses significantly less water than traditional farming and eliminates the need for chemical pesticides. Because these farms can be located inside cities, the 'food miles'—the distance food travels from farm to plate—are drastically reduced. However, the high energy cost of powering LED lights 24 hours a day remains a major hurdle. If engineers can integrate renewable energy sources, vertical farming could revolutionize how we feed urban populations.", questions: [{q:"Why vertical?", a:["Space crisis","More sun","Decoration"], correct:0}, {q:"Benefit?", a:["More soil","Less water","Cheaper LED"], correct:1}, {q:"Main hurdle?", a:["Insects","Energy cost","Rain"], correct:1}] },
+            { text: "Microplastics are tiny plastic particles, often smaller than a grain of rice, that result from the breakdown of larger plastic waste or are manufactured for use in cosmetics. Because they are so small, they easily pass through water filtration systems and enter the ocean. Fish and other marine life mistake these particles for food, and once ingested, the plastics can move up the food chain to humans. While the long-term health effects on humans are still being studied, researchers are concerned about the chemical additives in plastics that may interfere with hormones. Reducing our reliance on single-use plastics is currently the only effective way to prevent further contamination of the global water supply.", questions: [{q:"How enter ocean?", a:["Boats","Pass filtration","Rain"], correct:1}, {q:"Fish error?", a:["Eat as food","Swim away","Hide in it"], correct:0}, {q:"Health worry?", a:["Bones","Hormones","Eyes"], correct:1}] },
+            { text: "In economics and behavioral science, 'Nudge Theory' suggests that small changes in how choices are presented can significantly influence people's behavior without restricting their freedom. For example, a school cafeteria might place fruit at eye level while hiding sugary snacks in lower bins. This 'nudge' encourages students to make healthier choices without banning junk food. Governments use similar tactics to increase organ donation rates or encourage retirement savings by making 'opt-in' the default setting. Critics argue that this can be manipulative, but proponents claim it is a helpful tool for improving public welfare while maintaining individual choice.", questions: [{q:"Nudge Theory?", a:["Banning food","Choice presentation","Fining people"], correct:1}, {q:"Example?", a:["Fruit at eye level","Free candy","Closed cafeteria"], correct:0}, {q:"Criticism?", a:["Too expensive","Manipulative","Unhealthy"], correct:1}] },
+            { text: "Around 1200 BCE, several major civilizations in the Near East and Mediterranean suddenly collapsed within a few decades. The Mycenaeans, Hittites, and New Kingdom Egyptians all experienced social breakdown, the destruction of cities, and the loss of writing systems. Historians originally blamed the 'Sea Peoples'—mysterious invaders—but modern research suggests a 'perfect storm' of factors. Evidence of prolonged droughts, volcanic eruptions, and internal peasant revolts suggests that these societies were already fragile. When trade routes were disrupted, the highly interconnected systems could no longer function, leading to a 'dark age' that lasted for centuries before the rise of Ancient Greece.", questions: [{q:"Bronze Age?", a:["1200 BCE","2026 AD","500 BC"], correct:0}, {q:"Old theory?", a:["Drought","Sea Peoples","Volcano"], correct:1}, {q:"Modern view?", a:["One king","Multiple factors","Space aliens"], correct:1}] }
+        ],
+        advanced: [
+            { text: "In contemporary capitalist societies, the proliferation of choice is often equated with increased personal freedom and consumer empowerment. However, psychological research into 'The Paradox of Choice' suggests that an overabundance of options can lead to decision paralysis and decreased post-purchase satisfaction. When faced with a limited selection, a consumer can easily evaluate the trade-offs and make a confident selection. Conversely, when the array of choices becomes exhaustive—such as choosing a single bottle of water from fifty different brands—the cognitive load required to make an 'optimal' choice becomes overwhelming. Furthermore, even after a choice is made, the consumer is more likely to experience 'opportunity cost' regret, imagining that one of the unchosen alternatives might have been superior. This phenomenon is exacerbated by the digital economy, where infinite options are available at the click of a button. To mitigate this psychological strain, many modern firms are adopting 'curated consumption' strategies, intentionally limiting their inventory to a few high-quality essential items. This shift acknowledges that for the modern consumer, the most valuable luxury is not more choice, but the reduction of cognitive friction.", questions: [{q:"Paradox of Choice?", a:["More is better","Too much causes paralysis","Selection is easy"], correct:1}, {q:"Decision paralysis?", a:["Fast choices","Unable to decide","No choices"], correct:1}, {q:"Cognitive load?", a:["Brain power","Store weight","Computer speed"], correct:0}] },
+            { text: "As machine learning algorithms increasingly mediate access to essential services—including credit lending, job recruitment, and judicial sentencing—the issue of algorithmic bias has moved to the forefront of sociological discourse. Although these systems are often marketed as 'objective' and 'neutral,' they are fundamentally dependent on historical datasets that may mirror existing societal prejudices. For instance, if an AI is trained on decades of hiring data from a company that historically favored male candidates, the algorithm may learn to disqualify female applicants, even if gender is not explicitly listed as a variable. This creates a self-reinforcing feedback loop that hardens existing lines of social stratification. Because the internal logic of 'black box' algorithms is often proprietary and opaque, it is exceedingly difficult for individuals to challenge or appeal an automated decision. The danger lies in the 'veneer of mathematical certainty,' which can shield discriminatory practices from legal and ethical scrutiny. Therefore, the implementation of 'Algorithmic Auditing' and the demand for 'Explainable AI' are critical steps toward ensuring that the digital revolution does not inadvertently reverse decades of progress in civil rights and social equity.", questions: [{q:"Why biased?", a:["Randomness","Historical data","Small code"], correct:1}, {q:"Black box?", a:["Color","Opaque logic","Fast speed"], correct:1}, {q:"Solution?", a:["Faster AI","Explainable AI","Less data"], correct:1}] },
+            { text: "For most of human history, the Earth's geological and climatic systems were viewed as the vast, unchanging backdrop against which the drama of human civilization unfolded. However, the proposal of the 'Anthropocene' as a new geological epoch suggests a fundamental shift: humanity has become a primary geological agent. Through the massive mobilization of sediment via mining, the alteration of the nitrogen cycle through industrial agriculture, and the unprecedented release of carbon into the atmosphere, human activity now rivals the natural forces of plate tectonics and volcanic activity in its impact on the planet's physical state. The transition to the Anthropocene poses a significant challenge to traditional Western dualisms that separate 'Nature' from 'Culture.' If the chemical composition of the atmosphere and the acidity of the oceans are now products of human policy and industrial output, then the boundary between the human and the non-human has effectively collapsed. This realization necessitates a new form of 'planetary politics' that recognizes the interconnectedness of economic systems and Earth systems. The central ethical dilemma of this era is whether a species capable of unintentionally altering the planet's geology is also capable of intentionally managing it to avoid ecological collapse.", questions: [{q:"Anthropocene?", a:["Old age","Human geological era","Outer space"], correct:1}, {q:"Human role?", a:["Observers","Geological agent","Victims"], correct:1}, {q:"Dualism?", a:["Nature vs Culture","East vs West","Sun vs Moon"], correct:0}] },
+            { text: "The 19th-century 'phrenological' view of the brain suggested that specific mental functions were strictly localized within distinct physical regions. While modern neuroscience acknowledges that certain areas, such as Broca’s area for speech, have specialized roles, the dominant paradigm has shifted toward 'neuroplasticity' and 'functional connectivity.' This view posits that the brain is a highly dynamic organ capable of massive structural reorganization in response to experience, learning, or injury. For example, in individuals who lose their sight, the visual cortex is often 'repurposed' to process tactile and auditory information, allowing for enhanced sensitivity in those remaining senses. This inherent flexibility challenges the 'static hardware' metaphor of the brain. Instead, the brain is better understood as a 'liquid' network that constantly prunes and strengthens synaptic connections based on environmental input. However, this plasticity is a 'double-edged sword.' While it allows for recovery and skill acquisition, it also means that repetitive negative behaviors or high-stress environments can 'wire' the brain into harmful patterns, such as chronic anxiety or addiction. Understanding the mechanisms of neuroplasticity is therefore essential for developing targeted therapeutic interventions that can guide the brain’s natural ability to remodel itself toward healthier outcomes.", questions: [{q:"19th century view?", a:["Plasticity","Strict localization","Liquid network"], correct:1}, {q:"Blindness effect?", a:["Vision stays","Cortex repurposed","No change"], correct:1}, {q:"Double-edged?", a:["Sharp","Both good and bad","Two brains"], correct:1}] },
+            { text: "The classic economic concept of the 'Tragedy of the Commons' describes a situation where individual users, acting independently according to their own self-interest, deplete a shared resource, such as a communal pasture or a fishery. In the 21st century, this concept is being applied to 'Information Commons,' such as Wikipedia, open-source software, and even the general civility of the internet. While these digital resources are not 'finite' in the way that physical land is, they are susceptible to a different kind of degradation: the erosion of trust and the pollution of data. When individuals or bots flood the digital commons with 'misinformation' or 'toxic discourse' to achieve short-term political or financial goals, they degrade the utility of the network for everyone else. If the 'cost' of verifying information becomes too high, users may retreat from the open internet into 'siloed' or 'walled garden' platforms. This fragmentation destroys the original promise of the internet as a global, unified knowledge base. Managing the digital commons requires a shift from a purely 'libertarian' view of the web toward a framework of 'digital citizenship,' where the preservation of the shared information environment is seen as a collective responsibility.", questions: [{q:"Original Tragedy?", a:["Resource depletion","Fast growth","Rich kings"], correct:0}, {q:"Digital pollution?", a:["Plastic","Misinformation","Oil"], correct:1}, {q:"Walled garden?", a:["Actual parks","Siloed platforms","Open source"], correct:1}] },
+            { text: "Advancements in CRISPR and synthetic biology have transitioned the concept of 'de-extinction' from science fiction to a tangible biological possibility. The primary objective is to resurrect extinct species, such as the Woolly Mammoth or the Passenger Pigeon, by editing the genomes of their closest living relatives. Proponents argue that de-extinction could restore 'functional roles' to damaged ecosystems, such as mammoths tramping the Arctic permafrost to mitigate carbon release. However, critics highlight the ethical 'moral hazard' involved: if we believe we can bring species back, we may become less diligent in preventing current extinctions. Furthermore, the reintroduced species would be entering a vastly different climate than the one they left, potentially becoming invasive threats to existing biodiversity. The central debate remains whether de-extinction is a genuine conservation tool or a technological vanity project that distracts from the pressing need to preserve current habitat. As genomic technology continues to outpace environmental policy, society must grapple with the implications of assuming a role once reserved for natural selection.", questions: [{q:"Technology?", a:["CRISPR","Steam","Nuclear"], correct:0}, {q:"Moral hazard?", a:["Saving more","Less diligence","More money"], correct:1}, {q:"Risk?", a:["Too cute","Invasive threat","Expensive"], correct:1}] },
+            { text: "The Great Oxygenation Event (GOE), which occurred approximately 2.4 billion years ago, represents perhaps the most significant biological catastrophe and subsequent transformation in Earth's history. Before this event, Earth's atmosphere was anaerobic, dominated by methane and carbon dioxide. The evolution of cyanobacteria, which utilized oxygenic photosynthesis, led to the accumulation of free oxygen in the atmosphere. For the dominant anaerobic life forms of the time, oxygen was a lethal toxin, leading to a massive biological die-off. Paradoxically, this 'extinction' paved the way for the evolution of complex, multicellular life that utilizes oxygen for high-energy metabolism. The GOE serves as a reminder that the evolution of one species can radically alter the chemical composition of the entire planet. It demonstrates the profound feedback loops between the biosphere and the geosphere, illustrating that life does not merely inhabit a planet but actively constructs its atmospheric environment. Modern industrial carbon emissions are often compared to the GOE as another example of biological activity fundamentally altering planetary chemistry, albeit at a significantly accelerated and potentially destabilizing rate.", questions: [{q:"Before GOE?", a:["Oxygen rich","Anaerobic","Ice only"], correct:1}, {q:"Source?", a:["Volcanoes","Cyanobacteria","Trees"], correct:1}, {q:"Paradox?", a:["Life died but paved way","Sun went dark","No change"], correct:0}] },
+            { text: "Urban architecture is rarely merely functional; it serves as a semiotic system that communicates the values, power structures, and aspirations of a society. The transition from the ornate, hierarchical styles of the 19th century to the minimalist, glass-and-steel 'International Style' of the 20th century reflects a cultural shift toward transparency, efficiency, and globalism. However, the uniformity of modern skyscrapers has led to the 'placelessness' of modern cities, where a business district in Tokyo may be indistinguishable from one in London. Post-modern architecture seeks to counteract this by reintroducing local historical motifs, arguing that buildings should engage in a 'dialogue' with their specific geographical and cultural context rather than existing as abstract icons of industry. This semiotic reading of the skyline suggests that our built environment is a physical manifestation of ideology. When we prioritize standardized utility over local aesthetics, we inadvertently strip urban centers of their unique historical narratives. The future of urban design likely lies in 'critical regionalism,' a strategy that embraces modern technology while respecting the specific environmental and cultural characteristics that give a city its unique identity and sense of place.", questions: [{q:"Placelessness?", a:["No maps","Indistinguishable cities","Parks"], correct:1}, {q:"Intl Style values?", a:["Mystery","Efficiency","Tradition"], correct:1}, {q:"Post-modernism?", a:["More glass","Local motifs","Taller"], correct:1}] },
+            { text: "Quantum entanglement is a phenomenon where two particles become so deeply linked that the state of one instantly influences the state of the other, regardless of the distance separating them. Albert Einstein famously referred to this as 'spooky action at a distance,' as it seemed to violate the principle of 'locality'—the idea that an object is only influenced by its immediate surroundings. Experimental verification of Bell’s Theorem has confirmed that the universe is fundamentally non-local at the subatomic level. While this does not allow for faster-than-light communication of information (due to the 'no-communication theorem'), it has profound implications for quantum computing. By leveraging entanglement, quantum computers can perform complex calculations simultaneously across multiple states, theoretically surpassing the limits of classical silicon-based processors. This subatomic interconnectedness suggests that the classical Newtonian view of isolated objects is merely a macro-level approximation of a much more complex, integrated quantum reality. As researchers develop 'quantum supremacy,' the ability of entangled systems to process data will likely revolutionize fields ranging from cryptography to materials science.", questions: [{q:"Einstein's name?", a:["Cool action","Spooky action","Fast link"], correct:1}, {q:"Communication?", a:["Faster light","No-comm theorem","Instant mail"], correct:1}, {q:"Computing use?", a:["Better fans","Simultaneous states","Cheaper"], correct:1}] },
+            { text: "'Moral Licensing' is a cognitive bias in which a person who performs a 'good' deed feels a subconscious justification to do something 'bad' or selfish later. For instance, a consumer who purchases organic, environmentally-friendly products may feel 'licensed' to ignore other ethical considerations, such as charitable giving or fair-play in a game. This phenomenon suggests that human morality often operates like a 'bank account': once we have deposited enough 'moral capital' through virtuous acts, we feel entitled to spend that capital on indulgence or ethical shortcuts. Understanding this bias is crucial for policy-makers; it suggests that public health or environmental campaigns that focus too heavily on small, symbolic acts may accidentally decrease overall ethical behavior by providing citizens with a sense of 'completion.' Furthermore, the presence of moral licensing challenges the idea that moral character is a fixed trait, suggesting instead that it is a dynamic, fluctuating state influenced by recent ego-reinforcement. To combat this, ethical frameworks must emphasize consistency and systemic impact rather than isolated instances of 'goodness.'", questions: [{q:"Moral Licensing?", a:["Fines","Self-justification","Bad memory"], correct:1}, {q:"Metaphor?", a:["Bank account","Tree","Mountain"], correct:0}, {q:"Policy risk?", a:["Too expensive","Symbolic acts backfire","Slow growth"], correct:1}] }
+        ]
+    };
 
-    let currentPassage;
-    let startTime;
-    let timerInterval;
+    let currentPassage, startTime, timerInterval, wordCount;
 
-    function startTest() {
-        currentPassage = passages[Math.floor(Math.random() * passages.length)];
+    function startTest(level) {
+        const pool = data[level];
+        currentPassage = pool[Math.floor(Math.random() * pool.length)];
+        wordCount = currentPassage.text.split(/\s+/).length;
+        
         document.getElementById('setup-area').classList.add('hidden');
         document.getElementById('reading-area').classList.remove('hidden');
+        document.getElementById('level-indicator').innerText = level.toUpperCase() + " LEVEL";
         document.getElementById('text-container').innerText = currentPassage.text;
         
         startTime = Date.now();
@@ -268,10 +163,15 @@
     }
 
     function endReading() {
-        clearInterval(timerInterval);
-        const timeInSeconds = (Date.now() - startTime) / 1000;
-        window.readingTime = timeInSeconds;
+        const elapsed = (Date.now() - startTime) / 1000;
         
+        if (elapsed < (wordCount / 400) * 60) {
+            alert("Reading speed exceeds human capacity. Please read the passage carefully.");
+            return;
+        }
+
+        clearInterval(timerInterval);
+        window.readingTime = elapsed;
         document.getElementById('reading-area').classList.add('hidden');
         document.getElementById('quiz-area').classList.remove('hidden');
         
@@ -279,11 +179,11 @@
         container.innerHTML = currentPassage.questions.map((q, i) => `
             <div class="card-bg p-6 rounded-2xl border-t border-white/5">
                 <p class="text-white font-bold mb-4">${q.q}</p>
-                <div class="grid grid-cols-1 gap-3">
+                <div class="flex flex-col gap-2">
                     ${q.a.map((opt, oi) => `
-                        <label class="flex items-center gap-3 p-4 rounded-xl border border-white/5 hover:bg-white/5 cursor-pointer transition-colors group">
-                            <input type="radio" name="q${i}" value="${oi}" class="w-4 h-4 accent-blue-500">
-                            <span class="text-sm text-neutral-400 group-hover:text-white transition-colors">${opt}</span>
+                        <label class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 cursor-pointer border border-transparent hover:border-white/10 transition-all">
+                            <input type="radio" name="q${i}" value="${oi}" class="accent-blue-500">
+                            <span class="text-sm text-neutral-400">${opt}</span>
                         </label>
                     `).join('')}
                 </div>
@@ -298,10 +198,11 @@
             if (selected && parseInt(selected.value) === q.correct) correct++;
         });
 
-        const wordCount = currentPassage.text.split(/\s+/).length;
         const rawWpm = Math.round((wordCount / window.readingTime) * 60);
         const accuracy = (correct / currentPassage.questions.length);
-        const effectiveWpm = Math.round(rawWpm * accuracy);
+        
+        let effectiveWpm = Math.round(rawWpm * accuracy);
+        if (accuracy < 0.5) effectiveWpm = Math.round(effectiveWpm * 0.5);
 
         document.getElementById('quiz-area').classList.add('hidden');
         document.getElementById('result-area').classList.remove('hidden');
@@ -311,18 +212,15 @@
         document.getElementById('effective-wpm').innerText = effectiveWpm;
 
         let tier, desc;
-        if (effectiveWpm < 85) {
+        if (effectiveWpm < 100) {
             tier = "Developing Fluency";
-            desc = "Your processing speed suggests 'sub-vocalizing' (translating word-by-word). You will likely struggle with the 'Structural Strain' of live university lectures. Focus on high-frequency phrase recognition.";
-        } else if (effectiveWpm < 135) {
-            tier = "Functional Fluency";
-            desc = "Good operational speed for daily social contexts. However, your academic processing may bottleneck during complex input. Practice 'Serial Reading' to bridge the gap to university-level stamina.";
-        } else if (effectiveWpm < 180) {
-            tier = "Academic Proficient";
-            desc = "Excellent processing speed. You demonstrate the 'Linguistic Defense' needed to engage in high-level discussions. You are ready for unadapted academic texts and rapid-fire discourse.";
+            desc = "Your score reflects a word-by-word decoding stage. Focus on building high-frequency vocabulary to reduce structural strain.";
+        } else if (effectiveWpm < 160) {
+            tier = "Functional Proficiency";
+            desc = "Good operational speed. You can handle standard academic content, though complex abstract texts may still cause bottlenecks.";
         } else {
-            tier = "Near-Native Mastery";
-            desc = "Exceptional processing. Your reading-to-comprehension ratio is equivalent to an educated native speaker. You can handle dense professional or literary content with ease.";
+            tier = "Academic Mastery";
+            desc = "Exceptional processing. Your reading speed and comprehension levels are equivalent to high-performing university-ready students.";
         }
         
         document.getElementById('tier-label').innerText = tier;
