@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESL Reading Speed Test - WPM Fluency Lab | Academic ESL Hub</title>
+    <title>WPM Fluency Lab | Academic ESL Hub</title>
     <meta name="description" content="Professional ESL Reading Speed and Fluency Diagnostic. Measure your Effective WPM and academic processing speed across three levels.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -17,14 +17,19 @@
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         ::selection { background: #3b82f6; color: white; }
+        .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
+        .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</h1>
-        <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase">Fluency Diagnostic v1.2.5</span>
+        <div class="flex items-center gap-6">
+            <h1 class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</h1>
+            <a href="index.html" class="hidden md:block text-[10px] font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">← Back to Score Matrix</a>
+        </div>
+        <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase">Fluency Diagnostic v1.2.6</span>
     </div>
 </header>
 
@@ -37,17 +42,17 @@
         <div class="grid md:grid-cols-3 gap-6">
             <button onclick="startTest('foundational')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">A2 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500">Foundational</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Foundational</h3>
                 <p class="text-neutral-500 text-xs mt-4">Everyday narratives and university life topics.</p>
             </button>
             <button onclick="startTest('academic')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">B1-B2 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500">Intermediate</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Intermediate</h3>
                 <p class="text-neutral-500 text-xs mt-4">Standard academic articles (Social Science/Tech).</p>
             </button>
             <button onclick="startTest('advanced')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">C1+ Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500">Advanced</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Advanced</h3>
                 <p class="text-neutral-500 text-xs mt-4">Dense scholarly texts and complex abstract theory.</p>
             </button>
         </div>
@@ -69,7 +74,7 @@
     </div>
 
     <div id="result-area" class="hidden animate-in">
-        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600">
+        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 mb-12">
             <div class="grid md:grid-cols-3 gap-8 text-center md:text-left mb-8">
                 <div>
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Raw Speed</p>
@@ -92,14 +97,45 @@
                 <p id="tier-desc" class="text-neutral-500 text-sm leading-relaxed italic">--</p>
             </div>
         </div>
-        <div class="flex flex-col md:flex-row justify-between items-center mt-8 gap-4">
-            <button onclick="location.reload()" class="text-neutral-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-all underline">Try another level</button>
-            <p class="text-[10px] text-neutral-700 italic uppercase font-bold">Linguistic Data Integrity Protected</p>
+
+        <div class="pt-12 border-t border-white/5">
+            <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6">Continue Diagnostic Suite</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="index.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
+                    <div>
+                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic">Score Matrix</h4>
+                        <p class="text-neutral-500 text-xs">Return to global score conversion (IELTS/TOEFL).</p>
+                    </div>
+                    <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
+                </a>
+                <button onclick="location.reload()" class="nav-card p-6 rounded-3xl flex items-center justify-between group text-left">
+                    <div>
+                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic">Retest Fluency</h4>
+                        <p class="text-neutral-500 text-xs">Run another diagnostic at a different level.</p>
+                    </div>
+                    <div class="text-blue-500 text-2xl group-hover:rotate-180 transition-transform">↻</div>
+                </button>
+            </div>
         </div>
     </div>
 </main>
 
+<footer class="mt-24 border-t border-white/5 py-12 px-6">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16">
+        <div>
+            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4">DirectorLabs HQ / PhD Standards</p>
+            <p class="text-neutral-500 text-[11px] leading-relaxed italic">
+                Linguistic Data Integrity protected. This tool is part of the Academic ESL Hub suite for precision performance tracking.
+            </p>
+        </div>
+        <div class="flex justify-between items-center opacity-40">
+            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">ISO Protocol 2026.1</span>
+        </div>
+    </div>
+</footer>
+
 <script>
+    // [PASSAGE DATA OBJECT]
     const data = {
         foundational: [
             { text: "Hi, my name is Ji-hyun. This is my third semester in university. I live off campus in a small studio apartment. Last year, I lived on campus in the dormitory. I have a part-time job as a clerk in a convenience store near campus. I had a roommate last year, but now I live alone. My friend Katarina is a new student here and her major is economics. We like to meet for lunch in the cafeteria. The food there is cheap and delicious.", questions: [{q:"Where does Ji-hyun live now?", a:["Dormitory","Studio apartment","At home"], correct:1}, {q:"What is her job?", a:["Clerk","Tutor","Cook"], correct:0}, {q:"Who is Katarina?", a:["Roommate","New student","Teacher"], correct:1}] },
