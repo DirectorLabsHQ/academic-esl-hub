@@ -3,199 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic ESL Hub | PhD-Verified Score Matrix</title>
+    <title>Academic ESL Hub | PhD-Verified Linguistic Diagnostics</title>
     
-    <meta name="description" content="Professional score conversion for IELTS, TOEFL, TOEIC, and OPIc. Developed by University Research Fellows for precise CEFR linguistic mapping.">
-    <meta name="keywords" content="IELTS to TOEFL, OPIc to IELTS, TOEIC to CEFR, English score converter, Academic ESL research">
+    <meta name="description" content="The professional standard for academic English diagnostics. Access our Score Matrix, WPM Fluency Lab, and CEFR Vocabulary Estimator. Informed by applied linguistics research.">
+    <meta name="keywords" content="Academic ESL, CEFR test, IELTS to TOEFL converter, Reading WPM test, Vocabulary estimator, English proficiency diagnostics">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', system-ui, sans-serif; }
-        .card-bg { background: #111; border: 1px solid #222; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card-bg:focus-within { border-color: #3b82f6; box-shadow: 0 0 25px rgba(59, 130, 246, 0.15); }
-        .tooltip { visibility: hidden; opacity: 0; transition: opacity 0.3s; }
-        .group:hover .tooltip { visibility: visible; opacity: 1; }
-        
-        @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-value { animation: countUp 0.5s ease-out forwards; }
-
-        .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
-        .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
+        .tool-card { background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .tool-card:hover { border-color: #3b82f6; transform: translateY(-8px); background: #111; }
+        .glow { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.15)); }
+        .path-badge { background: #3b82f6; color: white; padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: 900; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased">
+<body class="min-h-screen flex flex-col antialiased hero-gradient">
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</h1>
-        <div class="flex items-center gap-4">
-            <span class="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase hidden sm:block">Linguistic Data Engine v4.1</span>
-            <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</a>
+            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
+                <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Score Matrix</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Fluency Lab</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="text-[10px] font-black text-neutral-500 tracking-[0.3em] uppercase hidden sm:block">Research Suite v4.0</span>
+            <div class="h-2 w-2 rounded-full bg-blue-500 glow animate-pulse"></div>
         </div>
     </div>
 </header>
 
-<main class="flex-grow max-w-5xl mx-auto p-6 md:p-12 w-full">
-    <div class="mb-12">
-        <h2 class="text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">Score Matrix</h2>
-        <p class="text-neutral-400 text-sm max-w-2xl leading-relaxed italic">
-            A research-backed diagnostic for high-stakes English assessments. This tool utilizes <span class="text-blue-500">Precise Threshold Mapping</span> to align international standards.
+<main class="flex-grow">
+    <section class="max-w-6xl mx-auto px-6 pt-20 pb-24 text-center">
+        <h2 class="text-6xl md:text-8xl font-black text-white tracking-tighter mb-6 uppercase italic leading-none">
+            Precision <span class="text-blue-500 underline decoration-white/10">Diagnostics</span>
+        </h2>
+        <p class="text-neutral-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed italic mb-8">
+            Moving beyond gamified language apps. We provide <span class="text-white font-bold">research-grade signals</span> for high-stakes academic performance.
         </p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10">
-        <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="ielts" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">IELTS Band</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-2 bg-neutral-900 border border-neutral-800 text-[9px] rounded-lg mb-2 normal-case font-medium leading-tight text-white">
-                        Standardized 0–9.0 scale. Widely used for UK/AU/NZ and Canadian immigration.
-                    </div>
-                </span>
-            </div>
-            <input type="number" id="ielts" min="1" max="9" step="0.5" oninput="preciseSync('ielts')" placeholder="0.0" 
-                   class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
-        </div>
-
-        <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="toefl" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">TOEFL iBT</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-2 bg-neutral-900 border border-neutral-800 text-[9px] rounded-lg mb-2 normal-case font-medium text-white">
-                        Standardized 0–120 scale. Primarily required for US academic institutions.
-                    </div>
-                </span>
-            </div>
-            <input type="number" id="toefl" min="0" max="120" oninput="preciseSync('toefl')" placeholder="0" 
-                   class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
-        </div>
-
-        <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="toeic" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">TOEIC L&R</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-2 bg-neutral-900 border border-neutral-800 text-[9px] rounded-lg mb-2 normal-case font-medium text-white">
-                        Standardized 10–990 scale. Crucial for corporate recruitment in Korea/Japan.
-                    </div>
-                </span>
-            </div>
-            <input type="number" id="toeic" min="10" max="990" oninput="preciseSync('toeic')" placeholder="0" 
-                   class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
-        </div>
-
-        <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="opic" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">OPIc Level</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-2 bg-neutral-900 border border-neutral-800 text-[9px] rounded-lg mb-2 normal-case font-medium text-white">
-                        Oral Proficiency Interview by Computer. High-stakes for Samsung/LG employees.
-                    </div>
-                </span>
-            </div>
-            <select id="opic" onchange="preciseSync('opic')" class="w-full bg-transparent text-xl font-bold text-white outline-none h-[45px]">
-                <option value="" class="bg-black italic text-neutral-600">Level</option>
-                <option value="AL" class="bg-black">AL</option>
-                <option value="IH" class="bg-black">IH</option>
-                <option value="IM3" class="bg-black">IM3</option>
-                <option value="IM2" class="bg-black">IM2</option>
-                <option value="IM1" class="bg-black">IM1</option>
-                <option value="IL" class="bg-black">IL</option>
-            </select>
-        </div>
-    </div>
-
-    <div id="resultsCard" class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 flex flex-col md:flex-row items-center gap-12 opacity-30 transition-all duration-700 grayscale mb-12">
-        <div class="text-center md:text-left">
-            <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-4">CEFR Mastery Tier</p>
-            <div id="cefr" class="text-8xl font-black text-white tracking-tighter leading-none" aria-live="polite">--</div>
-        </div>
-        <div class="flex-grow">
-            <h4 class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Linguistic Profile</h4>
-            <p id="cefr-desc" class="text-neutral-500 text-sm leading-relaxed italic">
-                Awaiting input to generate your academic performance diagnostic.
+        
+        <div class="inline-flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-3 rounded-full mb-12">
+            <span class="text-blue-500 font-black text-[10px] uppercase tracking-widest italic">New here?</span>
+            <p class="text-neutral-300 text-xs font-bold uppercase tracking-tight">
+                Start with the <a href="wpm-lab.html" class="text-white underline hover:text-blue-400 transition-colors">WPM Fluency Lab</a> to benchmark your reading speed.
             </p>
         </div>
-    </div>
+    </section>
 
-    <div class="animate-in pt-12 border-t border-white/5">
-        <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6">Diagnostic Utilities</h3>
-        <div class="grid md:grid-cols-2 gap-6">
-            <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
+    <section class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <a href="wpm-lab.html" class="tool-card p-10 rounded-[2.5rem] flex flex-col justify-between group border-t-4 border-t-blue-600 shadow-2xl shadow-blue-900/10">
                 <div>
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="bg-blue-600 text-[8px] font-black px-2 py-0.5 rounded text-white uppercase tracking-tighter">New Utility</span>
-                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic">WPM Fluency Lab</h4>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em]">Utility 01</div>
+                        <span class="path-badge italic uppercase">Recommended Start</span>
                     </div>
-                    <p class="text-neutral-500 text-xs">Test your "Effective WPM" with PhD-level academic reading passages.</p>
+                    <h3 class="text-3xl font-black text-white mb-4 italic uppercase leading-none group-hover:text-blue-500 transition-colors">WPM<br>Fluency Lab</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed mb-8">Test your effective reading speed. Measures the balance between rapid word recognition and deep academic comprehension.</p>
                 </div>
-                <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
+                <div class="flex justify-between items-end">
+                    <span class="text-neutral-700 text-xs font-bold uppercase tracking-widest">Cognitive Speed</span>
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all text-white text-xl">→</div>
+                </div>
             </a>
 
-            <div class="nav-card p-6 rounded-3xl flex items-center justify-between opacity-40 grayscale pointer-events-none">
+            <a href="score-matrix.html" class="tool-card p-10 rounded-[2.5rem] flex flex-col justify-between group">
                 <div>
-                    <h4 class="text-white font-bold text-lg tracking-tight italic">CEFR Estimator</h4>
-                    <p class="text-neutral-500 text-xs">Diagnostic vocabulary check (Release Phase 2).</p>
+                    <div class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8">Utility 02</div>
+                    <h3 class="text-3xl font-black text-white mb-4 italic uppercase leading-none group-hover:text-blue-500 transition-colors">Score<br>Matrix</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed mb-8">Standardized conversion engine for IELTS, TOEFL, TOEIC, and OPIc. Map your current scores to the CEFR framework.</p>
                 </div>
-                <div class="text-neutral-700 text-2xl">🔒</div>
-            </div>
-        </div>
-    </div>
+                <div class="flex justify-between items-end">
+                    <span class="text-neutral-700 text-xs font-bold uppercase tracking-widest">Linguistic Mapping</span>
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all text-white text-xl">→</div>
+                </div>
+            </a>
 
-    <footer class="mt-24 border-t border-white/5 py-12">
-        <div class="grid md:grid-cols-2 gap-16">
-            <div>
-                <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4">DirectorLabs HQ / PhD Standards</p>
-                <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                    This matrix is maintained by a <span class="text-neutral-300">University Department Head (PhD)</span>. Based on 27 years of research in <strong>Adaptive Learning Systems</strong> and the <strong>Flipped Classroom</strong>. This tool provides standardized equivalencies for academic placement.
-                </p>
-            </div>
-            <div class="flex justify-between items-center opacity-40">
-                <button onclick="window.location.reload()" class="text-[10px] font-bold text-neutral-500 border border-neutral-800 px-6 py-2 rounded-full hover:text-white transition-all">Clear Session</button>
-                <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">ISO Protocol 2026.1</span>
-            </div>
+            <a href="vocab-estimator.html" class="tool-card p-10 rounded-[2.5rem] flex flex-col justify-between group">
+                <div>
+                    <div class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8">Utility 03</div>
+                    <h3 class="text-3xl font-black text-white mb-4 italic uppercase leading-none group-hover:text-blue-500 transition-colors">Lexical<br>Estimator</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed mb-8">A statistical self-reporting grid to estimate total headword count. Calibrated against the Academic Word List (AWL).</p>
+                </div>
+                <div class="flex justify-between items-end">
+                    <span class="text-neutral-700 text-xs font-bold uppercase tracking-widest">Lexical Density</span>
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all text-white text-xl">→</div>
+                </div>
+            </a>
+
         </div>
-    </footer>
+    </section>
 </main>
 
-<script>
-    const data = [
-        { cefr: "C2", ielts: 8.5, toefl: 115, toeic: 945, opic: "AL", desc: "Native-like precision. Can differentiate finer shades of meaning even in complex situations." },
-        { cefr: "C1", ielts: 7.5, toefl: 102, toeic: 940, opic: "AL", desc: "Advanced operational proficiency. Can use language flexibly for social, academic and professional purposes." },
-        { cefr: "B2", ielts: 6.5, toefl: 79,  toeic: 785, opic: "IH", desc: "Independent user. Can interact with a degree of fluency that makes regular interaction with native speakers possible." },
-        { cefr: "B1", ielts: 5.0, toefl: 46,  toeic: 550, opic: "IM3", desc: "Intermediate user. Can deal with most situations likely to arise while traveling or in a work environment." },
-        { cefr: "A2", ielts: 4.0, toefl: 32,  toeic: 225, opic: "IL", desc: "Basic user. Can communicate in simple and routine tasks requiring a simple and direct exchange of information." }
-    ];
+<footer class="mt-auto border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="text-center md:text-left">
+            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
+            <p class="text-neutral-500 text-[11px] leading-relaxed max-w-md italic">
+                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Diagnostic frameworks are informed by applied linguistics research and global ESL curriculum standards.</span>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-4">
+             <div class="flex gap-8 opacity-40">
+                <span class="text-[9px] text-neutral-500 font-bold uppercase tracking-widest underline underline-offset-4">Privacy</span>
+                <span class="text-[9px] text-neutral-500 font-bold uppercase tracking-widest underline underline-offset-4">Academic Standards</span>
+            </div>
+            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">© 2026 Academic ESL Hub</p>
+        </div>
+    </div>
+</footer>
 
-    function preciseSync(sourceId) {
-        const input = document.getElementById(sourceId);
-        const card = document.getElementById('resultsCard');
-        const cefrText = document.getElementById('cefr');
-        let val = (sourceId === 'opic') ? input.value : parseFloat(input.value);
-
-        if (!val && val !== 0 && sourceId !== 'opic') {
-            card.classList.add('opacity-30', 'grayscale');
-            cefrText.innerText = '--';
-            return;
-        }
-
-        let bestMatch = data[0];
-        if (sourceId === 'opic') {
-            bestMatch = data.find(d => d.opic === val) || data[data.length-1];
-        } else {
-            bestMatch = data.find(d => val >= d[sourceId]) || data[data.length-1];
-        }
-
-        ['ielts', 'toefl', 'toeic', 'opic'].forEach(id => {
-            if (id !== sourceId) document.getElementById(id).value = bestMatch[id];
-        });
-
-        card.classList.remove('opacity-30', 'grayscale');
-        cefrText.innerText = bestMatch.cefr;
-        cefrText.classList.add('animate-value');
-        setTimeout(() => cefrText.classList.remove('animate-value'), 500);
-        document.getElementById('cefr-desc').innerText = bestMatch.desc;
-    }
-</script>
 </body>
 </html>
