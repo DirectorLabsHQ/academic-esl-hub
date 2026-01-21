@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEFR Vocabulary Estimator | Academic ESL Hub</title>
+    <title>CEFR Vocabulary Estimator | Academic English Word Count Tool</title>
     
-    <meta name="description" content="PhD-verified diagnostic for mapping English lexical range. Estimate your headword count and CEFR level using our self-reporting lexical grid.">
-    <meta name="keywords" content="CEFR vocabulary test, English word count, academic English diagnostic, IELTS vocabulary level, TOEFL prep tool">
+    <meta name="description" content="PhD-verified diagnostic for mapping English lexical range. Estimate your headword count and CEFR level using our self-reporting lexical grid. Optimized for IELTS and TOEFL preparation.">
+    <meta name="keywords" content="CEFR vocabulary test, English word count, academic English diagnostic, lexical range, Oxford 3000, Academic Word List">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -21,6 +21,7 @@
             border: 1px solid #222; 
             background: #0d0d0d;
         }
+        .checkbox-card:hover { border-color: #444; }
         .checkbox-card:has(input:checked) { 
             border-color: #3b82f6; 
             background: rgba(59, 130, 246, 0.05); 
@@ -29,6 +30,8 @@
         
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        ::selection { background: #3b82f6; color: white; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -41,11 +44,12 @@
                 <a href="index.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest">Home Hub</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Score Matrix</a>
                 <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Fluency Lab</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
+                <a href="about.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About the Research</a>
             </nav>
         </div>
         <div class="flex items-center gap-3">
-            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block">Diagnostic Suite v4.0</span>
+            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block italic uppercase">Diagnostic Suite v4.0</span>
             <div class="h-2 w-2 rounded-full bg-blue-500"></div>
         </div>
     </div>
@@ -64,7 +68,7 @@
         <div id="word-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-12">
             </div>
         
-        <button onclick="calculateVocab()" class="w-full bg-blue-600 text-white py-6 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl tracking-widest text-lg">Analyze Lexical Data</button>
+        <button onclick="calculateVocab()" class="w-full bg-blue-600 text-white py-6 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl tracking-widest text-lg italic">Analyze Lexical Data</button>
     </section>
 
     <section id="results-area" class="hidden animate-in">
@@ -72,7 +76,7 @@
             <div class="text-center md:text-left">
                 <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Estimated Range</p>
                 <div id="word-count" class="text-7xl font-black text-white tracking-tighter leading-none mb-2">--</div>
-                <span class="text-[10px] text-neutral-500 uppercase font-bold tracking-widest">Total Headwords</span>
+                <span class="text-[10px] text-neutral-500 uppercase font-bold tracking-widest italic">Total Headwords</span>
             </div>
             <div class="flex-grow">
                 <h4 id="vocab-tier" class="text-white font-bold mb-2 uppercase text-xs tracking-widest underline decoration-blue-500 underline-offset-8">--</h4>
@@ -87,17 +91,17 @@
         <div class="pt-12 border-t border-white/5">
             <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6">Cross-Diagnostic Suite</h3>
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="index.html" class="nav-card p-6 rounded-3xl group">
-                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2">Score Matrix</h4>
-                    <p class="text-neutral-500 text-xs">Verify your academic exam equivalents.</p>
+                <a href="score-matrix.html" class="nav-card p-6 rounded-3xl group">
+                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2 uppercase">Score Matrix</h4>
+                    <p class="text-neutral-500 text-xs italic">Verify your academic exam equivalents (IELTS/TOEFL).</p>
                 </a>
                 <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl group">
-                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2">WPM Fluency Lab</h4>
-                    <p class="text-neutral-500 text-xs">Check processing speed and accuracy.</p>
+                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2 uppercase">WPM Fluency Lab</h4>
+                    <p class="text-neutral-500 text-xs italic">Check processing speed and academic accuracy.</p>
                 </a>
                 <button onclick="location.reload()" class="nav-card p-6 rounded-3xl group text-left">
-                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2">Recalibrate</h4>
-                    <p class="text-neutral-500 text-xs">Refresh the lexical grid.</p>
+                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2 uppercase">Recalibrate</h4>
+                    <p class="text-neutral-500 text-xs italic">Refresh the lexical grid for a new session.</p>
                 </button>
             </div>
         </div>
@@ -108,41 +112,42 @@
 <footer class="mt-24 border-t border-white/5 py-12 px-6">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
         <div>
-            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
+            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic uppercase">DirectorLabs HQ / ISO 2026.1 Protocol</p>
             <p class="text-neutral-500 text-[11px] leading-relaxed italic">
                 A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Diagnostic frameworks and lexical mapping are informed by applied linguistics research and global ESL curriculum standards (Oxford 3000/5000 and AWL).</span>
             </p>
         </div>
         <div class="flex md:justify-end items-center opacity-40">
-            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
+            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic uppercase">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
         </div>
     </div>
 </footer>
 
 <script>
     const wordPool = [
-        // Foundational (A1-A2)
+        // A1-A2
         { w: "Always", val: 180 }, { w: "Begin", val: 180 }, { w: "Simple", val: 180 }, { w: "Travel", val: 180 }, { w: "Village", val: 180 },
         { w: "Follow", val: 180 }, { w: "Kitchen", val: 180 }, { w: "Market", val: 180 }, { w: "Quiet", val: 180 }, { w: "Study", val: 180 },
-        // Intermediate (B1-B2)
+        // B1-B2
         { w: "Consequence", val: 350 }, { w: "Estimate", val: 350 }, { w: "Internal", val: 350 }, { w: "Maintain", val: 350 }, { w: "Perspective", val: 350 },
         { w: "Relevant", val: 350 }, { w: "Strategy", val: 350 }, { w: "Transfer", val: 350 }, { w: "Variable", val: 350 }, { w: "Welfare", val: 350 },
         { w: "Advocate", val: 450 }, { w: "Contrary", val: 450 }, { w: "Dynamic", val: 450 }, { w: "Extract", val: 450 }, { w: "Finite", val: 450 },
-        // Advanced (C1 - Academic Word List Focus)
+        // C1
         { w: "Ambiguous", val: 650 }, { w: "Cognitive", val: 650 }, { w: "Empirical", val: 650 }, { w: "Hierarchy", val: 650 }, { w: "Inherent", val: 650 },
         { w: "Paradigm", val: 700 }, { w: "Quantitative", val: 700 }, { w: "Rhetoric", val: 700 }, { w: "Synthesize", val: 700 }, { w: "Validate", val: 700 },
         { w: "Aesthetic", val: 800 }, { w: "Correlation", val: 800 }, { w: "Hypothesis", val: 800 }, { w: "Juxtapose", val: 800 }, { w: "Metaphor", val: 800 },
-        // Mastery (C2)
+        // C2
         { w: "Anachronism", val: 1200 }, { w: "Epitome", val: 1200 }, { w: "Ineffable", val: 1200 }, { w: "Pragmatic", val: 1200 }, { w: "Ubiquitous", val: 1200 },
         { w: "Ameliorate", val: 1400 }, { w: "Esoteric", val: 1400 }, { w: "Pervasive", val: 1400 }, { w: "Sycophant", val: 1400 }, { w: "Zealous", val: 1400 }
     ];
 
     const grid = document.getElementById('word-grid');
-    wordPool.sort(() => Math.random() - 0.5).forEach((item, index) => {
+    // Randomize order for less bias
+    [...wordPool].sort(() => Math.random() - 0.5).forEach((item) => {
         grid.innerHTML += `
             <label class="checkbox-card p-4 rounded-xl cursor-pointer group flex items-center gap-3">
                 <input type="checkbox" value="${item.val}" class="w-4 h-4 accent-blue-600 rounded">
-                <div class="text-[11px] font-bold text-neutral-500 uppercase tracking-tight transition-colors group-hover:text-blue-400">${item.w}</div>
+                <div class="text-[11px] font-bold text-neutral-500 uppercase tracking-tight transition-colors group-hover:text-blue-400 italic">${item.w}</div>
             </label>
         `;
     });
@@ -150,17 +155,15 @@
     function calculateVocab() {
         const checked = document.querySelectorAll('input[type="checkbox"]:checked');
         if (checked.length === 0) {
-            alert("Please select at least a few words to generate a diagnostic.");
+            alert("Please select the words you know to generate a projection.");
             return;
         }
 
         let estimatedTotal = 0;
-        checked.forEach(cb => {
-            estimatedTotal += parseInt(cb.value);
-        });
+        checked.forEach(cb => { estimatedTotal += parseInt(cb.value); });
 
-        // Refined formula: Base floor (500) + weighted selections
-        const finalCount = 500 + (estimatedTotal * 0.95);
+        // Normalization for the pool size (50 words sample represents a larger corpus)
+        const finalCount = 800 + (estimatedTotal * 0.98);
         
         document.getElementById('test-area').classList.add('hidden');
         document.getElementById('results-area').classList.remove('hidden');
@@ -171,16 +174,16 @@
         let tier, desc;
         if (finalCount < 3000) {
             tier = "CEFR A2: Foundational Lexis";
-            desc = "Your vocabulary covers essential daily interactions. To move toward academic proficiency, begin focusing on the 'Oxford 3000' core list.";
+            desc = "Your vocabulary covers essential daily interactions. To move toward academic proficiency, begin focusing on the 'Oxford 3000' core list and basic noun-verb collocations.";
         } else if (finalCount < 5500) {
             tier = "CEFR B1/B2: Independent Academic";
-            desc = "You have a strong functional grasp. You are ready for standard university lectures but may face 'lexical bottlenecks' in highly technical research papers.";
+            desc = "You have a strong functional grasp. You are ready for standard university lectures but may face 'lexical bottlenecks' when encountering highly specialized research papers.";
         } else if (finalCount < 8500) {
             tier = "CEFR C1: Advanced Operational";
-            desc = "High lexical density. You can recognize nuanced shades of meaning and possess the 'Academic Word List' range required for postgraduate study.";
+            desc = "High lexical density. You can recognize nuanced shades of meaning and possess the 'Academic Word List' range required for postgraduate study and complex debate.";
         } else {
             tier = "CEFR C2: Mastery / Near-Native";
-            desc = "Exceptional lexical breadth. You are capable of navigating complex abstract theory and sophisticated literary devices with native-like ease.";
+            desc = "Exceptional lexical breadth. You are capable of navigating complex abstract theory, sophisticated literary devices, and dense academic jargon with native-like ease.";
         }
 
         document.getElementById('vocab-tier').innerText = tier;
