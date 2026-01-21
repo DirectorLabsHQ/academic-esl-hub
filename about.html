@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Framework | Academic ESL Hub Methodology</title>
+    
+    <meta name="description" content="Technical overview of the Academic ESL Hub diagnostic framework for IELTS, TOEFL, and CEFR-based academic English. Developed for high-stakes university placement.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .card-bg { background: #111; border: 1px solid #1a1a1a; }
+        .accent-border { border-left: 4px solid #3b82f6; }
+        .nav-link { font-size: 12px; font-weight: 700; color: #737373; transition: all 0.2s; }
+        .nav-link:hover { color: white; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</a>
+            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
+                <a href="index.html" class="nav-link uppercase tracking-widest">Home Hub</a>
+                <a href="score-matrix.html" class="nav-link uppercase tracking-widest">Score Matrix</a>
+                <a href="wpm-lab.html" class="nav-link uppercase tracking-widest">Fluency Lab</a>
+                <a href="vocab-estimator.html" class="nav-link uppercase tracking-widest">Vocab Estimator</a>
+            </nav>
+        </div>
+        <span class="text-[9px] font-black text-neutral-500 tracking-[0.3em] uppercase">Technical Briefing</span>
+    </div>
+</header>
+
+<main class="flex-grow max-w-4xl mx-auto p-6 md:p-16 w-full">
+    
+    <header class="mb-20">
+        <h2 class="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6 uppercase italic leading-none">The<br>Framework</h2>
+        <div class="h-1 w-24 bg-blue-600 mb-8"></div>
+        <p class="text-xl text-neutral-400 italic leading-relaxed">
+            Standardizing the path to academic fluency through specialized diagnostics and lexical mapping.
+        </p>
+    </header>
+
+    <section class="space-y-12">
+        <div class="accent-border pl-8">
+            <h3 class="text-xs font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Origin & Intent</h3>
+            <p class="text-neutral-300 leading-relaxed italic mb-4">
+                The Academic ESL Hub was developed to bridge the gap between "conversational English" and the rigorous demands of university-level research. Most digital tools are designed for general learners; we focus exclusively on the high-stakes needs of adult students and professionals.
+            </p>
+            <p class="text-neutral-500 text-sm leading-relaxed italic border-b border-white/5 pb-8">
+                <strong>Each diagnostic tool on this platform operationalizes one specific component of this framework</strong>, providing high-fidelity signals for academic readiness.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 py-4">
+            <div class="card-bg p-8 rounded-3xl">
+                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">01. Cognitive Fluency</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed italic">
+                    Reading is not just about recognition; it’s about processing speed. Our WPM Lab measures <strong>Effective Words Per Minute</strong>, a metric that accounts for comprehension degradation at high speeds.
+                </p>
+            </div>
+            <div class="card-bg p-8 rounded-3xl">
+                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">02. Lexical Density</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed italic">
+                    We map vocabulary against the <strong>Academic Word List (AWL)</strong>. For high-performing students, the goal isn't just "more" words, but the specific abstract vocabulary required for peer-reviewed journals.
+                </p>
+            </div>
+        </div>
+
+        <article class="bg-white/5 p-10 rounded-[2.5rem] border border-white/10">
+            <h3 class="text-white font-black text-xl mb-6 italic uppercase tracking-tight">Applied Standards</h3>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <span class="text-blue-500 font-bold min-w-[60px]">CEFR:</span>
+                    <p class="text-neutral-400 text-sm italic">All diagnostics map to the Common European Framework of Reference for Languages, the global benchmark for language proficiency.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-blue-500 font-bold min-w-[60px]">AWL:</span>
+                    <p class="text-neutral-400 text-sm italic">The Academic Word List (Averil Coxhead) informs our Lexical Estimator, prioritizing words like <em>paradigm, empirical,</em> and <em>validation.</em></p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-blue-500 font-bold min-w-[60px]">ISO:</span>
+                    <p class="text-neutral-400 text-sm italic">Our 2026.1 Internal Protocol ensures that calculations for Score Matrix conversions remain synchronized with current IELTS and TOEFL iBT scaling.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <div class="mt-20 text-center">
+        <a href="index.html" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-black uppercase tracking-widest hover:bg-blue-500 transition-all shadow-2xl shadow-blue-900/20">Return to Hub</a>
+    </div>
+
+</main>
+
+<footer class="mt-24 border-t border-white/5 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-40">
+        <span class="text-[9px] font-bold uppercase tracking-[0.4em]">Academic ESL Hub • 2026</span>
+        <span class="text-[9px] font-bold uppercase tracking-[0.4em]">Non-Affiliated Diagnostic Research</span>
+    </div>
+</footer>
+
+</body>
+</html>
