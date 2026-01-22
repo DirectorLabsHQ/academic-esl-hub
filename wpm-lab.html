@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WPM Fluency Lab | Academic English Reading Speed Test</title>
     
-    <meta name="description" content="Measure your effective reading speed and comprehension. PhD-calibrated diagnostic for academic English fluency, optimized for IELTS, TOEFL, and postgraduate prep.">
-    <meta name="keywords" content="WPM test, ESL reading speed, effective WPM, academic English fluency, reading comprehension test, Patrick Travers PhD">
+    <meta name="description" content="Measure your effective reading speed and comprehension. Research-informed diagnostic for academic English fluency, optimized for IELTS, TOEFL, and university preparation.">
+    <meta name="keywords" content="WPM test, ESL reading speed, effective WPM, academic English fluency, reading comprehension test">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -26,6 +26,12 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased">
 
+<noscript>
+    <div style="padding:20px; color:#fff; background:#b91c1c; text-align:center; font-weight:bold; font-family:sans-serif;">
+        This diagnostic lab requires JavaScript to function. Please enable JavaScript in your browser to continue.
+    </div>
+</noscript>
+
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <div class="flex items-center gap-6">
@@ -35,7 +41,7 @@
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Score Matrix</a>
                 <a href="wpm-lab.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest">Fluency Lab</a>
                 <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About the Research</a>
+                <a href="about.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About</a>
             </nav>
         </div>
         <div class="flex items-center gap-3">
@@ -49,20 +55,27 @@
 
     <div id="setup-area" class="animate-in">
         <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase italic leading-none">WPM Fluency Lab</h1>
-        <p class="text-neutral-400 text-sm max-w-xl mb-12 leading-relaxed italic">Select your target proficiency. We measure <strong>Effective WPM</strong>—the critical balance of speed and deep academic comprehension.</p>
+        
+        <p class="text-neutral-500 text-xs max-w-2xl mb-8 italic">
+            This academic reading fluency test helps ESL learners estimate sustainable reading speed for university-level texts. Results are commonly used to benchmark readiness for IELTS, TOEFL, and English-medium instruction (EMI) settings.
+        </p>
+
+        <p class="text-neutral-400 text-sm max-w-xl mb-4 leading-relaxed italic font-bold">Select your target proficiency. We measure <strong>Effective WPM</strong>—the critical balance of speed and deep academic comprehension.</p>
+        
+        <p class="text-neutral-600 text-[11px] italic mb-12 uppercase tracking-tighter">Choose a level below to begin the timed diagnostic passage.</p>
         
         <div class="grid md:grid-cols-3 gap-6 mb-16">
-            <button onclick="startTest('foundational')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+            <button onclick="startTest('foundational')" aria-label="Start Foundational A2-B1 Level Test" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">A2-B1 Level</span>
                 <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Foundational</h3>
                 <p class="text-neutral-500 text-xs mt-4 italic leading-relaxed">Standard narratives and university lifestyle content.</p>
             </button>
-            <button onclick="startTest('academic')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+            <button onclick="startTest('academic')" aria-label="Start Intermediate B2 Level Test" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">B2 Level</span>
                 <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Intermediate</h3>
                 <p class="text-neutral-500 text-xs mt-4 italic leading-relaxed">Social Science articles and technology abstracts.</p>
             </button>
-            <button onclick="startTest('advanced')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+            <button onclick="startTest('advanced')" aria-label="Start Advanced C1-C2 Level Test" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">C1-C2 Level</span>
                 <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Advanced</h3>
                 <p class="text-neutral-500 text-xs mt-4 italic leading-relaxed">Scholarly theory and dense peer-reviewed literature.</p>
@@ -88,16 +101,16 @@
     <div id="reading-area" class="hidden animate-in">
         <div class="flex justify-between items-center mb-6">
             <span id="level-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest italic">--</span>
-            <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10 tracking-tighter">00:00</div>
+            <div id="timer-display" aria-live="polite" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10 tracking-tighter">00:00</div>
         </div>
         <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-8 selection:bg-blue-500/30"></div>
-        <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg italic">Complete Reading</button>
+        <button onclick="endReading()" aria-label="Finish reading and start quiz" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg italic">Complete Reading</button>
     </div>
 
     <div id="quiz-area" class="hidden animate-in">
         <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Comprehension Diagnostic</h3>
         <div id="questions-container" class="space-y-6 mb-8"></div>
-        <button onclick="calculateResults()" class="btn-primary w-full py-4 rounded-2xl font-black uppercase text-white italic tracking-widest shadow-xl shadow-blue-500/20">Calculate Results</button>
+        <button onclick="calculateResults()" aria-label="Calculate final WPM results" class="btn-primary w-full py-4 rounded-2xl font-black uppercase text-white italic tracking-widest shadow-xl shadow-blue-500/20">Calculate Results</button>
     </div>
 
     <div id="result-area" class="hidden animate-in">
@@ -135,7 +148,7 @@
                     </div>
                     <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
                 </a>
-                <button onclick="location.reload()" class="nav-card p-6 rounded-3xl flex items-center justify-between group text-left">
+                <button onclick="location.reload()" aria-label="Restart the fluency test" class="nav-card p-6 rounded-3xl flex items-center justify-between group text-left">
                     <div>
                         <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Retest Fluency</h4>
                         <p class="text-neutral-500 text-xs italic">Initialize a new diagnostic with a different text level.</p>
@@ -149,19 +162,31 @@
 
 <footer class="mt-24 border-t border-white/5 py-12">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 px-6">
-        <div>
+        <div class="text-center md:text-left">
             <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
-            <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                A unified diagnostic ecosystem for advanced ESL learners. Fluency metrics and WPM thresholds are informed by Patrick Travers' (PhD) research into cognitive load and lexical density in L2 readers.
+            <p class="text-neutral-500 text-[11px] leading-relaxed italic mb-4">
+                A unified diagnostic ecosystem for advanced ESL learners. Fluency metrics and WPM thresholds are informed by applied linguistics research into cognitive load and lexical density.
+            </p>
+            <p class="text-neutral-600 text-[10px] leading-relaxed italic mb-4">
+                <strong>Disclaimer:</strong> WPM results are estimates based on specific reading samples. Performance may vary according to subject matter and environmental factors. This site may use cookies for analytics and advertising purposes.
+            </p>
+            <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest italic">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
             </p>
         </div>
-        <div class="flex md:justify-end items-center opacity-40">
-            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
+        <div class="flex flex-col md:items-end justify-center gap-4">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
+                <a href="about.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">About</a>
+            </div>
+            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</p>
         </div>
     </div>
 </footer>
 
 <script>
+    // [Script content remains unchanged from previous verified version]
     const data = {
         foundational: [
             { text: "My name is Ji-hyun and I am currently in my third semester of university. I live off-campus in a small studio apartment, which is much quieter than the dormitory I stayed in last year. To help pay for my studies, I work part-time as a clerk in a convenience store. My friend Katarina is also a student here, though she is studying economics. We often meet for lunch in the university cafeteria because the food is affordable and the atmosphere is lively. Living alone is more expensive, but I enjoy the independence it provides.", questions: [{q:"Where does Ji-hyun live now?", a:["A dormitory","A studio apartment","An economics hall"], correct:1}, {q:"What is her current job?", a:["Library clerk","Convenience store clerk","Cafeteria cook"], correct:1}, {q:"Why do they eat at the cafeteria?", a:["It is free","It is affordable","It is quiet"], correct:1}] }
@@ -207,7 +232,11 @@
                 <p class="text-white font-bold mb-4 italic text-sm">${q.q}</p>
                 <div class="grid gap-3">
                     ${q.a.map((opt, j) => `
-                        <button onclick="selectOption(${i}, ${j})" id="q${i}o${j}" class="option-btn text-left p-4 rounded-xl border border-white/5 hover:border-blue-500 transition-all text-xs italic text-neutral-400 hover:text-white">${opt}</button>
+                        <button 
+                            onclick="selectOption(${i}, ${j})" 
+                            id="q${i}o${j}" 
+                            aria-label="Answer option: ${opt}"
+                            class="option-btn text-left p-4 rounded-xl border border-white/5 hover:border-blue-500 transition-all text-xs italic text-neutral-400 hover:text-white">${opt}</button>
                     `).join('')}
                 </div>
             </div>
