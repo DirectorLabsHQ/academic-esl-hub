@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPM Fluency Lab | ESL Academic Reading Speed Diagnostic</title>
+    <title>CEFR Lexical Estimator | English Vocabulary Size Test</title>
     
-    <meta name="description" content="A research-informed diagnostic lab to measure English reading speed and comprehension. Calibrated for IELTS, TOEFL, and high-level academic processing.">
-    <meta name="keywords" content="WPM test, ESL reading speed, effective WPM, academic English fluency, reading comprehension test">
+    <meta name="description" content="Calculate your English vocabulary size and CEFR level. A research-informed diagnostic tool to measure lexical range for IELTS, TOEFL, and university readiness.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -14,23 +13,15 @@
         body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
         .card-bg { background: #111; border: 1px solid #222; }
         .hidden { display: none; }
-        .btn-primary { background: #3b82f6; transition: all 0.3s; }
-        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
-        .reading-text { line-height: 1.8; color: #d1d1d1; }
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        ::selection { background: #3b82f6; color: white; }
+        .word-chip { transition: all 0.2s; border: 1px solid #222; }
+        .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
         .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
         .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
-
-<noscript>
-    <div style="padding:20px; color:#fff; background:#b91c1c; text-align:center; font-weight:bold; font-family:sans-serif;">
-        This diagnostic lab requires JavaScript to function. Please enable JavaScript in your browser to continue.
-    </div>
-</noscript>
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -39,256 +30,209 @@
             <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
                 <a href="index.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest">Home Hub</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest">Fluency Lab</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Fluency Lab</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
             </nav>
         </div>
-        <div class="flex items-center gap-3">
-            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block italic">Diagnostic Suite v4.0</span>
-            <div class="h-2 w-2 rounded-full bg-blue-500"></div>
-        </div>
+        <div class="h-2 w-2 rounded-full bg-blue-500"></div>
     </div>
 </header>
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
-    <div id="setup-area" class="animate-in">
-        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase italic leading-none">WPM Fluency Lab</h1>
+    <div id="intro-area" class="animate-in">
+        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase italic leading-none">Lexical Estimator</h1>
         
         <p class="text-neutral-500 text-xs max-w-2xl mb-8 italic">
-            This academic reading fluency test helps ESL learners estimate sustainable reading speed for university-level texts. Results are commonly used to benchmark readiness for IELTS, TOEFL, and English-medium instruction (EMI) settings.
+            This CEFR-aligned vocabulary estimator calculates your active English word knowledge. By sampling lexical frequency bands, we estimate your total headword count and academic readiness.
         </p>
 
-        <p class="text-neutral-400 text-sm max-w-xl mb-4 leading-relaxed italic">Select your target proficiency. We measure <strong>Effective WPM</strong>—the critical balance of speed and deep academic comprehension.</p>
-        
-        <p class="text-neutral-600 text-[11px] italic mb-12 uppercase tracking-tighter">Choose a level below to begin the timed diagnostic passage.</p>
-        
-        <div class="grid md:grid-cols-3 gap-6 mb-16">
-            <button onclick="startTest('foundational')" aria-label="Start Foundational A2-B1 Level Test" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
-                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">A2-B1 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Foundational</h3>
-                <p class="text-neutral-500 text-xs mt-4 italic leading-relaxed">Standard narratives and university lifestyle content.</p>
-            </button>
-            <button onclick="startTest('academic')" aria-label="Start Intermediate B2 Level Test" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
-                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">B2 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Intermediate</h3>
-                <p class="text-neutral-500 text-xs mt-4 italic leading-relaxed">Social Science articles and technology abstracts.</p>
-            </button>
-            <button onclick="startTest('advanced')" aria-label="Start Advanced C1-C2 Level Test" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
-                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">C1-C2 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Advanced</h3>
-                <p class="text-neutral-500 text-xs mt-4 italic leading-relaxed">Scholarly theory and dense peer-reviewed literature.</p>
-            </button>
+        <div class="card-bg p-8 rounded-[2rem] mb-12">
+            <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Diagnostic Methodology</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6 italic">
+                You will be presented with several word lists ranging from common everyday terms (A1) to rare academic jargon (C2). Simply click the words you <strong>confidently know</strong>. Please be honest; over-reporting will result in an inaccurate profile.
+            </p>
+            <button onclick="startVocabTest()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl uppercase italic transition-all">Begin Diagnostic</button>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16">
-            <div>
-                <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Understanding Effective WPM</h2>
-                <p class="text-neutral-400 text-sm leading-relaxed mb-4 italic">
-                    Reading speed alone is a poor metric for academic success. Our "Effective WPM" algorithm correlates raw reading velocity with accuracy. This reflects the <strong>Postgraduate Standard</strong>: the ability to process dense syntactic structures without sacrificing information retention.
-                </p>
-            </div>
-            <div>
-                <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Diagnostic Framework</h2>
-                <p class="text-neutral-400 text-sm leading-relaxed mb-4 italic">
-                    By simulating high-stakes environments like the IELTS or TOEFL reading sections, students can measure their <strong>Sustainable Speed</strong>. This identifies the threshold where cognitive load begins to degrade comprehension.
-                </p>
-            </div>
+        <div class="border-t border-white/5 pt-8">
+            <h3 class="text-xs font-black text-neutral-500 uppercase tracking-widest mb-4">Academic Interpretation</h3>
+            <p class="text-neutral-500 text-xs leading-relaxed italic mb-4">
+                Universities typically require a minimum vocabulary of 4,000 to 5,000 words (B2 level) for undergraduate entry. For postgraduate research, a lexical range exceeding 8,000 words (C1 level) is recommended to ensure the ability to process complex theoretical literature and peer-reviewed journals.
+            </p>
         </div>
     </div>
 
-    <div id="reading-area" class="hidden animate-in">
-        <div class="flex justify-between items-center mb-6">
-            <span id="level-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest italic">--</span>
-            <div id="timer-display" aria-live="polite" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10 tracking-tighter">00:00</div>
+    <div id="test-area" class="hidden animate-in">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <span id="step-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest italic">Tier 1 of 3</span>
+                <h2 id="tier-title" class="text-2xl font-black text-white uppercase italic">Foundational Lexis</h2>
+            </div>
+            <div class="text-right">
+                <span id="word-counter" class="text-xs font-bold text-neutral-500 italic">Words Selected: 0</span>
+            </div>
         </div>
-        <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-8 selection:bg-blue-500/30"></div>
-        <button onclick="endReading()" aria-label="Finish reading and start quiz" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg italic">Complete Reading</button>
-    </div>
 
-    <div id="quiz-area" class="hidden animate-in">
-        <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Comprehension Diagnostic</h3>
-        <div id="questions-container" class="space-y-6 mb-8"></div>
-        <button onclick="calculateResults()" aria-label="Calculate final WPM results" class="btn-primary w-full py-4 rounded-2xl font-black uppercase text-white italic tracking-widest shadow-xl shadow-blue-500/20">Calculate Results</button>
+        <div id="word-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+            </div>
+
+        <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase italic transition-all">Next Tier</button>
     </div>
 
     <div id="result-area" class="hidden animate-in">
-        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 mb-12">
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left mb-8">
+        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 mb-6 text-center md:text-left">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Raw Speed</p>
-                    <div id="raw-wpm" class="text-5xl font-black text-white italic">--</div>
-                    <span class="text-[9px] text-neutral-500 uppercase">Words / Minute</span>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Estimated Vocabulary</p>
+                    <div id="total-words" class="text-7xl font-black text-white italic tracking-tighter">--</div>
+                    <span class="text-blue-500 font-bold uppercase text-[10px] italic tracking-widest">Active English Headwords</span>
                 </div>
-                <div>
-                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Accuracy</p>
-                    <div id="accuracy-pct" class="text-5xl font-black text-white italic">--</div>
-                    <span class="text-[9px] text-neutral-500 uppercase">Retention Rate</span>
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/5">
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Equivalent Level</p>
+                    <div id="cefr-level" class="text-5xl font-black text-blue-500 italic">--</div>
+                    <p id="cefr-desc" class="text-[11px] text-neutral-400 mt-2 italic leading-relaxed">--</p>
                 </div>
-                <div>
-                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1 italic">Effective WPM</p>
-                    <div id="effective-wpm" class="text-5xl font-black text-blue-500 underline decoration-blue-500/30">--</div>
-                    <span class="text-[9px] text-blue-500 font-bold uppercase italic">Sustainable Velocity</span>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-white/5">
-                <h4 id="tier-label" class="text-white font-bold mb-2 uppercase text-xs tracking-widest underline decoration-blue-500 underline-offset-8">Assessment Profile</h4>
-                <p id="tier-desc" class="text-neutral-400 text-sm leading-relaxed italic mt-4">--</p>
             </div>
         </div>
+        
+        <p class="text-center text-[10px] text-neutral-600 italic mb-12 uppercase tracking-tighter">
+            Estimates are approximate and intended for educational self-assessment only.
+        </p>
 
-        <div class="pt-12 border-t border-white/5">
-            <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6 italic">Continue Research Diagnostic</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="score-matrix.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
-                    <div>
-                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Score Matrix</h4>
-                        <p class="text-neutral-500 text-xs italic">Map your results to IELTS, TOEFL, or CEFR tiers.</p>
-                    </div>
-                    <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
-                </a>
-                <button onclick="location.reload()" aria-label="Restart the fluency test" class="nav-card p-6 rounded-3xl flex items-center justify-between group text-left">
-                    <div>
-                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Retest Fluency</h4>
-                        <p class="text-neutral-500 text-xs italic">Initialize a new diagnostic with a different text level.</p>
-                    </div>
-                    <div class="text-blue-500 text-2xl group-hover:rotate-180 transition-transform">↻</div>
-                </button>
-            </div>
+        <div class="grid md:grid-cols-2 gap-6 pt-12 border-t border-white/5">
+            <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
+                <div>
+                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">WPM Fluency Lab</h4>
+                    <p class="text-neutral-500 text-xs italic">Test your reading speed with this vocabulary.</p>
+                </div>
+                <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
+            </a>
+            <a href="score-matrix.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
+                <div>
+                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Exam Matrix</h4>
+                    <p class="text-neutral-500 text-xs italic">Map results to IELTS, TOEFL, & CEFR.</p>
+                </div>
+                <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
+            </a>
         </div>
     </div>
 </main>
 
 <footer class="mt-24 border-t border-white/5 py-12">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 px-6">
-        <div class="text-center md:text-left">
-            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
-            <p class="text-neutral-500 text-[11px] leading-relaxed italic mb-4">
-                A unified diagnostic ecosystem for advanced ESL learners. Fluency metrics and WPM thresholds are informed by research into cognitive load and lexical density.
-            </p>
-            <p class="text-neutral-600 text-[10px] leading-relaxed italic mb-4">
-                <strong>Disclaimer:</strong> This site uses cookies and may display advertising provided by Google AdSense. WPM results are estimates based on specific reading samples. Performance varies by subject matter.
-            </p>
-            <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest italic">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
-            </p>
-        </div>
-        <div class="flex flex-col md:items-end justify-center gap-4">
-            <div class="flex gap-8">
-                <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
-                <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
-                <a href="about.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">About</a>
+    <div class="max-w-6xl mx-auto px-6 text-center md:text-left">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">Lexical Diagnostic / v2.1</p>
+                <p class="text-neutral-500 text-[11px] italic leading-relaxed mb-4">
+                    Diagnostic algorithms are based on word frequency distributions. Knowledge of specific headwords serves as a proxy for total lexical breadth.
+                </p>
+                <p class="text-neutral-600 text-[10px] italic">
+                    This site uses cookies and may display advertising provided by Google AdSense. 
+                    Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+                </p>
             </div>
-            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</p>
+            <div class="flex flex-col md:items-end justify-center gap-4">
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Privacy</a>
+                    <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Terms</a>
+                    <a href="about.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Research</a>
+                </div>
+                <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub</span>
+            </div>
         </div>
     </div>
 </footer>
 
 <script>
-    const data = {
-        foundational: [
-            { text: "My name is Ji-hyun and I am currently in my third semester of university. I live off-campus in a small studio apartment, which is much quieter than the dormitory I stayed in last year. To help pay for my studies, I work part-time as a clerk in a convenience store. My friend Katarina is also a student here, though she is studying economics. We often meet for lunch in the university cafeteria because the food is affordable and the atmosphere is lively. Living alone is more expensive, but I enjoy the independence it provides.", questions: [{q:"Where does Ji-hyun live now?", a:["A dormitory","A studio apartment","An economics hall"], correct:1}, {q:"What is her current job?", a:["Library clerk","Convenience store clerk","Cafeteria cook"], correct:1}, {q:"Why do they eat at the cafeteria?", a:["It is free","It is affordable","It is quiet"], correct:1}] }
-        ],
-        academic: [
-             { text: "Procrastination is often mischaracterized as simple laziness. However, psychological research suggests it is primarily an emotional regulation strategy. When faced with a task that triggers anxiety or self-doubt, the brain seeks immediate relief by switching to more pleasurable activities, like social media. While this provides short-term comfort, it creates a cycle of stress as deadlines approach. To combat this, experts suggest 'task-sharding,' which involves breaking projects into five-minute segments. This reduces the perceived threat and allows the brain to experience small dopamine releases from achievement.", questions: [{q:"What is the root cause of procrastination?", a:["Laziness","Emotional regulation","Poor scheduling"], correct:1}, {q:"What is the benefit of task-sharding?", a:["Faster completion","Reduced perceived threat","Better team collaboration"], correct:1}, {q:"What does the brain seek when avoiding a task?", a:["Dopamine from success","Immediate emotional relief","Physical rest"], correct:1}] }
-        ],
-        advanced: [
-            { text: "The proposal of the 'Anthropocene' as a new geological epoch suggests a fundamental shift in the relationship between human civilization and Earth systems. For centuries, the planet's geological forces were viewed as a static backdrop to human history. However, human activity—ranging from massive sediment mobilization in mining to the industrial alteration of the nitrogen cycle—now rivals the natural forces of plate tectonics. This paradigm shift necessitates a form of 'planetary politics' that recognizes the deep interconnectedness of economic growth and ecological stability, moving beyond the traditional dualism of nature versus culture.", questions: [{q:"What is the core argument regarding the Anthropocene?", a:["Humans are observing nature","Humans are now a geological agent","Mining is the only cause of change"], correct:1}, {q:"What was the historical view of Earth systems?", a:["A static backdrop","A dynamic participant","An economic resource"], correct:0}, {q:"What does 'planetary politics' require?", a:["Leaving Earth","Recognizing interconnectedness","Ending industrial agriculture"], correct:1}] }
-        ]
-    };
+    const tiers = [
+        {
+            title: "Tier 1: Foundational",
+            words: ["Table", "Quick", "Building", "Understand", "Travel", "Between", "Simple", "Market", "Health", "Standard", "Problem", "Always", "Example", "Service", "Reason", "Country"],
+            multiplier: 150
+        },
+        {
+            title: "Tier 2: Academic",
+            words: ["Abstract", "Empirical", "Sustainable", "Mitigate", "Paradigm", "Equating", "Internalize", "Synthesize", "Protocol", "Bias", "Contextual", "Framework", "Inference", "Validity", "Variable", "Correlation"],
+            multiplier: 350
+        },
+        {
+            title: "Tier 3: Advanced/Rare",
+            words: ["Obsequious", "Ephemeral", "Pernicious", "Alacrity", "Laconic", "Enervate", "Fastidious", "Capricious", "Gregarious", "Inchoate", "Malleable", "Pragmatic", "Reticent", "Soporific", "Loquacious", "Vacillate"],
+            multiplier: 600
+        }
+    ];
 
-    let startTime, endTime, currentPassage;
+    let currentTier = 0;
+    let selectedWords = new Set();
 
-    function startTest(level) {
-        const pool = data[level];
-        currentPassage = pool[Math.floor(Math.random() * pool.length)];
-        document.getElementById('level-indicator').innerText = level.toUpperCase() + " DIAGNOSTIC";
-        document.getElementById('text-container').innerText = currentPassage.text;
-        document.getElementById('setup-area').classList.add('hidden');
-        document.getElementById('reading-area').classList.remove('hidden');
-        startTime = new Date();
-        updateTimer();
+    function startVocabTest() {
+        document.getElementById('intro-area').classList.add('hidden');
+        document.getElementById('test-area').classList.remove('hidden');
+        renderTier();
     }
 
-    function updateTimer() {
-        if (!startTime || endTime) return;
-        const now = new Date();
-        const diff = Math.floor((now - startTime) / 1000);
-        const m = Math.floor(diff / 60).toString().padStart(2, '0');
-        const s = (diff % 60).toString().padStart(2, '0');
-        document.getElementById('timer-display').innerText = `${m}:${s}`;
-        setTimeout(updateTimer, 1000);
-    }
-
-    function endReading() {
-        endTime = new Date();
-        document.getElementById('reading-area').classList.add('hidden');
-        document.getElementById('quiz-area').classList.remove('hidden');
-        const container = document.getElementById('questions-container');
-        container.innerHTML = currentPassage.questions.map((q, i) => `
-            <div class="card-bg p-6 rounded-2xl border border-white/5">
-                <p class="text-white font-bold mb-4 italic text-sm">${q.q}</p>
-                <div class="grid gap-3">
-                    ${q.a.map((opt, j) => `
-                        <button 
-                            onclick="selectOption(${i}, ${j})" 
-                            id="q${i}o${j}" 
-                            aria-label="Answer option: ${opt}"
-                            class="option-btn text-left p-4 rounded-xl border border-white/5 hover:border-blue-500 transition-all text-xs italic text-neutral-400 hover:text-white">${opt}</button>
-                    `).join('')}
-                </div>
-            </div>
+    function renderTier() {
+        const grid = document.getElementById('word-grid');
+        const tier = tiers[currentTier];
+        document.getElementById('tier-title').innerText = tier.title;
+        document.getElementById('step-indicator').innerText = `Tier ${currentTier + 1} of 3`;
+        
+        grid.innerHTML = tier.words.map(word => `
+            <button onclick="toggleWord(this, '${word}')" class="word-chip p-4 rounded-xl text-sm font-medium italic text-neutral-400 bg-white/5 hover:border-blue-500">
+                ${word}
+            </button>
         `).join('');
+        
+        document.getElementById('next-btn').innerText = currentTier === 2 ? "Finish Diagnostic" : "Next Tier";
     }
 
-    let answers = {};
-    function selectOption(qIdx, oIdx) {
-        answers[qIdx] = oIdx;
-        document.querySelectorAll(`[id^="q${qIdx}o"]`).forEach(el => {
-            el.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
-            el.classList.add('border-white/5', 'text-neutral-400');
-        });
-        const selected = document.getElementById(`q${qIdx}o${oIdx}`);
-        selected.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
-        selected.classList.remove('text-neutral-400');
+    function toggleWord(btn, word) {
+        if (selectedWords.has(word)) {
+            selectedWords.delete(word);
+            btn.classList.remove('selected');
+        } else {
+            selectedWords.add(word);
+            btn.classList.add('selected');
+        }
+        document.getElementById('word-counter').innerText = `Words Selected: ${selectedWords.size}`;
     }
 
-    function calculateResults() {
-        if (Object.keys(answers).length < currentPassage.questions.length) {
-            alert("Please answer all questions to complete the diagnostic.");
-            return;
+    function nextTier() {
+        if (currentTier < 2) {
+            currentTier++;
+            renderTier();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            showResults();
         }
+    }
 
-        const wordCount = currentPassage.text.split(' ').length;
-        const timeSeconds = (endTime - startTime) / 1000;
-        const rawWpm = Math.round((wordCount / timeSeconds) * 60);
-        
-        let correctCount = 0;
-        currentPassage.questions.forEach((q, i) => { if (answers[i] === q.correct) correctCount++; });
-        const accuracy = correctCount / currentPassage.questions.length;
-        const effectiveWpm = Math.round(rawWpm * accuracy);
-
-        document.getElementById('raw-wpm').innerText = rawWpm;
-        document.getElementById('accuracy-pct').innerText = Math.round(accuracy * 100) + "%";
-        document.getElementById('effective-wpm').innerText = effectiveWpm;
-        
-        let profile = "Below Academic Baseline";
-        let desc = "Current processing speed is insufficient for high-stakes academic environments. Focus on lexical chunking and sight-word recognition to reduce sub-vocalization.";
-        
-        if (effectiveWpm >= 180) { 
-            profile = "Academic Proficient"; 
-            desc = "Your processing speed meets the minimum baseline for undergraduate study. You can handle standard lecture materials, though dense research papers may still cause fatigue."; 
-        }
-        if (effectiveWpm >= 280) { 
-            profile = "Advanced Scholarly"; 
-            desc = "Exceptional cognitive processing. You demonstrate the high-level lexical agility required for postgraduate research and complex theoretical analysis."; 
-        }
-
-        document.getElementById('tier-label').innerText = profile;
-        document.getElementById('tier-desc').innerText = desc;
-        document.getElementById('quiz-area').classList.add('hidden');
+    function showResults() {
+        document.getElementById('test-area').classList.add('hidden');
         document.getElementById('result-area').classList.remove('hidden');
+
+        let estimatedVocab = 500; 
+        tiers.forEach((tier) => {
+            const wordsInTier = tier.words.filter(w => selectedWords.has(w)).length;
+            estimatedVocab += (wordsInTier * tier.multiplier);
+        });
+
+        if (estimatedVocab > 12000) estimatedVocab = 12000 + (estimatedVocab - 12000) * 0.2;
+        
+        const finalCount = Math.round(estimatedVocab);
+        document.getElementById('total-words').innerText = finalCount.toLocaleString();
+
+        let level = "A2";
+        let desc = "Foundational vocabulary. Useful for basic social interactions, but likely insufficient for university-level lecture comprehension.";
+        
+        if (finalCount > 2500) { level = "B1"; desc = "Intermediate range. You can discuss familiar topics but may struggle with dense academic literature."; }
+        if (finalCount > 4500) { level = "B2"; desc = "Upper-Intermediate. The standard for undergraduate entry. You can handle most English-medium coursework."; }
+        if (finalCount > 7500) { level = "C1"; desc = "Advanced academic range. Broad enough for complex research and high-level postgraduate studies."; }
+        if (finalCount > 10000) { level = "C2"; desc = "Mastery. Near-native lexical range. Capable of interpreting extreme nuance in any academic field."; }
+
+        document.getElementById('cefr-level').innerText = level;
+        document.getElementById('cefr-desc').innerText = desc;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
