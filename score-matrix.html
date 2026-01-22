@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEFR Score Matrix | IELTS, TOEFL, TOEIC, OPIc Converter</title>
+    <title>Score Matrix | IELTS, TOEFL, TOEIC, OPIc to CEFR Converter</title>
     
-    <meta name="description" content="Convert international English exam scores (IELTS, TOEFL, TOEIC, OPIc) to the CEFR framework using research-based linguistic mapping for academic and professional use.">
+    <meta name="description" content="Convert international English exam scores to the CEFR framework. Use our Score Matrix to align IELTS, TOEFL, TOEIC, and OPIc with academic standards.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -35,7 +35,7 @@
                 <a href="index.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest">Home Hub</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest">Score Matrix</a>
                 <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Fluency Lab</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Vocab Estimator</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest">Vocab Test</a>
                 <a href="about.html" class="text-xs font-bold text-neutral-500 hover:text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About</a>
             </nav>
         </div>
@@ -50,59 +50,25 @@
     <article class="mb-12">
         <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase italic leading-none">Score Matrix</h1>
         <p class="text-neutral-400 text-sm max-w-2xl leading-relaxed italic">
-            A research-backed diagnostic for high-stakes English assessments. This matrix utilizes <span class="text-blue-500 font-bold underline decoration-blue-500/30">Structured Threshold Mapping</span> to align international standards for academic and corporate proficiency.
+            A research-backed diagnostic for high-stakes English assessments. This matrix utilizes <span class="text-blue-500 font-bold underline decoration-blue-500/30">Structured Threshold Mapping</span> to align international standards.
         </p>
     </article>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-4">
         <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="ielts" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">IELTS Band</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-3 bg-neutral-900 border border-neutral-800 text-[10px] rounded-xl mb-2 normal-case font-medium leading-tight text-white shadow-2xl">
-                        Standardized 0–9.0 scale. The gold standard for UK, AU, and Canadian academic admissions.
-                    </div>
-                </span>
-            </div>
-            <input type="number" id="ielts" min="1" max="9" step="0.5" oninput="preciseSync('ielts')" placeholder="0.0" 
-                   class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
+            <div class="flex justify-between items-center mb-3 text-[10px] font-black text-neutral-500 uppercase tracking-widest">IELTS Band</div>
+            <input type="number" id="ielts" min="1" max="9" step="0.5" oninput="preciseSync('ielts')" placeholder="0.0" class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
         </div>
-
         <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="toefl" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">TOEFL iBT</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-3 bg-neutral-900 border border-neutral-800 text-[10px] rounded-xl mb-2 normal-case font-medium text-white shadow-2xl">
-                        Standardized 0–120 scale. Primarily required for US-based research and academic institutions.
-                    </div>
-                </span>
-            </div>
-            <input type="number" id="toefl" min="0" max="120" oninput="preciseSync('toefl')" placeholder="0" 
-                   class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
+            <div class="flex justify-between items-center mb-3 text-[10px] font-black text-neutral-500 uppercase tracking-widest">TOEFL iBT</div>
+            <input type="number" id="toefl" min="0" max="120" oninput="preciseSync('toefl')" placeholder="0" class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
         </div>
-
         <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="toeic" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">TOEIC L&R</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-3 bg-neutral-900 border border-neutral-800 text-[10px] rounded-xl mb-2 normal-case font-medium text-white shadow-2xl">
-                        Standardized 10–990 scale. Crucial for corporate recruitment and promotion in East Asia.
-                    </div>
-                </span>
-            </div>
-            <input type="number" id="toeic" min="10" max="990" oninput="preciseSync('toeic')" placeholder="0" 
-                   class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
+            <div class="flex justify-between items-center mb-3 text-[10px] font-black text-neutral-500 uppercase tracking-widest">TOEIC L&R</div>
+            <input type="number" id="toeic" min="10" max="990" oninput="preciseSync('toeic')" placeholder="0" class="w-full bg-transparent text-3xl font-bold text-white outline-none placeholder:text-neutral-800">
         </div>
-
         <div class="card-bg p-5 rounded-3xl group relative">
-            <div class="flex justify-between items-center mb-3">
-                <label for="opic" class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">OPIc Level</label>
-                <span class="text-neutral-700 hover:text-blue-500 cursor-help transition-colors">ⓘ
-                    <div class="tooltip absolute z-50 bottom-full left-0 w-48 p-3 bg-neutral-900 border border-neutral-800 text-[10px] rounded-xl mb-2 normal-case font-medium text-white shadow-2xl">
-                        Oral Proficiency Interview by Computer. High-stakes speaking assessment for global enterprise.
-                    </div>
-                </span>
-            </div>
+            <div class="flex justify-between items-center mb-3 text-[10px] font-black text-neutral-500 uppercase tracking-widest">OPIc Level</div>
             <select id="opic" onchange="preciseSync('opic')" class="w-full bg-transparent text-xl font-bold text-white outline-none h-[45px] cursor-pointer">
                 <option value="" disabled selected class="text-neutral-600 italic">Select</option>
                 <option value="AL">AL (Advanced Low)</option>
@@ -115,9 +81,7 @@
         </div>
     </section>
 
-    <p class="text-neutral-600 text-[11px] italic mb-10 text-center">
-        Enter your official test score as reported by the testing organization for accurate mapping.
-    </p>
+    <p class="text-neutral-600 text-[11px] italic mb-10 text-center">Enter official test scores for accurate framework mapping.</p>
 
     <section id="resultsCard" class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 flex flex-col md:flex-row items-center gap-12 opacity-30 transition-all duration-700 grayscale mb-12 text-center md:text-left">
         <div>
@@ -128,27 +92,6 @@
             <h4 class="text-white font-bold mb-2 uppercase text-xs tracking-widest underline decoration-blue-500 underline-offset-8">Linguistic Profile</h4>
             <p id="cefr-desc" class="text-neutral-400 text-sm leading-relaxed italic mt-4">
                 Input a score above to generate your academic performance diagnostic and CEFR alignment.
-            </p>
-        </div>
-    </section>
-
-    <section class="grid md:grid-cols-2 gap-12 mb-20 border-t border-white/5 pt-16">
-        <div>
-            <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">The CEFR Global Standard</h2>
-            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                The <strong>Common European Framework of Reference for Languages (CEFR)</strong> is the international benchmark for describing language ability. It provides a common basis for the development of language syllabuses and curriculum guidelines across the globe.
-            </p>
-            <p class="text-neutral-500 text-sm leading-relaxed italic">
-                Our Score Matrix provides a bridge between commercial exams and academic frameworks, ensuring a precise understanding of a candidate's true linguistic range.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Academic Calibration</h2>
-            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                Mapping scores between <strong>IELTS Band 7.5</strong> and <strong>TOEFL iBT 100+</strong> requires an understanding of how different testing bodies weigh speaking fluency versus grammatical complexity.
-            </p>
-            <p class="text-neutral-500 text-sm leading-relaxed italic">
-                By correlating performance data with lexical frequency lists, our suite provides a diagnostic depth that standard conversion tables often lack.
             </p>
         </div>
     </section>
@@ -166,8 +109,8 @@
 
             <a href="vocab-estimator.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
                 <div>
-                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Lexical Estimator</h4>
-                    <p class="text-neutral-500 text-xs italic">Estimate your total headword count based on frequency lists.</p>
+                    <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">English Vocabulary Test</h4>
+                    <p class="text-neutral-500 text-xs italic">Estimate total word count based on CEFR frequency lists.</p>
                 </div>
                 <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
             </a>
@@ -178,11 +121,8 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
             <div class="text-center md:text-left">
                 <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
-                <p class="text-neutral-500 text-[11px] leading-relaxed italic mb-4">
-                    Developed using applied linguistics research and academic assessment frameworks to unify international testing standards.
-                </p>
-                <p class="text-neutral-600 text-[10px] leading-relaxed italic mb-4">
-                    <strong>Disclaimer:</strong> This tool is provided for educational planning and self-assessment only. Results are estimates and do not constitute official certification.
+                <p class="text-neutral-600 text-[10px] leading-relaxed italic mb-4 italic text-neutral-500">
+                    <strong>Disclaimer:</strong> This tool is for educational planning only. Results do not constitute official certification.
                 </p>
                 <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest italic">
                     Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
@@ -194,7 +134,7 @@
                     <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
                     <a href="about.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">About</a>
                 </div>
-                <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</p>
+                <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Daegu, South Korea</p>
             </div>
         </div>
     </footer>
@@ -202,11 +142,11 @@
 
 <script>
     const data = [
-        { cefr: "C2", ielts: 8.5, toefl: 115, toeic: 945, opic: "AL", desc: "Mastery Level. Can understand with ease virtually everything heard or read. Can express themselves spontaneously, very fluently and precisely, differentiating finer shades of meaning even in the most complex academic contexts." },
-        { cefr: "C1", ielts: 7.5, toefl: 102, toeic: 940, opic: "AL", desc: "Advanced Operational Proficiency. Can understand a wide range of demanding, longer clauses, and recognize implicit meaning. Can use language flexibly and effectively for social, academic and professional purposes." },
-        { cefr: "B2", ielts: 6.5, toefl: 79,  toeic: 785, opic: "IH", desc: "Upper Intermediate. Can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in their field of specialization." },
-        { cefr: "B1", ielts: 5.0, toefl: 46,  toeic: 550, opic: "IM3", desc: "Intermediate Level. Can understand the main points of clear standard input on familiar matters regularly encountered in work, school, and leisure." },
-        { cefr: "A2", ielts: 4.0, toefl: 32,  toeic: 225, opic: "IL", desc: "Elementary Proficiency. Can communicate in simple and routine tasks requiring a simple and direct exchange of information on familiar and routine matters." }
+        { cefr: "C2", ielts: 8.5, toefl: 115, toeic: 945, opic: "AL", desc: "Mastery Level. Can express themselves spontaneously, very fluently and precisely, even in complex academic contexts." },
+        { cefr: "C1", ielts: 7.5, toefl: 102, toeic: 940, opic: "AL", desc: "Advanced Operational Proficiency. Can use language flexibly and effectively for social, academic and professional purposes." },
+        { cefr: "B2", ielts: 6.5, toefl: 79,  toeic: 785, opic: "IH", desc: "Upper Intermediate. Can understand the main ideas of complex text on both concrete and abstract topics." },
+        { cefr: "B1", ielts: 5.0, toefl: 46,  toeic: 550, opic: "IM3", desc: "Intermediate Level. Can understand the main points of clear standard input on familiar matters." },
+        { cefr: "A2", ielts: 4.0, toefl: 32,  toeic: 225, opic: "IL", desc: "Elementary Proficiency. Can communicate in simple and routine tasks requiring a direct exchange of information." }
     ];
 
     function preciseSync(sourceId) {
@@ -218,7 +158,7 @@
         if (!val && val !== 0 && sourceId !== 'opic') {
             card.classList.add('opacity-30', 'grayscale');
             cefrText.innerText = '--';
-            document.getElementById('cefr-desc').innerText = "Input a score above to generate your academic performance diagnostic and CEFR alignment.";
+            document.getElementById('cefr-desc').innerText = "Input a score above to generate alignment.";
             return;
         }
 
