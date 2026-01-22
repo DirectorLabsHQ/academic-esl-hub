@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEFR Vocabulary Estimator | Academic English Word Count Tool</title>
+    <title>CEFR Vocabulary Estimator | English Lexical Range Diagnostic</title>
     
-    <meta name="description" content="PhD-verified diagnostic for mapping English lexical range. Estimate your headword count and CEFR level using our self-reporting lexical grid. Optimized for IELTS and TOEFL preparation.">
-    <meta name="keywords" content="CEFR vocabulary test, English word count, academic English diagnostic, lexical range, Oxford 3000, Academic Word List">
+    <meta name="description" content="Free CEFR English vocabulary size test. PhD-verified diagnostic to estimate your headword count and academic lexical range. Optimized for IELTS, TOEFL, and Cambridge English exams.">
+    <meta name="keywords" content="CEFR vocabulary estimator, English word count test, lexical range diagnostic, academic English vocabulary, IELTS vocabulary level, TOEFL word count, Patrick Travers PhD">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -58,9 +58,9 @@
 <main class="flex-grow max-w-6xl mx-auto p-6 md:p-12 w-full">
     
     <article id="test-intro" class="mb-12 animate-in text-center md:text-left">
-        <h2 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase italic leading-none">Vocabulary Estimator</h2>
+        <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4 uppercase italic leading-none">Vocabulary Estimator</h1>
         <p class="text-neutral-400 text-sm max-w-3xl leading-relaxed italic">
-            Check only the words you can <span class="text-blue-500 font-bold">confidently define or use in a professional sentence</span>. Checking unknown words will distort the statistical accuracy of your diagnostic profile.
+            Select only the words you can <span class="text-blue-500 font-bold underline decoration-blue-500/30">confidently define or use in a professional sentence</span>. Our algorithm uses self-reporting confidence to project your total lexical headword count.
         </p>
     </article>
 
@@ -70,30 +70,30 @@
         
         <button onclick="calculateVocab()" class="w-full bg-blue-600 text-white py-6 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl tracking-widest text-lg italic">Analyze Lexical Data</button>
 
-        <div class="mt-16 grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16">
+        <div class="mt-24 grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16">
             <div>
-                <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Methodology & Research</h3>
+                <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Methodology & Lexical Mapping</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                    The CEFR Vocabulary Estimator is a diagnostic tool designed to map the lexical breadth of advanced English learners. Unlike standard multiple-choice tests, this estimator utilizes a self-reporting confidence model to calculate your likely total headword count.
+                    The CEFR Vocabulary Estimator is a research-grade tool designed to map the lexical breadth of advanced English learners. It utilizes a statistical sampling of the <strong>Oxford 3000/5000</strong> frequency lists and the <strong>Academic Word List (AWL)</strong>.
                 </p>
                 <p class="text-neutral-500 text-sm leading-relaxed italic">
-                    By analyzing responses against the <strong>Oxford 3000/5000</strong> frequency lists and the <strong>Academic Word List (AWL)</strong>, the algorithm projects your proficiency level from A1 (Foundational) to C2 (Mastery).
+                    By identifying your threshold of recognition across these tiers, we can project your likely proficiency range from A1 (Foundational) to C2 (Mastery).
                 </p>
             </div>
             <div>
-                <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">The Importance of Context</h3>
+                <h2 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Academic Implications</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                    As a PhD researcher in literacy, I developed this framework to reflect real-world reading comprehension. In our analysis of complex literary texts—ranging from <em>The Great Gatsby</em> to <em>The Miraculous Journey of Edward Tulane</em>—we've found that lexical range is the primary predictor of successful narrative synthesis. 
+                    As a PhD researcher in literacy, I developed this framework to help students overcome "lexical bottlenecks"—points where limited vocabulary prevents deep engagement with sophisticated academic theory or complex literary texts.
                 </p>
                 <p class="text-neutral-500 text-sm leading-relaxed italic">
-                    This tool helps educators and students identify "lexical bottlenecks" that prevent deep engagement with sophisticated English literature.
+                    Combine these results with our <strong>WPM Fluency Lab</strong> to get a full picture of your cognitive processing capacity.
                 </p>
             </div>
         </div>
-        </section>
+    </section>
 
     <section id="results-area" class="hidden animate-in">
-        <div class="card-bg p-8 md:p-12 rounded-[2.5rem] border-l-8 border-l-blue-600 flex flex-col md:flex-row items-center gap-12 mb-8">
+        <div class="card-bg p-8 md:p-12 rounded-[2.5rem] border-l-8 border-l-blue-600 flex flex-col md:flex-row items-center gap-12 mb-8 shadow-2xl">
             <div class="text-center md:text-left">
                 <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Estimated Range</p>
                 <div id="word-count" class="text-7xl font-black text-white tracking-tighter leading-none mb-2">--</div>
@@ -101,16 +101,16 @@
             </div>
             <div class="flex-grow">
                 <h4 id="vocab-tier" class="text-white font-bold mb-2 uppercase text-xs tracking-widest underline decoration-blue-500 underline-offset-8">--</h4>
-                <p id="vocab-desc" class="text-neutral-500 text-sm leading-relaxed italic mt-4">--</p>
+                <p id="vocab-desc" class="text-neutral-400 text-sm leading-relaxed italic mt-4">--</p>
             </div>
         </div>
         
         <p class="text-[10px] text-neutral-600 italic text-center mb-12 uppercase tracking-tighter">
-            *This is a statistical projection based on self-reported confidence. For higher precision, correlate these results with your WPM Fluency scores.
+            *Statistical projection. For higher precision, correlate these results with your WPM Fluency scores.
         </p>
 
         <div class="pt-12 border-t border-white/5">
-            <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6">Cross-Diagnostic Suite</h3>
+            <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6 italic">Cross-Diagnostic Suite</h3>
             <div class="grid md:grid-cols-3 gap-6">
                 <a href="score-matrix.html" class="nav-card p-6 rounded-3xl group">
                     <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors italic tracking-tight mb-2 uppercase">Score Matrix</h4>
@@ -130,16 +130,20 @@
 
 </main>
 
-<footer class="mt-24 border-t border-white/5 py-12 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-        <div>
-            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
-            <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Diagnostic frameworks and lexical mapping are informed by applied linguistics research and global ESL curriculum standards (Oxford 3000/5000 and AWL). All tools are developed by PhD researchers to support high-level literacy.</span>
+<footer class="mt-24 border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="text-center md:text-left">
+            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / Daegu, South Korea</p>
+            <p class="text-neutral-500 text-[11px] leading-relaxed max-w-md italic">
+                A unified diagnostic ecosystem for advanced ESL. Lexical mapping is informed by applied linguistics research and global standards conducted by <span class="text-white font-bold">Patrick Travers (PhD)</span>.
             </p>
         </div>
-        <div class="flex md:justify-end items-center opacity-40">
-            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
+        <div class="flex flex-col md:items-end justify-center gap-4">
+             <div class="flex gap-8">
+                <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
+            </div>
+            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</p>
         </div>
     </div>
 </footer>
@@ -163,11 +167,10 @@
     ];
 
     const grid = document.getElementById('word-grid');
-    // Randomize order for less bias
     [...wordPool].sort(() => Math.random() - 0.5).forEach((item) => {
         grid.innerHTML += `
-            <label class="checkbox-card p-4 rounded-xl cursor-pointer group flex items-center gap-3">
-                <input type="checkbox" value="${item.val}" class="w-4 h-4 accent-blue-600 rounded">
+            <label class="checkbox-card p-4 rounded-xl cursor-pointer group flex items-center gap-3 shadow-sm hover:shadow-blue-500/10">
+                <input type="checkbox" value="${item.val}" class="w-4 h-4 accent-blue-600 rounded border-white/10 bg-black">
                 <div class="text-[11px] font-bold text-neutral-500 uppercase tracking-tight transition-colors group-hover:text-blue-400 italic">${item.w}</div>
             </label>
         `;
@@ -183,7 +186,7 @@
         let estimatedTotal = 0;
         checked.forEach(cb => { estimatedTotal += parseInt(cb.value); });
 
-        // Normalization for the pool size (50 words sample represents a larger corpus)
+        // Normalization: Base (800) + scaled checked values
         const finalCount = 800 + (estimatedTotal * 0.98);
         
         document.getElementById('test-area').classList.add('hidden');
@@ -195,16 +198,16 @@
         let tier, desc;
         if (finalCount < 3000) {
             tier = "CEFR A2: Foundational Lexis";
-            desc = "Your vocabulary covers essential daily interactions. To move toward academic proficiency, begin focusing on the 'Oxford 3000' core list and basic noun-verb collocations.";
+            desc = "Your vocabulary covers essential daily interactions. Focus on the 'Oxford 3000' core list to build the bridge toward academic study.";
         } else if (finalCount < 5500) {
             tier = "CEFR B1/B2: Independent Academic";
-            desc = "You have a strong functional grasp. You are ready for standard university lectures but may face 'lexical bottlenecks' when encountering highly specialized research papers.";
+            desc = "You have a strong functional grasp. You are ready for university lectures but may face 'lexical bottlenecks' in highly specialized research papers.";
         } else if (finalCount < 8500) {
             tier = "CEFR C1: Advanced Operational";
-            desc = "High lexical density. You can recognize nuanced shades of meaning and possess the 'Academic Word List' range required for postgraduate study and complex debate.";
+            desc = "High lexical density. You can recognize nuanced shades of meaning and possess the range required for postgraduate study and complex debate.";
         } else {
             tier = "CEFR C2: Mastery / Near-Native";
-            desc = "Exceptional lexical breadth. You are capable of navigating complex abstract theory, sophisticated literary devices, and dense academic jargon with native-like ease.";
+            desc = "Exceptional lexical breadth. You are capable of navigating complex abstract theory and dense academic jargon with native-like ease.";
         }
 
         document.getElementById('vocab-tier').innerText = tier;
