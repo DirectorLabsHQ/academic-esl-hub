@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WPM Fluency Lab | Academic English Reading Speed Test</title>
     
-    <meta name="description" content="Measure your effective reading speed and comprehension. Optimized for academic texts and postgraduate English assessment. Professional ESL Reading Diagnostic.">
-    <meta name="keywords" content="WPM test, ESL reading speed, effective WPM, academic English fluency, reading comprehension test">
+    <meta name="description" content="Measure your effective reading speed and comprehension. Optimized for academic texts and postgraduate English assessment. Developed by Patrick Travers (PhD).">
+    <meta name="keywords" content="WPM test, ESL reading speed, effective WPM, academic English fluency, reading comprehension test, Patrick Travers PhD, CEFR diagnostics">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -39,7 +39,7 @@
             </nav>
         </div>
         <div class="flex items-center gap-3">
-            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block italic uppercase">Diagnostic Suite v4.0</span>
+            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block italic">Diagnostic Suite v4.0</span>
             <div class="h-2 w-2 rounded-full bg-blue-500"></div>
         </div>
     </div>
@@ -54,17 +54,17 @@
         <div class="grid md:grid-cols-3 gap-6 mb-16">
             <button onclick="startTest('foundational')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">A2 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Foundational</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Foundational</h3>
                 <p class="text-neutral-500 text-xs mt-4 italic">Everyday narratives and university life topics.</p>
             </button>
             <button onclick="startTest('academic')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">B1-B2 Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Intermediate</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Intermediate</h3>
                 <p class="text-neutral-500 text-xs mt-4 italic">Standard academic articles (Social Science/Tech).</p>
             </button>
             <button onclick="startTest('advanced')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">C1+ Level</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Advanced</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Advanced</h3>
                 <p class="text-neutral-500 text-xs mt-4 italic">Dense scholarly texts and complex abstract theory.</p>
             </button>
         </div>
@@ -73,30 +73,24 @@
             <div>
                 <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Understanding Effective WPM</h3>
                 <p class="text-neutral-400 text-sm leading-relaxed mb-4 italic">
-                    Reading speed alone is a poor metric for academic success. Our "Effective WPM" algorithm correlates raw reading velocity with deep comprehension accuracy. This reflects the <strong>Postgraduate Standard</strong>: the ability to process dense syntactic structures without sacrificing information retention.
-                </p>
-                <p class="text-neutral-500 text-sm leading-relaxed mb-4">
-                    As advanced readers transition from surface-level narratives to complex scholarly theory, cognitive load increases. This lab helps identify the specific threshold where your comprehension begins to degrade.
+                    Reading speed alone is a poor metric for academic success. Our "Effective WPM" algorithm correlates raw reading velocity with deep comprehension accuracy.
                 </p>
             </div>
             <div>
                 <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Diagnostic Framework</h3>
                 <p class="text-neutral-400 text-sm leading-relaxed mb-4 italic">
-                    This diagnostic utilizes a variety of text types—from foundational narratives like <em>The Miraculous Journey of Edward Tulane</em> to dense Anthropocene theory—to test lexical agility across different CEFR tiers.
-                </p>
-                <p class="text-neutral-500 text-sm leading-relaxed">
-                    By simulating high-stakes environments like the IELTS or TOEFL reading sections, students can measure their <strong>Sustainable Speed</strong>: the pace at which they can comfortably operate for hours, not just minutes.
+                    By simulating high-stakes environments like the IELTS or TOEFL sections, learners can measure their <strong>Sustainable Speed</strong>: the pace required for postgraduate research.
                 </p>
             </div>
         </div>
-        </div>
+    </div>
 
     <div id="reading-area" class="hidden animate-in">
         <div class="flex justify-between items-center mb-6">
             <span id="level-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest italic">--</span>
             <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded">00:00</div>
         </div>
-        <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-8"></div>
+        <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text italic mb-8 shadow-2xl"></div>
         <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg italic">I have finished reading</button>
     </div>
 
@@ -107,7 +101,7 @@
     </div>
 
     <div id="result-area" class="hidden animate-in">
-        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 mb-12">
+        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 mb-12 shadow-2xl">
             <div class="grid md:grid-cols-3 gap-8 text-center md:text-left mb-8">
                 <div>
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">Raw Speed</p>
@@ -121,7 +115,7 @@
                 </div>
                 <div>
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1 italic">Effective WPM</p>
-                    <div id="effective-wpm" class="text-5xl font-black text-blue-500 underline">--</div>
+                    <div id="effective-wpm" class="text-5xl font-black text-blue-500 underline underline-offset-8">--</div>
                     <span class="text-[9px] text-blue-500 font-bold uppercase italic">Sustainable Speed</span>
                 </div>
             </div>
@@ -132,37 +126,41 @@
         </div>
 
         <div class="pt-12 border-t border-white/5">
-            <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6">Continue Diagnostic Suite</h3>
+            <h3 class="text-[10px] font-black text-neutral-600 uppercase tracking-[0.3em] mb-6 italic">Continue Diagnostic Suite</h3>
             <div class="grid md:grid-cols-2 gap-6">
                 <a href="score-matrix.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
                     <div>
                         <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Score Matrix</h4>
-                        <p class="text-neutral-500 text-xs italic">Return to global score conversion (IELTS/TOEFL).</p>
+                        <p class="text-neutral-500 text-xs italic">Map your results to global scores (IELTS/TOEFL).</p>
                     </div>
                     <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
                 </a>
-                <button onclick="location.reload()" class="nav-card p-6 rounded-3xl flex items-center justify-between group text-left">
+                <a href="vocab-estimator.html" class="nav-card p-6 rounded-3xl flex items-center justify-between group">
                     <div>
-                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Retest Fluency</h4>
-                        <p class="text-neutral-500 text-xs italic">Run another diagnostic at a different level.</p>
+                        <h4 class="text-white font-bold text-lg group-hover:text-blue-500 transition-colors tracking-tight italic uppercase">Vocab Estimator</h4>
+                        <p class="text-neutral-500 text-xs italic">Estimate your total lexical headword count.</p>
                     </div>
-                    <div class="text-blue-500 text-2xl group-hover:rotate-180 transition-transform">↻</div>
-                </button>
+                    <div class="text-blue-500 text-2xl group-hover:translate-x-2 transition-transform">→</div>
+                </a>
             </div>
         </div>
     </div>
 </main>
 
-<footer class="mt-24 border-t border-white/5 py-12 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-        <div>
-            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic uppercase">DirectorLabs HQ / ISO 2026.1 Protocol</p>
-            <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Fluency metrics and WPM thresholds are informed by applied linguistics research into cognitive load and lexical density. Our diagnostic texts are curated by PhD researchers to ensure academic rigour across all CEFR tiers.</span>
+<footer class="mt-24 border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="text-center md:text-left">
+            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / Daegu, South Korea</p>
+            <p class="text-neutral-500 text-[11px] leading-relaxed max-w-md italic">
+                A unified diagnostic ecosystem for advanced ESL. WPM thresholds are informed by research into cognitive load and lexical density conducted by <span class="text-white font-bold">Patrick Travers (PhD)</span>.
             </p>
         </div>
-        <div class="flex md:justify-end items-center opacity-40">
-            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic uppercase">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
+        <div class="flex flex-col md:items-end justify-center gap-4">
+             <div class="flex gap-8">
+                <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-blue-500 font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
+            </div>
+            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</p>
         </div>
     </div>
 </footer>
