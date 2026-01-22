@@ -49,7 +49,7 @@
             </nav>
         </div>
         <div class="flex items-center gap-3">
-            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block italic uppercase">Diagnostic Suite v4.0</span>
+            <span class="text-[10px] font-black text-neutral-600 tracking-[0.3em] uppercase hidden sm:block italic">Diagnostic Suite v4.0</span>
             <div class="h-2 w-2 rounded-full bg-blue-500"></div>
         </div>
     </div>
@@ -69,7 +69,28 @@
             </div>
         
         <button onclick="calculateVocab()" class="w-full bg-blue-600 text-white py-6 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl tracking-widest text-lg italic">Analyze Lexical Data</button>
-    </section>
+
+        <div class="mt-16 grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16">
+            <div>
+                <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Methodology & Research</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                    The CEFR Vocabulary Estimator is a diagnostic tool designed to map the lexical breadth of advanced English learners. Unlike standard multiple-choice tests, this estimator utilizes a self-reporting confidence model to calculate your likely total headword count.
+                </p>
+                <p class="text-neutral-500 text-sm leading-relaxed italic">
+                    By analyzing responses against the <strong>Oxford 3000/5000</strong> frequency lists and the <strong>Academic Word List (AWL)</strong>, the algorithm projects your proficiency level from A1 (Foundational) to C2 (Mastery).
+                </p>
+            </div>
+            <div>
+                <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">The Importance of Context</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                    As a PhD researcher in literacy, I developed this framework to reflect real-world reading comprehension. In our analysis of complex literary texts—ranging from <em>The Great Gatsby</em> to <em>The Miraculous Journey of Edward Tulane</em>—we've found that lexical range is the primary predictor of successful narrative synthesis. 
+                </p>
+                <p class="text-neutral-500 text-sm leading-relaxed italic">
+                    This tool helps educators and students identify "lexical bottlenecks" that prevent deep engagement with sophisticated English literature.
+                </p>
+            </div>
+        </div>
+        </section>
 
     <section id="results-area" class="hidden animate-in">
         <div class="card-bg p-8 md:p-12 rounded-[2.5rem] border-l-8 border-l-blue-600 flex flex-col md:flex-row items-center gap-12 mb-8">
@@ -112,13 +133,13 @@
 <footer class="mt-24 border-t border-white/5 py-12 px-6">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
         <div>
-            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic uppercase">DirectorLabs HQ / ISO 2026.1 Protocol</p>
+            <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / ISO 2026.1 Protocol</p>
             <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Diagnostic frameworks and lexical mapping are informed by applied linguistics research and global ESL curriculum standards (Oxford 3000/5000 and AWL).</span>
+                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Diagnostic frameworks and lexical mapping are informed by applied linguistics research and global ESL curriculum standards (Oxford 3000/5000 and AWL). All tools are developed by PhD researchers to support high-level literacy.</span>
             </p>
         </div>
         <div class="flex md:justify-end items-center opacity-40">
-            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic uppercase">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
+            <span class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest italic">© 2026 Academic ESL Hub • Research-Grade Diagnostics</span>
         </div>
     </div>
 </footer>
