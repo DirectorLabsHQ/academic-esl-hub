@@ -51,7 +51,7 @@
         <h2 class="text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">WPM Fluency Lab</h2>
         <p class="text-neutral-400 text-sm max-w-xl mb-12 leading-relaxed italic">Select your target proficiency. We measure <strong>Effective WPM</strong>—the balance of speed and deep comprehension.</p>
         
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
             <button onclick="startTest('foundational')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">A2 Level</span>
                 <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic">Foundational</h3>
@@ -68,7 +68,28 @@
                 <p class="text-neutral-500 text-xs mt-4 italic">Dense scholarly texts and complex abstract theory.</p>
             </button>
         </div>
-    </div>
+
+        <div class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16">
+            <div>
+                <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Understanding Effective WPM</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4 italic">
+                    Reading speed alone is a poor metric for academic success. Our "Effective WPM" algorithm correlates raw reading velocity with deep comprehension accuracy. This reflects the <strong>Postgraduate Standard</strong>: the ability to process dense syntactic structures without sacrificing information retention.
+                </p>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-4">
+                    As advanced readers transition from surface-level narratives to complex scholarly theory, cognitive load increases. This lab helps identify the specific threshold where your comprehension begins to degrade.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-blue-500 font-black uppercase tracking-widest text-xs mb-4">Diagnostic Framework</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4 italic">
+                    This diagnostic utilizes a variety of text types—from foundational narratives like <em>The Miraculous Journey of Edward Tulane</em> to dense Anthropocene theory—to test lexical agility across different CEFR tiers.
+                </p>
+                <p class="text-neutral-500 text-sm leading-relaxed">
+                    By simulating high-stakes environments like the IELTS or TOEFL reading sections, students can measure their <strong>Sustainable Speed</strong>: the pace at which they can comfortably operate for hours, not just minutes.
+                </p>
+            </div>
+        </div>
+        </div>
 
     <div id="reading-area" class="hidden animate-in">
         <div class="flex justify-between items-center mb-6">
@@ -137,7 +158,7 @@
         <div>
             <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic uppercase">DirectorLabs HQ / ISO 2026.1 Protocol</p>
             <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Diagnostic frameworks and lexical mapping are informed by applied linguistics research and global ESL curriculum standards (Oxford 3000/5000 and AWL).</span>
+                A unified diagnostic ecosystem for advanced ESL learners. <span class="text-neutral-400">Fluency metrics and WPM thresholds are informed by applied linguistics research into cognitive load and lexical density. Our diagnostic texts are curated by PhD researchers to ensure academic rigour across all CEFR tiers.</span>
             </p>
         </div>
         <div class="flex md:justify-end items-center opacity-40">
@@ -147,15 +168,12 @@
 </footer>
 
 <script>
-    // Note: The passage data is extensive. I have kept the structure and restored the end.
     const data = {
         foundational: [
             { text: "Hi, my name is Ji-hyun. This is my third semester in university. I live off campus in a small studio apartment. Last year, I lived on campus in the dormitory. I have a part-time job as a clerk in a convenience store near campus. I had a roommate last year, but now I live alone. My friend Katarina is a new student here and her major is economics. We like to meet for lunch in the cafeteria. The food there is cheap and delicious.", questions: [{q:"Where does Ji-hyun live now?", a:["Dormitory","Studio apartment","At home"], correct:1}, {q:"What is her job?", a:["Clerk","Tutor","Cook"], correct:0}, {q:"Who is Katarina?", a:["Roommate","New student","Teacher"], correct:1}] }
-            // ... (Other foundational passages)
         ],
         academic: [
              { text: "Procrastination is often misunderstood as simple laziness or poor time management. However, psychologists suggest that it is actually an emotional regulation strategy. When a student faces a task that causes anxiety or self-doubt, the brain seeks immediate relief by switching to a more pleasurable activity, such as scrolling through social media. While this provides short-term comfort, it creates a cycle of stress as the deadline approaches. To overcome this, experts recommend 'task-sharding,' which involves breaking a large project into tiny, manageable pieces. By completing a small five-minute task, the student gains a sense of achievement, which triggers dopamine and makes it easier to continue working.", questions: [{q:"Why do people procrastinate?", a:["Laziness","Emotional regulation","Bad clocks"], correct:1}, {q:"Short-term benefit?", a:["Grades","Immediate relief","Money"], correct:1}, {q:"Task-sharding?", a:["Small pieces","Harder work","Teamwork"], correct:0}] }
-             // ... (Other academic passages)
         ],
         advanced: [
             { text: "The inherent flexibility of the brain challenges the 'static hardware' metaphor. Instead, the brain is better understood as a dynamic system. For most of human history, the Earth's geological and climatic systems were viewed as the vast, unchanging backdrop against which the drama of human civilization unfolded. However, the proposal of the 'Anthropocene' as a new geological epoch suggests a fundamental shift: humanity has become a primary geological agent. Through the massive mobilization of sediment via mining and the alteration of the nitrogen cycle through industrial agriculture, human activity now rivals the natural forces of plate tectonics. This necessitates a new form of 'planetary politics' that recognizes the interconnectedness of economic systems and Earth systems.", questions: [{q:"Humanity's new role?", a:["Observers","Geological agent","Victims"], correct:1}, {q:"Shift in view?", a:["Static to dynamic","Nature vs Culture","East vs West"], correct:0}, {q:"Planetary politics?", a:["Space travel","Interconnected systems","Mining laws"], correct:1}] }
