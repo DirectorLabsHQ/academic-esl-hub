@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Academic ESL Hub | English Assessment Tools for Students and Teachers</title>
-
-    <link rel="canonical" href="https://academiceslhub.com/index.html" />
-
-    <meta name="description" content="Free ESL assessment tools for students and teachers. Measure reading speed, vocabulary level, and standardized test scores, and learn how to improve them.">
-    <meta name="keywords" content="ESL tools, English assessment, reading speed test, vocabulary level, CEFR English, IELTS TOEFL converter">
-
+    <title>Academic WPM Test | Reading Speed Lab | ESL Hub</title>
+    <link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
+    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with academic texts to prepare for IELTS, TOEFL, and university study.">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
-        .tool-card { background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; }
-        .tool-card:hover { border-color: #3b82f6; transform: translateY(-6px); background: #111; }
+        .card-bg { background: #111; border: 1px solid #222; }
+        .hidden { display: none !important; }
+        .reading-text { line-height: 1.8; color: #d1d1d1; white-space: pre-line; }
+        .option-btn { border: 1px solid #333; transition: all 0.2s; cursor: pointer; width: 100%; text-align: left; padding: 1.25rem; border-radius: 1rem; color: #a3a3a3; }
+        .option-btn:hover:not(:disabled) { border-color: #3b82f6; background: #1a1a1a; color: white; }
+        .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
+        .option-btn.correct { background: #064e3b !important; border-color: #10b981 !important; color: white !important; }
+        .option-btn.wrong { background: #7f1d1d !important; border-color: #ef4444 !important; color: white !important; }
+        .ad-container { min-height: 100px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; color: rgba(255,255,255,0.05); font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; }
+        #progress-bar { height: 4px; background: #3b82f6; transition: width 0.1s linear; border-radius: 2px; }
+        .animate-fade { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         html { scroll-behavior: smooth; }
     </style>
 </head>
-
-<body class="min-h-screen flex flex-col antialiased hero-gradient">
+<body class="min-h-screen flex flex-col antialiased">
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -32,10 +35,10 @@
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
             <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="text-xs font-bold text-white uppercase tracking-widest">Home</a>
+                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Fluency Lab</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary Test</a>
                 <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
             </nav>
         </div>
@@ -44,112 +47,108 @@
 
 <main class="flex-grow">
 
-    <!-- HERO -->
-    <section class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+    <section class="max-w-6xl mx-auto px-6 pt-16 pb-8 text-center animate-fade">
         <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight">
-            Understand Your Academic English Level
+            Reading Fluency & WPM Lab
         </h1>
-
-        <p class="text-neutral-400 text-lg max-w-3xl mx-auto leading-relaxed mb-12">
-            Academic ESL Hub provides free, practical tools to help students and teachers
-            understand reading speed, vocabulary level, and test scores — and what to do next
-            to improve academic English skills.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-            <div class="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h2 class="text-white font-bold text-lg mb-3">For Students</h2>
-                <p class="text-neutral-400 text-sm leading-relaxed">
-                    Check your current English level, see how it compares to CEFR standards,
-                    and understand whether your reading speed and vocabulary are strong enough
-                    for exams, textbooks, and university study.
-                </p>
-            </div>
-
-            <div class="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h2 class="text-white font-bold text-lg mb-3">For Teachers</h2>
-                <p class="text-neutral-400 text-sm leading-relaxed">
-                    Use clear diagnostic tools to assess students quickly, identify weaknesses,
-                    and support lesson planning with CEFR-aligned benchmarks and explanations.
-                </p>
+        
+        <div class="text-neutral-400 text-lg max-w-4xl mx-auto leading-relaxed mb-12 space-y-6">
+            <p>
+                In academic English, <strong>fluency</strong> isn't just about how you speak—it's about how quickly and accurately you can process written information. This Reading Speed Lab is designed to help you identify your current Words Per Minute (WPM) using three levels of academic complexity.
+            </p>
+            <p class="text-base">
+                Whether you are preparing for the <strong>IELTS, TOEFL, or GRE</strong>, or just trying to keep up with university reading assignments, knowing your speed is the first step toward improvement. Our passages are randomized each time, allowing you to return and practice different topics to see how your speed changes based on the difficulty of the vocabulary.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-widest">
+                <span class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20">Analyze Speed</span>
+                <span class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20">Check Comprehension</span>
+                <span class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20">Track Progress</span>
             </div>
         </div>
     </section>
 
-    <!-- TOOLS -->
-    <section class="max-w-7xl mx-auto px-6 pb-24">
-        <div class="grid md:grid-cols-3 gap-8">
+    <section class="max-w-4xl mx-auto px-6 pb-12 w-full">
+        <div id="pb-container"></div>
+        <div class="ad-container"><span>Advertisement Space</span></div>
 
-            <a href="vocab-estimator.html" class="tool-card p-8 rounded-2xl flex flex-col justify-between">
+        <div id="setup-area" class="animate-fade">
+            <h2 class="text-white font-bold text-xl mb-6 text-center">Choose your difficulty level:</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-16">
+                <button onclick="startTest('easy')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 1: A2/B1</span>
+                    <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase">Foundations</h3>
+                </button>
+                <button onclick="startTest('medium')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 2: B2/C1</span>
+                    <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase">Intermediate</h3>
+                </button>
+                <button onclick="startTest('hard')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 3: C2 Academic</span>
+                    <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase">Advanced</h3>
+                </button>
+            </div>
+        </div>
+
+        <div id="reading-area" class="hidden animate-fade">
+            <div class="flex justify-between items-end mb-6">
                 <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Vocabulary Estimator</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                        Estimate your vocabulary size and CEFR level based on academic word usage.
-                        Designed to help learners understand whether their vocabulary is sufficient
-                        for academic reading and exams.
-                    </p>
+                    <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest block mb-1">Time Elapsed</span>
+                    <div id="timer-display" class="font-mono text-3xl text-white">00:00</div>
                 </div>
-                <span class="text-blue-500 text-sm font-bold">Start vocabulary check →</span>
-            </a>
-
-            <a href="wpm-lab.html" class="tool-card p-8 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Reading Speed (WPM)</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                        Measure your reading speed in words per minute using academic-style texts.
-                        Reading speed is a key factor in comprehension, exam performance, and study efficiency.
-                    </p>
+                <div class="text-right">
+                    <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest block mb-1">Reading Progress</span>
+                    <div class="w-32 h-2 bg-white/5 rounded-full overflow-hidden">
+                        <div id="progress-bar" style="width: 0%"></div>
+                    </div>
                 </div>
-                <span class="text-blue-500 text-sm font-bold">Measure reading speed →</span>
-            </a>
+            </div>
+            <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2rem] text-xl md:text-2xl reading-text mb-8 shadow-2xl"></div>
+            <button id="finish-btn" disabled onclick="endReading()" class="w-full bg-white text-black py-5 rounded-xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg disabled:opacity-20">
+                <span>Please read the text...</span>
+            </button>
+        </div>
 
-            <a href="score-matrix.html" class="tool-card p-8 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Test Score Matrix</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                        Convert IELTS, TOEFL, and TOEIC scores into CEFR levels (A1–C2).
-                        Useful for students, teachers, and institutions comparing test results.
-                    </p>
+        <div id="quiz-area" class="hidden animate-fade">
+            <h2 class="text-white font-bold text-2xl mb-8">Quick Quiz</h2>
+            <div id="questions-container" class="space-y-8 mb-12"></div>
+            <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Check My Score</button>
+        </div>
+
+        <div id="result-area" class="hidden animate-fade">
+            <div class="card-bg p-10 rounded-[2rem] border-l-8 border-blue-600 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Your Speed</p>
+                        <div class="text-7xl font-black text-white tracking-tighter"><span id="final-wpm">0</span> <span class="text-lg opacity-30 uppercase tracking-normal">WPM</span></div>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Comprehension</p>
+                        <div id="final-accuracy" class="text-7xl font-black text-blue-500 tracking-tighter">0%</div>
+                    </div>
                 </div>
-                <span class="text-blue-500 text-sm font-bold">View score matrix →</span>
-            </a>
-
+            </div>
+            <div class="flex flex-col md:flex-row gap-4">
+                <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all flex-1">Try Another Text</button>
+                <a href="vocab-estimator.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center flex-1">Check Vocabulary Level</a>
+            </div>
         </div>
     </section>
 
-    <!-- WHY -->
-    <section class="max-w-4xl mx-auto px-6 pb-32 border-t border-white/5 pt-20">
-        <h2 class="text-white font-black text-3xl mb-10">Why These Tools Matter</h2>
-
-        <div class="space-y-10 text-neutral-400 text-sm leading-relaxed">
-            <div class="grid md:grid-cols-2 gap-10">
-                <div>
-                    <h4 class="text-white font-bold mb-3">Vocabulary and Academic Reading</h4>
-                    <p>
-                        Research shows that students need a large academic vocabulary to read textbooks
-                        and journal articles without constant dictionary use. Vocabulary size directly
-                        affects reading speed and comprehension.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-3">Reading Speed and Comprehension</h4>
-                    <p>
-                        Slow reading can cause fatigue and poor performance during exams.
-                        Measuring words per minute helps learners understand whether speed is limiting
-                        their comprehension.
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-blue-600/5 border border-blue-500/20 p-8 rounded-2xl">
-                <h4 class="text-blue-500 font-bold mb-4">Our Approach</h4>
-                <p>
-                    Academic ESL Hub tools are informed by CEFR guidelines and academic English research.
-                    They are designed to support learning and teaching, not to replace official exams.
+    <section class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-white font-black text-2xl mb-6">How to improve your speed</h2>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                    The secret to reading faster is <strong>chunking</strong>. Instead of reading one word at a time, try to see groups of 3-4 words at once. This reduces the strain on your eyes and helps your brain process complete ideas faster.
                 </p>
-                <p class="mt-4 italic">
-                    Created by an ESL educator to provide clear, practical diagnostics for real classrooms
-                    and real learners.
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    A target speed for academic reading is <strong>200+ WPM</strong> with at least 80% comprehension. If your speed is high but your score is low, try slowing down and focusing on key "transition words" (like <em>however, therefore, furthermore</em>) that show the logic of the text.
+                </p>
+            </div>
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                <h2 class="text-white font-black text-xl mb-4 italic uppercase">Did you know?</h2>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    Most English speakers read at about 250 words per minute. For ESL students, the biggest barrier to speed is often vocabulary. If you don't know 95% of the words in a text, your speed will drop significantly because you have to stop and think about each word.
                 </p>
             </div>
         </div>
@@ -163,9 +162,8 @@
             <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
-            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6 uppercase tracking-widest">
+                Free assessment tools for students and teachers.
             </p>
             <p class="text-neutral-500 text-xs font-bold">
                 Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
@@ -173,16 +171,145 @@
         </div>
         <div class="flex flex-col md:items-end justify-center gap-6">
             <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+                <a href="privacy.html" class="text-[10px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Privacy Policy</a>
+                <a href="terms.html" class="text-[10px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Terms</a>
+                <a href="about.html" class="text-[10px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">About</a>
             </div>
-            <p class="text-xs text-neutral-700 font-bold uppercase">
-                © 2026 Academic ESL Hub
+            <p class="text-[10px] text-neutral-800 font-bold uppercase tracking-widest">
+                © 2026 Academic ESL Hub.
             </p>
         </div>
     </div>
 </footer>
 
+<script>
+const pool = {
+    easy: [
+        { text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1}, {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1}] },
+        { text: "Cooking dinner at home can be fun and healthy. You can choose fresh vegetables like carrots, onions, and peppers. Many people like to grill chicken or fish as a main dish. It is often cheaper than eating at a restaurant. After finishing the meal, it is important to wash the dishes to keep the kitchen clean and organized.", questions: [{q: "What is a benefit of cooking at home?", a:["It is more expensive","It is cheaper","It takes less time"], c:1}, {q: "What should you do after the meal?", a:["Go to sleep","Wash the dishes","Go shopping"], c:1}] },
+        { text: "My favorite hobby is photography. I love taking pictures of nature, especially during the autumn when the leaves change color. I use a digital camera that allows me to see the photos instantly. On weekends, I often hike in the mountains to find beautiful landscapes. It helps me relax and appreciate the world around me.", questions: [{q: "What does the author photograph?", a:["Cities","Nature","Cars"], c:1}, {q: "What season is mentioned?", a:["Spring","Summer","Autumn"], c:2}] },
+        { text: "Learning to ride a bicycle takes practice. First, you need to find a flat area away from traffic. It is important to wear a helmet for safety. Most people start with training wheels to help them balance. Once you feel comfortable, you can remove the extra wheels and try to pedal on your own. It is a great way to travel.", questions: [{q: "What is for safety?", a:["A card","A helmet","A watch"], c:1}, {q: "How do people start?", a:["Riding fast","With training wheels","On a mountain"], c:1}] },
+        { text: "The grocery store is on the corner. It opens at seven in the morning and closes at ten at night. They sell many items, including milk, bread, and eggs. Most customers use a shopping cart to carry their items to the checkout. You can pay with cash or a credit card at the front desk.", questions: [{q: "Where is the store?", a:["Near the park","On the corner","At school"], c:1}, {q: "What carries items?", a:["A backpack","A shopping cart","A box"], c:1}] },
+        { text: "Going to the beach is a summer activity. People enjoy swimming in the ocean or playing volleyball on the sand. Children build sandcastles near the water. It is important to wear sunscreen to protect your skin from the sun. Watching the sunset over the water is a beautiful way to end the day.", questions: [{q: "What is a popular activity?", a:["Skiing","Swimming","Hiking"], c:1}, {q: "What protects skin?", a:["A coat","Sunscreen","Glasses"], c:1}] },
+        { text: "Public transportation helps people move around the city. Buses and trains run on a regular schedule every day. You can buy a ticket at the station or use a smart card. It is often faster than driving a car because there is no need to find parking. Many people use this time to read or listen to music.", questions: [{q: "Why is it faster?", a:["No parking needed","Buses are faster","Trains fly"], c:0}, {q: "How can you pay?", a:["Ticket or card","With fruit","It's free"], c:0}] },
+        { text: "The school cafeteria serves lunch to hundreds of students. There are many choices, such as pizza, salad, and sandwiches. Students sit with their friends at long tables. It is a noisy but happy place during the break. After eating, everyone clears their tray and goes outside to play.", questions: [{q: "Where do students sit?", a:["Floor","Long tables","Library"], c:1}, {q: "What happens after eating?", a:["More classes","Recess","Homework"], c:1}] },
+        { text: "Rainy days are perfect for staying inside. I like to make a hot cup of tea and watch a movie. Sometimes I play board games with my family. The sound of the rain on the roof is very relaxing. When the sun comes out again, everything looks green and fresh. It is a nice change from the hot weather.", questions: [{q: "What does the author drink?", a:["Coffee","Tea","Juice"], c:1}, {q: "How does the rain sound?", a:["Loud","Relaxing","Scary"], c:1}] },
+        { text: "Keeping a garden requires patience. You must plant the seeds in good soil and give them plenty of water. Sunlight is also necessary for the plants to grow. In the spring, you can see colorful flowers and green vegetables. It is very satisfying to eat a tomato that you grew yourself in your own backyard.", questions: [{q: "What do plants need?", a:["Water and light","Music","Darkness"], c:0}, {q: "When do flowers appear?", a:["Winter","Spring","Autumn"], c:1}] }
+    ],
+    medium: [
+        { text: "The Great Barrier Reef is the world's largest coral reef system. It is located in the Coral Sea, off the coast of Australia. This natural wonder is home to thousands of species of fish, turtles, and sharks. However, climate change and rising water temperatures are causing coral bleaching, which threatens the health of the reef. Scientists are working hard to find ways to protect this beautiful ecosystem for future generations.", questions: [{q: "Where is the reef?", a:["Africa","Australia","South America"], c:1}, {q: "What is threatening the reef?", a:["Overfishing","Climate change","Boats"], c:1}] },
+        { text: "The Industrial Revolution was a period of major change starting in the late 18th century. It marked the transition from hand production to machines and new chemical processes. This era led to city growth as people moved from rural areas to find work in factories. While it improved living standards, it also created problems like pollution and difficult working conditions.", questions: [{q: "When did it start?", a:["17th Century","18th Century","19th Century"], c:1}, {q: "Why did cities grow?", a:["Parks","Factory jobs","Weather"], c:1}] },
+        { text: "Renewable energy comes from natural sources that are constantly replenished. Solar energy uses panels to capture sunlight and convert it into electricity. Wind energy uses turbines to generate power from moving air. These sources are considered 'clean' because they do not emit greenhouse gases like coal or oil. Governments often provide subsidies to encourage green technology.", questions: [{q: "Why is it 'clean'?", a:["No greenhouse gases","Uses water","Smells good"], c:0}, {q: "What captures sunlight?", a:["Turbines","Panels","Engines"], c:1}] },
+        { text: "Social media platforms have changed how people interact globally. Users share photos, videos, and thoughts with millions instantly. While these tools help people stay connected, experts worry about the impact on mental health and the spread of misinformation. It is crucial for users to practice digital literacy by verifying sources before sharing news or opinions.", questions: [{q: "What is an expert concern?", a:["Mental health","Internet speed","Cost"], c:0}, {q: "What is digital literacy?", a:["Typing fast","Verifying sources","Buying a phone"], c:1}] },
+        { text: "The water cycle describes the movement of water on and above the Earth. It involves evaporation, where water turns into vapor, and condensation, where vapor forms clouds. When clouds become heavy, precipitation occurs as rain or snow. This cycle is essential for maintaining life, as it redistributes fresh water across different regions of the planet.", questions: [{q: "What is evaporation?", a:["Rain falling","Water turning to vapor","Clouds"], c:1}, {q: "Why is the cycle essential?", a:["Ocean blue","Redistributes water","Cools sun"], c:1}] },
+        { text: "Space exploration has led to scientific breakthroughs since the mid-20th century. Satellites orbiting Earth help with weather forecasting and global communications. Missions to the Moon and Mars have provided data about our solar system's history. However, space travel is expensive and involves risks. Private companies are now entering the industry to lower costs.", questions: [{q: "What do satellites help with?", a:["Cooking","Weather forecasting","Farming"], c:1}, {q: "Who helps lower costs?", a:["Governments","Private companies","Schools"], c:1}] },
+        { text: "The human heart is a muscle that pumps blood through the body. It beats about 100,000 times a day, sending oxygen and nutrients to tissues while removing carbon dioxide. Maintaining a healthy heart involves exercise, a balanced diet, and avoiding smoking. Doctors use tools like stethoscopes and blood pressure monitors to check heart health during checkups.", questions: [{q: "How many daily beats?", a:["1,000","10,000","100,000"], c:2}, {q: "What does it remove?", a:["Oxygen","Nutrients","Carbon dioxide"], c:2}] },
+        { text: "Biodiversity refers to the variety of life in a habitat. High biodiversity makes an ecosystem resilient to changes. For example, a forest with many types of trees can survive a disease that kills only one species. Human activities, such as deforestation and pollution, are currently leading to a rapid loss of biodiversity worldwide, which could harm the planet.", questions: [{q: "What is biodiversity?", a:["Tree size","Variety of life","Rain amount"], c:1}, {q: "What makes a forest resilient?", a:["High biodiversity","Few trees","Snow"], c:0}] },
+        { text: "Fake News has become a significant issue in modern journalism. With the rise of the internet, anyone can publish content, making it hard to distinguish between facts and false info. Traditional news follows ethical guidelines to ensure accuracy. Readers should look for multiple sources and check website reputations before believing sensational headlines.", questions: [{q: "Why is it hard to find facts?", a:["Few sites","Anyone can publish","Slow net"], c:1}, {q: "What should readers do?", a:["Believe headlines","Check multiple sources","Ignore news"], c:1}] },
+        { text: "Global warming is the long-term heating of Earth's climate observed since the pre-industrial period. It is primarily driven by human activities, specifically burning fossil fuels which increases greenhouse gas levels. This has resulted in melting glaciers and rising sea levels. International agreements aim to limit temperature increases to protect the environment.", questions: [{q: "What drives global warming?", a:["Planting trees","Burning fossil fuels","Volcanoes"], c:1}, {q: "What is a result?", a:["More ice","Rising sea levels","Lower tides"], c:1}] }
+    ],
+    hard: [
+        { text: "Quantum mechanics is a fundamental theory in physics describing nature at the scale of atoms and subatomic particles. It is the foundation of quantum chemistry and technology. Classical physics cannot explain phenomena such as wave-particle duality. This theory has led to the development of transistors and lasers, which are essential to modern electronics and communication.", questions: [{q: "At what scale does it work?", a:["Planetary","Atoms/Subatomic","Human-sized"], c:1}, {q: "What can classical physics not explain?", a:["Gravity","Wave-particle duality","Speed of light"], c:1}] },
+        { text: "Stoicism, founded in Athens by Zeno of Citium, teaches that virtue is the only good and that we should not be troubled by things outside our control. Stoics believe that by practicing self-control, one can overcome destructive emotions. Prominent Stoics include Marcus Aurelius and Epictetus. Today, Stoic principles are used in modern therapies like CBT.", questions: [{q: "What is the only good?", a:["Wealth","Virtue","Power"], c:1}, {q: "Where is it used today?", a:["Politics","CBT therapy","Sports"], c:1}] },
+        { text: "CRISPR-Cas9 technology has revolutionized genetic engineering. It allows scientists to precisely edit DNA sequences and modify gene function. This tool has potential applications in curing genetic diseases and improving crop yields. However, it also raises ethical dilemmas regarding 'designer babies' and the long-term effects of altering the human genome.", questions: [{q: "What does CRISPR allow?", a:["Precise DNA editing","Faster computers","New fuels"], c:0}, {q: "What is an ethical dilemma?", a:["Designer babies","Food cost","Waste"], c:0}] },
+        { text: "Macroeconomics deals with the performance and behavior of an economy as a whole. Macroeconomists study aggregated indicators such as GDP, unemployment rates, and price indices to understand how the whole economy functions. They develop models that explain the relationship between factors like national income and inflation to assist governments in policy making.", questions: [{q: "What scale does it cover?", a:["Single businesses","Individual people","Economy as a whole"], c:2}, {q: "What is an indicator?", a:["CEO salary","GDP","Store prices"], c:1}] },
+        { text: "The Great Filter theory is a potential answer to the Fermi Paradox, which asks why we haven't encountered extraterrestrial life. The theory suggests a barrier in the development of life that is extremely difficult to overcome. This filter could be in our past, such as the origin of cells, or in our future, such as a self-destructive technology.", questions: [{q: "What is it an answer to?", a:["Big Bang","Fermi Paradox","Gravity"], c:1}, {q: "What could be a future filter?", a:["Ancient history","Self-destruction","Water"], c:1}] },
+        { text: "Linguistics is the scientific study of language, involving analysis of form, meaning, and context. It explores how sounds are produced and how sentences convey ideas. Sociolinguistics examines the relationship between language and society, looking at how factors like class and gender influence speech patterns. This helps in fields like AI and translation.", questions: [{q: "What is linguistics?", a:["Learning languages","Study of language","Writing novels"], c:1}, {q: "What does sociolinguistics examine?", a:["Code","Language and society","Scripts"], c:1}] },
+        { text: "The Anthropocene describes a proposed geological epoch dating from the start of significant human impact on Earth's geology. This includes anthropogenic climate change and mass extinction. Critics argue about when this period began—some point to the Industrial Revolution, while others suggest the mid-20th century 'Great Acceleration' of consumption.", questions: [{q: "What does it describe?", a:["Dinos","Human impact on Earth","The sun"], c:1}, {q: "When did it start?", a:["Stone Age","Industrial Revolution","Middle Ages"], c:1}] },
+        { text: "Artificial Neural Networks are computing systems inspired by biological neural networks in animal brains. Such systems 'learn' to perform tasks by considering examples, without being programmed with task-specific rules. For example, they might learn to identify cats by analyzing thousands of images labeled 'cat' and identifying common patterns.", questions: [{q: "What inspired them?", a:["The ocean","Animal brains","Weather"], c:1}, {q: "How do they learn?", a:["Manual programming","By considering examples","Reading"], c:1}] },
+        { text: "Epigenetics is the study of heritable changes in gene expression that do not involve alterations to the DNA sequence. This means environmental factors, such as diet and stress, can 'switch' genes on or off. These changes can sometimes be passed to future generations, highlighting the interplay between our genetic code and our lifestyle choices.", questions: [{q: "Does it change DNA?", a:["Yes, edits code","No, changes expression","Only plants"], c:1}, {q: "What can 'switch' genes?", a:["Time","Environmental factors","Luck"], c:1}] },
+        { text: "The 'Separation of Powers' is a model for the governance of a state. Under this model, government is divided into branches with separate, independent powers so that one branch is not in conflict with others. The typical division is into three branches: a legislature, an executive, and a judiciary, providing checks and balances against total control.", questions: [{q: "Why is this designed?", a:["Fast laws","Checks and balances","Taxes"], c:1}, {q: "How many branches?", a:["Two","Three","Five"], c:1}] }
+    ]
+};
+
+let startTime, endTime, currentPassage, userAnswers = [];
+let timerInterval;
+
+function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
+
+window.onload = () => {
+    const pb = localStorage.getItem('last_wpm');
+    if(pb) {
+        document.getElementById('pb-container').innerHTML = `<div class="text-[10px] font-bold text-neutral-500 uppercase bg-white/5 px-4 py-1.5 rounded-full border border-white/10 mb-6 inline-block">YOUR PERSONAL BEST: ${pb} WPM</div>`;
+    }
+};
+
+function startTest(level) {
+    const p = pool[level];
+    currentPassage = p[Math.floor(Math.random() * p.length)];
+    document.getElementById('setup-area').classList.add('hidden');
+    document.getElementById('reading-area').classList.remove('hidden');
+    document.getElementById('text-container').innerHTML = `<p>${currentPassage.text}</p>`;
+    startTime = new Date();
+    const btn = document.getElementById('finish-btn');
+    const prog = document.getElementById('progress-bar');
+    timerInterval = setInterval(() => {
+        let now = new Date();
+        let elapsedTotal = (now - startTime) / 1000;
+        document.getElementById('timer-display').innerText = `${Math.floor(elapsedTotal/60).toString().padStart(2,'0')}:${(Math.floor(elapsedTotal%60)).toString().padStart(2,'0')}`;
+        if(elapsedTotal <= 10) {
+            prog.style.width = `${(elapsedTotal/10)*100}%`;
+            btn.children[0].innerText = `Reading... (${Math.ceil(10 - elapsedTotal)}s)`;
+        } else {
+            btn.disabled = false;
+            btn.children[0].innerText = "I have finished reading";
+            prog.style.width = `100%`;
+        }
+    }, 100);
+}
+
+function endReading() {
+    endTime = new Date();
+    clearInterval(timerInterval);
+    document.getElementById('reading-area').classList.add('hidden');
+    document.getElementById('quiz-area').classList.remove('hidden');
+    document.getElementById('questions-container').innerHTML = currentPassage.questions.map((q,i)=> {
+        const options = q.a.map((text, idx)=>({ text, isCorrect: idx===q.c }));
+        const shuffled = shuffle([...options]);
+        return `<div class="card-bg p-8 rounded-2xl animate-fade" style="animation-delay:${i*0.1}s">
+            <h3 class="text-white font-bold mb-6 text-xl">${q.q}</h3>
+            <div class="grid grid-cols-1 gap-4">
+                ${shuffled.map((opt,oi)=> `<button onclick="selectOption(${i},${oi},${opt.isCorrect})" id="q${i}o${oi}" data-correct="${opt.isCorrect}" class="option-btn">${opt.text}</button>`).join('')}
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function selectOption(qi, oi, isCorrect) {
+    userAnswers[qi] = { index: oi, isCorrect: isCorrect };
+    const parent = document.getElementById(`q${qi}o${oi}`).parentElement;
+    parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById(`q${qi}o${oi}`).classList.add('selected');
+}
+
+function calculateResults() {
+    const answeredCount = userAnswers.filter(a => a !== undefined).length;
+    if(answeredCount < currentPassage.questions.length) {
+        alert("Please answer all the questions."); return;
+    }
+    const words = currentPassage.text.trim().split(/\s+/).length;
+    const timeSec = (endTime-startTime)/1000;
+    const wpm = Math.round((words/timeSec)*60);
+    let correctCount = 0;
+    currentPassage.questions.forEach((q,i)=>{
+        const btns = Array.from(document.querySelectorAll(`[id^="q${i}o"]`));
+        btns.forEach(b=>{
+            if(b.getAttribute('data-correct')==='true') b.classList.add('correct');
+            if(b.classList.contains('selected') && b.getAttribute('data-correct')==='false') b.classList.add('wrong');
+        });
+        if(userAnswers[i].isCorrect) correctCount++;
+    });
+    const accuracy = Math.round((correctCount/currentPassage.questions.length)*100);
+    document.getElementById('final-wpm').innerText = wpm;
+    document.getElementById('final-accuracy').innerText = `${accuracy}%`;
+    document.getElementById('quiz-area').classList.add('hidden');
+    document.getElementById('result-area').classList.remove('hidden');
+    if(accuracy >= 80) {
+        const currentPB = localStorage.getItem('last_wpm') || 0;
+        localStorage.setItem('last_wpm', Math.max(currentPB, wpm));
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
