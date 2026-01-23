@@ -1,120 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academic ESL Hub | Reading Speed Lab</title>
-<link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
-<meta name="description" content="Test your academic reading speed with 30 passages across different levels. Get instant feedback and guidance to improve reading comprehension and speed.">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
-.tool-card { background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; }
-.tool-card:hover { border-color: #3b82f6; transform: translateY(-6px); background: #111; }
-html { scroll-behavior: smooth; }
-button { cursor: pointer; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic WPM Test | Reading Speed Lab | ESL Hub</title>
+    <link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
+    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with academic texts to prepare for IELTS, TOEFL, and university study.">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
+        .card-bg { background: #111; border: 1px solid #222; }
+        .hidden { display: none !important; }
+        .reading-text { line-height: 1.8; color: #d1d1d1; white-space: pre-line; }
+        .option-btn { border: 1px solid #333; transition: all 0.2s; cursor: pointer; width: 100%; text-align: left; padding: 1.25rem; border-radius: 1rem; color: #a3a3a3; }
+        .option-btn:hover:not(:disabled) { border-color: #3b82f6; background: #1a1a1a; color: white; }
+        .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
+        .option-btn.correct { background: #064e3b !important; border-color: #10b981 !important; color: white !important; }
+        .option-btn.wrong { background: #7f1d1d !important; border-color: #ef4444 !important; color: white !important; }
+        .ad-container { min-height: 100px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; color: rgba(255,255,255,0.05); font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; }
+        #progress-bar { height: 4px; background: #3b82f6; transition: width 0.1s linear; border-radius: 2px; }
+        .animate-fade { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased">
+<body class="min-h-screen flex flex-col antialiased hero-gradient">
+
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-<div class="max-w-7xl mx-auto flex justify-between items-center">
-<div class="flex items-center gap-6">
-<a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</a>
-<nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-<a href="index.html" class="text-xs font-bold text-white uppercase tracking-widest">Home</a>
-<a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-<a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Reading Speed</a>
-<a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
-<a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
-</nav>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
+                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
+                <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Fluency Lab</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary Test</a>
+                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
+            </nav>
+        </div>
+    </div>
 </header>
-<main class="flex-grow max-w-5xl mx-auto px-6 py-12">
-<h1 class="text-4xl font-black mb-8">Reading Speed Lab</h1>
-<p class="text-neutral-400 mb-6">Test your reading speed and comprehension across 30 passages. Answer the questions for each passage and get instant feedback. The order of passages is randomized each time so you can practice repeatedly.</p>
-<div id="passages" class="space-y-12"></div>
-<div id="scoreSection" class="mt-12 p-6 bg-white/5 border border-white/10 rounded-xl hidden">
-<h2 class="text-2xl font-bold mb-4">Your Results</h2>
-<p id="scoreText" class="mb-2"></p>
-<p id="guidanceText" class="text-neutral-400"></p>
-</div>
+
+<main class="flex-grow">
+
+    <section class="max-w-6xl mx-auto px-6 pt-16 pb-8 text-center animate-fade">
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight">
+            Reading Fluency & WPM Lab
+        </h1>
+        
+        <div class="text-neutral-400 text-lg max-w-4xl mx-auto leading-relaxed mb-12 space-y-6">
+            <p>
+                In academic English, <strong>fluency</strong> is your ability to process written information quickly and accurately. This Reading Speed Lab helps you find your current Words Per Minute (WPM) using three levels of academic text.
+            </p>
+            <p class="text-base">
+                Preparing for the <strong>IELTS, TOEFL, or university study</strong>? Knowing your speed is the first step. Our passages change every time you play, so you can practice often and see how your speed improves as you learn new vocabulary.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-widest">
+                <a href="#test-start" class="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-600/30 transition-all cursor-pointer">Analyze Speed</a>
+                <a href="#test-start" class="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-600/30 transition-all cursor-pointer">Check Comprehension</a>
+                <a href="#study-tips" class="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-600/30 transition-all cursor-pointer">Improve Fluency</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="test-start" class="max-w-4xl mx-auto px-6 pb-12 w-full">
+        <div id="pb-container"></div>
+        <div class="ad-container"><span>Advertisement Space</span></div>
+
+        <div id="setup-area" class="animate-fade">
+            <h2 class="text-white font-bold text-xl mb-6 text-center">Choose your difficulty level:</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-16">
+                <button onclick="startTest('easy')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 1: A2/B1</span>
+                    <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase">Foundations</h3>
+                </button>
+                <button onclick="startTest('medium')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 2: B2/C1</span>
+                    <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase">Intermediate</h3>
+                </button>
+                <button onclick="startTest('hard')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 3: C2 Academic</span>
+                    <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase">Advanced</h3>
+                </button>
+            </div>
+        </div>
+
+        <div id="reading-area" class="hidden animate-fade">
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest block mb-1">Time Elapsed</span>
+                    <div id="timer-display" class="font-mono text-3xl text-white">00:00</div>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest block mb-1">Reading Progress</span>
+                    <div class="w-32 h-2 bg-white/5 rounded-full overflow-hidden">
+                        <div id="progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2rem] text-xl md:text-2xl reading-text mb-8 shadow-2xl"></div>
+            <button id="finish-btn" disabled onclick="endReading()" class="w-full bg-white text-black py-5 rounded-xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg disabled:opacity-20">
+                <span>Please read the text...</span>
+            </button>
+        </div>
+
+        <div id="quiz-area" class="hidden animate-fade">
+            <h2 class="text-white font-bold text-2xl mb-8">Quick Quiz</h2>
+            <div id="questions-container" class="space-y-8 mb-12"></div>
+            <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Check My Score</button>
+        </div>
+
+        <div id="result-area" class="hidden animate-fade">
+            <div class="card-bg p-10 rounded-[2rem] border-l-8 border-blue-600 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Your Speed</p>
+                        <div class="text-7xl font-black text-white tracking-tighter"><span id="final-wpm">0</span> <span class="text-lg opacity-30 uppercase tracking-normal">WPM</span></div>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Comprehension</p>
+                        <div id="final-accuracy" class="text-7xl font-black text-blue-500 tracking-tighter">0%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4">
+                <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all flex-1">Try Another Text</button>
+                <a href="vocab-estimator.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center flex-1">Check Vocabulary Level</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="study-tips" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-white font-black text-2xl mb-6">How to improve your speed</h2>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                    The secret to reading faster is <strong>chunking</strong>. Instead of looking at every single word, try to see groups of 3-4 words at once. This reduces the strain on your eyes and helps your brain process complete ideas faster.
+                </p>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    A good target for academic reading is <strong>200+ WPM</strong> with 80% comprehension. If your speed is high but your quiz score is low, try slowing down and focusing on key words like <em>however, therefore, or furthermore</em> that show the logic of the story.
+                </p>
+            </div>
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                <h2 class="text-white font-black text-xl mb-4 italic uppercase">Did you know?</h2>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    For ESL students, the biggest barrier to speed is vocabulary. If you don't know 95% of the words in a text, your speed will drop because you have to stop and think about each word. Use our <strong>Vocabulary Test</strong> in the menu to check your level!
+                </p>
+            </div>
+        </div>
+    </section>
+
 </main>
+
 <footer class="border-t border-white/5 py-16 px-6 bg-black">
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-<div>
-<a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">ACADEMIC<span class="text-white">ESL</span>HUB</a>
-<p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">Free English assessment tools for ESL students and teachers. Based on CEFR standards and academic English research.</p>
-<p class="text-neutral-500 text-xs font-bold">Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a></p>
-</div>
-<div class="flex flex-col md:items-end justify-center gap-6">
-<div class="flex gap-8">
-<a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-<a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-<a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
-</div>
-<p class="text-xs text-neutral-700 font-bold uppercase">© 2026 Academic ESL Hub</p>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6 uppercase tracking-widest">
+                Free assessment tools for students and teachers.
+            </p>
+            <p class="text-neutral-500 text-xs font-bold">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-[10px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Privacy Policy</a>
+                <a href="terms.html" class="text-[10px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Terms</a>
+                <a href="about.html" class="text-[10px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest">About</a>
+            </div>
+            <p class="text-[10px] text-neutral-800 font-bold uppercase tracking-widest">
+                © 2026 Academic ESL Hub.
+            </p>
+        </div>
+    </div>
 </footer>
+
 <script>
-const easy = [
-{ text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1},{q:"When is the park busy?",a:["Mondays","Saturdays","Every night"],c:1}]},
-{ text: "Cooking dinner at home can be fun and healthy. You can choose fresh vegetables like carrots, onions, and peppers. Many people like to grill chicken or fish as a main dish. It is often cheaper than eating at a restaurant. After finishing the meal, it is important to wash the dishes to keep the kitchen clean and organized.", questions: [{q: "What is a benefit of cooking at home?", a:["It is more expensive","It is cheaper","It takes less time"], c:1},{q:"What should you do after the meal?",a:["Go to sleep","Wash the dishes","Go shopping"],c:1}]},
-{ text: "My favorite hobby is photography. I love taking pictures of nature, especially during the autumn when the leaves change color. I use a digital camera that allows me to see the photos instantly. On weekends, I often hike in the mountains to find beautiful landscapes. It helps me relax and appreciate the world around me.", questions: [{q: "What does the author photograph?", a:["Cities","Nature","Cars"], c:1},{q:"What season is mentioned?",a:["Spring","Summer","Autumn"],c:2}]},
-{ text: "Learning to ride a bicycle takes practice. First, you need to find a flat area away from traffic. It is important to wear a helmet for safety. Most people start with training wheels to help them balance. Once you feel comfortable, you can remove the extra wheels and try to pedal on your own. It is a great way to travel.", questions: [{q: "What is for safety?", a:["A card","A helmet","A watch"], c:1},{q:"How do people start?",a:["Riding fast","With training wheels","On a mountain"],c:1}]},
-{ text: "The grocery store is on the corner. It opens at seven in the morning and closes at ten at night. They sell many items, including milk, bread, and eggs. Most customers use a shopping cart to carry their items to the checkout. You can pay with cash or a credit card at the front desk.", questions: [{q: "Where is the store?", a:["Near the park","On the corner","At school"], c:1},{q:"What carries items?",a:["A backpack","A shopping cart","A box"],c:1}]},
-{ text: "Going to the beach is a summer activity. People enjoy swimming in the ocean or playing volleyball on the sand. Children build sandcastles near the water. It is important to wear sunscreen to protect your skin from the sun. Watching the sunset over the water is a beautiful way to end the day.", questions: [{q: "What is a popular activity?", a:["Skiing","Swimming","Hiking"], c:1},{q:"What protects skin?",a:["A coat","Sunscreen","Glasses"],c:1}]},
-{ text: "Public transportation helps people move around the city. Buses and trains run on a regular schedule every day. You can buy a ticket at the station or use a smart card. It is often faster than driving a car because there is no need to find parking. Many people use this time to read or listen to music.", questions: [{q: "Why is it faster?", a:["No parking needed","Buses are faster","Trains fly"], c:0},{q:"How can you pay?",a:["Ticket or card","With fruit","It's free"],c:0}]},
-{ text: "The school cafeteria serves lunch to hundreds of students. There are many choices, such as pizza, salad, and sandwiches. Students sit with their friends at long tables. It is a noisy but happy place during the break. After eating, everyone clears their tray and goes outside to play.", questions: [{q: "Where do students sit?", a:["Floor","Long tables","Library"], c:1},{q:"What happens after eating?",a:["More classes","Recess","Homework"],c:1}]},
-{ text: "Rainy days are perfect for staying inside. I like to make a hot cup of tea and watch a movie. Sometimes I play board games with my family. The sound of the rain on the roof is very relaxing. When the sun comes out again, everything looks green and fresh. It is a nice change from the hot weather.", questions: [{q: "What does the author drink?", a:["Coffee","Tea","Juice"], c:1},{q:"How does the rain sound?",a:["Loud","Relaxing","Scary"],c:1}]},
-{ text: "Keeping a garden requires patience. You must plant the seeds in good soil and give them plenty of water. Sunlight is also necessary for the plants to grow. In the spring, you can see colorful flowers and green vegetables. It is very satisfying to eat a tomato that you grew yourself in your own backyard.", questions: [{q: "What do plants need?", a:["Water and light","Music","Darkness"], c:0},{q:"When do flowers appear?",a:["Winter","Spring","Autumn"],c:1}]}
-];
+const pool = {
+    easy: [
+        { text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1}, {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1}] },
+        { text: "Cooking dinner at home can be fun and healthy. You can choose fresh vegetables like carrots, onions, and peppers. Many people like to grill chicken or fish as a main dish. It is often cheaper than eating at a restaurant. After finishing the meal, it is important to wash the dishes to keep the kitchen clean and organized.", questions: [{q: "What is a benefit of cooking at home?", a:["It is more expensive","It is cheaper","It takes less time"], c:1}, {q: "What should you do after the meal?", a:["Go to sleep","Wash the dishes","Go shopping"], c:1}] }
+        // Add more passages as needed
+    ],
+    medium: [
+        { text: "The Great Barrier Reef is the world's largest coral reef system. It is located in the Coral Sea, off the coast of Australia. This natural wonder is home to thousands of species of fish, turtles, and sharks. However, climate change and rising water temperatures are causing coral bleaching, which threatens the health of the reef. Scientists are working hard to find ways to protect this beautiful ecosystem for future generations.", questions: [{q: "Where is the reef?", a:["Africa","Australia","South America"], c:1}, {q: "What is threatening the reef?", a:["Overfishing","Climate change","Boats"], c:1}] }
+    ],
+    hard: [
+        { text: "Quantum mechanics is a fundamental theory in physics describing nature at the scale of atoms and subatomic particles. It is the foundation of quantum chemistry and technology. Classical physics cannot explain phenomena such as wave-particle duality. This theory has led to the development of transistors and lasers, which are essential to modern electronics and communication.", questions: [{q: "At what scale does it work?", a:["Planetary","Atoms/Subatomic","Human-sized"], c:1}, {q: "What can classical physics not explain?", a:["Gravity","Wave-particle duality","Speed of light"], c:1}] }
+    ]
+};
 
-const medium = [...]; // Add the medium array here, full 10 passages
-const hard = [...]; // Add the hard array here, full 10 passages
+let startTime, endTime, currentPassage, userAnswers = [];
+let timerInterval;
 
-function shuffleArray(array){
-for(let i=array.length-1;i>0;i--){
-const j=Math.floor(Math.random()*(i+1));
-[array[i],array[j]]=[array[j],array[i]];
-}
-return array;
-}
+function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
-const allPassages = shuffleArray([...easy,...medium,...hard]);
-
-function renderPassages(){
-const container = document.getElementById('passages');
-allPassages.forEach((p, idx)=>{
-const div = document.createElement('div');
-div.className = 'p-6 bg-white/5 border border-white/10 rounded-xl';
-div.innerHTML = `<p class='mb-4'>${p.text}</p>` + p.questions.map((q,qidx)=>`<div class='mb-2'><p class='mb-1'>${q.q}</p>${q.a.map((a,optIdx)=>`<button class='mr-2 mb-1 px-3 py-1 rounded bg-blue-500/20 hover:bg-blue-500 text-white text-sm' onclick='checkAnswer(${idx},${qidx},${optIdx},this)'>${a}</button>`).join('')}</div>`).join('');
-container.appendChild(div);
-});
+window.onload = () => {
+    const pb = localStorage.getItem('last_wpm');
+    if(pb) {
+        document.getElementById('pb-container').innerHTML = `<div class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest text-center mb-4">Last Recorded WPM: ${pb}</div>`;
+    }
 }
 
-let score=0;
-function checkAnswer(pIdx,qIdx,optIdx,btn){
-const correct = allPassages[pIdx].questions[qIdx].c;
-if(optIdx===correct){score++; btn.classList.add('bg-green-600');}else{btn.classList.add('bg-red-600');}
-Array.from(btn.parentNode.children).forEach(b=>b.disabled=true);
-if(document.querySelectorAll('button:not([disabled])').length===0){showScore();}}
+function startTest(level) {
+    const passage = pool[level][Math.floor(Math.random()*pool[level].length)];
+    currentPassage = passage;
+    document.getElementById('setup-area').classList.add('hidden');
+    document.getElementById('reading-area').classList.remove('hidden');
+    document.getElementById('text-container').innerText = passage.text;
+    const btn = document.getElementById('finish-btn');
+    const prog = document.getElementById('progress-bar');
 
-function showScore(){
-const section = document.getElementById('scoreSection');
-section.style.display='block';
-const percent = Math.round(score/(allPassages.length*2)*100);
-const scoreText = document.getElementById('scoreText');
-const guidanceText = document.getElementById('guidanceText');
-scoreText.innerText=`You answered ${score} out of ${allPassages.length*2} questions correctly (${percent}%).`;
-if(percent>=85){guidanceText.innerText='Excellent! Your reading speed and comprehension are strong. Keep practicing with higher-level texts for mastery.'}
-else if(percent>=60){guidanceText.innerText='Good job! Focus on unfamiliar vocabulary and timing yourself to read faster while maintaining understanding.'}
-else{guidanceText.innerText='Keep practicing! Read daily, focus on key ideas, and gradually increase reading speed. Don’t worry, improvement comes with consistent effort.'}
+    startTime = new Date();
+    const readingDuration = 60; // 60 seconds
+
+    timerInterval = setInterval(() => {
+        let now = new Date();
+        let elapsedTotal = (now - startTime) / 1000;
+        document.getElementById('timer-display').innerText = `${Math.floor(elapsedTotal/60).toString().padStart(2,'0')}:${(Math.floor(elapsedTotal%60)).toString().padStart(2,'0')}`;
+        if(elapsedTotal <= readingDuration) {
+            prog.style.width = `${(elapsedTotal/readingDuration)*100}%`;
+            btn.children[0].innerText = `Reading... (${Math.ceil(readingDuration - elapsedTotal)}s)`;
+        } else {
+            btn.disabled = false;
+            btn.children[0].innerText = "I have finished reading";
+            prog.style.width = `100%`;
+        }
+    }, 100);
 }
 
-renderPassages();
+function endReading() {
+    clearInterval(timerInterval);
+    endTime = new Date();
+    document.getElementById('reading-area').classList.add('hidden');
+    document.getElementById('quiz-area').classList.remove('hidden');
+    displayQuestions();
+}
+
+function displayQuestions() {
+    const container = document.getElementById('questions-container');
+    container.innerHTML = '';
+    currentPassage.questions.forEach((qObj, i) => {
+        const div = document.createElement('div');
+        div.innerHTML = `<p class="mb-3 text-white font-bold">${i+1}. ${qObj.q}</p>`;
+        qObj.a.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.innerText = opt;
+            btn.className = "option-btn mb-2";
+            btn.onclick = () => { userAnswers[i] = idx; Array.from(div.querySelectorAll('button')).forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); };
+            div.appendChild(btn);
+        });
+        container.appendChild(div);
+    });
+}
+
+function calculateResults() {
+    const wordCount = currentPassage.text.split(/\s+/).length;
+    const minutes = ((endTime - startTime)/1000)/60;
+    const wpm = Math.round(wordCount / minutes);
+    let correct = 0;
+    currentPassage.questions.forEach((q, i) => { if(userAnswers[i] === q.c) correct++; });
+    const accuracy = Math.round(correct/currentPassage.questions.length*100);
+
+    document.getElementById('final-wpm').innerText = wpm;
+    document.getElementById('final-accuracy').innerText = accuracy + "%";
+    localStorage.setItem('last_wpm', wpm);
+    document.getElementById('quiz-area').classList.add('hidden');
+    document.getElementById('result-area').classList.remove('hidden');
+}
 </script>
+
 </body>
 </html>
+
