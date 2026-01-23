@@ -51,27 +51,10 @@
             Reading <span class="text-blue-500">Speed Lab</span>
         </h1>
         
-        <div class="card-bg p-8 rounded-3xl border-white/5 mb-12">
+        <div class="card-bg p-8 rounded-3xl border-white/5 mb-12 text-center">
             <h2 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tight">How fast can you read?</h2>
-            <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                Find out with this fun and easy reading test! See how quickly you can read and understand different texts. Here’s how it works:
-            </p>
-            <ul class="grid md:grid-cols-3 gap-6">
-                <li class="flex flex-col gap-2">
-                    <span class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-black text-xs">1</span>
-                    <p class="text-xs text-neutral-300 font-semibold uppercase tracking-wider">Pick your level to start.</p>
-                </li>
-                <li class="flex flex-col gap-2">
-                    <span class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-black text-xs">2</span>
-                    <p class="text-xs text-neutral-300 font-semibold uppercase tracking-wider">Read at your own pace.</p>
-                </li>
-                <li class="flex flex-col gap-2">
-                    <span class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-black text-xs">3</span>
-                    <p class="text-xs text-neutral-300 font-semibold uppercase tracking-wider">Answer 2 simple questions.</p>
-                </li>
-            </ul>
-            <p class="mt-8 text-center text-xs text-neutral-500 font-medium italic">
-                It’s a great way to see how strong your reading skills are—and challenge yourself to get even faster!
+            <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mx-auto">
+                Test your reading speed and understanding! Pick a level, read a short passage, and answer 2 simple questions. Ready to see how fast you can go?
             </p>
         </div>
     </section>
@@ -129,29 +112,33 @@
                     </div>
                 </div>
             </div>
-
             <div id="advice-box" class="card-bg p-8 rounded-2xl border border-white/5 mb-8">
                 <h3 class="text-blue-500 font-bold uppercase tracking-widest text-[10px] mb-4">Improvement Advice</h3>
                 <p id="advice-text" class="text-neutral-300 text-sm leading-relaxed italic"></p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Try Another Text</button>
                 <a href="score-matrix.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center">Check Score Matrix</a>
             </div>
         </div>
 
-        <div class="mt-20 pt-10 border-t border-white/5">
-            <h2 class="text-white font-bold uppercase italic tracking-tighter text-2xl mb-6">Optimize Your English Fluency</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-neutral-400 text-sm leading-relaxed">
-                <p>
-                    Achieving a high <strong>Words Per Minute (WPM)</strong> is essential for success in international exams such as the IELTS and TOEFL. Most native speakers read at a speed of 200–250 WPM. By using our Academic WPM Lab, you can track your progress across 30 different professional and academic passages.
-                </p>
-                <p>
-                    This tool isn't just about speed; it's about <strong>retention</strong>. The included comprehension check ensures you aren't just skimming, but actually processing the information. Practice daily to reach a university-level reading speed of 300+ WPM.
-                </p>
+        <article class="mt-20 pt-10 border-t border-white/5 text-neutral-400 text-sm leading-relaxed">
+            <h2 class="text-white font-black uppercase italic tracking-tighter text-2xl mb-6 text-center">Improve Your Academic Reading Fluency</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <p class="mb-4">Achieving a high <strong>Words Per Minute (WPM)</strong> is a key skill for international English exams like the IELTS or TOEFL. Our lab uses 30 specifically curated academic texts to help you practice visual scanning and cognitive processing.</p>
+                    <p>Regular practice helps reduce subvocalization, allowing you to move through complex university-level papers with greater speed and accuracy.</p>
+                </div>
+                <div class="space-y-4">
+                    <p><strong>Reading Level Standards:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Foundations:</strong> Focuses on A2-B1 vocabulary and basic narrative structure.</li>
+                        <li><strong>Professional:</strong> B2 level texts involving technical and professional concepts.</li>
+                        <li><strong>University:</strong> C1-C2 complex abstracts and academic journals.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </article>
     </section>
 </main>
 
@@ -228,8 +215,15 @@ window.onload = () => {
 };
 
 function startTest(level) {
+    // Resetting state for fresh start
+    userAnswers = [];
+    startTime = null;
+    endTime = null;
+    clearInterval(timerInterval);
+    
     const p = pool[level];
     currentPassage = p[Math.floor(Math.random() * p.length)];
+    
     document.getElementById('setup-area').classList.add('hidden');
     document.getElementById('reading-area').classList.remove('hidden');
     document.getElementById('text-container').innerHTML = `<p>${currentPassage.text}</p>`;
@@ -244,10 +238,12 @@ function startTest(level) {
 }
 
 function endReading() {
+    // Capture time exactly when reading stops
     endTime = new Date();
     clearInterval(timerInterval);
     document.getElementById('reading-area').classList.add('hidden');
     document.getElementById('quiz-area').classList.remove('hidden');
+    
     document.getElementById('questions-container').innerHTML = currentPassage.questions.map((q,i)=> {
         const options = q.a.map((text, idx)=>({ text, isCorrect: idx===q.c }));
         const shuffled = shuffle([...options]);
@@ -269,12 +265,16 @@ function selectOption(qi, oi, isCorrect) {
 }
 
 function calculateResults() {
+    // Safety check for endTime if needed
+    if (!endTime) endTime = new Date();
+    
     if(userAnswers.filter(a => a !== undefined).length < currentPassage.questions.length) {
-        alert("Please answer all questions."); return;
+        alert("Please answer all questions before calculating."); return;
     }
+
     const words = currentPassage.text.trim().split(/\s+/).length;
-    const timeSec = (endTime-startTime)/1000;
-    const wpm = Math.round((words/timeSec)*60);
+    const timeSec = (endTime - startTime) / 1000;
+    const wpm = Math.round((words / timeSec) * 60);
     let correctCount = 0;
     
     currentPassage.questions.forEach((q,i)=>{
@@ -292,13 +292,13 @@ function calculateResults() {
 
     let advice = "";
     if (accuracy < 80) {
-        advice = "Your speed is okay, but you are not understanding everything. You should slow down. Try to focus on the meaning of each sentence. It is better to be slow and correct than fast and wrong.";
+        advice = "Focus on comprehension. Try slowing down to process the meaning of each sentence. Accuracy is just as important as speed.";
     } else if (wpm < 150) {
-        advice = "Good job on understanding the text! To improve your speed, try reading groups of words instead of one word at a time. Do not say the words out loud in your head.";
+        advice = "Great accuracy! To increase speed, try 'chunking'—reading groups of 3-4 words at once instead of individual words.";
     } else if (wpm < 250) {
-        advice = "Great speed! You are reading at a professional level. To reach the top level, practice reading every day for 20 minutes with very difficult news or science articles.";
+        advice = "Professional speed! You are at the level required for high-level academic study. Keep practicing with diverse topics.";
     } else {
-        advice = "Excellent! Your reading speed is like a native English speaker. Keep reading complex books to keep your skills sharp.";
+        advice = "Master level. You are reading at the pace of a native-level academic. Focus on extremely dense technical papers to stay sharp.";
     }
     document.getElementById('advice-text').innerText = advice;
 
