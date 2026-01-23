@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Reading Speed Test (WPM) | Academic ESL Hub</title>
-
     <link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
-
-    <meta name="description" content="Measure your English reading speed and comprehension using an academic-style WPM test. Designed for ESL students and teachers preparing for university study, IELTS, or TOEFL.">
-    <meta name="keywords" content="reading speed test, WPM test ESL, academic reading fluency, ESL comprehension test, IELTS reading speed">
-
+    <meta name="description" content="Check your English reading speed. Simple WPM test for students to improve reading for school, IELTS, and TOEFL.">
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -19,12 +15,12 @@
         body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
         .card-bg { background: #111; border: 1px solid #222; }
         .hidden { display: none; }
-        .btn-primary { background: #3b82f6; transition: all 0.3s; }
-        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
         .reading-text { line-height: 1.8; color: #d1d1d1; }
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        ::selection { background: #3b82f6; color: white; }
+        .option-btn { border: 1px solid #333; transition: all 0.2s; }
+        .option-btn:hover { border-color: #3b82f6; background: #1a1a1a; }
+        .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
     </style>
 </head>
 
@@ -41,7 +37,7 @@
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
                 <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Reading Speed</a>
                 <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
+                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">About</a>
             </nav>
         </div>
     </div>
@@ -51,105 +47,81 @@
 
     <div id="setup-area" class="animate-in">
         <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-6 leading-tight uppercase italic">
-            Reading Speed <span class="text-blue-500">Test (WPM)</span>
+            Reading <span class="text-blue-500">Speed Test</span>
         </h1>
-
-        <p class="text-neutral-400 text-sm max-w-2xl mb-6 leading-relaxed">
-            This diagnostic tool helps <strong>ESL students and teachers</strong> estimate academic reading speed.
-            It measures how fast you read <em>and</em> how well you understand the text — both are essential for
-            university study, IELTS, and TOEFL preparation.
-        </p>
-
-        <p class="text-neutral-400 text-sm max-w-2xl mb-10 leading-relaxed">
-            Teachers can also use this test to diagnose class-level reading fluency, set realistic pacing goals,
-            and identify when reading speed becomes a barrier to comprehension.
+        <p class="text-neutral-400 text-base max-w-2xl mb-8 leading-relaxed">
+            Check your English reading speed. This tool measures your <strong>Words Per Minute (WPM)</strong>. Select a level to start.
         </p>
 
         <div class="grid md:grid-cols-3 gap-6 mb-16">
-            <button onclick="startTest('foundational')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
-                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">A2–B1</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Foundational</h3>
-                <p class="text-neutral-500 text-xs mt-4 leading-relaxed">
-                    Short narratives and everyday academic topics.
-                </p>
+            <button onclick="startTest('easy')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 1</span>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Easy</h3>
+                <p class="text-neutral-500 text-xs mt-4 leading-relaxed">Simple stories and everyday topics.</p>
             </button>
-
-            <button onclick="startTest('academic')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
-                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">B2</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Academic</h3>
-                <p class="text-neutral-500 text-xs mt-4 leading-relaxed">
-                    IELTS and TOEFL-style university texts.
-                </p>
+            <button onclick="startTest('medium')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 2</span>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Medium</h3>
+                <p class="text-neutral-500 text-xs mt-4 leading-relaxed">School and university style articles.</p>
             </button>
-
-            <button onclick="startTest('advanced')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
-                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">C1–C2</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Advanced</h3>
-                <p class="text-neutral-500 text-xs mt-4 leading-relaxed">
-                    Dense academic research and scholarly articles.
-                </p>
+            <button onclick="startTest('hard')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
+                <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 3</span>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Hard</h3>
+                <p class="text-neutral-500 text-xs mt-4 leading-relaxed">Complex academic research topics.</p>
             </button>
         </div>
     </div>
 
     <div id="reading-area" class="hidden animate-in">
         <div class="flex justify-between items-center mb-6">
-            <span id="level-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">
-                Academic Reading
-            </span>
-            <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10">
-                00:00
-            </div>
+            <span id="reading-level-tag" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Read the text below</span>
+            <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10">00:00</div>
         </div>
         <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text mb-8"></div>
         <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all">
-            Finish Reading
+            Done! Answer Questions
         </button>
     </div>
 
-    <section class="mt-20 pt-12 border-t border-white/5">
-        <h2 class="text-white font-bold text-2xl mb-8">
-            Understanding Reading Speed and Effective WPM
-        </h2>
+    <div id="quiz-area" class="hidden animate-in">
+        <h2 class="text-2xl font-black text-white mb-8 uppercase italic">Quick Check</h2>
+        <div id="questions-container" class="space-y-8 mb-12"></div>
+        <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">
+            Show My Results
+        </button>
+    </div>
 
+    <div id="result-area" class="hidden animate-in">
+        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-blue-600 mb-8">
+            <div class="grid md:grid-cols-2 gap-8 text-center md:text-left">
+                <div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Your Reading Speed</p>
+                    <div class="text-7xl font-black text-white italic"><span id="final-wpm">0</span> <span class="text-2xl">WPM</span></div>
+                </div>
+                <div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Comprehension</p>
+                    <div id="final-accuracy" class="text-7xl font-black text-blue-500 italic">0%</div>
+                </div>
+            </div>
+        </div>
+        <button onclick="location.reload()" class="text-blue-500 font-bold uppercase text-xs tracking-widest hover:underline">← Take another test</button>
+    </div>
+
+    <section class="mt-20 pt-12 border-t border-white/5">
+        <h2 class="text-white font-bold text-2xl mb-8 uppercase italic">Guide: Why Reading Speed Matters</h2>
         <div class="grid md:grid-cols-2 gap-12 text-sm text-neutral-400 leading-relaxed">
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">
-                    Why Speed Alone Is Not Enough
-                </h4>
-                <p class="mb-4">
-                    Reading quickly does not guarantee understanding. In academic settings, students must process
-                    complex ideas, unfamiliar vocabulary, and dense sentence structures.
-                </p>
-                <p>
-                    For this reason, this test focuses on <strong>Effective WPM</strong> — a combination of reading
-                    speed and comprehension accuracy. Fast reading without understanding is not useful for academic
-                    success.
-                </p>
+                <h4 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-widest">Speed vs. Understanding</h4>
+                <p class="mb-4">Reading fast is good, but you must also understand what you read! This test helps you find your "balance."</p>
+                <p>When you read for a test like IELTS or TOEFL, you have a time limit. Higher speeds give you more time for thinking.</p>
             </div>
-
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">
-                    Typical Academic Benchmarks
-                </h4>
+                <h4 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-widest">Goal Scores</h4>
                 <ul class="space-y-2">
-                    <li class="flex justify-between border-b border-white/5 pb-2">
-                        <span>Native Academic Reader</span>
-                        <span class="text-white font-bold">250–300 WPM</span>
-                    </li>
-                    <li class="flex justify-between border-b border-white/5 pb-2">
-                        <span>Advanced ESL (C1)</span>
-                        <span class="text-white font-bold">180–220 WPM</span>
-                    </li>
-                    <li class="flex justify-between border-b border-white/5 pb-2">
-                        <span>Intermediate ESL (B2)</span>
-                        <span class="text-white font-bold">130–170 WPM</span>
-                    </li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Average Student</span><span class="text-white font-bold">150 WPM</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Good for University</span><span class="text-white font-bold">200 WPM</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Advanced Speaker</span><span class="text-white font-bold">250+ WPM</span></li>
                 </ul>
-                <p class="mt-4 italic text-[11px]">
-                    These ranges are estimates for academic texts. General reading such as novels or news articles
-                    is usually faster.
-                </p>
             </div>
         </div>
     </section>
@@ -157,35 +129,109 @@
 </main>
 
 <footer class="border-t border-white/5 py-16 px-6 bg-black">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 text-xs">
         <div>
-            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
-            </p>
-            <p class="text-neutral-500 text-xs font-bold">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
-            </p>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">ACADEMIC<span class="text-white">ESL</span>HUB</a>
+            <p class="text-neutral-600 leading-relaxed max-w-sm">Easy tools to help students improve their English. All tools based on professional research.</p>
         </div>
-        <div class="flex flex-col md:items-end justify-center gap-6">
-            <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+        <div class="flex flex-col md:items-end justify-center gap-4">
+            <div class="flex gap-8 text-neutral-500 font-bold uppercase">
+                <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="about.html">About</a>
             </div>
-            <p class="text-xs text-neutral-700 font-bold uppercase">
-                © 2026 Academic ESL Hub
-            </p>
+            <p class="text-neutral-700 font-bold uppercase">© 2026 Academic ESL Hub</p>
         </div>
     </div>
 </footer>
 
 <script>
-    // Existing WPM / comprehension logic goes here
-</script>
+const content = {
+    easy: {
+        text: "The library is a quiet place where people go to study and read books. Most universities have a large library that is open late at night. You can find many different things in a library, such as textbooks, journals, and computers. To borrow a book, you usually need a student card. It is important to return books on time so that other students can use them. If you need help finding a specific topic, you can always ask a librarian for assistance. They are experts at finding information quickly.",
+        questions: [
+            { q: "Where can you go to study and read books?", a: ["The library", "The gym", "The park"], correct: 0 },
+            { q: "What do you need to borrow a book?", a: ["A passport", "A student card", "Money"], correct: 1 }
+        ]
+    },
+    medium: {
+        text: "Sustainable development is a way of organizing society so that it can exist in the long term. This means taking into account both present and future imperatives, such as the preservation of the environment and natural resources. It also includes social and economic equity. Many companies are now trying to reduce their carbon footprint by using renewable energy sources like solar and wind power. Governments are also passing laws to encourage recycling and reduce waste in large cities.",
+        questions: [
+            { q: "What is the main goal of sustainable development?", a: ["Immediate profit", "Long-term existence", "Building cities"], correct: 1 },
+            { q: "What are solar and wind power examples of?", a: ["Waste", "Fossil fuels", "Renewable energy"], correct: 2 }
+        ]
+    },
+    hard: {
+        text: "The phenomenon of neuroplasticity refers to the brain's ability to reorganize itself by forming new neural connections throughout life. This process allows the neurons in the brain to compensate for injury and disease and to adjust their activities in response to new situations or changes in their environment. Neuroplasticity is a fundamental mechanism of memory and learning. It was once thought that the brain was a static organ, but modern neuroscience has proven that it is dynamic and constantly changing based on our experiences.",
+        questions: [
+            { q: "What does neuroplasticity allow the brain to do?", a: ["Stop changing", "Reorganize itself", "Create injury"], correct: 1 },
+            { q: "What was the old belief about the brain?", a: ["It was static", "It was dynamic", "It was electrical"], correct: 0 }
+        ]
+    }
+};
 
+let startTime, endTime, currentLevel;
+let userAnswers = [];
+
+function startTest(level) {
+    currentLevel = level;
+    document.getElementById('setup-area').classList.add('hidden');
+    document.getElementById('reading-area').classList.remove('hidden');
+    document.getElementById('text-container').innerText = content[level].text;
+    startTime = new Date();
+    // Start simple timer display
+    window.timerInterval = setInterval(() => {
+        let now = new Date();
+        let diff = Math.floor((now - startTime) / 1000);
+        let m = Math.floor(diff / 60).toString().padStart(2, '0');
+        let s = (diff % 60).toString().padStart(2, '0');
+        document.getElementById('timer-display').innerText = `${m}:${s}`;
+    }, 1000);
+}
+
+function endReading() {
+    endTime = new Date();
+    clearInterval(window.timerInterval);
+    document.getElementById('reading-area').classList.add('hidden');
+    document.getElementById('quiz-area').classList.remove('hidden');
+    
+    const quizHtml = content[currentLevel].questions.map((q, qIdx) => `
+        <div class="card-bg p-6 rounded-2xl">
+            <p class="text-white font-bold mb-4">${q.q}</p>
+            <div class="grid gap-3">
+                ${q.a.map((opt, oIdx) => `
+                    <button onclick="selectOption(${qIdx}, ${oIdx})" id="q${qIdx}o${oIdx}" class="option-btn text-left p-4 rounded-xl text-sm text-neutral-400">
+                        ${opt}
+                    </button>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+    document.getElementById('questions-container').innerHTML = quizHtml;
+}
+
+function selectOption(qIdx, oIdx) {
+    userAnswers[qIdx] = oIdx;
+    content[currentLevel].questions[qIdx].a.forEach((_, i) => {
+        document.getElementById(`q${qIdx}o${i}`).classList.remove('selected');
+    });
+    document.getElementById(`q${qIdx}o${oIdx}`).classList.add('selected');
+}
+
+function calculateResults() {
+    const timeInSeconds = (endTime - startTime) / 1000;
+    const wordCount = content[currentLevel].text.split(' ').length;
+    const wpm = Math.round((wordCount / timeInSeconds) * 60);
+    
+    let correctCount = 0;
+    content[currentLevel].questions.forEach((q, i) => {
+        if (userAnswers[i] === q.correct) correctCount++;
+    });
+    const accuracy = Math.round((correctCount / content[currentLevel].questions.length) * 100);
+
+    document.getElementById('quiz-area').classList.add('hidden');
+    document.getElementById('result-area').classList.remove('hidden');
+    document.getElementById('final-wpm').innerText = wpm;
+    document.getElementById('final-accuracy').innerText = accuracy + "%";
+}
+</script>
 </body>
 </html>
