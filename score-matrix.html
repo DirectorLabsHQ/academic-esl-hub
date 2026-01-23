@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Score Matrix | IELTS, TOEFL, TOEIC, OPIc to CEFR</title>
+    <title>Score Matrix | IELTS, TOEFL, TOEIC, OPIc to CEFR Alignment</title>
     <link rel="canonical" href="https://academiceslhub.com/score-matrix.html">
-    <meta name="description" content="Convert your IELTS, TOEFL, TOEIC, or OPIc score to CEFR. Get personalized study advice and tips to improve your English level for university success.">
+    <meta name="description" content="Convert your IELTS, TOEFL, TOEIC, or OPIc score to CEFR. Get professional study advice and university readiness tips.">
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -41,40 +42,44 @@
             Score <span class="text-blue-500">Matrix</span>
         </h1>
         <p class="text-neutral-500 text-sm max-w-2xl leading-relaxed">
-            Enter your score to see your CEFR level and get a <strong>customized study plan</strong> to reach the next tier.
+            Standardized exam alignment. Enter your current score to see your CEFR equivalent and academic study recommendations.
         </p>
     </section>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         <div class="card p-5 rounded-2xl">
-            <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">IELTS Band</label>
-            <input id="ielts" type="number" step="0.1" placeholder="e.g. 6.5" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('ielts', this.value)">
+            <label for="ielts" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">IELTS Band</label>
+            <input id="ielts" type="number" step="0.1" placeholder="e.g. 6.5" aria-label="IELTS Band Score" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('ielts', this.value)">
         </div>
         <div class="card p-5 rounded-2xl">
-            <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEFL iBT</label>
-            <input id="toefl" type="number" placeholder="e.g. 80" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('toefl', this.value)">
+            <label for="toefl" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEFL iBT</label>
+            <input id="toefl" type="number" placeholder="e.g. 80" aria-label="TOEFL iBT Score" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('toefl', this.value)">
         </div>
         <div class="card p-5 rounded-2xl">
-            <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEIC Total</label>
-            <input id="toeic" type="number" placeholder="e.g. 700" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('toeic', this.value)">
+            <label for="toeic" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEIC Total</label>
+            <input id="toeic" type="number" placeholder="e.g. 700" aria-label="TOEIC Total Score" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('toeic', this.value)">
         </div>
         <div class="card p-5 rounded-2xl">
-            <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">OPIc Level</label>
-            <select id="opic" class="w-full mt-2 p-3 rounded-xl text-lg font-bold text-white cursor-pointer" onchange="convert('opic', this.value)">
+            <label for="opic" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">OPIc Level</label>
+            <select id="opic" aria-label="OPIc Proficiency Level" class="w-full mt-2 p-3 rounded-xl text-lg font-bold text-white cursor-pointer" onchange="convert('opic', this.value)">
                 <option value="">Select...</option>
-                <option value="AL">AL</option>
-                <option value="IH">IH</option>
-                <option value="IM3">IM3</option>
-                <option value="IM2">IM2</option>
-                <option value="IM1">IM1</option>
-                <option value="IL">IL</option>
+                <option value="AL">AL (Advanced Low)</option>
+                <option value="IH">IH (Intermediate High)</option>
+                <option value="IM3">IM3 (Intermediate Mid 3)</option>
+                <option value="IM2">IM2 (Intermediate Mid 2)</option>
+                <option value="IM1">IM1 (Intermediate Mid 1)</option>
+                <option value="IL">IL (Intermediate Low)</option>
             </select>
         </div>
     </section>
 
+    <p class="text-[10px] text-neutral-600 italic mb-12 ml-2">
+        *Calculations are based on the minimum threshold required for each CEFR level.
+    </p>
+
     <section class="card p-10 md:p-16 rounded-[2.5rem] border-l-8 border-blue-600 transition-all mb-16">
         <div id="placeholder-content" class="text-center py-10">
-            <p class="text-neutral-600 italic uppercase tracking-widest text-xs">Enter a score above to generate your profile</p>
+            <p class="text-neutral-600 italic uppercase tracking-widest text-xs">Awaiting score input for alignment...</p>
         </div>
 
         <div id="result-content" class="hidden">
@@ -99,22 +104,22 @@
 
     <section class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16 mb-12">
         <div>
-            <h2 class="text-white font-bold text-2xl mb-6">What is CEFR?</h2>
+            <h2 class="text-white font-bold text-2xl mb-6">Understanding CEFR Alignment</h2>
             <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                The Common European Framework of Reference for Languages (CEFR) is an international standard for describing language ability. It describes language proficiency on a six-point scale, from A1 for beginners, up to C2 for those who have mastered a language.
+                The Common European Framework of Reference for Languages (CEFR) acts as a universal yardstick. While tests like <strong>IELTS</strong> or <strong>TOEFL</strong> provide a numerical score, the CEFR tells institutions exactly what you can do in a real-world academic environment.
             </p>
             
             <p class="text-neutral-400 text-sm leading-relaxed mt-4">
-                Most universities require a <strong>B2 or C1 level</strong> for international students to ensure they can handle academic lectures and assignments.
+                Achieving a <strong>B2 Level</strong> is often considered the "tipping point" for academic success, where a student has enough language control to follow lectures without constant translation.
             </p>
         </div>
         <div>
-            <h2 class="text-white font-bold text-2xl mb-6">How to use this matrix</h2>
+            <h2 class="text-white font-bold text-2xl mb-6">Score Validity</h2>
             <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                This matrix helps you understand where you stand if you have taken one test but need to provide a score for another. For example, if you have an IELTS 6.5, you can see that you likely fall into the B2 category, which is roughly equivalent to a TOEFL score of 79-93.
+                This matrix uses the latest research data to provide a horizontal comparison. Because different exams test different skills (OPIc focuses on speaking, while TOEIC often focuses on workplace listening/reading), these alignments are <strong>estimated benchmarks</strong>.
             </p>
-            <p class="text-neutral-600 text-[11px] italic">
-                Note: Scores are approximate and vary by institution. Always check the official requirements of your target university.
+            <p class="text-neutral-600 text-[11px] italic leading-relaxed">
+                Disclaimer: Scores are matched to the closest CEFR threshold. Always refer to your specific university or employer for their proprietary conversion charts.
             </p>
         </div>
     </section>
@@ -123,7 +128,7 @@
 
 <footer class="border-t border-white/5 py-12 bg-black/50">
     <div class="max-w-6xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-neutral-600 text-[11px]">Research-informed score alignment for ESL learners.</p>
+        <p class="text-neutral-600 text-[11px]">Academic alignment for global English proficiency standards.</p>
         <p class="text-neutral-800 text-[9px] uppercase tracking-widest">© 2026 Academic ESL Hub</p>
     </div>
 </footer>
@@ -133,52 +138,38 @@ const scores = [
     { 
         cefr: "C2", ielts: 8.5, toefl: 110, toeic: 945, opic: "AL", 
         desc: "Proficient Mastery",
-        canDo: "You can understand with ease virtually everything heard or read. You can summarize information from different spoken and written sources, reconstructing arguments and accounts in a coherent presentation.",
-        tips: [
-            "Engage with high-level philosophy and technical research papers.",
-            "Focus on 'native-like' idioms and cultural nuances in professional settings.",
-            "Practice public speaking or debating to refine spontaneous precision."
-        ]
+        canDo: "You can understand with ease virtually everything heard or read. You can summarize information from different sources, reconstructing arguments in a coherent presentation.",
+        tips: ["Engage with technical research papers.", "Focus on cultural nuances in professional settings.", "Practice public speaking to refine spontaneous precision."]
     },
     { 
         cefr: "C1", ielts: 7.5, toefl: 95, toeic: 850, opic: "IH", 
         desc: "Advanced Academic",
-        canDo: "You can understand a wide range of demanding, longer texts and recognize implicit meaning. You can express yourself fluently and spontaneously without much searching for expressions.",
-        tips: [
-            "Read specialized journals (Nature, The Economist) to expand niche vocabulary.",
-            "Focus on 'Cohesion and Coherence'—using advanced transition words in writing.",
-            "Record yourself speaking for 2 minutes and eliminate 'filler' words (um, uh)."
-        ]
+        canDo: "You can understand a wide range of demanding, longer texts and recognize implicit meaning. You express yourself fluently without much searching for expressions.",
+        tips: ["Read specialized journals (The Economist) to expand niche vocabulary.", "Focus on cohesion—using advanced transition words.", "Record yourself speaking to eliminate filler words."]
     },
     { 
-        cefr: "B2", ielts: 6.5, toefl: 80, toeic: 785, opic: "IM3", 
+        cefr: "B2", ielts: 6.0, toefl: 72, toeic: 785, opic: "IM3", 
         desc: "Upper Intermediate",
-        canDo: "You can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in your field of specialization.",
-        tips: [
-            "Practice 'Active Reading'—summarize every paragraph you read in one sentence.",
-            "Expand your Academic Word List (AWL) knowledge (words like: analysis, derive, factor).",
-            "Start watching documentaries without subtitles to improve listening speed."
-        ]
+        canDo: "You can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in your field.",
+        tips: ["Practice summarizing paragraphs in one sentence.", "Expand your Academic Word List (AWL) knowledge.", "Watch documentaries without subtitles to improve listening speed."]
     },
     { 
-        cefr: "B1", ielts: 5.0, toefl: 46, toeic: 550, opic: "IM1", 
+        cefr: "B1", ielts: 4.5, toefl: 42, toeic: 550, opic: "IM2", // IM2 added here as a B1+ / B2 threshold
         desc: "Intermediate Learner",
-        canDo: "You can understand the main points of clear standard input on familiar matters regularly encountered in work, school, and leisure.",
-        tips: [
-            "Focus on 'Sentence Combining'—moving from simple to compound sentences.",
-            "Listen to ESL podcasts daily to improve your 'ear' for natural phrasing.",
-            "Read 'Graded Readers' (Level 4 or 5) rather than difficult news articles."
-        ]
+        canDo: "You can manage most situations likely to arise while travelling in an area where the language is spoken. You can produce simple connected text on topics which are familiar.",
+        tips: ["Focus on moving from simple to compound sentences.", "Listen to ESL podcasts daily.", "Read 'Graded Readers' (Level 5) to build fluency."]
     },
     { 
-        cefr: "A2", ielts: 4.0, toefl: 32, toeic: 225, opic: "IL", 
-        desc: "Foundational User",
-        canDo: "You can understand sentences and frequently used expressions related to areas of most immediate relevance (e.g. basic personal and family information, shopping).",
-        tips: [
-            "Master the 1,000 most common English words. Use flashcards (Anki).",
-            "Focus on basic verb tenses (Past, Present, Future) until they are automatic.",
-            "Practice reading aloud for 5 minutes a day to improve pronunciation and confidence."
-        ]
+        cefr: "A2+", ielts: 4.0, toefl: 32, toeic: 400, opic: "IM1", 
+        desc: "High Foundation",
+        canDo: "You can communicate in simple and routine tasks requiring a simple and direct exchange of information on familiar and routine matters.",
+        tips: ["Master the 2,000 most common English words.", "Focus on basic verb tenses until they are automatic.", "Practice reading aloud 5 minutes a day."]
+    },
+    { 
+        cefr: "A2", ielts: 3.0, toefl: 0, toeic: 225, opic: "IL", 
+        desc: "Basic User",
+        canDo: "You can understand sentences and frequently used expressions related to areas of most immediate relevance.",
+        tips: ["Use Anki flashcards for basic vocabulary.", "Focus on 'subject-verb-object' sentence construction.", "Listen to basic children's stories in English."]
     }
 ];
 
@@ -186,6 +177,7 @@ function convert(source, val) {
     if (!val || val === "") { resetDisplay(); return; }
     let match;
     const numVal = parseFloat(val);
+    
     if (source === 'opic') {
         match = scores.find(s => s.opic === val) || scores[scores.length-1];
     } else {
