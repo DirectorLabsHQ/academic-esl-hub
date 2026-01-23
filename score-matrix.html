@@ -100,16 +100,71 @@ input:focus, select:focus { outline:none; border-color:#3b82f6; }
 </section>
 
 <!-- CEFR RESULT -->
-<section class="card p-12 rounded-[2.5rem] text-center mb-16 border-l-8 border-blue-600">
-  <p class="text-sm md:text-base font-black uppercase tracking-[0.3em] text-blue-500 mb-6">
-  CEFR Reference Level
-</p>
-  <<div id="cefr" class="text-8xl md:text-9xl font-black tracking-tight mb-6">
+<section class="card p-12 rounded-[2.5rem] text-center mb-20 border-l-8 border-blue-600">
+
+  <p class="text-base md:text-lg font-black uppercase tracking-[0.4em] text-blue-500 mb-6">
+    CEFR Reference Level
+  </p>
+
+  <div id="cefr" class="text-8xl md:text-9xl font-black tracking-tight mb-6">
     —
   </div>
+
   <p id="cefrDesc" class="text-neutral-400 max-w-2xl mx-auto text-sm leading-relaxed italic">
     Enter a score above to view an approximate CEFR alignment.
   </p>
+</section>
+
+<!-- WHAT IT MEANS + HOW TO IMPROVE -->
+<section class="max-w-4xl mx-auto mb-24">
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <div>
+      <h3 class="text-white font-black uppercase tracking-widest text-sm mb-4">
+        What This Level Means
+      </h3>
+      <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+        Your CEFR level represents your overall ability to use English in academic and professional
+        contexts. It reflects how well you understand texts, express ideas, and perform under
+        time constraints.
+      </p>
+      <p class="text-neutral-500 text-sm leading-relaxed">
+        This alignment is based on widely accepted reference ranges between major English
+        proficiency exams. Individual skill strengths may vary.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-white font-black uppercase tracking-widest text-sm mb-4">
+        How to Improve from Here
+      </h3>
+      <ul class="space-y-4 text-neutral-400 text-sm leading-relaxed">
+        <li><strong class="text-white">Expand academic vocabulary:</strong> focus on high-frequency academic words.</li>
+        <li><strong class="text-white">Increase reading speed:</strong> practice timed reading with comprehension checks.</li>
+        <li><strong class="text-white">Strengthen output skills:</strong> summarize readings and explain ideas aloud.</li>
+        <li><strong class="text-white">Identify weak areas:</strong> test scores may mask listening or speaking gaps.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6 mt-12">
+    <a href="wpm-lab.html" class="card p-6 rounded-2xl flex justify-between items-center">
+      <div>
+        <h4 class="text-white font-bold uppercase">Reading Speed Test</h4>
+        <p class="text-neutral-500 text-xs">Check fluency and processing speed.</p>
+      </div>
+      <span class="text-blue-500 text-xl">→</span>
+    </a>
+
+    <a href="vocab-estimator.html" class="card p-6 rounded-2xl flex justify-between items-center">
+      <div>
+        <h4 class="text-white font-bold uppercase">Vocabulary Estimator</h4>
+        <p class="text-neutral-500 text-xs">See if vocabulary limits your level.</p>
+      </div>
+      <span class="text-blue-500 text-xl">→</span>
+    </a>
+  </div>
 </section>
 
 </main>
