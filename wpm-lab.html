@@ -25,8 +25,6 @@
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         ::selection { background: #3b82f6; color: white; }
-        .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
-        .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
     </style>
 </head>
 
@@ -39,10 +37,11 @@
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
             <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="text-xs font-bold text-neutral-500 hover:text-white uppercase tracking-widest">Home</a>
+                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
                 <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Reading Speed</a>
                 <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
+                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
             </nav>
         </div>
     </div>
@@ -51,8 +50,8 @@
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
     <div id="setup-area" class="animate-in">
-        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-6 leading-tight">
-            Reading Speed Test <span class="text-blue-500">(WPM)</span>
+        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-6 leading-tight uppercase italic">
+            Reading Speed <span class="text-blue-500">Test (WPM)</span>
         </h1>
 
         <p class="text-neutral-400 text-sm max-w-2xl mb-6 leading-relaxed">
@@ -157,26 +156,27 @@
 
 </main>
 
-<footer class="mt-24 border-t border-white/5 py-12">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+<footer class="border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
-            <p class="text-neutral-500 text-[11px] leading-relaxed mb-4">
-                Created by an ESL educator to help students and teachers better understand academic English readiness.
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                Free English assessment tools for ESL students and teachers.
+                Based on CEFR standards and academic English research.
             </p>
-            <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest">
-                Contact:
-                <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">
-                    thedirectorlabs@gmail.com
-                </a>
+            <p class="text-neutral-500 text-xs font-bold">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
             </p>
         </div>
-        <div class="flex flex-col md:items-end gap-4">
-            <div class="flex gap-8 text-[9px] text-neutral-500 font-bold uppercase tracking-widest">
-                <a href="privacy.html" class="hover:text-blue-500">Privacy</a>
-                <a href="terms.html" class="hover:text-blue-500">Terms</a>
-                <a href="about.html" class="hover:text-blue-500">About</a>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
             </div>
-            <p class="text-[9px] text-neutral-800 uppercase tracking-widest">
+            <p class="text-xs text-neutral-700 font-bold uppercase">
                 © 2026 Academic ESL Hub
             </p>
         </div>
@@ -184,9 +184,7 @@
 </footer>
 
 <script>
-    // Your existing WPM / comprehension logic can remain unchanged.
-    // Effective WPM calculation:
-    // (Total Words / Time in Seconds) * 60 * Accuracy
+    // Existing WPM / comprehension logic goes here
 </script>
 
 </body>
