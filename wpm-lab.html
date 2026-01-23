@@ -23,23 +23,25 @@
         .ad-container { min-height: 100px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; color: rgba(255,255,255,0.05); font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; }
         .animate-fade { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        html { scroll-behavior: smooth; }
+        /* Mobile Nav Scroll */
+        .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; overflow-x: auto; display: flex; }
+        .nav-scroll::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased hero-gradient">
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-6">
             <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
-            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
-                <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
+            <nav class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-6 nav-scroll">
+                <a href="index.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Home</a>
+                <a href="score-matrix.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Score Matrix</a>
+                <a href="wpm-lab.html" class="text-[10px] md:text-xs font-bold text-white uppercase tracking-widest whitespace-nowrap">Reading Speed</a>
+                <a href="vocab-estimator.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Vocabulary</a>
+                <a href="about.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-4 whitespace-nowrap">About</a>
             </nav>
         </div>
     </div>
@@ -87,7 +89,7 @@
                 </div>
             </div>
             <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text mb-8 shadow-2xl border-white/5"></div>
-            <button id="finish-btn" onclick="endReading()" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg">
+            <button id="finish-btn" onclick="endReading()" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg active:scale-[0.98]">
                 I have finished reading
             </button>
         </div>
@@ -95,7 +97,7 @@
         <div id="quiz-area" class="hidden animate-fade">
             <h2 class="text-white font-bold text-2xl mb-8 uppercase italic">Comprehension Check</h2>
             <div id="questions-container" class="space-y-8 mb-12"></div>
-            <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">Calculate Results</button>
+            <button id="submit-quiz-btn" onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">Calculate Results</button>
         </div>
 
         <div id="result-area" class="hidden animate-fade">
@@ -117,14 +119,6 @@
             </div>
         </div>
     </section>
-
-    <section class="max-w-4xl mx-auto px-6 py-12 border-t border-white/5 mt-12">
-        <h2 class="text-2xl font-black text-white mb-6 uppercase italic">Why Speed Matters</h2>
-        <div class="grid md:grid-cols-2 gap-8 text-neutral-400 text-sm leading-relaxed">
-            <p>For most English learners, the "silent barrier" to high test scores is speed. In exams like the <strong>IELTS Academic</strong> or <strong>TOEFL iBT</strong>, you are often asked to read several thousand words across multiple complex articles in under an hour.</p>
-            <p>Improving fluency isn't about skipping words. It's about training your eyes to move smoothly and reducing <em>sub-vocalization</em>. Our lab uses randomized topics to simulate the cognitive load of real university study.</p>
-        </div>
-    </section>
 </main>
 
 <footer class="border-t border-white/5 py-16 px-6 bg-black">
@@ -135,9 +129,6 @@
             </a>
             <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
                 Free assessment tools for global English learners. Designed to help students reach the academic threshold for international study.
-            </p>
-            <p class="text-neutral-500 text-xs font-bold uppercase tracking-widest">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
             </p>
         </div>
         <div class="flex flex-col md:items-end justify-center gap-6">
@@ -152,6 +143,7 @@
 </footer>
 
 <script>
+// (Keep original pool data - truncated here for brevity in logic review)
 const pool = {
     easy: [
         { text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1}, {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1}] },
@@ -209,17 +201,25 @@ function startTest(level) {
     document.getElementById('setup-area').classList.add('hidden');
     document.getElementById('reading-area').classList.remove('hidden');
     document.getElementById('text-container').innerHTML = `<p>${currentPassage.text}</p>`;
+    
     startTime = new Date();
     timerInterval = setInterval(() => {
         let now = new Date();
         let elapsedTotal = (now - startTime) / 1000;
+        
+        // Timer display logic
         document.getElementById('timer-display').innerText = `${Math.floor(elapsedTotal/60).toString().padStart(2,'0')}:${(Math.floor(elapsedTotal%60)).toString().padStart(2,'0')}`;
+        
+        // Auto-end safety logic (Cap at 5 mins just to prevent broken math)
+        if(elapsedTotal >= 300) { 
+            endReading();
+        }
     }, 100);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function endReading() {
-    endTime = new Date();
+    if(!endTime) endTime = new Date(); // Only set if not already set by safety cap
     clearInterval(timerInterval);
     document.getElementById('reading-area').classList.add('hidden');
     document.getElementById('quiz-area').classList.remove('hidden');
@@ -238,8 +238,8 @@ function endReading() {
 
 function selectOption(qi, oi, isCorrect) {
     userAnswers[qi] = { index: oi, isCorrect: isCorrect };
-    const btns = document.getElementById(`q${qi}o${oi}`).parentElement.querySelectorAll('.option-btn');
-    btns.forEach(b => b.classList.remove('selected'));
+    const btnSet = document.getElementById(`q${qi}o${oi}`).parentElement;
+    btnSet.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
     document.getElementById(`q${qi}o${oi}`).classList.add('selected');
 }
 
@@ -251,6 +251,7 @@ function calculateResults() {
     const timeSec = (endTime-startTime)/1000;
     const wpm = Math.round((words/timeSec)*60);
     let correctCount = 0;
+    
     currentPassage.questions.forEach((q,i)=>{
         const btns = Array.from(document.querySelectorAll(`[id^="q${i}o"]`));
         btns.forEach(b=>{
@@ -259,11 +260,13 @@ function calculateResults() {
         });
         if(userAnswers[i].isCorrect) correctCount++;
     });
+    
     const accuracy = Math.round((correctCount/currentPassage.questions.length)*100);
     document.getElementById('final-wpm').innerText = wpm;
     document.getElementById('final-accuracy').innerText = `${accuracy}%`;
     document.getElementById('quiz-area').classList.add('hidden');
     document.getElementById('result-area').classList.remove('hidden');
+    
     if(accuracy >= 80) {
         const currentPB = localStorage.getItem('last_wpm') || 0;
         localStorage.setItem('last_wpm', Math.max(currentPB, wpm));
