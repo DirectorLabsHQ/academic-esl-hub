@@ -1,150 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Test Score Matrix | TOEIC, TOEFL, IELTS, OPIc</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="canonical" href="https://academiceslhub.com/score-matrix.html" />
+<title>Score Matrix | IELTS, TOEFL, TOEIC, OPIc to CEFR</title>
 
-    <meta name="description" content="Estimate approximate alignment between TOEIC, TOEFL, IELTS, OPIc, and CEFR levels. For educational reference only.">
+<link rel="canonical" href="https://academiceslhub.com/score-matrix.html">
 
-    <!-- AdSense script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
+<meta name="description" content="Estimate approximate alignment between IELTS, TOEFL, TOEIC, OPIc, and CEFR levels for academic planning. Educational reference only.">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
 
-    <style>
-        body { background:#050505; color:#e5e5e5; font-family:Inter, sans-serif; }
-        .card-bg { background:#111; border:1px solid #222; }
-        input { background:#0a0a0a; border:1px solid #222; }
-        input:focus { outline:none; border-color:#3b82f6; }
-    </style>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body { background:#050505; color:#e5e5e5; font-family:Inter, system-ui, sans-serif; }
+.card { background:#111; border:1px solid #222; }
+input, select { background:#0a0a0a; border:1px solid #222; }
+input:focus, select:focus { outline:none; border-color:#3b82f6; }
+</style>
 </head>
 
 <body class="min-h-screen flex flex-col">
 
 <header class="p-6 border-b border-white/5 bg-black/50 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
-            ACADEMIC<span class="text-white">ESL</span>HUB
-        </a>
-        <nav class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-neutral-400">
-            <a href="index.html">Home</a>
-            <a href="score-matrix.html" class="text-white">Score Matrix</a>
-            <a href="vocab-estimator.html">Vocab Test</a>
-            <a href="wpm-lab.html">Reading Speed</a>
-        </nav>
-    </div>
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <a href="index.html" class="text-xl font-black italic uppercase text-blue-500">
+      ACADEMIC<span class="text-white">ESL</span>HUB
+    </a>
+    <nav class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-neutral-400">
+      <a href="index.html">Home</a>
+      <a href="score-matrix.html" class="text-white">Score Matrix</a>
+      <a href="vocab-estimator.html">Vocab Test</a>
+      <a href="wpm-lab.html">Reading Speed</a>
+    </nav>
+  </div>
 </header>
 
-<main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
+<main class="flex-grow max-w-5xl mx-auto p-6 md:p-12 w-full">
 
-    <!-- INTRO -->
-    <section class="mb-12">
-        <h1 class="text-5xl font-black uppercase tracking-tight mb-4">
-            Score <span class="text-blue-500">Matrix</span>
-        </h1>
-        <p class="text-neutral-500 text-sm max-w-2xl leading-relaxed">
-            Enter a score from one English proficiency test to view <strong>approximate reference alignment</strong>
-            across other major tests and CEFR levels.
-        </p>
-    </section>
+<!-- INTRO -->
+<section class="mb-10">
+  <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4">
+    Score <span class="text-blue-500">Matrix</span>
+  </h1>
+  <p class="text-neutral-500 text-sm max-w-2xl">
+    Enter a score from any test below to view an <strong>approximate reference alignment</strong>
+    across other major English exams.
+  </p>
+</section>
 
-    <!-- DISCLAIMER (TOP – IMPORTANT FOR ADSENSE) -->
-    <p class="text-[11px] text-neutral-600 italic mb-8 max-w-3xl">
-        Scores shown across tests are <strong>approximate reference points</strong> based on commonly observed CEFR alignment.
-        They are provided for educational planning only and are <strong>not official score conversions</strong>.
-    </p>
+<!-- DISCLAIMER -->
+<p class="text-[11px] text-neutral-600 italic mb-10 max-w-3xl">
+  All values shown are <strong>approximate reference points</strong> based on common CEFR alignment practices.
+  They are for educational planning only and are <strong>not official score conversions</strong>.
+</p>
 
-    <!-- SCORE MATRIX -->
-    <section class="card-bg rounded-[2rem] p-8 mb-12">
-        <h2 class="text-xs font-black uppercase tracking-widest text-blue-500 mb-6">
-            Cross-Test Reference Table
-        </h2>
+<!-- INPUT ROW -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="card p-5 rounded-2xl">
+    <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">IELTS</label>
+    <input id="ielts" type="number" step="0.5" placeholder="e.g. 6.5"
+      class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white"
+      oninput="syncFrom('ielts')">
+  </div>
 
-            <!-- INPUT -->
-            <div>
-                <label class="text-[10px] uppercase font-bold text-neutral-500 tracking-widest">
-                    Enter TOEIC Score
-                </label>
-                <input id="toeicInput" type="number" placeholder="e.g. 750"
-                    class="w-full mt-2 p-4 rounded-xl text-white font-bold"
-                    oninput="updateScores()">
-            </div>
+  <div class="card p-5 rounded-2xl">
+    <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEFL iBT</label>
+    <input id="toefl" type="number" placeholder="e.g. 88"
+      class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white"
+      oninput="syncFrom('toefl')">
+  </div>
 
-            <!-- RESULTS -->
-            <div class="space-y-4">
-                <div class="flex justify-between text-sm">
-                    <span class="text-neutral-500">IELTS</span>
-                    <span id="ieltsOut" class="text-neutral-400">≈ —</span>
-                </div>
-                <div class="flex justify-between text-sm">
-                    <span class="text-neutral-500">TOEFL iBT</span>
-                    <span id="toeflOut" class="text-neutral-400">≈ —</span>
-                </div>
-                <div class="flex justify-between text-sm">
-                    <span class="text-neutral-500">OPIc</span>
-                    <span id="opicOut" class="text-neutral-400">≈ —</span>
-                </div>
-                <div class="flex justify-between text-sm font-bold">
-                    <span class="text-neutral-300">CEFR</span>
-                    <span id="cefrOut" class="text-blue-500">—</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="card p-5 rounded-2xl">
+    <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEIC</label>
+    <input id="toeic" type="number" placeholder="e.g. 750"
+      class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white"
+      oninput="syncFrom('toeic')">
+  </div>
 
-    <!-- EDUCATIONAL CONTEXT -->
-    <section class="border-t border-white/5 pt-8">
-        <h3 class="text-xs font-black uppercase tracking-widest text-neutral-500 mb-4">
-            How to Use This Table
-        </h3>
-        <p class="text-neutral-500 text-sm max-w-2xl leading-relaxed">
-            English tests measure different skills and use different scoring systems.
-            This matrix helps learners and teachers make <strong>rough comparisons</strong>
-            when planning study goals, course placement, or test preparation.
-        </p>
-    </section>
+  <div class="card p-5 rounded-2xl">
+    <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">OPIc</label>
+    <select id="opic"
+      class="w-full mt-2 p-3 rounded-xl text-lg font-bold text-white cursor-pointer"
+      onchange="syncFrom('opic')">
+      <option value="" disabled selected class="text-neutral-600">Select</option>
+      <option value="IL">IL</option>
+      <option value="IM1">IM1</option>
+      <option value="IM2">IM2</option>
+      <option value="IM3">IM3</option>
+      <option value="IH">IH</option>
+      <option value="AL">AL</option>
+    </select>
+  </div>
+
+</section>
+
+<!-- CEFR RESULT -->
+<section class="card p-12 rounded-[2.5rem] text-center mb-16 border-l-8 border-blue-600">
+  <p class="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 mb-6">
+    CEFR Reference Level
+  </p>
+  <div id="cefr" class="text-8xl md:text-9xl font-black tracking-tight mb-6">
+    —
+  </div>
+  <p id="cefrDesc" class="text-neutral-400 max-w-2xl mx-auto text-sm leading-relaxed italic">
+    Enter a score above to view an approximate CEFR alignment.
+  </p>
+</section>
 
 </main>
 
-<footer class="mt-24 border-t border-white/5 py-12">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
-        <p class="text-neutral-500 text-[11px]">
-            Created by an ESL educator for academic planning and learner awareness.
-        </p>
-        <p class="text-[9px] text-neutral-700 uppercase tracking-widest md:text-right">
-            © 2026 Academic ESL Hub
-        </p>
-    </div>
+<footer class="border-t border-white/5 py-10">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+    <p class="text-neutral-500 text-[11px]">
+      Created by an ESL educator for academic planning and learner awareness.
+    </p>
+    <p class="text-neutral-700 text-[9px] uppercase tracking-widest">
+      © 2026 Academic ESL Hub
+    </p>
+  </div>
 </footer>
 
 <script>
-function updateScores() {
-    const toeic = parseInt(document.getElementById('toeicInput').value);
-    if (!toeic) return reset();
+const matrix = [
+  { cefr:"A2", ielts:4.0, toefl:32, toeic:225, opic:"IL",
+    desc:"Basic user. Can communicate in simple and routine tasks." },
+  { cefr:"B1", ielts:5.0, toefl:46, toeic:550, opic:"IM1",
+    desc:"Independent user. Can handle familiar academic and social situations." },
+  { cefr:"B2", ielts:6.5, toefl:79, toeic:785, opic:"IM3",
+    desc:"Upper-intermediate. Can understand complex texts and arguments." },
+  { cefr:"C1", ielts:7.5, toefl:95, toeic:850, opic:"IH",
+    desc:"Advanced. Can use English flexibly for academic and professional purposes." },
+  { cefr:"C2", ielts:8.5, toefl:105, toeic:950, opic:"AL",
+    desc:"Proficient. Can express ideas precisely and effortlessly." }
+];
 
-    let ielts = "≈ 5.5", toefl = "≈ 72", opic = "≈ IM1", cefr = "B1";
+function syncFrom(source) {
+  let value = document.getElementById(source).value;
+  if (!value) return;
 
-    if (toeic >= 550) { ielts = "≈ 6.0"; toefl = "≈ 80"; opic = "≈ IM2"; cefr = "B2"; }
-    if (toeic >= 750) { ielts = "≈ 6.5"; toefl = "≈ 88"; opic = "≈ IM3"; cefr = "B2"; }
-    if (toeic >= 850) { ielts = "≈ 7.0"; toefl = "≈ 95"; opic = "≈ IH"; cefr = "C1"; }
-    if (toeic >= 950) { ielts = "≈ 7.5+"; toefl = "≈ 105"; opic = "≈ AL"; cefr = "C2"; }
+  let row;
+  if (source === "opic") {
+    row = matrix.find(r => r.opic === value);
+  } else {
+    value = parseFloat(value);
+    row = matrix.find(r => value >= r[source]) || matrix[0];
+  }
 
-    document.getElementById('ieltsOut').innerText = ielts;
-    document.getElementById('toeflOut').innerText = toefl;
-    document.getElementById('opicOut').innerText = opic;
-    document.getElementById('cefrOut').innerText = cefr;
-}
+  ["ielts","toefl","toeic","opic"].forEach(id => {
+    if (id !== source) document.getElementById(id).value = row[id];
+  });
 
-function reset() {
-    document.getElementById('ieltsOut').innerText = "≈ —";
-    document.getElementById('toeflOut').innerText = "≈ —";
-    document.getElementById('opicOut').innerText = "≈ —";
-    document.getElementById('cefrOut').innerText = "—";
+  document.getElementById("cefr").innerText = row.cefr;
+  document.getElementById("cefrDesc").innerText = row.desc;
 }
 </script>
 
