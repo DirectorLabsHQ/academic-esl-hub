@@ -1,102 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Vocabulary Test | Estimate Your Word Count & CEFR Level</title>
+    
+    <link rel="canonical" href="https://academiceslhub.com/vocab-estimator.html" />
+    
+    <meta name="description" content="Test your English vocabulary size. Estimate how many words you know and see your CEFR level (A1–C2). Designed for ESL students and teachers.">
+    
+    <!-- AdSense script (kept intentionally) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
 
-  <title>ESL Hub – Reading Speed, Vocabulary, and Test Score Tools</title>
-
-  <meta name="description" content="Free ESL tools to help students and teachers understand reading speed, vocabulary size, and English test scores, with clear explanations and improvement tips." />
-
-  <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .card-bg { background: #111; border: 1px solid #222; }
+        .hidden { display: none; }
+        .animate-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .word-chip { transition: all 0.2s; border: 1px solid #222; }
+        .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
+        .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
+        .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
+    </style>
 </head>
 
-<body>
-  <header>
-    <nav>
-      <h1>ESL Hub</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="wpm-lab.html">Reading Speed</a></li>
-        <li><a href="vocab-estimator.html">Vocabulary</a></li>
-        <li><a href="score-matrix.html">Test Scores</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="min-h-screen flex flex-col antialiased">
 
-  <main>
-    <section class="intro">
-      <h2>Understand Your English Level — Clearly and Honestly</h2>
-      <p>
-        ESL Hub provides simple, free tools to help English learners and teachers
-        understand reading speed, vocabulary size, and test score levels.
-        Each tool explains what your results mean and how you can improve.
-      </p>
-    </section>
+<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
+                <a href="index.html" class="text-xs font-bold text-neutral-500 hover:text-white uppercase tracking-widest">Home</a>
+                <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-white uppercase tracking-widest">Vocab Test</a>
+            </nav>
+        </div>
+    </div>
+</header>
 
-    <section class="tools">
-      <h2>Core Learning Tools</h2>
+<main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
-      <div class="tool-card">
-        <h3>Reading Speed (WPM)</h3>
-        <p>
-          Measure how fast you read English texts and compare your speed to common
-          academic and test benchmarks.
+    <!-- INTRO -->
+    <section id="intro-area" class="animate-in">
+        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase leading-none">
+            Vocabulary <span class="text-blue-500">Test</span>
+        </h1>
+        
+        <p class="text-neutral-500 text-sm max-w-2xl mb-8 leading-relaxed">
+            Estimate your English vocabulary size and CEFR level. This tool helps students and teachers understand current reading readiness for academic study.
         </p>
-        <a href="wpm-lab.html">Measure reading speed</a>
-      </div>
 
-      <div class="tool-card">
-        <h3>Vocabulary Size</h3>
-        <p>
-          Estimate how many English words you understand and what that means for
-          reading, listening, and exam performance.
+        <div class="card-bg p-8 rounded-[2rem] mb-12">
+            <h2 class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4">How it works</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                You will see three groups of words, from easy to difficult. Click only the words you <strong>honestly know</strong>. Your selections are used to estimate your total vocabulary size.
+            </p>
+            <button onclick="startVocabTest()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl uppercase transition-all">
+                Start the Test
+            </button>
+        </div>
+
+        <div class="border-t border-white/5 pt-8">
+            <h3 class="text-xs font-black text-neutral-500 uppercase tracking-widest mb-4">Why Vocabulary Matters</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">
+                Research suggests that readers need approximately <strong>8,000–9,000 words</strong> to comfortably read university-level texts without constant dictionary use.
+            </p>
+        </div>
+    </section>
+
+    <!-- TEST -->
+    <section id="test-area" class="hidden animate-in">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <span id="step-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Step 1 of 3</span>
+                <h2 id="tier-title" class="text-2xl font-black text-white uppercase italic"></h2>
+            </div>
+            <span id="word-counter" class="text-xs font-bold text-neutral-500">Selected: 0</span>
+        </div>
+
+        <div id="word-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12"></div>
+
+        <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase">
+            Next Step
+        </button>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="result-area" class="hidden animate-in">
+        <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-l-blue-600 mb-12">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
+                        Estimated Vocabulary Size
+                    </p>
+                    <div id="total-words" class="text-7xl font-black text-white italic">--</div>
+                </div>
+                <div>
+                    <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
+                        CEFR Level
+                    </p>
+                    <div id="cefr-level" class="text-5xl font-black text-blue-500 italic">--</div>
+                    <p id="cefr-desc" class="text-[11px] text-neutral-400 italic mt-2">--</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISCLAIMER (IMPORTANT) -->
+        <p class="text-neutral-600 text-[11px] italic text-center max-w-2xl mx-auto mb-12">
+            <strong>Disclaimer:</strong> This vocabulary test provides an estimate for learning and planning purposes only.
+            It is not an official examination and should not be used as a replacement for certified test scores.
         </p>
-        <a href="vocab-estimator.html">Estimate vocabulary size</a>
-      </div>
 
-      <div class="tool-card">
-        <h3>Test Score Comparison</h3>
-        <p>
-          Compare TOEIC, TOEFL, IELTS, and other English test scores to understand
-          how different exams relate to each other.
-        </p>
-        <a href="score-matrix.html">Compare test scores</a>
-      </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl flex justify-between">
+                <div>
+                    <h4 class="text-white font-bold uppercase">Reading Speed</h4>
+                    <p class="text-neutral-500 text-xs">Measure reading fluency.</p>
+                </div>
+                <div class="text-blue-500 text-2xl">→</div>
+            </a>
+            <a href="score-matrix.html" class="nav-card p-6 rounded-3xl flex justify-between">
+                <div>
+                    <h4 class="text-white font-bold uppercase">Score Matrix</h4>
+                    <p class="text-neutral-500 text-xs">Compare official test scores.</p>
+                </div>
+                <div class="text-blue-500 text-2xl">→</div>
+            </a>
+        </div>
     </section>
 
-    <section class="how-it-helps">
-      <h2>Who This Site Is For</h2>
-      <ul>
-        <li>Students preparing for English exams or academic study</li>
-        <li>Teachers who want quick diagnostic tools for learners</li>
-        <li>Self-learners tracking progress over time</li>
-      </ul>
-    </section>
+</main>
 
-    <section class="about-brief">
-      <h2>Created by an ESL Educator</h2>
-      <p>
-        ESL Hub was created by an experienced ESL teacher to provide practical,
-        easy-to-understand tools for real learners. The goal is clarity, not hype.
-      </p>
-    </section>
+<footer class="mt-24 border-t border-white/5 py-12">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+        <div>
+            <p class="text-neutral-500 text-[11px] leading-relaxed mb-4">
+                Created by an ESL educator to help students and teachers understand academic English readiness.
+            </p>
+            <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end gap-4">
+            <div class="flex gap-8 text-[9px] text-neutral-500 font-bold uppercase tracking-widest">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="about.html">About</a>
+            </div>
+            <p class="text-[9px] text-neutral-800 uppercase tracking-widest">© 2026 Academic ESL Hub</p>
+        </div>
+    </div>
+</footer>
 
-    <section class="disclaimer">
-      <p>
-        <strong>Disclaimer:</strong> These tools are for learning and self-assessment
-        purposes only and do not replace official language tests or professional evaluations.
-      </p>
-    </section>
-  </main>
+<script>
+const tiers = [
+    { title: "Level 1: Everyday Words", words: ["Table","Quick","Building","Understand","Travel","Between","Simple","Market","Health","Standard","Problem","Always","Example","Service","Reason","Country"], multiplier: 150 },
+    { title: "Level 2: Academic Words", words: ["Abstract","Empirical","Sustainable","Mitigate","Paradigm","Internalize","Synthesize","Protocol","Bias","Framework","Inference","Validity","Variable","Correlation","Contextual","Equating"], multiplier: 350 },
+    { title: "Level 3: Advanced Words", words: ["Obsequious","Ephemeral","Pernicious","Alacrity","Laconic","Enervate","Fastidious","Capricious","Gregarious","Inchoate","Malleable","Pragmatic","Reticent","Soporific","Loquacious","Vacillate"], multiplier: 600 }
+];
 
-  <footer>
-    <p>&copy; 2026 ESL Hub</p>
-    <ul>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="terms.html">Terms of Service</a></li>
-    </ul>
-  </footer>
+let currentTier = 0;
+let selectedWords = new Set();
+
+function startVocabTest() {
+    document.getElementById('intro-area').classList.add('hidden');
+    document.getElementById('test-area').classList.remove('hidden');
+    renderTier();
+}
+
+function renderTier() {
+    const tier = tiers[currentTier];
+    document.getElementById('tier-title').innerText = tier.title;
+    document.getElementById('step-indicator').innerText = `Step ${currentTier + 1} of 3`;
+    document.getElementById('word-grid').innerHTML = tier.words.map(word =>
+        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-4 rounded-xl text-sm text-neutral-400 bg-white/5">${word}</button>`
+    ).join('');
+    document.getElementById('next-btn').innerText = currentTier === 2 ? "Finish Test" : "Next Step";
+}
+
+function toggleWord(btn, word) {
+    selectedWords.has(word) ? selectedWords.delete(word) : selectedWords.add(word);
+    btn.classList.toggle('selected');
+    document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
+}
+
+function nextTier() {
+    currentTier < 2 ? (currentTier++, renderTier()) : showResults();
+}
+
+function showResults() {
+    document.getElementById('test-area').classList.add('hidden');
+    document.getElementById('result-area').classList.remove('hidden');
+
+    let total = 500;
+    tiers.forEach(t => total += t.words.filter(w => selectedWords.has(w)).length * t.multiplier);
+    total = Math.round(total);
+
+    document.getElementById('total-words').innerText = total.toLocaleString();
+
+    let level = "A2", desc = "Basic functional vocabulary.";
+    if (total > 2500) { level = "B1"; desc = "Intermediate vocabulary for common topics."; }
+    if (total > 4500) { level = "B2"; desc = "Academic entry level."; }
+    if (total > 7500) { level = "C1"; desc = "Advanced academic vocabulary."; }
+    if (total > 10000) { level = "C2"; desc = "Near-native vocabulary range."; }
+
+    document.getElementById('cefr-level').innerText = level;
+    document.getElementById('cefr-desc').innerText = desc;
+}
+</script>
+
 </body>
 </html>
