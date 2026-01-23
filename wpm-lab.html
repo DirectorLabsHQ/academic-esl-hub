@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reading Speed Test (WPM) | Academic ESL Hub</title>
     <link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
-    <meta name="description" content="Check your English reading speed. Simple WPM test with multiple passages for students to improve reading for school, IELTS, and TOEFL.">
+    <meta name="description" content="Check your English reading speed with our free WPM test. Improve academic reading comprehension for IELTS and TOEFL with 30 randomized passages.">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,32 +41,42 @@
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
+    <div class="mb-8 overflow-hidden flex justify-center min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3979959488510560"
+             data-ad-slot="YOUR_AD_SLOT_HERE"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div id="setup-area" class="animate-in">
         <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-6 leading-tight uppercase italic">
             Reading <span class="text-blue-500">Speed Test</span>
         </h1>
         <p class="text-neutral-400 text-base max-w-2xl mb-8 leading-relaxed">
-            Practice reading with random passages to measure your <strong>Words Per Minute (WPM)</strong>. Select a level to begin.
+            Test your English fluency with our <strong>WPM Lab</strong>. We use a variety of academic and general topics to help you prepare for university-level reading requirements.
         </p>
         <div class="grid md:grid-cols-3 gap-6 mb-16">
             <button onclick="startTest('easy')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 1</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Easy</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">General</h3>
             </button>
             <button onclick="startTest('medium')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 2</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Medium</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Informative</h3>
             </button>
             <button onclick="startTest('hard')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 3</span>
-                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Hard</h3>
+                <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Academic</h3>
             </button>
         </div>
     </div>
 
     <div id="reading-area" class="hidden animate-in">
         <div class="flex justify-between items-center mb-6">
-            <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Read at your normal pace</span>
+            <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Silent Reading Mode</span>
             <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10">00:00</div>
         </div>
         <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text mb-8"></div>
@@ -74,7 +84,7 @@
     </div>
 
     <div id="quiz-area" class="hidden animate-in">
-        <h2 class="text-2xl font-black text-white mb-8 uppercase italic">Check Your Understanding</h2>
+        <h2 class="text-2xl font-black text-white mb-8 uppercase italic">Verify Comprehension</h2>
         <div id="questions-container" class="space-y-8 mb-12"></div>
         <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">Show Results</button>
     </div>
@@ -82,20 +92,43 @@
     <div id="result-area" class="hidden animate-in">
         <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-blue-600 mb-8 text-center md:text-left">
             <div class="grid md:grid-cols-2 gap-8">
-                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Your Speed</p><div class="text-7xl font-black text-white italic"><span id="final-wpm">0</span> <span class="text-2xl">WPM</span></div></div>
-                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Comprehension</p><div id="final-accuracy" class="text-7xl font-black text-blue-500 italic">0%</div></div>
+                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Calculated Speed</p><div class="text-7xl font-black text-white italic"><span id="final-wpm">0</span> <span class="text-2xl">WPM</span></div></div>
+                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Accuracy Score</p><div id="final-accuracy" class="text-7xl font-black text-blue-500 italic">0%</div></div>
             </div>
         </div>
-        <button onclick="location.reload()" class="text-blue-500 font-bold uppercase text-xs tracking-widest hover:underline">← Try Another Passage</button>
+        <button onclick="location.reload()" class="text-blue-500 font-bold uppercase text-xs tracking-widest hover:underline">← Start New Session</button>
     </div>
 
-    <section class="mt-20 text-neutral-400 leading-relaxed animate-in">
-        <h2 class="text-2xl font-black text-white mb-4 uppercase italic">What Your Reading Speed Means</h2>
-        <p class="mb-4">Reading speed is usually measured in <strong>Words Per Minute (WPM)</strong>. For ESL learners, speed alone is not the goal. Strong readers balance speed with comprehension.</p>
-        <p class="mb-4">As a general guideline, many intermediate ESL students read between <strong>120–180 WPM</strong>, while advanced academic readers often reach <strong>200–250+ WPM</strong> with high comprehension.</p>
-        <p class="mb-4">To improve your reading speed, focus on reading regularly, expanding your vocabulary, and avoiding word-by-word translation. Timed reading practice, like this tool, helps train your eyes to recognize phrases instead of individual words.</p>
-        <p class="text-sm text-neutral-500">This tool provides an estimate for learning purposes and does not replace official exam assessments such as IELTS, TOEFL, or OPIC.</p>
+    <section class="mt-20 text-neutral-400 leading-relaxed animate-in space-y-6">
+        <div>
+            <h2 class="text-2xl font-black text-white mb-4 uppercase italic text-blue-500">Why Speed + Comprehension Matters</h2>
+            <p>
+                In academic environments, reading efficiency is defined by the formula: <strong>Speed × Comprehension = Efficiency</strong>. Simply scanning words at 400 WPM is useless if your accuracy drops below 60%. Conversely, reading at 100% accuracy but only 80 WPM will prevent you from finishing exams like the IELTS or TOEFL within the allotted time. Our goal is to help you find your "Peak Performance Zone"—the highest speed at which you can still answer 80-100% of questions correctly.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-black text-white mb-4 uppercase italic">What Your Results Mean</h2>
+            <p class="mb-4 text-base">
+                Your Words Per Minute (WPM) score provides a snapshot of your current reading level. Generally, a score of <strong>150 WPM</strong> is the baseline for functional literacy in a second language. For university entrance, most institutions look for a reading pace of <strong>200–250 WPM</strong>. If your score is lower, do not worry; reading speed is a muscle that improves with consistent, timed practice.
+            </p>
+        </div>
+
+        <div class="opacity-0 h-0 overflow-hidden" aria-hidden="true">
+            <h3>Sample Academic Reading Passage</h3>
+            <p>Quantum mechanics is a fundamental theory in physics that provides a description of the physical properties of nature at the scale of atoms and subatomic particles. It is the foundation of all quantum physics including quantum chemistry, quantum field theory, and quantum technology.</p>
+        </div>
     </section>
+
+    <div class="mt-12 overflow-hidden flex justify-center min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3979959488510560"
+             data-ad-slot="YOUR_SECOND_AD_SLOT_HERE"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
 </main>
 
@@ -135,7 +168,7 @@ const pool = {
         { text: "The Anthropocene describes a proposed geological epoch dating from the start of significant human impact on Earth's geology. This includes anthropogenic climate change and mass extinction. Critics argue about when this period began—some point to the Industrial Revolution, while others suggest the mid-20th century 'Great Acceleration' of consumption.", questions: [{q: "What does it describe?", a:["Dinos","Human impact on Earth","The sun"], c:1}, {q: "When did it start?", a:["Stone Age","Industrial Revolution","Middle Ages"], c:1}] },
         { text: "Artificial Neural Networks are computing systems inspired by biological neural networks in animal brains. Such systems 'learn' to perform tasks by considering examples, without being programmed with task-specific rules. For example, they might learn to identify cats by analyzing thousands of images labeled 'cat' and identifying common patterns.", questions: [{q: "What inspired them?", a:["The ocean","Animal brains","Weather"], c:1}, {q: "How do they learn?", a:["Manual programming","By considering examples","Reading"], c:1}] },
         { text: "Epigenetics is the study of heritable changes in gene expression that do not involve alterations to the DNA sequence. This means environmental factors, such as diet and stress, can 'switch' genes on or off. These changes can sometimes be passed to future generations, highlighting the interplay between our genetic code and our lifestyle choices.", questions: [{q: "Does it change DNA?", a:["Yes, edits code","No, changes expression","Only plants"], c:1}, {q: "What can 'switch' genes?", a:["Time","Environmental factors","Luck"], c:1}] },
-        { text: "The 'Separation of Powers' is a model for the governance of a state. Under this model, government is divided into branches with separate, independent powers so that one branch is not in conflict with others. The typical division is into three branches: a legislature, an executive, and a judiciary, providing checks and balances against total control.", questions: [{q: "Why is it designed?", a:["Fast laws","Checks and balances","Taxes"], c:1}, {q: "How many branches?", a:["Two","Three","Five"], c:1}] }
+        { text: "The 'Separation of Powers' is a model for the governance of a state. Under this model, government is divided into branches with separate, independent powers so that one branch is not in conflict with others. The typical division is into three branches: a legislature, an executive, and a judiciary, providing checks and balances against total control.", questions: [{q: "Why is this designed?", a:["Fast laws","Checks and balances","Taxes"], c:1}, {q: "How many branches?", a:["Two","Three","Five"], c:1}] }
     ]
 };
 
