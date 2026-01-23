@@ -60,15 +60,16 @@
             <p class="text-base">
                 Preparing for the <strong>IELTS, TOEFL, or university study</strong>? Knowing your speed is the first step. Our passages change every time you play, so you can practice often and see how your speed improves as you learn new vocabulary.
             </p>
+            
             <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-widest">
-                <span class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20">Analyze Speed</span>
-                <span class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20">Check Comprehension</span>
-                <span class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20">Academic English</span>
+                <a href="#test-start" class="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-600/30 transition-all cursor-pointer">Analyze Speed</a>
+                <a href="#test-start" class="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-600/30 transition-all cursor-pointer">Check Comprehension</a>
+                <a href="#study-tips" class="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-600/30 transition-all cursor-pointer">Improve Fluency</a>
             </div>
         </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-6 pb-12 w-full">
+    <section id="test-start" class="max-w-4xl mx-auto px-6 pb-12 w-full">
         <div id="pb-container"></div>
         <div class="ad-container"><span>Advertisement Space</span></div>
 
@@ -135,21 +136,21 @@
         </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
+    <section id="study-tips" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
         <div class="grid md:grid-cols-2 gap-12">
             <div>
                 <h2 class="text-white font-black text-2xl mb-6">How to improve your speed</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                    The secret to reading faster is <strong>chunking</strong>. Try to see groups of 3-4 words at once. This helps your brain process complete ideas faster.
+                    The secret to reading faster is <strong>chunking</strong>. Instead of looking at every single word, try to see groups of 3-4 words at once. This reduces the strain on your eyes and helps your brain process complete ideas faster.
                 </p>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    A good target for academic reading is <strong>200+ WPM</strong> with 80% comprehension. If your speed is high but your score is low, try slowing down and focusing on logic words like <em>however, therefore, or furthermore</em>.
+                    A good target for academic reading is <strong>200+ WPM</strong> with 80% comprehension. If your speed is high but your quiz score is low, try slowing down and focusing on key words like <em>however, therefore, or furthermore</em> that show the logic of the story.
                 </p>
             </div>
             <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
-                <h2 class="text-white font-black text-xl mb-4 italic uppercase">Study Tip</h2>
+                <h2 class="text-white font-black text-xl mb-4 italic uppercase">Did you know?</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    For ESL students, the biggest barrier to speed is vocabulary. If you don't know 95% of the words, your speed will drop. Use our <strong>Vocabulary Test</strong> to see if your word knowledge is ready for academic reading.
+                    For ESL students, the biggest barrier to speed is vocabulary. If you don't know 95% of the words in a text, your speed will drop because you have to stop and think about each word. Use our <strong>Vocabulary Test</strong> in the menu to check your level!
                 </p>
             </div>
         </div>
@@ -184,6 +185,7 @@
 </footer>
 
 <script>
+// (All previous JS logic including passage pool and functions remains here)
 const pool = {
     easy: [
         { text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1}, {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1}] },
