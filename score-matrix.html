@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Score Matrix | IELTS, TOEFL, TOEIC, OPIc to CEFR Alignment</title>
     <link rel="canonical" href="https://academiceslhub.com/score-matrix.html">
-    <meta name="description" content="Convert your IELTS, TOEFL, TOEIC, or OPIc score to CEFR. Get professional study advice and university readiness tips.">
+    <meta name="description" content="Convert your IELTS, TOEFL, TOEIC, or OPIc score to CEFR. Get professional study advice and university readiness tips based on ESL research.">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,6 +16,7 @@
         input, select { background:#0a0a0a; border:1px solid #222; transition: all 0.2s; }
         input:focus, select:focus { outline:none; border-color:#3b82f6; background: #111; }
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        ::selection { background:#3b82f6; color:#fff; }
     </style>
 </head>
 
@@ -41,11 +42,11 @@
 <main class="flex-grow max-w-5xl mx-auto p-6 md:p-12 w-full">
 
     <section class="mb-10">
-        <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 italic">
+        <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 italic leading-none">
             Score <span class="text-blue-500">Matrix</span>
         </h1>
         <p class="text-neutral-500 text-sm max-w-2xl leading-relaxed">
-            Standardized exam alignment. Enter your current score to see your CEFR equivalent and academic study recommendations.
+            Standardized exam alignment for international students. Enter your current score to see your CEFR equivalent and academic study recommendations for university success.
         </p>
     </section>
 
@@ -80,7 +81,7 @@
         *Calculations are based on the minimum threshold required for each CEFR level.
     </p>
 
-    <section class="card p-10 md:p-16 rounded-[2.5rem] border-l-8 border-blue-600 transition-all mb-16">
+    <section class="card p-10 md:p-16 rounded-[2.5rem] border-l-8 border-blue-600 transition-all mb-16 shadow-2xl">
         <div id="placeholder-content" class="text-center py-10">
             <p class="text-neutral-600 italic uppercase tracking-widest text-xs">Awaiting score input for alignment...</p>
         </div>
@@ -105,23 +106,41 @@
         </div>
     </section>
 
+    <section class="mb-16 p-8 rounded-3xl bg-blue-600/5 border border-blue-500/20">
+        <h2 class="text-xl font-black text-white uppercase italic mb-6">Expert Insights: Why Exam Scores Differ</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-[13px] text-neutral-400 leading-relaxed">
+            <div>
+                <strong class="text-blue-500 uppercase block mb-2">Integrated vs. Independent</strong>
+                <p>The <strong>TOEFL iBT</strong> often uses "integrated tasks," requiring you to read and listen before speaking or writing. This measures synthesized academic ability. In contrast, <strong>IELTS</strong> tends to keep skills more "independent," which can result in score variances for students with uneven skill sets across the four pillars of English.</p>
+            </div>
+            <div>
+                <strong class="text-blue-500 uppercase block mb-2">Human vs. AI Scoring</strong>
+                <p><strong>OPIc</strong> and <strong>TOEIC</strong> are heavily utilized in corporate environments (particularly in South Korea and Japan). OPIc’s conversational, adaptive nature measures functional fluency, while <strong>TOEFL</strong> and <strong>IELTS</strong> measure academic stamina. This is why high conversational fluency doesn't always translate to high academic test scores.</p>
+            </div>
+            <div>
+                <strong class="text-blue-500 uppercase block mb-2">The B2 Academic Ceiling</strong>
+                <p>Most global universities require an <strong>IELTS 6.5</strong> or <strong>TOEFL 80</strong>. This aligns with the CEFR B2/C1 boundary. Research suggests students below this threshold spend roughly 50% more time on reading assignments than native-speaking peers, highlighting the need for students to push toward a true C1 level for postgraduate success.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16 mb-12">
         <div>
-            <h2 class="text-white font-bold text-2xl mb-6">Understanding CEFR Alignment</h2>
+            <h2 class="text-white font-bold text-2xl mb-6 uppercase italic">The CEFR Yardstick</h2>
             <p class="text-neutral-400 text-sm leading-relaxed mb-4">
                 The Common European Framework of Reference for Languages (CEFR) acts as a universal yardstick. While tests like <strong>IELTS</strong> or <strong>TOEFL</strong> provide a numerical score, the CEFR tells institutions exactly what you can do in a real-world academic environment.
             </p>
             <p class="text-neutral-400 text-sm leading-relaxed mt-4">
-                Achieving a <strong>B2 Level</strong> is often considered the "tipping point" for academic success, where a student has enough language control to follow lectures without constant translation.
+                Achieving a <strong>B2 Level</strong> is often considered the "tipping point" for academic success, where a student has enough language control to follow lectures without constant translation or cognitive overload.
             </p>
         </div>
         <div>
-            <h2 class="text-white font-bold text-2xl mb-6">Score Validity</h2>
+            <h2 class="text-white font-bold text-2xl mb-6 uppercase italic">Horizontal Alignment</h2>
             <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                This matrix uses the latest research data to provide a horizontal comparison. Because different exams test different skills (OPIc focuses on speaking, while TOEIC often focuses on workplace listening/reading), these alignments are <strong>estimated benchmarks</strong>.
+                This matrix uses the latest research data to provide a horizontal comparison across multiple testing platforms. Because different exams prioritize different skills (OPIc focuses on speaking, while TOEIC focuses on workplace context), these alignments serve as <strong>estimated benchmarks</strong>.
             </p>
             <p class="text-neutral-600 text-[11px] italic leading-relaxed">
-                Disclaimer: Scores are matched to the closest CEFR threshold. Always refer to your specific university or employer for their proprietary conversion charts.
+                Disclaimer: Scores are matched to the closest CEFR threshold based on standard equivalency tables. Always refer to your specific university or employer for their proprietary conversion requirements.
             </p>
         </div>
     </section>
@@ -135,7 +154,7 @@
             </a>
             <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
                 Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
+                Based on CEFR standards and academic English research by Patrick Travers, PhD.
             </p>
             <p class="text-neutral-500 text-xs font-bold">
                 Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
