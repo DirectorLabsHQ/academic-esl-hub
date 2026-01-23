@@ -52,15 +52,12 @@
             Reading <span class="text-blue-500">Speed Lab</span>
         </h1>
         <div class="text-neutral-500 text-sm max-w-2xl mx-auto mb-12">
-            <p>
-                Measure your reading fluency and comprehension. Our randomized academic passages help you track your Words Per Minute (WPM) progress for professional and university readiness.
-            </p>
+            <p>Test your academic reading fluency. Choose a level to begin. After reading, answer 2 questions to verify your comprehension.</p>
         </div>
     </section>
 
     <section id="test-start" class="max-w-4xl mx-auto px-6 pb-12 w-full">
-        <div id="pb-container"></div>
-        <div class="ad-container"><span>Support our lab - Advertisement</span></div>
+        <div id="pb-container" class="text-center"></div>
 
         <div id="setup-area" class="animate-fade">
             <h2 class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-6 text-center">Choose Difficulty Level</h2>
@@ -94,9 +91,9 @@
         </div>
 
         <div id="quiz-area" class="hidden animate-fade">
-            <h2 class="text-white font-bold text-2xl mb-8 uppercase italic">Comprehension Check</h2>
+            <h2 class="text-white font-bold text-2xl mb-8 uppercase italic text-center">Comprehension Check</h2>
             <div id="questions-container" class="space-y-8 mb-12"></div>
-            <button id="submit-quiz-btn" onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">Calculate Results</button>
+            <button id="submit-quiz-btn" onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl">Calculate Results</button>
         </div>
 
         <div id="result-area" class="hidden animate-fade">
@@ -112,47 +109,33 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row gap-4">
-                <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all flex-1">Try Another Text</button>
-                <a href="vocab-estimator.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center flex-1">Test Vocabulary Range</a>
-            </div>
-        </div>
 
-        <div id="info-section" class="mt-20 border-t border-white/5 pt-12">
-            <h2 class="text-3xl font-black text-white uppercase italic mb-8">Reading Speed Benchmarks</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-6 text-neutral-400 text-sm leading-relaxed">
-                    <p>WPM (Words Per Minute) is a critical metric for academic success. For international students, reading speed is often the "hidden barrier" in exams like the IELTS, TOEFL, or SAT.</p>
-                    <p><strong>The 200 WPM Threshold:</strong> Most academic researchers agree that 200 WPM with at least 70% comprehension is the minimum required for undergraduate university study in English.</p>
-                </div>
-                <div class="card-bg p-6 rounded-2xl">
-                    <table class="w-full text-left text-xs uppercase font-bold tracking-widest">
-                        <tr class="text-blue-500 border-b border-white/5"><th class="pb-3">Level</th><th class="pb-3">Target WPM</th></tr>
-                        <tr class="border-b border-white/5 text-neutral-400"><td class="py-3">Elementary (A2)</td><td class="py-3">80-120</td></tr>
-                        <tr class="border-b border-white/5 text-neutral-400"><td class="py-3">Intermediate (B1)</td><td class="py-3">120-160</td></tr>
-                        <tr class="border-b border-white/5 text-neutral-400"><td class="py-3">Professional (B2)</td><td class="py-3">160-210</td></tr>
-                        <tr class="text-white"><td class="py-3">Advanced (C1-C2)</td><td class="py-3">220-300+</td></tr>
-                    </table>
-                </div>
+            <div id="advice-box" class="card-bg p-8 rounded-2xl border border-white/5 mb-8">
+                <h3 class="text-blue-500 font-bold uppercase tracking-widest text-[10px] mb-4">Improvement Advice</h3>
+                <p id="advice-text" class="text-neutral-300 text-sm leading-relaxed italic"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Try Another Text</button>
+                <a href="score-matrix.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center">Check Score Matrix</a>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="border-t border-white/5 py-16 px-6 bg-black">
+<footer class="border-t border-white/5 py-16 px-6 bg-black mt-12">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
             <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
-            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free assessment tools for global English learners. Designed to help students reach the academic threshold for international study.
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm">
+                Advanced tools for serious English students. Based on CEFR standards and academic literacy research.
             </p>
         </div>
-        <div class="flex flex-col md:items-end justify-center gap-6">
-            <div class="flex gap-8">
+        <div class="flex flex-col md:items-end justify-center gap-4">
+             <div class="flex gap-8">
                 <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Privacy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Terms</a>
                 <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase tracking-widest">About</a>
             </div>
             <p class="text-xs text-neutral-800 font-bold uppercase tracking-widest">© 2026 Academic ESL Hub.</p>
@@ -188,7 +171,7 @@ const pool = {
     ],
     hard: [
         { text: "Quantum mechanics is a fundamental theory in physics describing nature at the scale of atoms and subatomic particles. It is the foundation of quantum chemistry and technology. Classical physics cannot explain phenomena such as wave-particle duality. This theory has led to transistors and lasers.", questions: [{q: "At what scale does it work?", a:["Planetary","Atoms/Subatomic","Human-sized"], c:1}, {q: "What can classical physics not explain?", a:["Gravity","Wave-particle duality","Speed of light"], c:1}] },
-        { text: "Stoicism, founded in Athens by Zeno of Citium, teaches that virtue is the only good and that we should not be troubled by things outside our control. Stoics believe that by practicing self-control, one can overcome destructive emotions. Prominent Stoics include Marcus Aurelius and Epictetus.", questions: [{q: "What is the only good?", a:["Wealth","Virtue","Power"], c:1}, {q: "Who was a prominent Stoic?", a:["Aristotle","Marcus Aurelius","Plato"], c:1}] },
+        { text: "Stoicism, founded in Athens by Zeno of Citium, teaches that virtue is the only good and that we should not be troubled by things outside our control. Stoics believe that by practicing self-control, one can overcome destructive emotions. Prominent Stoics include Marcus Aurelius and Epictetus.", questions: [{q: "What is the only good?", a:["Wealth","Virtue","Power"], c:1}, {q: "What does stoicism help overcome?", a:["Physical illness","Destructive emotions","Financial debt"], c:1}] },
         { text: "CRISPR-Cas9 technology has revolutionized genetic engineering. It allows scientists to precisely edit DNA sequences and modify gene function. This tool has potential applications in curing genetic diseases and improving crop yields. However, it also raises ethical dilemmas regarding 'designer babies'.", questions: [{q: "What does CRISPR allow?", a:["Precise DNA editing","Faster computers","New fuels"], c:0}, {q: "What is an ethical dilemma?", a:["Designer babies","Food cost","Waste"], c:0}] },
         { text: "Macroeconomics deals with the performance and behavior of an economy as a whole. Macroeconomists study aggregated indicators such as GDP, unemployment rates, and price indices. They develop models that explain the relationship between factors like national income and inflation.", questions: [{q: "What scale does it cover?", a:["Single businesses","Individual people","Economy as a whole"], c:2}, {q: "What is an indicator?", a:["CEO salary","GDP","Store prices"], c:1}] },
         { text: "The Great Filter theory is a potential answer to the Fermi Paradox, which asks why we haven't encountered extraterrestrial life. The theory suggests a barrier in the development of life that is extremely difficult to overcome. This filter could be in our past or in our future.", questions: [{q: "What is it an answer to?", a:["Big Bang","Fermi Paradox","Gravity"], c:1}, {q: "What could be a future filter?", a:["Ancient history","Self-destruction","Water"], c:1}] },
@@ -224,21 +207,20 @@ function startTest(level) {
         let now = new Date();
         let elapsedTotal = (now - startTime) / 1000;
         document.getElementById('timer-display').innerText = `${Math.floor(elapsedTotal/60).toString().padStart(2,'0')}:${(Math.floor(elapsedTotal%60)).toString().padStart(2,'0')}`;
-        if(elapsedTotal >= 300) endReading();
     }, 100);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function endReading() {
-    if(!endTime) endTime = new Date();
+    endTime = new Date();
     clearInterval(timerInterval);
     document.getElementById('reading-area').classList.add('hidden');
     document.getElementById('quiz-area').classList.remove('hidden');
     document.getElementById('questions-container').innerHTML = currentPassage.questions.map((q,i)=> {
         const options = q.a.map((text, idx)=>({ text, isCorrect: idx===q.c }));
         const shuffled = shuffle([...options]);
-        return `<div class="card-bg p-8 rounded-2xl animate-fade" style="animation-delay:${i*0.1}s">
-            <h3 class="text-white font-bold mb-6 text-lg uppercase italic">${q.q}</h3>
+        return `<div class="card-bg p-8 rounded-2xl animate-fade">
+            <h3 class="text-white font-bold mb-6 text-sm uppercase tracking-widest italic">${q.q}</h3>
             <div class="grid grid-cols-1 gap-4">
                 ${shuffled.map((opt,oi)=> `<button onclick="selectOption(${i},${oi},${opt.isCorrect})" id="q${i}o${oi}" data-correct="${opt.isCorrect}" class="option-btn font-bold">${opt.text}</button>`).join('')}
             </div>
@@ -275,6 +257,20 @@ function calculateResults() {
     const accuracy = Math.round((correctCount/currentPassage.questions.length)*100);
     document.getElementById('final-wpm').innerText = wpm;
     document.getElementById('final-accuracy').innerText = `${accuracy}%`;
+
+    // Advice Logic
+    let advice = "";
+    if (accuracy < 80) {
+        advice = "Your speed is okay, but you are not understanding everything. You should slow down. Try to focus on the meaning of each sentence. It is better to be slow and correct than fast and wrong.";
+    } else if (wpm < 150) {
+        advice = "Good job on understanding the text! To improve your speed, try reading groups of words instead of one word at a time. Do not say the words out loud in your head.";
+    } else if (wpm < 250) {
+        advice = "Great speed! You are reading at a professional level. To reach the top level, practice reading every day for 20 minutes with very difficult news or science articles.";
+    } else {
+        advice = "Excellent! Your reading speed is like a native English speaker. Keep reading complex books to keep your skills sharp.";
+    }
+    document.getElementById('advice-text').innerText = advice;
+
     document.getElementById('quiz-area').classList.add('hidden');
     document.getElementById('result-area').classList.remove('hidden');
     
