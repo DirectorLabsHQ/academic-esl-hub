@@ -34,8 +34,8 @@
             <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
                 <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-white uppercase tracking-widest">Fluency Lab</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary Test</a>
             </nav>
         </div>
     </div>
@@ -48,6 +48,7 @@
     <div id="setup-area" class="animate-fade">
         <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4 leading-tight uppercase italic">WPM <span class="text-blue-500">Lab</span></h1>
         <p class="text-neutral-400 text-lg max-w-2xl mb-10 leading-relaxed">Standardized Reading Fluency Assessment. Choose a level to begin.</p>
+        
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-16">
             <button onclick="startTest('easy')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 1: A2/B1</span>
@@ -61,6 +62,25 @@
                 <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Level 3: C2 Academic</span>
                 <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 italic uppercase">Advanced</h3>
             </button>
+        </div>
+
+        <div class="border-t border-white/5 pt-16 space-y-12 text-neutral-400 text-sm leading-relaxed">
+            <section>
+                <h2 class="text-white font-black text-2xl mb-6 italic uppercase tracking-tighter">Understanding Reading Fluency</h2>
+                <p class="mb-4">Reading fluency in an academic context is more than just speed; it is the ability to process complex syntax and specialized vocabulary while maintaining high comprehension. For ESL students aiming for university-level success, tracking **Words Per Minute (WPM)** is a vital diagnostic metric.</p>
+                <p>Standardized tests like the TOEFL and IELTS reward students who can scan large volumes of text efficiently. Our WPM Lab uses randomized academic passages to help you baseline your current performance and improve your "Effective Reading Rate."</p>
+            </section>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                    <h4 class="text-blue-500 font-bold mb-3 uppercase tracking-widest text-[10px]">The 150 WPM Threshold</h4>
+                    <p>Research suggests that a reading speed below 150 WPM on academic texts often indicates that the reader is focusing too much on individual word decoding, which significantly degrades overall comprehension.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                    <h4 class="text-blue-500 font-bold mb-3 uppercase tracking-widest text-[10px]">Comprehension Integrity</h4>
+                    <p>Speed is irrelevant without understanding. Our lab requires an 80% accuracy rate on follow-up questions to validate your speed result as a "true" reading pace.</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -104,6 +124,32 @@
         <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all w-full md:w-auto">Try Another Passage</button>
     </div>
 </main>
+
+<footer class="border-t border-white/5 py-16 px-6 bg-black mt-20">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-[10px] leading-relaxed max-w-sm mb-6">
+                Providing free, high-utility assessment tools for the global English-speaking academic community. Based on CEFR and AWL frameworks.
+            </p>
+            <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
+                <a href="about.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest transition-colors">About Us</a>
+            </div>
+            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">
+                © 2026 Academic ESL Hub. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
 
 <script>
 const pool = {
