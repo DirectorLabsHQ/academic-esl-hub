@@ -8,6 +8,7 @@
     <meta name="description" content="Check your English reading speed with our free WPM test. Improve academic reading comprehension for IELTS and TOEFL with 30 randomized passages.">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
@@ -17,9 +18,24 @@
         .reading-text { line-height: 1.8; color: #d1d1d1; }
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Interactive Elements */
         .option-btn { border: 1px solid #333; transition: all 0.2s; cursor: pointer; width: 100%; text-align: left; padding: 1rem; border-radius: 0.75rem; color: #a3a3a3; }
         .option-btn:hover { border-color: #3b82f6; background: #1a1a1a; }
         .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
+
+        /* Ad Placeholder Styling - Smart for Approval */
+        .ad-container {
+            background: rgba(255,255,255,0.02);
+            border: 1px dashed rgba(255,255,255,0.05);
+            border-radius: 12px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -41,7 +57,7 @@
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
-    <div class="mb-8 overflow-hidden flex justify-center min-h-[90px]">
+    <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-3979959488510560"
@@ -56,7 +72,7 @@
             Reading <span class="text-blue-500">Speed Test</span>
         </h1>
         <p class="text-neutral-400 text-base max-w-2xl mb-8 leading-relaxed">
-            Test your English fluency with our <strong>WPM Lab</strong>. We use a variety of academic and general topics to help you prepare for university-level reading requirements.
+            Measure your <strong>Words Per Minute (WPM)</strong> and track your progress. Choose a level to begin your timed reading session.
         </p>
         <div class="grid md:grid-cols-3 gap-6 mb-16">
             <button onclick="startTest('easy')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
@@ -99,28 +115,29 @@
         <button onclick="location.reload()" class="text-blue-500 font-bold uppercase text-xs tracking-widest hover:underline">← Start New Session</button>
     </div>
 
-    <section class="mt-20 text-neutral-400 leading-relaxed animate-in space-y-6">
+    <section class="mt-20 text-neutral-400 leading-relaxed animate-in space-y-8">
+        <hr class="border-white/5">
         <div>
             <h2 class="text-2xl font-black text-white mb-4 uppercase italic text-blue-500">Why Speed + Comprehension Matters</h2>
             <p>
-                In academic environments, reading efficiency is defined by the formula: <strong>Speed × Comprehension = Efficiency</strong>. Simply scanning words at 400 WPM is useless if your accuracy drops below 60%. Conversely, reading at 100% accuracy but only 80 WPM will prevent you from finishing exams like the IELTS or TOEFL within the allotted time. Our goal is to help you find your "Peak Performance Zone"—the highest speed at which you can still answer 80-100% of questions correctly.
+                In academic environments, reading efficiency is defined by the formula: <strong>Speed × Comprehension = Efficiency</strong>. Simply scanning words at a high WPM is ineffective if your accuracy drops below a functional level. Our tool helps you find the highest speed at which you can still answer 80-100% of questions correctly. This is vital for high-stakes exams such as the IELTS, TOEFL, or SAT.
             </p>
         </div>
 
         <div>
-            <h2 class="text-2xl font-black text-white mb-4 uppercase italic">What Your Results Mean</h2>
-            <p class="mb-4 text-base">
-                Your Words Per Minute (WPM) score provides a snapshot of your current reading level. Generally, a score of <strong>150 WPM</strong> is the baseline for functional literacy in a second language. For university entrance, most institutions look for a reading pace of <strong>200–250 WPM</strong>. If your score is lower, do not worry; reading speed is a muscle that improves with consistent, timed practice.
+            <h2 class="text-2xl font-black text-white mb-4 uppercase italic">Understanding Your WPM Results</h2>
+            <p class="mb-4">
+                Your Words Per Minute (WPM) score provides a snapshot of your current reading level. Generally, a score of <strong>150 WPM</strong> is considered functional for English learners. For university-level success, most institutions expect a reading pace of <strong>200–250+ WPM</strong>.
             </p>
         </div>
 
         <div class="opacity-0 h-0 overflow-hidden" aria-hidden="true">
-            <h3>Sample Academic Reading Passage</h3>
-            <p>Quantum mechanics is a fundamental theory in physics that provides a description of the physical properties of nature at the scale of atoms and subatomic particles. It is the foundation of all quantum physics including quantum chemistry, quantum field theory, and quantum technology.</p>
+            <h3>Sample Academic Content for Indexing</h3>
+            <p>Quantum mechanics describes nature at the scale of atoms. It is the foundation of modern technology, including lasers and transistors. Understanding these complex texts requires high reading fluency and active vocabulary recall.</p>
         </div>
     </section>
 
-    <div class="mt-12 overflow-hidden flex justify-center min-h-[90px]">
+    <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-3979959488510560"
