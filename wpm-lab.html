@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Reading Fluency Lab | WPM Test | ESL Hub</title>
     <link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
-    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with 30+ academic texts to prepare for IELTS, TOEFL, and university study.">
+    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with 30 academic texts categorized by CEFR levels to prepare for IELTS, TOEFL, and university study.">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -20,7 +20,6 @@
         .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
         .option-btn.correct { background: #064e3b !important; border-color: #10b981 !important; color: white !important; }
         .option-btn.wrong { background: #7f1d1d !important; border-color: #ef4444 !important; color: white !important; }
-        .ad-container { min-height: 100px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; color: rgba(255,255,255,0.05); font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; }
         .animate-fade { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; overflow-x: auto; display: flex; }
@@ -51,9 +50,9 @@
         <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase leading-none italic">
             Reading <span class="text-blue-500">Speed Lab</span>
         </h1>
-        <div class="text-neutral-500 text-sm max-w-2xl mx-auto mb-12">
-            <p>Test your academic reading fluency. Choose a level to begin. After reading, answer 2 questions to verify your comprehension.</p>
-        </div>
+        <p class="text-neutral-500 text-sm max-w-2xl mx-auto mb-12">
+            Test your academic reading fluency. Choose a level to begin. After reading, answer 2 questions to verify your comprehension.
+        </p>
     </section>
 
     <section id="test-start" class="max-w-4xl mx-auto px-6 pb-12 w-full">
@@ -109,17 +108,46 @@
                     </div>
                 </div>
             </div>
-
             <div id="advice-box" class="card-bg p-8 rounded-2xl border border-white/5 mb-8">
                 <h3 class="text-blue-500 font-bold uppercase tracking-widest text-[10px] mb-4">Improvement Advice</h3>
                 <p id="advice-text" class="text-neutral-300 text-sm leading-relaxed italic"></p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Try Another Text</button>
                 <a href="score-matrix.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center">Check Score Matrix</a>
             </div>
         </div>
+
+        <hr class="border-white/5 my-20">
+        
+        <article class="prose prose-invert max-w-none grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-2xl font-black text-white uppercase italic tracking-tighter mb-4">Why Reading Speed Matters</h2>
+                <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                    For students preparing for international exams like the IELTS, TOEFL, or GRE, reading speed—measured in Words Per Minute (WPM)—is a critical factor. Most academic exams require you to process complex texts at a speed of at least 200 WPM to finish the section within the time limit.
+                </p>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    Our <strong>WPM Lab</strong> uses curated passages that reflect the linguistic complexity of the Common European Framework of Reference for Languages (CEFR). By practicing regularly with these 30+ texts, you can eliminate "subvocalization" (reading out loud in your head) and improve your visual scanning efficiency.
+                </p>
+            </div>
+            <div>
+                <h2 class="text-2xl font-black text-white uppercase italic tracking-tighter mb-4">Understanding the Levels</h2>
+                <ul class="space-y-4">
+                    <li class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <strong class="text-blue-500 block mb-1">Foundations (A2-B1)</strong>
+                        <span class="text-xs text-neutral-400">Simple sentence structures and common daily vocabulary. Ideal for building initial confidence.</span>
+                    </li>
+                    <li class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <strong class="text-blue-500 block mb-1">Professional (B2)</strong>
+                        <span class="text-xs text-neutral-400">Complex ideas and specialized terminology. Suitable for workplace English and undergraduate preparation.</span>
+                    </li>
+                    <li class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <strong class="text-blue-500 block mb-1">University (C1-C2)</strong>
+                        <span class="text-xs text-neutral-400">Dense academic abstracts and philosophical texts. Necessary for postgraduate study and high-level research.</span>
+                    </li>
+                </ul>
+            </div>
+        </article>
     </section>
 </main>
 
@@ -258,7 +286,6 @@ function calculateResults() {
     document.getElementById('final-wpm').innerText = wpm;
     document.getElementById('final-accuracy').innerText = `${accuracy}%`;
 
-    // Advice Logic
     let advice = "";
     if (accuracy < 80) {
         advice = "Your speed is okay, but you are not understanding everything. You should slow down. Try to focus on the meaning of each sentence. It is better to be slow and correct than fast and wrong.";
