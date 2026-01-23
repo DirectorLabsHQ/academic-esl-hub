@@ -65,15 +65,15 @@
         <div id="setup-area" class="animate-fade">
             <h2 class="text-blue-500 font-bold uppercase tracking-widest text-[10px] mb-6 text-center">Select Difficulty</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-16">
-                <button onclick="startTest('easy')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                <button type="button" onclick="startTest('easy')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
                     <span class="text-neutral-500 font-bold text-[10px] uppercase tracking-widest">A2 - B1 Level</span>
                     <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase italic">Foundations</h3>
                 </button>
-                <button onclick="startTest('medium')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                <button type="button" onclick="startTest('medium')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
                     <span class="text-neutral-500 font-bold text-[10px] uppercase tracking-widest">B2 Level</span>
                     <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase italic">Professional</h3>
                 </button>
-                <button onclick="startTest('hard')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
+                <button type="button" onclick="startTest('hard')" class="card-bg p-8 rounded-2xl hover:border-blue-500 transition-all text-left group">
                     <span class="text-neutral-500 font-bold text-[10px] uppercase tracking-widest">C1 - C2 Level</span>
                     <h3 class="text-xl font-black text-white mt-2 group-hover:text-blue-500 uppercase italic">University</h3>
                 </button>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text mb-8 shadow-2xl border-white/5"></div>
-            <button id="finish-btn" onclick="endReading()" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg active:scale-[0.98]">
+            <button type="button" id="finish-btn" onclick="endReading()" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg active:scale-[0.98]">
                 I have finished reading
             </button>
         </div>
@@ -96,7 +96,7 @@
         <div id="quiz-area" class="hidden animate-fade">
             <h2 class="text-white font-bold text-2xl mb-8 uppercase italic text-center">Comprehension Check</h2>
             <div id="questions-container" class="space-y-8 mb-12"></div>
-            <button id="submit-quiz-btn" onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl">Calculate Results</button>
+            <button type="button" id="submit-quiz-btn" onclick="calculateResults()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all shadow-xl">Calculate Results</button>
         </div>
 
         <div id="result-area" class="hidden animate-fade">
@@ -117,7 +117,7 @@
                 <p id="advice-text" class="text-neutral-300 text-sm leading-relaxed italic"></p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <button onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Try Another Text</button>
+                <button type="button" onclick="location.reload()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-blue-500 transition-all">Try Another Text</button>
                 <a href="score-matrix.html" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-xl font-black uppercase hover:bg-white/10 transition-all text-center">Check Score Matrix</a>
             </div>
         </div>
@@ -215,7 +215,6 @@ window.onload = () => {
 };
 
 function startTest(level) {
-    // Resetting state for fresh start
     userAnswers = [];
     startTime = null;
     endTime = null;
@@ -238,7 +237,6 @@ function startTest(level) {
 }
 
 function endReading() {
-    // Capture time exactly when reading stops
     endTime = new Date();
     clearInterval(timerInterval);
     document.getElementById('reading-area').classList.add('hidden');
@@ -250,7 +248,7 @@ function endReading() {
         return `<div class="card-bg p-8 rounded-2xl animate-fade">
             <h3 class="text-white font-bold mb-6 text-sm uppercase tracking-widest italic">${q.q}</h3>
             <div class="grid grid-cols-1 gap-4">
-                ${shuffled.map((opt,oi)=> `<button onclick="selectOption(${i},${oi},${opt.isCorrect})" id="q${i}o${oi}" data-correct="${opt.isCorrect}" class="option-btn font-bold">${opt.text}</button>`).join('')}
+                ${shuffled.map((opt,oi)=> `<button type="button" onclick="selectOption(${i},${oi},${opt.isCorrect})" id="q${i}o${oi}" data-correct="${opt.isCorrect}" class="option-btn font-bold">${opt.text}</button>`).join('')}
             </div>
         </div>`;
     }).join('');
@@ -265,9 +263,7 @@ function selectOption(qi, oi, isCorrect) {
 }
 
 function calculateResults() {
-    // Safety check for endTime if needed
     if (!endTime) endTime = new Date();
-    
     if(userAnswers.filter(a => a !== undefined).length < currentPassage.questions.length) {
         alert("Please answer all questions before calculating."); return;
     }
@@ -306,7 +302,7 @@ function calculateResults() {
     document.getElementById('result-area').classList.remove('hidden');
     
     if(accuracy >= 80) {
-        const currentPB = localStorage.getItem('last_wpm') || 0;
+        const currentPB = Number(localStorage.getItem('last_wpm')) || 0;
         localStorage.setItem('last_wpm', Math.max(currentPB, wpm));
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
