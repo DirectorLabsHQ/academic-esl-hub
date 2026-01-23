@@ -3,153 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Framework | Academic ESL Hub Methodology</title>
-    
-    <link rel="canonical" href="https://academiceslhub.com/about.html" />
-    
-    <meta name="description" content="Technical overview of the Academic ESL Hub diagnostic framework. Grounded in Foreign Language Education research and academic English standards.">
-    <meta name="keywords" content="SLA research, Second Language Acquisition, Academic English framework, ESL methodology, CEFR mapping, Lexical Threshold, Patrick Travers PhD">
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
+    <title>The Framework | Academic ESL Hub</title>
+
+    <link rel="canonical" href="https://academiceslhub.com/about.html">
+
+    <meta name="description" content="Learn how Academic ESL Hub measures reading speed, vocabulary knowledge, and test-score alignment using CEFR and modern ESL research.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560"
+        crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
-        .card-bg { background: #111; border: 1px solid #1a1a1a; }
-        .accent-border { border-left: 4px solid #3b82f6; }
-        .nav-link { font-size: 11px; font-weight: 700; color: #737373; transition: all 0.2s; }
-        .nav-link:hover { color: white; }
-        
-        .animate-in { animation: fadeIn 0.6s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        ::selection { background: #3b82f6; color: white; }
+        body { background-color:#050505; color:#e5e5e5; font-family:'Inter', sans-serif; }
+        .card { background:#111; border:1px solid #1a1a1a; }
+        .accent { border-left:4px solid #3b82f6; }
+        ::selection { background:#3b82f6; color:#fff; }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col antialiased">
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-6">
-            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">ACADEMIC<span class="text-white">ESL</span>HUB</a>
-            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="nav-link uppercase tracking-widest">Home Hub</a>
-                <a href="score-matrix.html" class="nav-link uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="nav-link uppercase tracking-widest">Fluency Lab</a>
-                <a href="vocab-estimator.html" class="nav-link uppercase tracking-widest">Vocab Estimator</a>
-                <a href="about.html" class="text-xs font-bold text-white transition-colors uppercase tracking-widest border-l border-white/10 pl-6">About the Research</a>
-            </nav>
-        </div>
-        <div class="flex items-center gap-3">
-            <span class="text-[9px] font-black text-neutral-500 tracking-[0.3em] uppercase hidden sm:block italic">Technical Briefing v4.0</span>
-            <div class="h-2 w-2 rounded-full bg-blue-500"></div>
-        </div>
+        <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
+            ACADEMIC<span class="text-white">ESL</span>HUB
+        </a>
+        <nav class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-neutral-400">
+            <a href="index.html" class="hover:text-white">Home</a>
+            <a href="score-matrix.html" class="hover:text-white">Score Matrix</a>
+            <a href="vocab-estimator.html" class="hover:text-white">Vocabulary</a>
+            <a href="wpm-lab.html" class="hover:text-white">Reading Speed</a>
+            <a href="about.html" class="text-white">Framework</a>
+        </nav>
     </div>
 </header>
 
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-16 w-full">
-    
-    <header class="mb-20 animate-in">
-        <h2 class="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6 uppercase italic leading-none">The<br>Framework</h2>
-        <div class="h-1 w-24 bg-blue-600 mb-8"></div>
-        <p class="text-xl text-neutral-400 italic leading-relaxed">
-            Evidence-based diagnostics developed through the lens of <strong>Foreign Language Education</strong> research and cognitive linguistics.
+
+    <!-- HERO -->
+    <section class="mb-20">
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight uppercase italic mb-6">
+            The <span class="text-blue-500">Framework</span>
+        </h1>
+        <p class="text-xl text-neutral-400 italic leading-relaxed max-w-2xl">
+            Academic ESL Hub is built to help students and teachers understand whether a learner is ready for
+            <strong>university-level English</strong> — and what to improve next.
         </p>
-    </header>
-
-    <section class="space-y-20 animate-in" style="animation-delay: 0.1s;">
-        <div class="accent-border pl-8">
-            <h3 class="text-xs font-black text-blue-500 uppercase tracking-[0.4em] mb-4">Research & Methodology</h3>
-            <p class="text-neutral-300 leading-relaxed italic mb-4">
-                The Academic ESL Hub is a project designed to operationalize modern SLA (Second Language Acquisition) research into practical, accessible tools for advanced learners. 
-            </p>
-            <p class="text-neutral-500 text-sm leading-relaxed italic mb-8">
-                Unlike general-purpose language apps, this suite is calibrated to the specific linguistic demands of <strong>post-secondary research</strong> and international standardized testing.
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-8 text-sm text-neutral-400 leading-relaxed">
-                <div>
-                    <h4 class="text-white font-bold mb-2 italic">The Lexical Threshold Hypothesis</h4>
-                    <p>Research suggests that a 95-98% "lexical coverage" is required for unassisted reading of academic texts. Our <a href="vocab-estimator.html" class="text-blue-500 hover:underline">Vocab Estimator</a> targets the <strong>Academic Word List (AWL)</strong> to determine if a student has crossed this critical threshold for postgraduate independence.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-2 italic">Cognitive Load & WPM</h4>
-                    <p>Academic fluency is not just about speed, but the reduction of cognitive load. The <a href="wpm-lab.html" class="text-blue-500 hover:underline">WPM Fluency Lab</a> measures "Effective WPM," ensuring that processing speed does not outpace semantic encoding—a common issue in high-stakes testing like the TOEFL iBT.</p>
-                </div>
-            </div>
-            </div>
-
-        <div class="grid md:grid-cols-2 gap-8 py-4">
-            <div class="card-bg p-8 rounded-3xl">
-                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">01. Cognitive Processing</h4>
-                <p class="text-neutral-500 text-sm leading-relaxed italic">
-                    By analyzing <strong>Words Per Minute (WPM)</strong> alongside comprehension accuracy, we identify the "fluency-comprehension" balance necessary for academic success.
-                </p>
-            </div>
-            <div class="card-bg p-8 rounded-3xl">
-                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">02. Lexical Mastery</h4>
-                <p class="text-neutral-500 text-sm leading-relaxed italic">
-                    Our diagnostics prioritize high-utility, abstract vocabulary that differentiates C1/C2 mastery from intermediate communicative levels.
-                </p>
-            </div>
-        </div>
-
-        <article class="bg-white/5 p-10 rounded-[2.5rem] border border-white/10">
-            <h3 class="text-white font-black text-xl mb-6 italic uppercase tracking-tight">The Researcher</h3>
-            <div class="flex flex-col md:flex-row gap-8 items-start">
-                <div class="flex-grow">
-                    <p class="text-neutral-300 text-sm leading-relaxed mb-4 italic">
-                        <strong>Patrick Travers (PhD, Foreign Language Education)</strong> is a researcher and educator based in Daegu, South Korea. His work focuses on the intersection of lexical acquisition and reading fluency in academic contexts.
-                    </p>
-                    <p class="text-neutral-500 text-sm leading-relaxed italic">
-                        The tools found on this site are the result of ongoing research into how advanced ESL learners bridge the gap between "standard proficiency" and "academic mastery." By using data-driven benchmarks, the Academic ESL Hub aims to provide learners with the same diagnostic precision used in university research labs.
-                    </p>
-                </div>
-            </div>
-        </article>
-
-        <article class="bg-white/5 p-10 rounded-[2.5rem] border border-white/10">
-            <h3 class="text-white font-black text-xl mb-6 italic uppercase tracking-tight">Applied Standards</h3>
-            <div class="space-y-6">
-                <div class="flex gap-4">
-                    <span class="text-blue-500 font-bold min-w-[60px]">CEFR:</span>
-                    <p class="text-neutral-400 text-sm italic">Frameworks map directly to the global Common European Framework of Reference for Languages, focusing on the B2 to C2 range.</p>
-                </div>
-                <div class="flex gap-4">
-                    <span class="text-blue-500 font-bold min-w-[60px]">SLA:</span>
-                    <p class="text-neutral-400 text-sm italic">Methodologies are informed by current <strong>Second Language Acquisition</strong> research and Foreign Language Education pedagogy.</p>
-                </div>
-            </div>
-        </article>
     </section>
 
-    <div class="mt-20 text-center animate-in" style="animation-delay: 0.2s;">
-        <a href="index.html" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-black uppercase tracking-widest hover:bg-blue-500 transition-all shadow-2xl shadow-blue-900/20 italic">Return to Hub</a>
+    <!-- PLAIN ENGLISH EXPLANATION -->
+    <section class="accent pl-8 mb-20">
+        <h2 class="text-xs font-black uppercase tracking-[0.4em] text-blue-500 mb-4">
+            What This Site Actually Does
+        </h2>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+            In simple terms, Academic ESL Hub provides diagnostic tools that measure three things that matter most
+            for academic success: <strong>reading speed</strong>, <strong>vocabulary knowledge</strong>, and
+            <strong>test-score alignment</strong>.
+        </p>
+        <p class="text-neutral-400 text-sm leading-relaxed">
+            Instead of giving vague levels or generic practice, each tool explains what your result means in real
+            academic contexts and offers practical guidance on how to move to the next level.
+        </p>
+    </section>
+
+    <!-- CORE PRINCIPLES -->
+    <section class="grid md:grid-cols-2 gap-8 mb-24">
+        <div class="card p-8 rounded-3xl">
+            <h3 class="text-white font-bold uppercase text-xs tracking-widest mb-4">
+                Reading Speed & Cognitive Load
+            </h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+                University texts demand fast processing without loss of meaning. The
+                <a href="wpm-lab.html" class="text-blue-500 hover:underline">Reading Speed tool</a>
+                measures effective words per minute while accounting for comprehension, not just speed.
+            </p>
+        </div>
+
+        <div class="card p-8 rounded-3xl">
+            <h3 class="text-white font-bold uppercase text-xs tracking-widest mb-4">
+                Vocabulary Thresholds
+            </h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+                Research shows that readers need approximately 95–98% lexical coverage to read independently.
+                The <a href="vocab-estimator.html" class="text-blue-500 hover:underline">Vocabulary Estimator</a>
+                focuses on high-frequency academic vocabulary rather than everyday conversation words.
+            </p>
+        </div>
+    </section>
+
+    <!-- TEST SCORE ALIGNMENT -->
+    <section class="card p-10 rounded-[2.5rem] mb-24">
+        <h3 class="text-white font-black uppercase tracking-tight text-xl mb-6 italic">
+            Test Scores & CEFR Alignment
+        </h3>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+            Many students take one exam but need to understand how that score compares to another.
+            The <a href="score-matrix.html" class="text-blue-500 hover:underline">Score Matrix</a>
+            aligns IELTS, TOEFL, TOEIC, and OPIc scores with the CEFR framework.
+        </p>
+        <p class="text-neutral-500 text-xs italic">
+            All equivalencies are approximate and intended for guidance only. Always confirm requirements with
+            your institution.
+        </p>
+    </section>
+
+    <!-- AUTHOR -->
+    <section class="card p-10 rounded-[2.5rem] mb-24">
+        <h3 class="text-white font-black uppercase tracking-tight text-xl mb-6 italic">
+            About the Researcher
+        </h3>
+        <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+            <strong>Patrick Travers (PhD, Foreign Language Education)</strong> is an ESL educator and researcher
+            based in Daegu, South Korea. His work focuses on how advanced ESL learners transition from
+            standardized-test proficiency to true academic independence.
+        </p>
+        <p class="text-neutral-500 text-sm leading-relaxed italic">
+            Academic ESL Hub translates current research in Second Language Acquisition into practical tools
+            that students and teachers can actually use.
+        </p>
+    </section>
+
+    <!-- CTA -->
+    <div class="text-center">
+        <a href="index.html"
+           class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-black uppercase tracking-widest
+                  hover:bg-blue-500 transition-all italic">
+            Return to Hub
+        </a>
     </div>
 
 </main>
 
-<footer class="mt-24 border-t border-white/5 py-12 px-6 bg-black">
-    <div class="max-w-7xl mx-auto flex flex-col gap-12">
-        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
-            <div class="max-w-md">
-                <p class="text-[10px] font-black text-neutral-600 uppercase tracking-widest mb-4 italic">DirectorLabs HQ / Daegu, South Korea</p>
-                <p class="text-neutral-500 text-[11px] leading-relaxed italic">
-                    Diagnostic frameworks are developed by <span class="text-white font-bold">Patrick Travers (PhD)</span>. These diagnostics are part of a continuous commitment to improving academic English assessment through digital innovation.
-                </p>
-            </div>
-            <div class="flex flex-col md:items-end gap-3">
-                <a href="https://www.researchgate.net/profile/Patrick-Travers" target="_blank" class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-xl hover:bg-blue-600 transition-all group">
-                    <span class="text-xs font-bold text-neutral-400 group-hover:text-white uppercase tracking-tighter italic">View ResearchGate Profile</span>
-                    <span class="text-blue-500 group-hover:text-white">→</span>
-                </a>
-            </div>
-        </div>
-        <div class="flex justify-between items-center opacity-40 pt-8 border-t border-white/5">
-            <span class="text-[9px] font-bold uppercase tracking-[0.4em] italic">Academic ESL Hub • 2026</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.4em] italic">Methodology v4.0</span>
-        </div>
+<footer class="border-t border-white/5 py-12 bg-black">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-neutral-600 text-[11px]">
+            Research-informed diagnostics for academic English learners.
+        </p>
+        <p class="text-neutral-800 text-[9px] uppercase tracking-widest mt-2">
+            © 2026 Academic ESL Hub
+        </p>
     </div>
 </footer>
 
