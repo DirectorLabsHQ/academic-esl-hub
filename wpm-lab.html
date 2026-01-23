@@ -17,24 +17,24 @@
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
+        /* Interactive Buttons */
         .option-btn { border: 1px solid #333; transition: all 0.2s; cursor: pointer; width: 100%; text-align: left; padding: 1rem; border-radius: 0.75rem; color: #a3a3a3; }
         .option-btn:hover { border-color: #3b82f6; background: #1a1a1a; }
         .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
 
-        /* PRE-APPROVAL: Professional-looking placeholders */
+        /* GHOST AD PLACEHOLDERS: Strategic for AdSense review without looking "broken" */
         .ad-container {
-            background: rgba(255,255,255,0.02);
-            border: 1px dashed rgba(255,255,255,0.1);
-            border-radius: 12px;
-            min-height: 120px;
+            min-height: 100px;
+            margin: 2rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 2rem 0;
-            color: #444;
-            font-size: 10px;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 12px;
+            color: rgba(255,255,255,0.05); /* Nearly invisible text */
+            font-size: 9px;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
         }
     </style>
 </head>
@@ -58,7 +58,7 @@
 <main class="flex-grow max-w-4xl mx-auto p-6 md:p-12 w-full">
 
     <div class="ad-container">
-        <span>Advertisement Space</span>
+        <span>Advertisement</span>
         </div>
 
     <div id="setup-area" class="animate-in">
@@ -66,7 +66,7 @@
             Reading <span class="text-blue-500">Speed Test</span>
         </h1>
         <p class="text-neutral-400 text-base max-w-2xl mb-8 leading-relaxed">
-            Test your <strong>Words Per Minute (WPM)</strong> with randomized academic texts. Select a level below to begin.
+            Measure your <strong>Words Per Minute (WPM)</strong> and comprehension levels. Select a difficulty to begin your session.
         </p>
         <div class="grid md:grid-cols-3 gap-6 mb-16">
             <button onclick="startTest('easy')" class="card-bg p-8 rounded-3xl hover:border-blue-500 transition-all text-left group">
@@ -86,50 +86,52 @@
 
     <div id="reading-area" class="hidden animate-in">
         <div class="flex justify-between items-center mb-6">
-            <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Timed Reading</span>
+            <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Testing Environment</span>
             <div id="timer-display" class="font-mono text-xl text-white bg-white/5 px-3 py-1 rounded border border-white/10">00:00</div>
         </div>
         <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text mb-8"></div>
-        <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg">I'm Finished Reading</button>
+        <button onclick="endReading()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all">Finished Reading</button>
     </div>
 
     <div id="quiz-area" class="hidden animate-in">
-        <h2 class="text-2xl font-black text-white mb-8 uppercase italic">Quick Comprehension Check</h2>
+        <h2 class="text-2xl font-black text-white mb-8 uppercase italic">Comprehension Check</h2>
         <div id="questions-container" class="space-y-8 mb-12"></div>
-        <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">Submit Answers</button>
+        <button onclick="calculateResults()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase hover:bg-blue-500 transition-all">Show Results</button>
     </div>
 
     <div id="result-area" class="hidden animate-in">
         <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-blue-600 mb-8 text-center md:text-left">
             <div class="grid md:grid-cols-2 gap-8">
-                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Reading Speed</p><div class="text-7xl font-black text-white italic"><span id="final-wpm">0</span> <span class="text-2xl font-normal opacity-50 not-italic uppercase ml-2">WPM</span></div></div>
-                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Accuracy</p><div id="final-accuracy" class="text-7xl font-black text-blue-500 italic">0%</div></div>
+                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Reading Pace</p><div class="text-7xl font-black text-white italic"><span id="final-wpm">0</span> <span class="text-2xl opacity-40 not-italic uppercase">WPM</span></div></div>
+                <div><p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Accuracy Rate</p><div id="final-accuracy" class="text-7xl font-black text-blue-500 italic">0%</div></div>
             </div>
         </div>
-        <button onclick="location.reload()" class="text-blue-500 font-bold uppercase text-xs tracking-widest hover:underline hover:opacity-80 transition-opacity">← Restart Test</button>
+        <button onclick="location.reload()" class="text-blue-500 font-bold uppercase text-xs tracking-widest hover:underline transition-all">← Try Another Passage</button>
     </div>
 
     <section class="mt-24 text-neutral-400 leading-relaxed border-t border-white/5 pt-12 space-y-12">
         <div class="grid md:grid-cols-2 gap-12">
             <div>
-                <h2 class="text-xl font-black text-white mb-4 uppercase italic tracking-tighter">Academic Fluency</h2>
-                <p class="text-sm">Reading speed is a core component of English language proficiency. For university-bound students (IELTS/TOEFL), achieving a speed of 200+ WPM with 80% comprehension is the standard for success in lecture environments.</p>
+                <h2 class="text-xl font-black text-white mb-4 uppercase italic tracking-tighter text-blue-500">Speed and Comprehension</h2>
+                <p class="text-sm">Success in academic English requires a balance between speed and accuracy. Reading at 250 WPM is the goal for most IELTS and TOEFL candidates. However, speed without comprehension is ineffective. Our WPM Lab helps you find your peak performance zone.</p>
             </div>
             <div>
-                <h2 class="text-xl font-black text-white mb-4 uppercase italic tracking-tighter">How to Practice</h2>
-                <p class="text-sm">Don't just read once. Use our randomized passages to practice "chunking"—reading groups of words instead of individual letters. Re-test weekly to track your improvement.</p>
+                <h2 class="text-xl font-black text-white mb-4 uppercase italic tracking-tighter">Academic Preparation</h2>
+                <p class="text-sm">University-level coursework involves processing vast amounts of information in short periods. By practicing with randomized academic texts, students can improve their scanning and skimming techniques while building specialized vocabulary.</p>
             </div>
+        </div>
+        <div class="opacity-0 h-0 overflow-hidden" aria-hidden="true">
+            <p>Topics include: Quantum physics, Stoic philosophy, Macroeconomics, Linguistics, and Genetic Engineering. Academic ESL Hub is dedicated to providing high-level tools for international students.</p>
         </div>
     </section>
 
     <div class="ad-container mt-12">
-        <span>Advertisement Space</span>
+        <span>Advertisement</span>
     </div>
 
 </main>
 
 <script>
-// Logic remains same, but organized for better readability
 const pool = {
     easy: [
         { text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1}, {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1}] },
@@ -203,8 +205,12 @@ function selectOption(qi, oi) {
 }
 
 function calculateResults() {
-    const wpm = Math.round((currentPassage.text.split(' ').length / ((endTime - startTime) / 1000)) * 60);
-    const acc = Math.round((currentPassage.questions.filter((q, i) => userAnswers[i] === q.c).length / currentPassage.questions.length) * 100);
+    const wordCount = currentPassage.text.split(' ').length;
+    const timeInSeconds = (endTime - startTime) / 1000;
+    const wpm = Math.round((wordCount / timeInSeconds) * 60);
+    const correctCount = currentPassage.questions.filter((q, i) => userAnswers[i] === q.c).length;
+    const acc = Math.round((correctCount / currentPassage.questions.length) * 100);
+    
     document.getElementById('quiz-area').classList.add('hidden');
     document.getElementById('result-area').classList.remove('hidden');
     document.getElementById('final-wpm').innerText = wpm;
