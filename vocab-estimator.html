@@ -7,7 +7,7 @@
     
     <link rel="canonical" href="https://academiceslhub.com/vocab-estimator.html" />
     
-    <meta name="description" content="Test your English vocabulary size. Estimate how many words you know and see your CEFR level (A1–C2). Designed for ESL students and teachers.">
+    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with academic texts to prepare for IELTS, TOEFL, and university study.">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
 
@@ -16,11 +16,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
         .card-bg { background: #111; border: 1px solid #222; }
-        .hidden { display: none; }
+        .hidden { display: none !important; }
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .word-chip { transition: all 0.2s; border: 1px solid #222; }
-        .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
+        
+        /* Interactive Word Chips */
+        .word-chip { transition: all 0.2s; border: 1px solid #222; user-select: none; }
+        .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; transform: scale(0.96); }
+        
+        /* Mobile Nav Scroll */
+        .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; overflow-x: auto; display: flex; }
+        .nav-scroll::-webkit-scrollbar { display: none; }
+        
         .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
         .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
         ::selection { background: #3b82f6; color: white; }
@@ -30,17 +37,17 @@
 <body class="min-h-screen flex flex-col antialiased">
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-6">
             <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
-            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
-                <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-white uppercase tracking-widest">Vocabulary</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
+            <nav class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-6 nav-scroll">
+                <a href="index.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Home</a>
+                <a href="score-matrix.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Score Matrix</a>
+                <a href="wpm-lab.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Reading Speed</a>
+                <a href="vocab-estimator.html" class="text-[10px] md:text-xs font-bold text-white uppercase tracking-widest whitespace-nowrap">Vocabulary</a>
+                <a href="about.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-4 whitespace-nowrap">About</a>
             </nav>
         </div>
     </div>
@@ -62,7 +69,7 @@
             <p class="text-neutral-400 text-sm leading-relaxed mb-6">
                 You will see three groups of words, from easy to difficult. Click only the words you <strong>honestly know</strong>. Your selections are used to estimate your total vocabulary size.
             </p>
-            <button onclick="startVocabTest()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl uppercase transition-all">
+            <button onclick="startVocabTest()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl uppercase transition-all active:scale-[0.98]">
                 Start the Test
             </button>
         </div>
@@ -77,7 +84,7 @@
             <span id="word-counter" class="text-xs font-bold text-neutral-500">Selected: 0</span>
         </div>
 
-        <div id="word-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12"></div>
+        <div id="word-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-12"></div>
 
         <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase transition-all">
             Next Step
@@ -91,7 +98,7 @@
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
                         Estimated Vocabulary Size
                     </p>
-                    <div id="total-words" class="text-7xl font-black text-white italic">--</div>
+                    <div id="total-words" class="text-6xl md:text-7xl font-black text-white italic">--</div>
                 </div>
                 <div>
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
@@ -102,11 +109,6 @@
                 </div>
             </div>
         </div>
-
-        <p class="text-neutral-600 text-[11px] italic text-center max-w-2xl mx-auto mb-12">
-            <strong>Disclaimer:</strong> This vocabulary test provides an estimate for learning and planning purposes only.
-            It is not an official examination and should not be used as a replacement for certified test scores.
-        </p>
 
         <div class="grid md:grid-cols-2 gap-6 mb-12">
             <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl flex justify-between">
@@ -126,22 +128,6 @@
         </div>
     </section>
 
-    <section class="mt-24 pt-12 border-t border-white/5">
-        <h2 class="text-2xl font-black text-white uppercase italic mb-6">The Science of Vocabulary Measurement</h2>
-        <div class="grid md:grid-cols-2 gap-8 text-sm text-neutral-400 leading-relaxed">
-            <div>
-                <h3 class="text-blue-500 font-bold uppercase mb-2">The 8,000 Word Threshold</h3>
-                <p class="mb-4">For ESL learners, reaching a vocabulary size of 8,000 to 9,000 word families is a critical milestone. This level of lexical knowledge allows for "unassisted reading" of academic journals, newspapers, and classic literature.</p>
-                <p>At this stage, a reader typically understands 98% of the words in a text. This 98% lexical coverage is the scientifically recognized threshold required for a reader to comfortably infer the meaning of unknown words from context without needing a dictionary.</p>
-            </div>
-            <div>
-                <h3 class="text-blue-500 font-bold uppercase mb-2">CEFR & Academic Success</h3>
-                <p class="mb-4">Our estimator aligns your results with the Common European Framework of Reference for Languages (CEFR). While an A1 level typically requires 500 words, a C2 (Mastery) level requires a range of 10,000 to 16,000 words.</p>
-                <p>This test focuses specifically on the "Academic Gap"—the transition between B2 (Upper Intermediate) and C1 (Advanced). This is where most international students struggle when entering English-medium universities, as the complexity of academic vocabulary increases exponentially compared to conversational English.</p>
-            </div>
-        </div>
-    </section>
-
 </main>
 
 <footer class="border-t border-white/5 py-16 px-6 bg-black">
@@ -151,22 +137,16 @@
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
             <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
-            </p>
-            <p class="text-neutral-500 text-xs font-bold">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+                Free assessment tools for global English learners. Designed to help students reach the academic threshold for international study.
             </p>
         </div>
         <div class="flex flex-col md:items-end justify-center gap-6">
             <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Privacy</a>
+                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase tracking-widest">Terms</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase tracking-widest">About</a>
             </div>
-            <p class="text-xs text-neutral-700 font-bold uppercase">
-                © 2026 Academic ESL Hub
-            </p>
+            <p class="text-xs text-neutral-800 font-bold uppercase tracking-widest">© 2026 Academic ESL Hub.</p>
         </div>
     </div>
 </footer>
@@ -192,9 +172,10 @@ function renderTier() {
     document.getElementById('tier-title').innerText = tier.title;
     document.getElementById('step-indicator').innerText = `Step ${currentTier + 1} of 3`;
     document.getElementById('word-grid').innerHTML = tier.words.map(word =>
-        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-4 rounded-xl text-sm text-neutral-400 bg-white/5 hover:bg-white/10 transition-colors">${word}</button>`
+        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-4 rounded-xl text-sm font-bold text-neutral-400 bg-white/5 hover:bg-white/10 transition-all">${word}</button>`
     ).join('');
     document.getElementById('next-btn').innerText = currentTier === 2 ? "Finish Test" : "Next Step";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function toggleWord(btn, word) {
@@ -225,6 +206,7 @@ function showResults() {
 
     document.getElementById('cefr-level').innerText = level;
     document.getElementById('cefr-desc').innerText = desc;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 
