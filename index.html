@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Academic ESL Hub | Research-Based English Assessment for Students</title>
+    <title>Academic ESL Hub | English Assessment Tools for Students and Teachers</title>
 
     <link rel="canonical" href="https://academiceslhub.com/index.html" />
 
-    <meta name="description" content="Free academic English assessment tools. Measure your CEFR level, reading speed (WPM), and vocabulary range using validated ESL diagnostic frameworks.">
-    <meta name="keywords" content="Academic ESL, English assessment tools, ESL diagnostics, vocabulary level test, reading speed test, CEFR English, IELTS score converter">
+    <meta name="description" content="Free ESL assessment tools for students and teachers. Measure reading speed, vocabulary level, and standardized test scores, and learn how to improve them.">
+    <meta name="keywords" content="ESL tools, English assessment, reading speed test, vocabulary level, CEFR English, IELTS TOEFL converter">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -17,9 +17,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
         .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
-        .tool-card { background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .tool-card:hover { border-color: #3b82f6; transform: translateY(-8px); background: #111; }
-        .path-badge { background: #3b82f6; color: white; padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: 900; }
+        .tool-card { background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; }
+        .tool-card:hover { border-color: #3b82f6; transform: translateY(-6px); background: #111; }
         html { scroll-behavior: smooth; }
     </style>
 </head>
@@ -35,8 +34,8 @@
             <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
                 <a href="index.html" class="text-xs font-bold text-white uppercase tracking-widest">Home</a>
                 <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Fluency Lab</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary Test</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
                 <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
             </nav>
         </div>
@@ -45,94 +44,113 @@
 
 <main class="flex-grow">
 
+    <!-- HERO -->
     <section class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
-        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tight mb-6 leading-tight">
-            Master the Language of <span class="text-blue-500">Higher Education</span>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight">
+            Understand Your Academic English Level
         </h1>
 
-        <p class="text-neutral-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12">
-            AcademicESLHub is a dedicated diagnostic platform providing free, research-informed tools for 
-            international students and educators. We bridge the gap between general English and university-level proficiency.
+        <p class="text-neutral-400 text-lg max-w-3xl mx-auto leading-relaxed mb-12">
+            Academic ESL Hub provides free, practical tools to help students and teachers
+            understand reading speed, vocabulary level, and test scores — and what to do next
+            to improve academic English skills.
         </p>
 
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
             <div class="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h2 class="text-white font-bold text-lg mb-3 italic">For Academic Aspirants</h2>
+                <h2 class="text-white font-bold text-lg mb-3">For Students</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    Identify if your current lexical range and reading fluency meet the requirements for TOEFL, IELTS, or graduate-level research.
+                    Check your current English level, see how it compares to CEFR standards,
+                    and understand whether your reading speed and vocabulary are strong enough
+                    for exams, textbooks, and university study.
                 </p>
             </div>
 
             <div class="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h2 class="text-white font-bold text-lg mb-3 italic">For ESL Educators</h2>
+                <h2 class="text-white font-bold text-lg mb-3">For Teachers</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    Access evidence-based diagnostic tools to quickly baseline new students and guide your curriculum planning based on CEFR frameworks.
+                    Use clear diagnostic tools to assess students quickly, identify weaknesses,
+                    and support lesson planning with CEFR-aligned benchmarks and explanations.
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- TOOLS -->
     <section class="max-w-7xl mx-auto px-6 pb-24">
         <div class="grid md:grid-cols-3 gap-8">
 
-            <a href="vocab-estimator.html" class="tool-card p-10 rounded-[2.5rem] flex flex-col justify-between group border-t-4 border-t-blue-600 shadow-2xl">
+            <a href="vocab-estimator.html" class="tool-card p-8 rounded-2xl flex flex-col justify-between">
                 <div>
-                    <div class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8">Lexical Measurement</div>
-                    <h3 class="text-3xl font-black text-white mb-4 italic uppercase leading-none group-hover:text-blue-500 transition-colors">Vocabulary<br>Estimator</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed mb-8">Identify your CEFR level and Academic Word List (AWL) coverage through our proprietary diagnostic algorithm.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Vocabulary Estimator</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                        Estimate your vocabulary size and CEFR level based on academic word usage.
+                        Designed to help learners understand whether their vocabulary is sufficient
+                        for academic reading and exams.
+                    </p>
                 </div>
-                <div class="flex justify-between items-end pt-4 border-t border-white/5">
-                    <span class="text-neutral-700 text-[10px] font-bold uppercase tracking-widest">Start Assessment</span>
-                    <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 transition-all text-white">→</div>
-                </div>
+                <span class="text-blue-500 text-sm font-bold">Start vocabulary check →</span>
             </a>
 
-            <a href="wpm-lab.html" class="tool-card p-10 rounded-[2.5rem] flex flex-col justify-between group border-t-4 border-t-neutral-800">
+            <a href="wpm-lab.html" class="tool-card p-8 rounded-2xl flex flex-col justify-between">
                 <div>
-                    <div class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8">Reading Fluency</div>
-                    <h3 class="text-3xl font-black text-white mb-4 italic uppercase leading-none group-hover:text-blue-500 transition-colors">WPM<br>Fluency Lab</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed mb-8">Test your "Effective Reading Rate." We measure both words-per-minute and comprehension for academic-style texts.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Reading Speed (WPM)</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                        Measure your reading speed in words per minute using academic-style texts.
+                        Reading speed is a key factor in comprehension, exam performance, and study efficiency.
+                    </p>
                 </div>
-                <div class="flex justify-between items-end pt-4 border-t border-white/5">
-                    <span class="text-neutral-700 text-[10px] font-bold uppercase tracking-widest">Measure Fluency</span>
-                    <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 transition-all text-white">→</div>
-                </div>
+                <span class="text-blue-500 text-sm font-bold">Measure reading speed →</span>
             </a>
 
-            <a href="score-matrix.html" class="tool-card p-10 rounded-[2.5rem] flex flex-col justify-between group border-t-4 border-t-neutral-800">
+            <a href="score-matrix.html" class="tool-card p-8 rounded-2xl flex flex-col justify-between">
                 <div>
-                    <div class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8">Standardized Scaling</div>
-                    <h3 class="text-3xl font-black text-white mb-4 italic uppercase leading-none group-hover:text-blue-500 transition-colors">Test<br>Matrix</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed mb-8">Instantly convert IELTS, TOEFL, and TOEIC results into their equivalent CEFR level (A1-C2) for easy comparison.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Test Score Matrix</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                        Convert IELTS, TOEFL, and TOEIC scores into CEFR levels (A1–C2).
+                        Useful for students, teachers, and institutions comparing test results.
+                    </p>
                 </div>
-                <div class="flex justify-between items-end pt-4 border-t border-white/5">
-                    <span class="text-neutral-700 text-[10px] font-bold uppercase tracking-widest">View Converter</span>
-                    <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 transition-all text-white">→</div>
-                </div>
+                <span class="text-blue-500 text-sm font-bold">View score matrix →</span>
             </a>
 
         </div>
     </section>
 
+    <!-- WHY -->
     <section class="max-w-4xl mx-auto px-6 pb-32 border-t border-white/5 pt-20">
-        <h2 class="text-white font-black text-3xl mb-10 italic uppercase tracking-tighter">Why Use Academic ESL Tools?</h2>
-        
-        <div class="space-y-12 text-neutral-400 text-sm leading-relaxed">
+        <h2 class="text-white font-black text-3xl mb-10">Why These Tools Matter</h2>
+
+        <div class="space-y-10 text-neutral-400 text-sm leading-relaxed">
             <div class="grid md:grid-cols-2 gap-10">
                 <div>
-                    <h4 class="text-white font-bold mb-3 uppercase tracking-widest text-xs">The Lexical Threshold</h4>
-                    <p>Research in Second Language Acquisition (SLA) shows that university success requires a high "lexical coverage." Our tools help you determine if you possess the 8,000+ word families required to read academic journals without constant dictionary use.</p>
+                    <h4 class="text-white font-bold mb-3">Vocabulary and Academic Reading</h4>
+                    <p>
+                        Research shows that students need a large academic vocabulary to read textbooks
+                        and journal articles without constant dictionary use. Vocabulary size directly
+                        affects reading speed and comprehension.
+                    </p>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-3 uppercase tracking-widest text-xs">Reading Speed & Success</h4>
-                    <p>Native English speakers typically read at 250-300 WPM. For ESL students, a speed below 150 WPM often leads to cognitive overload during exams. The WPM Fluency Lab tracks this metric specifically for academic contexts.</p>
+                    <h4 class="text-white font-bold mb-3">Reading Speed and Comprehension</h4>
+                    <p>
+                        Slow reading can cause fatigue and poor performance during exams.
+                        Measuring words per minute helps learners understand whether speed is limiting
+                        their comprehension.
+                    </p>
                 </div>
             </div>
 
             <div class="bg-blue-600/5 border border-blue-500/20 p-8 rounded-2xl">
-                <h4 class="text-blue-500 font-bold mb-4 uppercase tracking-widest text-xs italic">Our Methodology</h4>
-                <p>All assessments provided by Academic ESL Hub are informed by the Common European Framework of Reference (CEFR) and the Academic Word List (AWL). We prioritize accuracy and data-informed feedback to help you make better decisions about your study path.</p>
-                <p class="mt-4 italic">Founded by a dedicated ESL specialist to provide professional-grade diagnostics to the global student community.</p>
+                <h4 class="text-blue-500 font-bold mb-4">Our Approach</h4>
+                <p>
+                    Academic ESL Hub tools are informed by CEFR guidelines and academic English research.
+                    They are designed to support learning and teaching, not to replace official exams.
+                </p>
+                <p class="mt-4 italic">
+                    Created by an ESL educator to provide clear, practical diagnostics for real classrooms
+                    and real learners.
+                </p>
             </div>
         </div>
     </section>
@@ -145,21 +163,22 @@
             <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
                 ACADEMIC<span class="text-white">ESL</span>HUB
             </a>
-            <p class="text-neutral-600 text-[10px] leading-relaxed max-w-sm mb-6">
-                Providing free, high-utility assessment tools for the global English-speaking academic community. Based on CEFR and AWL frameworks.
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                Free English assessment tools for ESL students and teachers.
+                Based on CEFR standards and academic English research.
             </p>
-            <p class="text-neutral-500 text-[10px] font-bold uppercase tracking-widest">
+            <p class="text-neutral-500 text-xs font-bold">
                 Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
             </p>
         </div>
         <div class="flex flex-col md:items-end justify-center gap-6">
             <div class="flex gap-8">
-                <a href="privacy.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
-                <a href="terms.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
-                <a href="about.html" class="text-[9px] text-neutral-500 hover:text-white font-bold uppercase tracking-widest transition-colors">About Us</a>
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
             </div>
-            <p class="text-[9px] text-neutral-800 font-bold uppercase tracking-widest">
-                © 2026 Academic ESL Hub. All Rights Reserved.
+            <p class="text-xs text-neutral-700 font-bold uppercase">
+                © 2026 Academic ESL Hub
             </p>
         </div>
     </div>
