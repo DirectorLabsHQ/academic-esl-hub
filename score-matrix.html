@@ -8,10 +8,11 @@
 
 <link rel="canonical" href="https://academiceslhub.com/score-matrix.html">
 
-<meta name="description" content="Estimate approximate alignment between IELTS, TOEFL, TOEIC, OPIc, and CEFR levels for academic planning. Educational reference only.">
+<meta name="description" content="Estimate approximate alignment between IELTS, TOEFL, TOEIC, OPIc, and CEFR levels. Includes explanations and improvement advice for students and teachers. Educational reference only.">
 
 <!-- AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560"
+crossorigin="anonymous"></script>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -47,15 +48,15 @@ input:focus, select:focus { outline:none; border-color:#3b82f6; }
     Score <span class="text-blue-500">Matrix</span>
   </h1>
   <p class="text-neutral-500 text-sm max-w-2xl">
-    Enter a score from any test below to view an <strong>approximate reference alignment</strong>
+    Enter a score from any test below to view an <strong>approximate CEFR reference alignment</strong>
     across other major English exams.
   </p>
 </section>
 
 <!-- DISCLAIMER -->
 <p class="text-[11px] text-neutral-600 italic mb-10 max-w-3xl">
-  All values shown are <strong>approximate reference points</strong> based on common CEFR alignment practices.
-  They are for educational planning only and are <strong>not official score conversions</strong>.
+  Scores shown are <strong>approximate reference points</strong> based on commonly used CEFR alignment practices.
+  This tool is for educational planning only and is <strong>not an official score conversion</strong>.
 </p>
 
 <!-- INPUT ROW -->
@@ -65,29 +66,29 @@ input:focus, select:focus { outline:none; border-color:#3b82f6; }
     <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">IELTS</label>
     <input id="ielts" type="number" step="0.5" placeholder="e.g. 6.5"
       class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white"
-      oninput="syncFrom('ielts')">
+      oninput="syncFromScore('ielts', this.value)">
   </div>
 
   <div class="card p-5 rounded-2xl">
     <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEFL iBT</label>
     <input id="toefl" type="number" placeholder="e.g. 88"
       class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white"
-      oninput="syncFrom('toefl')">
+      oninput="syncFromScore('toefl', this.value)">
   </div>
 
   <div class="card p-5 rounded-2xl">
     <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEIC</label>
     <input id="toeic" type="number" placeholder="e.g. 750"
       class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white"
-      oninput="syncFrom('toeic')">
+      oninput="syncFromScore('toeic', this.value)">
   </div>
 
   <div class="card p-5 rounded-2xl">
     <label class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">OPIc</label>
     <select id="opic"
       class="w-full mt-2 p-3 rounded-xl text-lg font-bold text-white cursor-pointer"
-      onchange="syncFrom('opic')">
-      <option value="" disabled selected class="text-neutral-600">Select</option>
+      onchange="syncFromOPIC(this.value)">
+      <option value="" disabled selected>Select</option>
       <option value="IL">IL</option>
       <option value="IM1">IM1</option>
       <option value="IM2">IM2</option>
@@ -100,71 +101,22 @@ input:focus, select:focus { outline:none; border-color:#3b82f6; }
 </section>
 
 <!-- CEFR RESULT -->
-<section class="card p-12 rounded-[2.5rem] text-center mb-20 border-l-8 border-blue-600">
+<section class="card p-12 rounded-[2.5rem] text-center mb-16 border-l-8 border-blue-600">
 
-  <p class="text-base md:text-lg font-black uppercase tracking-[0.4em] text-blue-500 mb-6">
+  <p class="text-lg md:text-xl font-black uppercase tracking-[0.4em] text-blue-500 mb-6">
     CEFR Reference Level
   </p>
 
-  <div id="cefr" class="text-8xl md:text-9xl font-black tracking-tight mb-6">
-    —
-  </div>
+  <div id="cefr" class="text-8xl md:text-9xl font-black tracking-tight mb-6">—</div>
 
-  <p id="cefrDesc" class="text-neutral-400 max-w-2xl mx-auto text-sm leading-relaxed italic">
+  <p id="cefrDesc" class="text-neutral-300 max-w-3xl mx-auto text-sm leading-relaxed mb-6">
     Enter a score above to view an approximate CEFR alignment.
   </p>
-</section>
 
-<!-- WHAT IT MEANS + HOW TO IMPROVE -->
-<section class="max-w-4xl mx-auto mb-24">
-  <div class="grid md:grid-cols-2 gap-10">
+  <p id="cefrAdvice" class="text-neutral-500 max-w-3xl mx-auto text-sm leading-relaxed">
+    Improvement advice will appear here based on your estimated level.
+  </p>
 
-    <div>
-      <h3 class="text-white font-black uppercase tracking-widest text-sm mb-4">
-        What This Level Means
-      </h3>
-      <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-        Your CEFR level represents your overall ability to use English in academic and professional
-        contexts. It reflects how well you understand texts, express ideas, and perform under
-        time constraints.
-      </p>
-      <p class="text-neutral-500 text-sm leading-relaxed">
-        This alignment is based on widely accepted reference ranges between major English
-        proficiency exams. Individual skill strengths may vary.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="text-white font-black uppercase tracking-widest text-sm mb-4">
-        How to Improve from Here
-      </h3>
-      <ul class="space-y-4 text-neutral-400 text-sm leading-relaxed">
-        <li><strong class="text-white">Expand academic vocabulary:</strong> focus on high-frequency academic words.</li>
-        <li><strong class="text-white">Increase reading speed:</strong> practice timed reading with comprehension checks.</li>
-        <li><strong class="text-white">Strengthen output skills:</strong> summarize readings and explain ideas aloud.</li>
-        <li><strong class="text-white">Identify weak areas:</strong> test scores may mask listening or speaking gaps.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-6 mt-12">
-    <a href="wpm-lab.html" class="card p-6 rounded-2xl flex justify-between items-center">
-      <div>
-        <h4 class="text-white font-bold uppercase">Reading Speed Test</h4>
-        <p class="text-neutral-500 text-xs">Check fluency and processing speed.</p>
-      </div>
-      <span class="text-blue-500 text-xl">→</span>
-    </a>
-
-    <a href="vocab-estimator.html" class="card p-6 rounded-2xl flex justify-between items-center">
-      <div>
-        <h4 class="text-white font-bold uppercase">Vocabulary Estimator</h4>
-        <p class="text-neutral-500 text-xs">See if vocabulary limits your level.</p>
-      </div>
-      <span class="text-blue-500 text-xl">→</span>
-    </a>
-  </div>
 </section>
 
 </main>
@@ -182,36 +134,58 @@ input:focus, select:focus { outline:none; border-color:#3b82f6; }
 
 <script>
 const matrix = [
-  { cefr:"A2", ielts:4.0, toefl:32, toeic:225, opic:"IL",
-    desc:"Basic user. Can communicate in simple and routine tasks." },
-  { cefr:"B1", ielts:5.0, toefl:46, toeic:550, opic:"IM1",
-    desc:"Independent user. Can handle familiar academic and social situations." },
-  { cefr:"B2", ielts:6.5, toefl:79, toeic:785, opic:"IM3",
-    desc:"Upper-intermediate. Can understand complex texts and arguments." },
-  { cefr:"C1", ielts:7.5, toefl:95, toeic:850, opic:"IH",
-    desc:"Advanced. Can use English flexibly for academic and professional purposes." },
-  { cefr:"C2", ielts:8.5, toefl:105, toeic:950, opic:"AL",
-    desc:"Proficient. Can express ideas precisely and effortlessly." }
+  {
+    cefr:"A2", ielts:4.0, toefl:32, toeic:225, opic:"IL",
+    desc:"Basic user. Can understand simple phrases and routine expressions.",
+    advice:"Focus on high-frequency vocabulary, basic sentence patterns, and short reading passages. Daily exposure matters most at this level."
+  },
+  {
+    cefr:"B1", ielts:5.0, toefl:46, toeic:550, opic:"IM1",
+    desc:"Independent user. Can manage familiar academic and social situations.",
+    advice:"Work on reading speed, core academic vocabulary, and writing clear paragraphs. Start summarizing short texts."
+  },
+  {
+    cefr:"B2", ielts:6.5, toefl:79, toeic:785, opic:"IM3",
+    desc:"Upper-intermediate. Can understand complex texts and main ideas.",
+    advice:"Improve accuracy, argument structure, and academic vocabulary. Practice timed reading and extended responses."
+  },
+  {
+    cefr:"C1", ielts:7.5, toefl:95, toeic:850, opic:"IH",
+    desc:"Advanced. Can use English flexibly for academic and professional purposes.",
+    advice:"Refine precision, tone, and coherence. Focus on advanced reading, nuanced vocabulary, and exam strategies."
+  },
+  {
+    cefr:"C2", ielts:8.5, toefl:105, toeic:950, opic:"AL",
+    desc:"Proficient. Can express ideas fluently and precisely.",
+    advice:"Maintain level through advanced reading, professional writing, and exposure to specialized academic content."
+  }
 ];
 
-function syncFrom(source) {
-  let value = document.getElementById(source).value;
-  if (!value) return;
+function syncFromScore(type, value) {
+  value = parseFloat(value);
+  if (isNaN(value)) return;
 
-  let row;
-  if (source === "opic") {
-    row = matrix.find(r => r.opic === value);
-  } else {
-    value = parseFloat(value);
-    row = matrix.find(r => value >= r[source]) || matrix[0];
-  }
+  let row = matrix.reduce((prev, curr) =>
+    Math.abs(curr[type] - value) < Math.abs(prev[type] - value) ? curr : prev
+  );
 
-  ["ielts","toefl","toeic","opic"].forEach(id => {
-    if (id !== source) document.getElementById(id).value = row[id];
-  });
+  updateAll(row);
+}
 
+function syncFromOPIC(level) {
+  const row = matrix.find(r => r.opic === level);
+  if (!row) return;
+  updateAll(row);
+}
+
+function updateAll(row) {
+  document.getElementById("ielts").value = row.ielts;
+  document.getElementById("toefl").value = row.toefl;
+  document.getElementById("toeic").value = row.toeic;
+  document.getElementById("opic").value = row.opic;
   document.getElementById("cefr").innerText = row.cefr;
   document.getElementById("cefrDesc").innerText = row.desc;
+  document.getElementById("cefrAdvice").innerText = row.advice;
 }
 </script>
 
