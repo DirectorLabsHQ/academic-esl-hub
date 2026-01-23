@@ -23,6 +23,7 @@
         .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
         .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
         .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
+        ::selection { background: #3b82f6; color: white; }
     </style>
 </head>
 
@@ -65,13 +66,6 @@
                 Start the Test
             </button>
         </div>
-
-        <div class="border-t border-white/5 pt-8">
-            <h3 class="text-xs font-black text-neutral-500 uppercase tracking-widest mb-4">Why Vocabulary Matters</h3>
-            <p class="text-neutral-500 text-sm leading-relaxed mb-4">
-                Research suggests that readers need approximately <strong>8,000–9,000 words</strong> to comfortably read university-level texts without constant dictionary use.
-            </p>
-        </div>
     </section>
 
     <section id="test-area" class="hidden animate-in">
@@ -85,7 +79,7 @@
 
         <div id="word-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12"></div>
 
-        <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase">
+        <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase transition-all">
             Next Step
         </button>
     </section>
@@ -114,7 +108,7 @@
             It is not an official examination and should not be used as a replacement for certified test scores.
         </p>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
             <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl flex justify-between">
                 <div>
                     <h4 class="text-white font-bold uppercase">Reading Speed</h4>
@@ -129,6 +123,22 @@
                 </div>
                 <div class="text-blue-500 text-2xl">→</div>
             </a>
+        </div>
+    </section>
+
+    <section class="mt-24 pt-12 border-t border-white/5">
+        <h2 class="text-2xl font-black text-white uppercase italic mb-6">The Science of Vocabulary Measurement</h2>
+        <div class="grid md:grid-cols-2 gap-8 text-sm text-neutral-400 leading-relaxed">
+            <div>
+                <h3 class="text-blue-500 font-bold uppercase mb-2">The 8,000 Word Threshold</h3>
+                <p class="mb-4">For ESL learners, reaching a vocabulary size of 8,000 to 9,000 word families is a critical milestone. This level of lexical knowledge allows for "unassisted reading" of academic journals, newspapers, and classic literature.</p>
+                <p>At this stage, a reader typically understands 98% of the words in a text. This 98% lexical coverage is the scientifically recognized threshold required for a reader to comfortably infer the meaning of unknown words from context without needing a dictionary.</p>
+            </div>
+            <div>
+                <h3 class="text-blue-500 font-bold uppercase mb-2">CEFR & Academic Success</h3>
+                <p class="mb-4">Our estimator aligns your results with the Common European Framework of Reference for Languages (CEFR). While an A1 level typically requires 500 words, a C2 (Mastery) level requires a range of 10,000 to 16,000 words.</p>
+                <p>This test focuses specifically on the "Academic Gap"—the transition between B2 (Upper Intermediate) and C1 (Advanced). This is where most international students struggle when entering English-medium universities, as the complexity of academic vocabulary increases exponentially compared to conversational English.</p>
+            </div>
         </div>
     </section>
 
@@ -182,7 +192,7 @@ function renderTier() {
     document.getElementById('tier-title').innerText = tier.title;
     document.getElementById('step-indicator').innerText = `Step ${currentTier + 1} of 3`;
     document.getElementById('word-grid').innerHTML = tier.words.map(word =>
-        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-4 rounded-xl text-sm text-neutral-400 bg-white/5">${word}</button>`
+        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-4 rounded-xl text-sm text-neutral-400 bg-white/5 hover:bg-white/10 transition-colors">${word}</button>`
     ).join('');
     document.getElementById('next-btn').innerText = currentTier === 2 ? "Finish Test" : "Next Step";
 }
