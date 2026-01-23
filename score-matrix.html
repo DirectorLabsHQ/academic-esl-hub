@@ -72,9 +72,9 @@
         </div>
     </section>
 
-    <section class="card p-10 md:p-16 rounded-[2.5rem] border-l-8 border-blue-600 transition-all">
+    <section class="card p-10 md:p-16 rounded-[2.5rem] border-l-8 border-blue-600 transition-all mb-16">
         <div id="placeholder-content" class="text-center py-10">
-            <p class="text-neutral-600 italic uppercase tracking-widest text-xs">Enter a score to generate your profile</p>
+            <p class="text-neutral-600 italic uppercase tracking-widest text-xs">Enter a score above to generate your profile</p>
         </div>
 
         <div id="result-content" class="hidden">
@@ -97,9 +97,31 @@
         </div>
     </section>
 
+    <section class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16 mb-12">
+        <div>
+            <h2 class="text-white font-bold text-2xl mb-6">What is CEFR?</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                The Common European Framework of Reference for Languages (CEFR) is an international standard for describing language ability. It describes language proficiency on a six-point scale, from A1 for beginners, up to C2 for those who have mastered a language.
+            </p>
+            
+            <p class="text-neutral-400 text-sm leading-relaxed mt-4">
+                Most universities require a <strong>B2 or C1 level</strong> for international students to ensure they can handle academic lectures and assignments.
+            </p>
+        </div>
+        <div>
+            <h2 class="text-white font-bold text-2xl mb-6">How to use this matrix</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                This matrix helps you understand where you stand if you have taken one test but need to provide a score for another. For example, if you have an IELTS 6.5, you can see that you likely fall into the B2 category, which is roughly equivalent to a TOEFL score of 79-93.
+            </p>
+            <p class="text-neutral-600 text-[11px] italic">
+                Note: Scores are approximate and vary by institution. Always check the official requirements of your target university.
+            </p>
+        </div>
+    </section>
+
 </main>
 
-<footer class="border-t border-white/5 py-12 bg-black/50 mt-12">
+<footer class="border-t border-white/5 py-12 bg-black/50">
     <div class="max-w-6xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
         <p class="text-neutral-600 text-[11px]">Research-informed score alignment for ESL learners.</p>
         <p class="text-neutral-800 text-[9px] uppercase tracking-widest">© 2026 Academic ESL Hub</p>
@@ -121,7 +143,7 @@ const scores = [
     { 
         cefr: "C1", ielts: 7.5, toefl: 95, toeic: 850, opic: "IH", 
         desc: "Advanced Academic",
-        canDo: "You can understand a wide range of demanding, longer texts and recognize implicit meaning. You can express yourself fluently and spontaneously without much obvious searching for expressions.",
+        canDo: "You can understand a wide range of demanding, longer texts and recognize implicit meaning. You can express yourself fluently and spontaneously without much searching for expressions.",
         tips: [
             "Read specialized journals (Nature, The Economist) to expand niche vocabulary.",
             "Focus on 'Cohesion and Coherence'—using advanced transition words in writing.",
