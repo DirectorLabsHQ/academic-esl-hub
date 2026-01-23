@@ -23,15 +23,18 @@
 
 <header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
-            ACADEMIC<span class="text-white">ESL</span>HUB
-        </a>
-        <nav class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-neutral-400">
-            <a href="index.html" class="hover:text-white transition-colors">Home</a>
-            <a href="score-matrix.html" class="text-white">Score Matrix</a>
-            <a href="vocab-estimator.html" class="hover:text-white transition-colors">Vocab Test</a>
-            <a href="wpm-lab.html" class="hover:text-white transition-colors">Reading Speed</a>
-        </nav>
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
+                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
+                <a href="score-matrix.html" class="text-xs font-bold text-white uppercase tracking-widest">Score Matrix</a>
+                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
+                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
+                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
+            </nav>
+        </div>
     </div>
 </header>
 
@@ -108,7 +111,6 @@
             <p class="text-neutral-400 text-sm leading-relaxed mb-4">
                 The Common European Framework of Reference for Languages (CEFR) acts as a universal yardstick. While tests like <strong>IELTS</strong> or <strong>TOEFL</strong> provide a numerical score, the CEFR tells institutions exactly what you can do in a real-world academic environment.
             </p>
-            
             <p class="text-neutral-400 text-sm leading-relaxed mt-4">
                 Achieving a <strong>B2 Level</strong> is often considered the "tipping point" for academic success, where a student has enough language control to follow lectures without constant translation.
             </p>
@@ -123,13 +125,32 @@
             </p>
         </div>
     </section>
-
 </main>
 
-<footer class="border-t border-white/5 py-12 bg-black/50">
-    <div class="max-w-6xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-neutral-600 text-[11px]">Academic alignment for global English proficiency standards.</p>
-        <p class="text-neutral-800 text-[9px] uppercase tracking-widest">© 2026 Academic ESL Hub</p>
+<footer class="border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                Free English assessment tools for ESL students and teachers.
+                Based on CEFR standards and academic English research.
+            </p>
+            <p class="text-neutral-500 text-xs font-bold">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+            </div>
+            <p class="text-xs text-neutral-700 font-bold uppercase">
+                © 2026 Academic ESL Hub
+            </p>
+        </div>
     </div>
 </footer>
 
@@ -154,7 +175,7 @@ const scores = [
         tips: ["Practice summarizing paragraphs in one sentence.", "Expand your Academic Word List (AWL) knowledge.", "Watch documentaries without subtitles to improve listening speed."]
     },
     { 
-        cefr: "B1", ielts: 4.5, toefl: 42, toeic: 550, opic: "IM2", // IM2 added here as a B1+ / B2 threshold
+        cefr: "B1", ielts: 4.5, toefl: 42, toeic: 550, opic: "IM2", 
         desc: "Intermediate Learner",
         canDo: "You can manage most situations likely to arise while travelling in an area where the language is spoken. You can produce simple connected text on topics which are familiar.",
         tips: ["Focus on moving from simple to compound sentences.", "Listen to ESL podcasts daily.", "Read 'Graded Readers' (Level 5) to build fluency."]
