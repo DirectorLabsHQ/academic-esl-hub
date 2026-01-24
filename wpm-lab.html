@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Reading Fluency Lab | WPM Test | ESL Hub</title>
     <link rel="canonical" href="https://academiceslhub.com/wpm-lab.html" />
-    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with 30+ academic texts to prepare for IELTS, TOEFL, and university study.">
+    <meta name="description" content="Check your English reading speed with our free WPM test. Practice with 30 academic texts to prepare for IELTS, TOEFL, and university study.">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -14,7 +14,7 @@
         .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
         .card-bg { background: #111; border: 1px solid #222; }
         .hidden { display: none !important; }
-        .reading-text { line-height: 1.8; color: #d1d1d1; white-space: pre-line; }
+        .reading-text { line-height: 1.8; color: #d1d1d1; white-space: pre-line; font-size: 1.1rem; }
         .option-btn { border: 1px solid #333; transition: all 0.2s; cursor: pointer; width: 100%; text-align: left; padding: 1.25rem; border-radius: 1rem; color: #a3a3a3; }
         .option-btn:hover:not(:disabled) { border-color: #3b82f6; background: #1a1a1a; color: white; }
         .option-btn.selected { background: #3b82f6; border-color: #60a5fa; color: white; }
@@ -58,7 +58,7 @@
                 <div class="space-y-4">
                     <p>
                         <strong class="text-blue-400 uppercase text-[10px] tracking-widest block mb-1">Finish on Time</strong>
-                        In exams like <strong>IELTS or TOEFL</strong>, the biggest challenge isn't the English—it's the clock. If you read slowly, you might run out of time before finishing the questions.
+                        In exams like IELTS or TOEFL, the biggest challenge isn't the English—it's the clock. If you read slowly, you might run out of time before finishing the questions.
                     </p>
                     <p>
                         <strong class="text-blue-400 uppercase text-[10px] tracking-widest block mb-1">Better Focus</strong>
@@ -72,7 +72,7 @@
                     </p>
                     <p>
                         <strong class="text-blue-400 uppercase text-[10px] tracking-widest block mb-1">Start Training</strong>
-                        Pick a level below to test yourself. Read the short passage at your normal speed, then answer 2 simple questions to check your understanding.
+                        Pick a level below to test yourself. Read the short passage at your normal speed, then answer 3 simple questions to check your understanding.
                     </p>
                 </div>
             </div>
@@ -112,7 +112,14 @@
                 </div>
             </div>
             <div id="text-container" class="card-bg p-8 md:p-12 rounded-[2.5rem] text-xl md:text-2xl reading-text mb-8 shadow-2xl border-white/5"></div>
-            <button type="button" id="finish-btn" onclick="endReading()" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg active:scale-[0.98]">
+            
+            <div class="text-center mb-6">
+                <button type="button" id="start-timer-btn" onclick="startTimer()" class="bg-green-600 hover:bg-green-500 text-white font-black py-4 px-10 rounded-2xl uppercase transition-all shadow-lg active:scale-[0.98]">
+                    I'm Ready – Start Timer
+                </button>
+            </div>
+            
+            <button type="button" id="finish-btn" onclick="endReading()" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition-all shadow-lg active:scale-[0.98] hidden">
                 I have finished reading
             </button>
         </div>
@@ -127,13 +134,16 @@
             <div class="card-bg p-10 rounded-[2.5rem] border-l-8 border-blue-600 mb-8">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Reading Speed</p>
-                        <div class="text-7xl font-black text-white tracking-tighter italic"><span id="final-wpm">0</span> <span class="text-lg opacity-30 uppercase tracking-normal not-italic">WPM</span></div>
+                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Raw Reading Speed</p>
+                        <div class="text-6xl md:text-7xl font-black text-white tracking-tighter italic"><span id="raw-wpm">0</span> <span class="text-lg opacity-30 uppercase tracking-normal not-italic">WPM</span></div>
                     </div>
                     <div>
-                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Comprehension</p>
-                        <div id="final-accuracy" class="text-7xl font-black text-blue-500 tracking-tighter italic">0%</div>
+                        <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Effective Speed (with comprehension)</p>
+                        <div class="text-6xl md:text-7xl font-black text-blue-500 tracking-tighter italic"><span id="effective-wpm">0</span> <span class="text-lg opacity-30 uppercase tracking-normal not-italic">WPM</span></div>
                     </div>
+                </div>
+                <div class="mt-6 text-center text-neutral-400 text-sm">
+                    Average high school student: 180–250 WPM | University entry: 250–350 WPM | Advanced academic: 350+ WPM
                 </div>
             </div>
             <div id="advice-box" class="card-bg p-8 rounded-2xl border border-white/5 mb-8">
@@ -141,7 +151,7 @@
                 <p id="advice-text" class="text-neutral-300 text-sm leading-relaxed italic"></p>
             </div>
 
-            <!-- NEW: Amazon affiliate recommendation box (clean, matches your style) -->
+            <!-- Amazon affiliate recommendation box (unchanged) -->
             <div class="card-bg p-8 rounded-2xl border border-white/5 mb-8 text-center">
                 <p class="text-neutral-300 text-base mb-4">
                     Ready to build faster reading skills? This book offers proven techniques and practice for academic fluency.
@@ -205,47 +215,256 @@
 <script>
 const pool = {
     easy: [
-        { text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air.", questions: [{q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1}, {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1}] },
-        { text: "Cooking dinner at home can be fun and healthy. You can choose fresh vegetables like carrots, onions, and peppers. Many people like to grill chicken or fish as a main dish. It is often cheaper than eating at a restaurant. After finishing the meal, it is important to wash the dishes to keep the kitchen clean and organized.", questions: [{q: "What is a benefit of cooking at home?", a:["It is more expensive","It is cheaper","It takes less time"], c:1}, {q: "What should you do after the meal?", a:["Go to sleep","Wash the dishes","Go shopping"], c:1}] },
-        { text: "My favorite hobby is photography. I love taking pictures of nature, especially during the autumn when the leaves change color. I use a digital camera that allows me to see the photos instantly. On weekends, I often hike in the mountains to find beautiful landscapes. It helps me relax and appreciate the world around me.", questions: [{q: "What does the author photograph?", a:["Cities","Nature","Cars"], c:1}, {q: "What season is mentioned?", a:["Spring","Summer","Autumn"], c:2}] },
-        { text: "Learning to ride a bicycle takes practice. First, you need to find a flat area away from traffic. It is important to wear a helmet for safety. Most people start with training wheels to help them balance. Once you feel comfortable, you can remove the extra wheels and try to pedal on your own.", questions: [{q: "What is for safety?", a:["A card","A helmet","A watch"], c:1}, {q: "How do people start?", a:["Riding fast","With training wheels","On a mountain"], c:1}] },
-        { text: "The grocery store is on the corner. It opens at seven in the morning and closes at ten at night. They sell many items, including milk, bread, and eggs. Most customers use a shopping cart to carry their items to the checkout. You can pay with cash or a credit card at the front desk.", questions: [{q: "Where is the store?", a:["Near the park","On the corner","At school"], c:1}, {q: "What carries items?", a:["A backpack","A shopping cart","A box"], c:1}] },
-        { text: "Going to the beach is a summer activity. People enjoy swimming in the ocean or playing volleyball on the sand. Children build sandcastles near the water. It is important to wear sunscreen to protect your skin from the sun. Watching the sunset over the water is a beautiful way to end the day.", questions: [{q: "What is a popular activity?", a:["Skiing","Swimming","Hiking"], c:1}, {q: "What protects skin?", a:["A coat","Sunscreen","Glasses"], c:1}] },
-        { text: "Public transportation helps people move around the city. Buses and trains run on a regular schedule every day. You can buy a ticket at the station or use a smart card. It is often faster than driving a car because there is no need to find parking.", questions: [{q: "Why is it faster?", a:["No parking needed","Buses are faster","Trains fly"], c:0}, {q: "How can you pay?", a:["Ticket or card","With fruit","It's free"], c:0}] },
-        { text: "The school cafeteria serves lunch to hundreds of students. There are many choices, such as pizza, salad, and sandwiches. Students sit with their friends at long tables. It is a noisy but happy place during the break. After eating, everyone clears their tray and goes outside.", questions: [{q: "Where do students sit?", a:["Floor","Long tables","Library"], c:1}, {q: "What happens after eating?", a:["More classes","Recess","Homework"], c:1}] },
-        { text: "Rainy days are perfect for staying inside. I like to make a hot cup of tea and watch a movie. Sometimes I play board games with my family. The sound of the rain on the roof is very relaxing. When the sun comes out again, everything looks green and fresh.", questions: [{q: "What does the author drink?", a:["Coffee","Tea","Juice"], c:1}, {q: "How does the rain sound?", a:["Loud","Relaxing","Scary"], c:1}] },
-        { text: "Keeping a garden requires patience. You must plant the seeds in good soil and give them plenty of water. Sunlight is also necessary for the plants to grow. In the spring, you can see colorful flowers and green vegetables. It is very satisfying to eat a tomato that you grew yourself.", questions: [{q: "What do plants need?", a:["Water and light","Music","Darkness"], c:0}, {q: "When do flowers appear?", a:["Winter","Spring","Autumn"], c:1}] }
+        { 
+            text: "The local park is very busy on Saturdays. Families bring their children to play on the swings and slides. Some people enjoy walking their dogs along the paths, while others sit on benches to read the newspaper. There is a small pond in the center where you can see ducks. It is a peaceful place for everyone in the neighborhood to enjoy fresh air and sunshine.", 
+            questions: [
+                {q: "What is in the center of the park?", a:["A fountain","A pond","A statue"], c:1},
+                {q: "When is the park busy?", a:["Mondays","Saturdays","Every night"], c:1},
+                {q: "What do some people do on benches?", a:["Play games","Read the newspaper","Swim"], c:1}
+            ] 
+        },
+        { 
+            text: "Cooking dinner at home can be fun and healthy. You can choose fresh vegetables like carrots, onions, and peppers. Many people like to grill chicken or fish as a main dish. It is often cheaper than eating at a restaurant. After finishing the meal, it is important to wash the dishes to keep the kitchen clean and organized.", 
+            questions: [
+                {q: "What is a benefit of cooking at home?", a:["It is more expensive","It is cheaper","It takes less time"], c:1},
+                {q: "What should you do after the meal?", a:["Go to sleep","Wash the dishes","Go shopping"], c:1},
+                {q: "What vegetables are mentioned?", a:["Potatoes","Carrots and onions","Tomatoes"], c:1}
+            ] 
+        },
+        { 
+            text: "My favorite hobby is photography. I love taking pictures of nature, especially during the autumn when the leaves change color. I use a digital camera that allows me to see the photos instantly. On weekends, I often hike in the mountains to find beautiful landscapes. It helps me relax and appreciate the world around me.", 
+            questions: [
+                {q: "What does the author photograph?", a:["Cities","Nature","Cars"], c:1},
+                {q: "What season is mentioned?", a:["Spring","Summer","Autumn"], c:2},
+                {q: "What helps the author relax?", a:["Photography","Running","Cooking"], c:0}
+            ] 
+        },
+        { 
+            text: "Learning to ride a bicycle takes practice. First, you need to find a flat area away from traffic. It is important to wear a helmet for safety. Most people start with training wheels to help them balance. Once you feel comfortable, you can remove the extra wheels and try to pedal on your own.", 
+            questions: [
+                {q: "What is for safety?", a:["A card","A helmet","A watch"], c:1},
+                {q: "How do people start?", a:["Riding fast","With training wheels","On a mountain"], c:1},
+                {q: "Where should you practice?", a:["Busy street","Flat area away from traffic","Inside house"], c:1}
+            ] 
+        },
+        { 
+            text: "The grocery store is on the corner. It opens at seven in the morning and closes at ten at night. They sell many items, including milk, bread, and eggs. Most customers use a shopping cart to carry their items to the checkout. You can pay with cash or a credit card at the front desk.", 
+            questions: [
+                {q: "Where is the store?", a:["Near the park","On the corner","At school"], c:1},
+                {q: "What carries items?", a:["A backpack","A shopping cart","A box"], c:1},
+                {q: "When does the store open?", a:["7 AM","10 AM","7 PM"], c:0}
+            ] 
+        },
+        { 
+            text: "Going to the beach is a summer activity. People enjoy swimming in the ocean or playing volleyball on the sand. Children build sandcastles near the water. It is important to wear sunscreen to protect your skin from the sun. Watching the sunset over the water is a beautiful way to end the day.", 
+            questions: [
+                {q: "What is a popular activity?", a:["Skiing","Swimming","Hiking"], c:1},
+                {q: "What protects skin?", a:["A coat","Sunscreen","Glasses"], c:1},
+                {q: "What do children build?", a:["Snowmen","Sandcastles","Towers"], c:1}
+            ] 
+        },
+        { 
+            text: "Public transportation helps people move around the city. Buses and trains run on a regular schedule every day. You can buy a ticket at the station or use a smart card. It is often faster than driving a car because there is no need to find parking.", 
+            questions: [
+                {q: "Why is it faster?", a:["No parking needed","Buses are faster","Trains fly"], c:0},
+                {q: "How can you pay?", a:["Ticket or card","With fruit","It's free"], c:0},
+                {q: "What runs on a schedule?", a:["Cars","Buses and trains","Bicycles"], c:1}
+            ] 
+        },
+        { 
+            text: "The school cafeteria serves lunch to hundreds of students. There are many choices, such as pizza, salad, and sandwiches. Students sit with their friends at long tables. It is a noisy but happy place during the break. After eating, everyone clears their tray and goes outside.", 
+            questions: [
+                {q: "Where do students sit?", a:["Floor","Long tables","Library"], c:1},
+                {q: "What happens after eating?", a:["More classes","Recess","Homework"], c:1},
+                {q: "What is served?", a:["Breakfast","Lunch","Dinner"], c:1}
+            ] 
+        },
+        { 
+            text: "Rainy days are perfect for staying inside. I like to make a hot cup of tea and watch a movie. Sometimes I play board games with my family. The sound of the rain on the roof is very relaxing. When the sun comes out again, everything looks green and fresh.", 
+            questions: [
+                {q: "What does the author drink?", a:["Coffee","Tea","Juice"], c:1},
+                {q: "How does the rain sound?", a:["Loud","Relaxing","Scary"], c:1},
+                {q: "What looks fresh after rain?", a:["Everything","Only flowers","Only trees"], c:0}
+            ] 
+        },
+        { 
+            text: "Keeping a garden requires patience. You must plant the seeds in good soil and give them plenty of water. Sunlight is also necessary for the plants to grow. In the spring, you can see colorful flowers and green vegetables. It is very satisfying to eat a tomato that you grew yourself.", 
+            questions: [
+                {q: "What do plants need?", a:["Water and light","Music","Darkness"], c:0},
+                {q: "When do flowers appear?", a:["Winter","Spring","Autumn"], c:1},
+                {q: "What is satisfying?", a:["Eating store tomatoes","Eating your own tomatoes","Buying flowers"], c:1}
+            ] 
+        }
     ],
     medium: [
-        { text: "The Great Barrier Reef is the world's largest coral reef system. It is located in the Coral Sea, off the coast of Australia. This natural wonder is home to thousands of species of fish, turtles, and sharks. However, climate change and rising water temperatures are causing coral bleaching, which threatens the health of the reef. Scientists are working hard to find ways to protect this beautiful ecosystem.", questions: [{q: "Where is the reef?", a:["Africa","Australia","South America"], c:1}, {q: "What is threatening the reef?", a:["Overfishing","Climate change","Boats"], c:1}] },
-        { text: "The Industrial Revolution was a period of major change starting in the late 18th century. It marked the transition from hand production to machines and new chemical processes. This era led to city growth as people moved from rural areas to find work in factories. While it improved living standards, it also created problems like pollution.", questions: [{q: "When did it start?", a:["17th Century","18th Century","19th Century"], c:1}, {q: "Why did cities grow?", a:["Parks","Factory jobs","Weather"], c:1}] },
-        { text: "Renewable energy comes from natural sources that are constantly replenished. Solar energy uses panels to capture sunlight and convert it into electricity. Wind energy uses turbines to generate power from moving air. These sources are considered 'clean' because they do not emit greenhouse gases like coal or oil.", questions: [{q: "Why is it 'clean'?", a:["No greenhouse gases","Uses water","Smells good"], c:0}, {q: "What captures sunlight?", a:["Turbines","Panels","Engines"], c:1}] },
-        { text: "Social media platforms have changed how people interact globally. Users share photos, videos, and thoughts with millions instantly. While these tools help people stay connected, experts worry about the impact on mental health and the spread of misinformation. It is crucial for users to practice digital literacy.", questions: [{q: "What is an expert concern?", a:["Mental health","Internet speed","Cost"], c:0}, {q: "What is digital literacy?", a:["Typing fast","Verifying sources","Buying a phone"], c:1}] },
-        { text: "The water cycle describes the movement of water on and above the Earth. It involves evaporation, where water turns into vapor, and condensation, where vapor forms clouds. When clouds become heavy, precipitation occurs as rain or snow. This cycle is essential for maintaining life by redistributing fresh water.", questions: [{q: "What is evaporation?", a:["Rain falling","Water turning to vapor","Clouds"], c:1}, {q: "Why is the cycle essential?", a:["Ocean blue","Redistributes water","Cools sun"], c:1}] },
-        { text: "Space exploration has led to scientific breakthroughs since the mid-20th century. Satellites orbiting Earth help with weather forecasting and global communications. Missions to the Moon and Mars have provided data about our solar system's history. Private companies are now entering the industry to lower costs.", questions: [{q: "What do satellites help with?", a:["Cooking","Weather forecasting","Farming"], c:1}, {q: "Who helps lower costs?", a:["Governments","Private companies","Schools"], c:1}] },
-        { text: "The human heart is a muscle that pumps blood through the body. It beats about 100,000 times a day, sending oxygen and nutrients to tissues while removing carbon dioxide. Maintaining a healthy heart involves exercise, a balanced diet, and avoiding smoking.", questions: [{q: "How many daily beats?", a:["1,000","10,000","100,000"], c:2}, {q: "What does it remove?", a:["Oxygen","Nutrients","Carbon dioxide"], c:2}] },
-        { text: "Biodiversity refers to the variety of life in a habitat. High biodiversity makes an ecosystem resilient to changes. For example, a forest with many types of trees can survive a disease that kills only one species. Human activities, such as deforestation, are currently leading to a rapid loss of biodiversity.", questions: [{q: "What is biodiversity?", a:["Tree size","Variety of life","Rain amount"], c:1}, {q: "What makes a forest resilient?", a:["High biodiversity","Few trees","Snow"], c:0}] },
-        { text: "Fake News has become a significant issue in modern journalism. With the rise of the internet, anyone can publish content, making it hard to distinguish between facts and false info. Readers should look for multiple sources and check website reputations before believing headlines.", questions: [{q: "Why is it hard to find facts?", a:["Few sites","Anyone can publish","Slow net"], c:1}, {q: "What should readers do?", a:["Believe headlines","Check multiple sources","Ignore news"], c:1}] },
-        { text: "Global warming is the long-term heating of Earth's climate observed since the pre-industrial period. It is primarily driven by human activities, specifically burning fossil fuels which increases greenhouse gas levels. This has resulted in melting glaciers and rising sea levels.", questions: [{q: "What drives global warming?", a:["Planting trees","Burning fossil fuels","Volcanoes"], c:1}, {q: "What is a result?", a:["More ice","Rising sea levels","Lower tides"], c:1}] }
+        { 
+            text: "The Great Barrier Reef is the world's largest coral reef system. It is located in the Coral Sea, off the coast of Australia. This natural wonder is home to thousands of species of fish, turtles, and sharks. However, climate change and rising water temperatures are causing coral bleaching, which threatens the health of the reef. Scientists are working hard to find ways to protect this beautiful ecosystem.", 
+            questions: [
+                {q: "Where is the reef located?", a:["Africa","Australia","South America"], c:1},
+                {q: "What is threatening the reef?", a:["Overfishing","Climate change","Boats"], c:1},
+                {q: "What is coral bleaching caused by?", a:["Pollution","Rising temperatures","Fishing nets"], c:1}
+            ] 
+        },
+        { 
+            text: "The Industrial Revolution was a period of major change starting in the late 18th century. It marked the transition from hand production to machines and new chemical processes. This era led to city growth as people moved from rural areas to find work in factories. While it improved living standards, it also created problems like pollution.", 
+            questions: [
+                {q: "When did the Industrial Revolution start?", a:["17th century","Late 18th century","19th century"], c:1},
+                {q: "Why did cities grow?", a:["Parks","Factory jobs","Weather"], c:1},
+                {q: "What was one negative effect?", a:["Better health","Pollution","More schools"], c:1}
+            ] 
+        },
+        { 
+            text: "Renewable energy comes from natural sources that are constantly replenished. Solar energy uses panels to capture sunlight and convert it into electricity. Wind energy uses turbines to generate power from moving air. These sources are considered 'clean' because they do not emit greenhouse gases like coal or oil.", 
+            questions: [
+                {q: "Why is renewable energy 'clean'?", a:["No greenhouse gases","Uses water","Smells good"], c:0},
+                {q: "What captures sunlight?", a:["Turbines","Panels","Engines"], c:1},
+                {q: "What is one example of renewable energy?", a:["Coal","Solar","Gasoline"], c:1}
+            ] 
+        },
+        { 
+            text: "Social media platforms have changed how people interact globally. Users share photos, videos, and thoughts with millions instantly. While these tools help people stay connected, experts worry about the impact on mental health and the spread of misinformation. It is crucial for users to practice digital literacy.", 
+            questions: [
+                {q: "What is an expert concern?", a:["Mental health","Internet speed","Cost"], c:0},
+                {q: "What is digital literacy?", a:["Typing fast","Verifying sources","Buying a phone"], c:1},
+                {q: "What do users share on social media?", a:["Only photos","Photos, videos, thoughts","Only money"], c:2}
+            ] 
+        },
+        { 
+            text: "The water cycle describes the movement of water on and above the Earth. It involves evaporation, where water turns into vapor, and condensation, where vapor forms clouds. When clouds become heavy, precipitation occurs as rain or snow. This cycle is essential for maintaining life by redistributing fresh water.", 
+            questions: [
+                {q: "What is evaporation?", a:["Rain falling","Water turning to vapor","Clouds"], c:1},
+                {q: "Why is the cycle essential?", a:["Ocean blue","Redistributes water","Cools sun"], c:1},
+                {q: "What forms clouds?", a:["Evaporation","Condensation","Precipitation"], c:1}
+            ] 
+        },
+        { 
+            text: "Space exploration has led to scientific breakthroughs since the mid-20th century. Satellites orbiting Earth help with weather forecasting and global communications. Missions to the Moon and Mars have provided data about our solar system's history. Private companies are now entering the industry to lower costs.", 
+            questions: [
+                {q: "What do satellites help with?", a:["Cooking","Weather forecasting","Farming"], c:1},
+                {q: "Who helps lower costs?", a:["Governments","Private companies","Schools"], c:1},
+                {q: "What have Moon missions provided?", a:["Food","Data about solar system","New planets"], c:1}
+            ] 
+        },
+        { 
+            text: "The human heart is a muscle that pumps blood through the body. It beats about 100,000 times a day, sending oxygen and nutrients to tissues while removing carbon dioxide. Maintaining a healthy heart involves exercise, a balanced diet, and avoiding smoking.", 
+            questions: [
+                {q: "How many daily beats?", a:["1,000","10,000","100,000"], c:2},
+                {q: "What does it remove?", a:["Oxygen","Nutrients","Carbon dioxide"], c:2},
+                {q: "How to keep heart healthy?", a:["Smoking","Exercise and diet","Sleeping only"], c:1}
+            ] 
+        },
+        { 
+            text: "Biodiversity refers to the variety of life in a habitat. High biodiversity makes an ecosystem resilient to changes. For example, a forest with many types of trees can survive a disease that kills only one species. Human activities, such as deforestation, are currently leading to a rapid loss of biodiversity.", 
+            questions: [
+                {q: "What is biodiversity?", a:["Tree size","Variety of life","Rain amount"], c:1},
+                {q: "What makes a forest resilient?", a:["High biodiversity","Few trees","Snow"], c:0},
+                {q: "What causes loss of biodiversity?", a:["Planting","Deforestation","Rain"], c:1}
+            ] 
+        },
+        { 
+            text: "Fake News has become a significant issue in modern journalism. With the rise of the internet, anyone can publish content, making it hard to distinguish between facts and false info. Readers should look for multiple sources and check website reputations before believing headlines.", 
+            questions: [
+                {q: "Why is it hard to find facts?", a:["Few sites","Anyone can publish","Slow net"], c:1},
+                {q: "What should readers do?", a:["Believe headlines","Check multiple sources","Ignore news"], c:1},
+                {q: "What makes fake news spread?", a:["Internet","Books","TV only"], c:0}
+            ] 
+        },
+        { 
+            text: "Global warming is the long-term heating of Earth's climate observed since the pre-industrial period. It is primarily driven by human activities, specifically burning fossil fuels which increases greenhouse gas levels. This has resulted in melting glaciers and rising sea levels.", 
+            questions: [
+                {q: "What drives global warming?", a:["Planting trees","Burning fossil fuels","Volcanoes"], c:1},
+                {q: "What is a result?", a:["More ice","Rising sea levels","Lower tides"], c:1},
+                {q: "What increases greenhouse gases?", a:["Walking","Burning fossil fuels","Rain"], c:1}
+            ] 
+        }
     ],
     hard: [
-        { text: "Quantum mechanics is a fundamental theory in physics describing nature at the scale of atoms and subatomic particles. It is the foundation of quantum chemistry and technology. Classical physics cannot explain phenomena such as wave-particle duality. This theory has led to transistors and lasers.", questions: [{q: "At what scale does it work?", a:["Planetary","Atoms/Subatomic","Human-sized"], c:1}, {q: "What can classical physics not explain?", a:["Gravity","Wave-particle duality","Speed of light"], c:1}] },
-        { text: "Stoicism, founded in Athens by Zeno of Citium, teaches that virtue is the only good and that we should not be troubled by things outside our control. Stoics believe that by practicing self-control, one can overcome destructive emotions. Prominent Stoics include Marcus Aurelius and Epictetus.", questions: [{q: "What is the only good?", a:["Wealth","Virtue","Power"], c:1}, {q: "What does stoicism help overcome?", a:["Physical illness","Destructive emotions","Financial debt"], c:1}] },
-        { text: "CRISPR-Cas9 technology has revolutionized genetic engineering. It allows scientists to precisely edit DNA sequences and modify gene function. This tool has potential applications in curing genetic diseases and improving crop yields. However, it also raises ethical dilemmas regarding 'designer babies'.", questions: [{q: "What does CRISPR allow?", a:["Precise DNA editing","Faster computers","New fuels"], c:0}, {q: "What is an ethical dilemma?", a:["Designer babies","Food cost","Waste"], c:0}] },
-        { text: "Macroeconomics deals with the performance and behavior of an economy as a whole. Macroeconomists study aggregated indicators such as GDP, unemployment rates, and price indices. They develop models that explain the relationship between factors like national income and inflation.", questions: [{q: "What scale does it cover?", a:["Single businesses","Individual people","Economy as a whole"], c:2}, {q: "What is an indicator?", a:["CEO salary","GDP","Store prices"], c:1}] },
-        { text: "The Great Filter theory is a potential answer to the Fermi Paradox, which asks why we haven't encountered extraterrestrial life. The theory suggests a barrier in the development of life that is extremely difficult to overcome. This filter could be in our past or in our future.", questions: [{q: "What is it an answer to?", a:["Big Bang","Fermi Paradox","Gravity"], c:1}, {q: "What could be a future filter?", a:["Ancient history","Self-destruction","Water"], c:1}] },
-        { text: "Linguistics is the scientific study of language, involving analysis of form, meaning, and context. It explores how sounds are produced and how sentences convey ideas. Sociolinguistics examines the relationship between language and society, looking at factors like class and gender.", questions: [{q: "What is linguistics?", a:["Learning languages","Study of language","Writing novels"], c:1}, {q: "What does sociolinguistics examine?", a:["Code","Language and society","Scripts"], c:1}] },
-        { text: "The Anthropocene describes a proposed geological epoch dating from the start of significant human impact on Earth's geology. This includes anthropogenic climate change and mass extinction. Critics argue about when this period began—some point to the Industrial Revolution.", questions: [{q: "What does it describe?", a:["Dinos","Human impact on Earth","The sun"], c:1}, {q: "When did it start?", a:["Stone Age","Industrial Revolution","Middle Ages"], c:1}] },
-        { text: "Artificial Neural Networks are computing systems inspired by biological neural networks in animal brains. Such systems 'learn' to perform tasks by considering examples, without being programmed with task-specific rules. For example, they might learn to identify cats by analyzing images.", questions: [{q: "What inspired them?", a:["The ocean","Animal brains","Weather"], c:1}, {q: "How do they learn?", a:["Manual programming","By considering examples","Reading"], c:1}] },
-        { text: "Epigenetics is the study of heritable changes in gene expression that do not involve alterations to the DNA sequence. This means environmental factors, such as diet and stress, can 'switch' genes on or off. These changes can sometimes be passed to future generations.", questions: [{q: "Does it change DNA?", a:["Yes, edits code","No, changes expression","Only plants"], c:1}, {q: "What can 'switch' genes?", a:["Time","Environmental factors","Luck"], c:1}] },
-        { text: "The 'Separation of Powers' is a model for the governance of a state. Government is divided into branches with separate, independent powers so that one branch is not in conflict with others. The typical division is into three branches: legislature, executive, and judiciary.", questions: [{q: "Why is this designed?", a:["Fast laws","Checks and balances","Taxes"], c:1}, {q: "How many branches?", a:["Two","Three","Five"], c:1}] }
+        { 
+            text: "Quantum mechanics is a fundamental theory in physics describing nature at the scale of atoms and subatomic particles. It is the foundation of quantum chemistry and technology. Classical physics cannot explain phenomena such as wave-particle duality. This theory has led to transistors and lasers.", 
+            questions: [
+                {q: "At what scale does it work?", a:["Planetary","Atoms/Subatomic","Human-sized"], c:1},
+                {q: "What can classical physics not explain?", a:["Gravity","Wave-particle duality","Speed of light"], c:1},
+                {q: "What inventions came from it?", a:["Cars","Transistors and lasers","Computers only"], c:1}
+            ] 
+        },
+        { 
+            text: "Stoicism, founded in Athens by Zeno of Citium, teaches that virtue is the only good and that we should not be troubled by things outside our control. Stoics believe that by practicing self-control, one can overcome destructive emotions. Prominent Stoics include Marcus Aurelius and Epictetus.", 
+            questions: [
+                {q: "What is the only good?", a:["Wealth","Virtue","Power"], c:1},
+                {q: "What does stoicism help overcome?", a:["Physical illness","Destructive emotions","Financial debt"], c:1},
+                {q: "Who is a prominent Stoic?", a:["Plato","Marcus Aurelius","Socrates"], c:1}
+            ] 
+        },
+        { 
+            text: "CRISPR-Cas9 technology has revolutionized genetic engineering. It allows scientists to precisely edit DNA sequences and modify gene function. This tool has potential applications in curing genetic diseases and improving crop yields. However, it also raises ethical dilemmas regarding 'designer babies'.", 
+            questions: [
+                {q: "What does CRISPR allow?", a:["Precise DNA editing","Faster computers","New fuels"], c:0},
+                {q: "What is an ethical dilemma?", a:["Designer babies","Food cost","Waste"], c:0},
+                {q: "What can it improve?", a:["Crop yields","Car speed","Music"], c:0}
+            ] 
+        },
+        { 
+            text: "Macroeconomics deals with the performance and behavior of an economy as a whole. Macroeconomists study aggregated indicators such as GDP, unemployment rates, and price indices. They develop models that explain the relationship between factors like national income and inflation.", 
+            questions: [
+                {q: "What scale does it cover?", a:["Single businesses","Individual people","Economy as a whole"], c:2},
+                {q: "What is an indicator?", a:["CEO salary","GDP","Store prices"], c:1},
+                {q: "What do they study?", a:["Personal savings","Aggregated indicators","Daily shopping"], c:1}
+            ] 
+        },
+        { 
+            text: "The Great Filter theory is a potential answer to the Fermi Paradox, which asks why we haven't encountered extraterrestrial life. The theory suggests a barrier in the development of life that is extremely difficult to overcome. This filter could be in our past or in our future.", 
+            questions: [
+                {q: "What is it an answer to?", a:["Big Bang","Fermi Paradox","Gravity"], c:1},
+                {q: "What could be a future filter?", a:["Ancient history","Self-destruction","Water"], c:1},
+                {q: "What is the barrier?", a:["Easy to pass","Extremely difficult","Not real"], c:1}
+            ] 
+        },
+        { 
+            text: "Linguistics is the scientific study of language, involving analysis of form, meaning, and context. It explores how sounds are produced and how sentences convey ideas. Sociolinguistics examines the relationship between language and society, looking at factors like class and gender.", 
+            questions: [
+                {q: "What is linguistics?", a:["Learning languages","Study of language","Writing novels"], c:1},
+                {q: "What does sociolinguistics examine?", a:["Code","Language and society","Scripts"], c:1},
+                {q: "What does it analyze?", a:["Form, meaning, context","Only sounds","Only writing"], c:0}
+            ] 
+        },
+        { 
+            text: "The Anthropocene describes a proposed geological epoch dating from the start of significant human impact on Earth's geology. This includes anthropogenic climate change and mass extinction. Critics argue about when this period began—some point to the Industrial Revolution.", 
+            questions: [
+                {q: "What does it describe?", a:["Dinos","Human impact on Earth","The sun"], c:1},
+                {q: "When did it start?", a:["Stone Age","Industrial Revolution","Middle Ages"], c:1},
+                {q: "What is included?", a:["Climate change","Volcanoes","Rain"], c:0}
+            ] 
+        },
+        { 
+            text: "Artificial Neural Networks are computing systems inspired by biological neural networks in animal brains. Such systems 'learn' to perform tasks by considering examples, without being programmed with task-specific rules. For example, they might learn to identify cats by analyzing images.", 
+            questions: [
+                {q: "What inspired them?", a:["The ocean","Animal brains","Weather"], c:1},
+                {q: "How do they learn?", a:["Manual programming","By considering examples","Reading"], c:1},
+                {q: "What example is given?", a:["Identifying cats","Cooking","Driving"], c:0}
+            ] 
+        },
+        { 
+            text: "Epigenetics is the study of heritable changes in gene expression that do not involve alterations to the DNA sequence. This means environmental factors, such as diet and stress, can 'switch' genes on or off. These changes can sometimes be passed to future generations.", 
+            questions: [
+                {q: "Does it change DNA?", a:["Yes, edits code","No, changes expression","Only plants"], c:1},
+                {q: "What can 'switch' genes?", a:["Time","Environmental factors","Luck"], c:1},
+                {q: "Can changes be passed on?", a:["Never","Sometimes","Always"], c:1}
+            ] 
+        },
+        { 
+            text: "The 'Separation of Powers' is a model for the governance of a state. Government is divided into branches with separate, independent powers so that one branch is not in conflict with others. The typical division is into three branches: legislature, executive, and judiciary.", 
+            questions: [
+                {q: "Why is this designed?", a:["Fast laws","Checks and balances","Taxes"], c:1},
+                {q: "How many branches?", a:["Two","Three","Five"], c:1},
+                {q: "What are the branches?", a:["Army, police, schools","Legislature, executive, judiciary","King, queen, prince"], c:1}
+            ] 
+        }
     ]
 };
 
 let startTime, endTime, currentPassage, userAnswers = [];
 let timerInterval;
-
-function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
+let timerStarted = false;
 
 window.onload = () => {
     const pb = localStorage.getItem('last_wpm');
@@ -258,6 +477,7 @@ function startTest(level) {
     userAnswers = [];
     startTime = null;
     endTime = null;
+    timerStarted = false;
     clearInterval(timerInterval);
     
     const p = pool[level];
@@ -266,17 +486,29 @@ function startTest(level) {
     document.getElementById('setup-area').classList.add('hidden');
     document.getElementById('reading-area').classList.remove('hidden');
     document.getElementById('text-container').innerHTML = `<p>${currentPassage.text}</p>`;
-    
+    document.getElementById('finish-btn').classList.add('hidden');
+    document.getElementById('start-timer-btn').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function startTimer() {
+    if (timerStarted) return;
+    timerStarted = true;
     startTime = new Date();
     timerInterval = setInterval(() => {
         let now = new Date();
         let elapsedTotal = (now - startTime) / 1000;
         document.getElementById('timer-display').innerText = `${Math.floor(elapsedTotal/60).toString().padStart(2,'0')}:${(Math.floor(elapsedTotal%60)).toString().padStart(2,'0')}`;
     }, 100);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('start-timer-btn').classList.add('hidden');
+    document.getElementById('finish-btn').classList.remove('hidden');
 }
 
 function endReading() {
+    if (!timerStarted) {
+        alert("Please start the timer first.");
+        return;
+    }
     endTime = new Date();
     clearInterval(timerInterval);
     document.getElementById('reading-area').classList.add('hidden');
@@ -310,43 +542,48 @@ function calculateResults() {
 
     const words = currentPassage.text.trim().split(/\s+/).length;
     const timeSec = (endTime - startTime) / 1000;
-    const wpm = Math.round((words / timeSec) * 60);
-    let correctCount = 0;
+    const rawWPM = Math.round((words / timeSec) * 60);
     
+    let correctCount = 0;
     currentPassage.questions.forEach((q,i)=>{
         const btns = Array.from(document.querySelectorAll(`[id^="q${i}o"]`));
         btns.forEach(b=>{
             if(b.getAttribute('data-correct')==='true') b.classList.add('correct');
             if(b.classList.contains('selected') && b.getAttribute('data-correct')==='false') b.classList.add('wrong');
         });
-        if(userAnswers[i].isCorrect) correctCount++;
+        if(userAnswers[i] && userAnswers[i].isCorrect) correctCount++;
     });
     
     const accuracy = Math.round((correctCount/currentPassage.questions.length)*100);
-    document.getElementById('final-wpm').innerText = wpm;
-    document.getElementById('final-accuracy').innerText = `${accuracy}%`;
+    const effectiveWPM = Math.round(rawWPM * (accuracy / 100));
+
+    document.getElementById('raw-wpm').innerText = rawWPM;
+    document.getElementById('effective-wpm').innerText = effectiveWPM;
 
     let advice = "";
     if (accuracy < 80) {
-        advice = "Focus on comprehension. Try slowing down to process the meaning of each sentence. Accuracy is just as important as speed.";
-    } else if (wpm < 150) {
-        advice = "Great accuracy! To increase speed, try 'chunking'—reading groups of 3-4 words at once instead of individual words.";
-    } else if (wpm < 250) {
-        advice = "Professional speed! You are at the level required for high-level academic study. Keep practicing with diverse topics.";
+        advice = "Focus on comprehension first. Try slowing down to really understand each sentence. Accuracy is more important than raw speed for school and exams.";
+    } else if (effectiveWPM < 180) {
+        advice = "You're building a good foundation. To increase speed, practice reading short passages repeatedly and try 'chunking' (seeing 3–4 words at once).";
+    } else if (effectiveWPM < 250) {
+        advice = "Solid speed for high school and university entry! Keep practicing with longer academic texts to reach 300+ WPM.";
     } else {
-        advice = "Master level. You are reading at the pace of a native-level academic. Focus on extremely dense technical papers to stay sharp.";
+        advice = "Excellent reading fluency — you're at the level needed for advanced academic work. Challenge yourself with dense research papers or journals.";
     }
     document.getElementById('advice-text').innerText = advice;
 
-    document.getElementById('quiz-area').classList.add('hidden');
-    document.getElementById('result-area').classList.remove('hidden');
-    
     if(accuracy >= 80) {
         const currentPB = Number(localStorage.getItem('last_wpm')) || 0;
-        localStorage.setItem('last_wpm', Math.max(currentPB, wpm));
+        localStorage.setItem('last_wpm', Math.max(currentPB, effectiveWPM));
     }
+
+    document.getElementById('quiz-area').classList.add('hidden');
+    document.getElementById('result-area').classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 </script>
+
 </body>
 </html>
