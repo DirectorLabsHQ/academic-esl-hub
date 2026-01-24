@@ -59,6 +59,7 @@
             <p class="text-neutral-400 text-sm leading-relaxed mb-6">
                 You'll see three groups of words (easy → medium → advanced).  
                 Click only the ones you **honestly know well** (you could use them in a sentence).  
+                If you know every word in a group, click "I know them all" to save time.  
                 We use your choices + research-based math to estimate your total vocabulary size.
             </p>
             <button onclick="startVocabTest()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl uppercase transition-all active:scale-[0.98]">
@@ -76,6 +77,12 @@
             <span id="word-counter" class="text-xs font-bold text-neutral-500">Selected: 0</span>
         </div>
 
+        <div class="mb-6">
+            <button id="know-all-btn" onclick="knowAllCurrentTier()" class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-xl transition-all">
+                I know them all
+            </button>
+        </div>
+
         <div id="word-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-12"></div>
 
         <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase transition-all">
@@ -90,7 +97,7 @@
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
                         Estimated Vocabulary Size
                     </p>
-                    <div id="total-words" class="text-6xl md:text-7xl font-black text-white italic">--</div>
+                    <div id="total-words" class="text-6xl md:text-7xl font-black text-white italic">-- – --</div>
                 </div>
                 <div>
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
@@ -215,7 +222,7 @@ const tiers = [
             "pervasive", "pragmatic", "protocol", "quantitative", "sustainable", "synthesis", "validity", "comprehensive", "discrepancy", "facilitate",
             "hypothesis", "implication", "integral", "preliminary", "profound", "substantial", "systematic", "underlying", "utilize", "variable",
             "consequence", "contribute", "demonstrate", "establish", "evaluate", "generate", "indicate", "influence", "interpret", "investigate",
-            // Fake/non-words (mixed in to detect over-claiming)
+            // 10 fake/non-words mixed in to detect over-claiming
             "blorple", "zenthix", "quorvex", "flumdar", "klytheron", "vaxilon", "praxitude", "grelmish", "syntorak", "mordivance"
         ],
         multiplier: 280 
@@ -239,6 +246,7 @@ function renderTier() {
         `<button onclick="toggleWord(this,'${word}')" class="word-chip p-3 md:p-4 rounded-xl text-sm md:text-base font-medium text-neutral-300 bg-white/5 hover:bg-white/10 transition-all">${word}</button>`
     ).join('');
     document.getElementById('next-btn').innerText = currentTier === 2 ? "See My Results" : "Continue →";
+    document.getElementById('know-all-btn').innerText = "I know them all"; // reset button text
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -246,6 +254,23 @@ function toggleWord(btn, word) {
     selectedWords.has(word) ? selectedWords.delete(word) : selectedWords.add(word);
     btn.classList.toggle('selected');
     document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
+}
+
+function knowAllCurrentTier() {
+    const tier = tiers[currentTier];
+    tier.words.forEach(word => {
+        if (!selectedWords.has(word)) {
+            selectedWords.add(word);
+            const buttons = document.querySelectorAll('#word-grid button');
+            buttons.forEach(btn => {
+                if (btn.innerText === word) {
+                    btn.classList.add('selected');
+                }
+            });
+        }
+    });
+    document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
+    document.getElementById('know-all-btn').innerText = "All selected ✓";
 }
 
 function nextTier() {
@@ -261,7 +286,7 @@ function showResults() {
     document.getElementById('test-area').classList.add('hidden');
     document.getElementById('result-area').classList.remove('hidden');
 
-    // Count known real words per tier
+    // Count real words per tier
     let realScore1 = tiers[0].words.filter(w => selectedWords.has(w)).length;
     let realScore2 = tiers[1].words.filter(w => selectedWords.has(w)).length;
     let realScore3 = tiers[2].words.filter(w => !["blorple","zenthix","quorvex","flumdar","klytheron","vaxilon","praxitude","grelmish","syntorak","mordivance"].includes(w) && selectedWords.has(w)).length;
@@ -274,7 +299,7 @@ function showResults() {
     let estLow  = base + (realScore1 * 65) + (realScore2 * 140) + (realScore3 * 240);
     let estHigh = base + (realScore1 * 85) + (realScore2 * 180) + (realScore3 * 320);
 
-    // Penalize if fakes were selected (reduce high end significantly)
+    // Penalize if fakes were selected (reduce high end)
     if (fakeCount > 0) {
         const penalty = fakeCount * 0.25; // 25% reduction per fake (max ~2.5x)
         estHigh = Math.round(estHigh * (1 - penalty));
