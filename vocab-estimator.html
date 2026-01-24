@@ -222,7 +222,7 @@ const tiers = [
             "pervasive", "pragmatic", "protocol", "quantitative", "sustainable", "synthesis", "validity", "comprehensive", "discrepancy", "facilitate",
             "hypothesis", "implication", "integral", "preliminary", "profound", "substantial", "systematic", "underlying", "utilize", "variable",
             "consequence", "contribute", "demonstrate", "establish", "evaluate", "generate", "indicate", "influence", "interpret", "investigate",
-            // 10 fake/non-words mixed in to detect over-claiming
+            // 10 fake/non-words mixed in (not all at bottom — shuffled in render)
             "blorple", "zenthix", "quorvex", "flumdar", "klytheron", "vaxilon", "praxitude", "grelmish", "syntorak", "mordivance"
         ],
         multiplier: 280 
@@ -242,11 +242,18 @@ function renderTier() {
     const tier = tiers[currentTier];
     document.getElementById('tier-title').innerText = tier.title;
     document.getElementById('step-indicator').innerText = `Group ${currentTier + 1} of 3`;
-    document.getElementById('word-grid').innerHTML = tier.words.map(word =>
+    
+    // Shuffle words so fakes are not all at bottom in Tier 3
+    const shuffledWords = [...tier.words].sort(() => Math.random() - 0.5);
+    
+    document.getElementById('word-grid').innerHTML = shuffledWords.map(word =>
         `<button onclick="toggleWord(this,'${word}')" class="word-chip p-3 md:p-4 rounded-xl text-sm md:text-base font-medium text-neutral-300 bg-white/5 hover:bg-white/10 transition-all">${word}</button>`
     ).join('');
+    
     document.getElementById('next-btn').innerText = currentTier === 2 ? "See My Results" : "Continue →";
     document.getElementById('know-all-btn').innerText = "I know them all"; // reset button text
+    selectedWords.clear(); // clear previous selections when starting new tier (optional safety)
+    document.getElementById('word-counter').innerText = `Selected: 0`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -261,14 +268,15 @@ function knowAllCurrentTier() {
     tier.words.forEach(word => {
         if (!selectedWords.has(word)) {
             selectedWords.add(word);
-            const buttons = document.querySelectorAll('#word-grid button');
-            buttons.forEach(btn => {
-                if (btn.innerText === word) {
-                    btn.classList.add('selected');
-                }
-            });
         }
     });
+    
+    // Highlight all buttons in the current grid
+    const buttons = document.querySelectorAll('#word-grid button');
+    buttons.forEach(btn => {
+        btn.classList.add('selected');
+    });
+    
     document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
     document.getElementById('know-all-btn').innerText = "All selected ✓";
 }
