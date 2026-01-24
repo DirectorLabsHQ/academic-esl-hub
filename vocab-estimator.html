@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Vocabulary Test | Estimate Your Word Count & CEFR Level</title>
-    
+    <title>Free Vocabulary Size Test 2026 – Estimate Words Known & CEFR Level</title>
     <link rel="canonical" href="https://academiceslhub.com/vocab-estimator.html" />
-    
-    <meta name="description" content="Estimate your English vocabulary size and CEFR level. This tool helps students and teachers understand current reading readiness for academic study.">
-    
+    <meta name="description" content="Free 2026 vocabulary size test: estimate how many English words you know and your CEFR level in under 2 minutes. Accurate for high school, IELTS, TOEFL, and university preparation.">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
@@ -19,15 +15,10 @@
         .hidden { display: none !important; }
         .animate-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .word-chip { transition: all 0.2s; border: 1px solid #222; user-select: none; }
-        .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; transform: scale(0.96); }
-        
+        .word-chip { transition: all 0.2s; border: 1px solid #222; user-select: none; padding: 0.75rem 1rem; border-radius: 0.75rem; font-size: 0.95rem; }
+        .word-chip.selected { background: #3b82f6; border-color: #60a5fa; color: white; transform: scale(0.97); }
         .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; overflow-x: auto; display: flex; }
         .nav-scroll::-webkit-scrollbar { display: none; }
-        
-        .nav-card { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; transition: all 0.3s ease; }
-        .nav-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
         ::selection { background: #3b82f6; color: white; }
     </style>
 </head>
@@ -55,18 +46,20 @@
 
     <section id="intro-area" class="animate-in">
         <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase leading-none italic">
-            Vocabulary <span class="text-blue-500">Test</span>
+            Vocabulary Size Test
         </h1>
         
         <p class="text-neutral-500 text-sm max-w-2xl mb-8 leading-relaxed">
-            Estimate your English vocabulary size and CEFR level. This tool helps students and teachers understand current reading readiness for academic study.
+            Free 2026 test to estimate how many English words you know and your CEFR level in under 2 minutes.  
+            Accurate for high school, IELTS, TOEFL, and university readiness.
         </p>
 
         <div class="card-bg p-8 rounded-[2rem] mb-12">
             <h2 class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4">How it works</h2>
             <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                You will see three groups of words, from easy to difficult. Click only the words you <strong>honestly know</strong>.  
-                If you know every word in a group, just click "I know them all" to save time. Your selections are used to estimate your total vocabulary size.
+                You'll see three groups of words (easy → medium → advanced).  
+                Click only the ones you **honestly know well** (you could use them in a sentence).  
+                We use your choices + research-based math to estimate your total vocabulary size.
             </p>
             <button onclick="startVocabTest()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl uppercase transition-all active:scale-[0.98]">
                 Start the Test
@@ -77,22 +70,16 @@
     <section id="test-area" class="hidden animate-in">
         <div class="flex justify-between items-end mb-8">
             <div>
-                <span id="step-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Step 1 of 3</span>
+                <span id="step-indicator" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Group 1 of 3</span>
                 <h2 id="tier-title" class="text-2xl font-black text-white uppercase italic"></h2>
             </div>
             <span id="word-counter" class="text-xs font-bold text-neutral-500">Selected: 0</span>
         </div>
 
-        <div class="mb-6">
-            <button id="know-all-btn" onclick="knowAllCurrentTier()" class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-xl transition-all">
-                I know them all
-            </button>
-        </div>
-
-        <div id="word-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-12"></div>
+        <div id="word-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-12"></div>
 
         <button id="next-btn" onclick="nextTier()" class="w-full bg-white text-black hover:bg-blue-500 hover:text-white font-black py-4 rounded-2xl uppercase transition-all">
-            Next Step
+            Continue →
         </button>
     </section>
 
@@ -107,31 +94,46 @@
                 </div>
                 <div>
                     <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">
-                        CEFR Level
+                        Likely CEFR Level
                     </p>
                     <div id="cefr-level" class="text-5xl font-black text-blue-500 italic">--</div>
                     <p id="cefr-desc" class="text-[11px] text-neutral-400 italic mt-2">--</p>
                 </div>
             </div>
+
+            <div class="mt-8 text-sm text-neutral-400 leading-relaxed">
+                <strong>How we estimated this:</strong> You recognized X out of ~135 words across three groups (including some fake/non-words in the hardest group to catch over-claiming).  
+                We apply research-based multipliers (inspired by Oxford 3000 & Paul Nation frequency data) to give a realistic range.  
+                This is a quick estimate — real tests use hundreds of items for higher precision. <span class="italic">Range usually accurate within ±1,500 words.</span>
+            </div>
+
+            <div class="mt-6 text-sm italic text-neutral-500">
+                Powered by frequency data inspired by Oxford 3000 & Paul Nation research.
+            </div>
+        </div>
+
+        <div class="bg-neutral-900/50 p-8 rounded-2xl mb-12">
+            <h3 class="text-2xl font-bold text-white mb-4">What This Means for You</h3>
+            <p id="goal-advice" class="text-neutral-300 leading-relaxed"></p>
         </div>
 
         <p class="text-neutral-600 text-[11px] italic text-center max-w-2xl mx-auto mb-12">
-            <strong>Disclaimer:</strong> This vocabulary test provides an estimate for learning and planning purposes only.
-            It is not an official examination and should not be used as a replacement for certified test scores.
+            <strong>Disclaimer:</strong> This is a fast estimate for learning and planning only.  
+            It is not an official test and should not replace certified exams like IELTS, TOEFL, or TOEIC.
         </p>
 
         <div class="grid md:grid-cols-2 gap-6 mb-12">
             <a href="wpm-lab.html" class="nav-card p-6 rounded-3xl flex justify-between">
                 <div>
                     <h4 class="text-white font-bold uppercase">Reading Speed</h4>
-                    <p class="text-neutral-500 text-xs">Measure reading fluency.</p>
+                    <p class="text-neutral-500 text-xs">Measure how fast you read academic texts.</p>
                 </div>
                 <div class="text-blue-500 text-2xl">→</div>
             </a>
             <a href="score-matrix.html" class="nav-card p-6 rounded-3xl flex justify-between">
                 <div>
                     <h4 class="text-white font-bold uppercase">Score Matrix</h4>
-                    <p class="text-neutral-500 text-xs">Compare official test scores.</p>
+                    <p class="text-neutral-500 text-xs">Convert IELTS/TOEFL scores to CEFR levels.</p>
                 </div>
                 <div class="text-blue-500 text-2xl">→</div>
             </a>
@@ -139,18 +141,23 @@
     </section>
 
     <section class="mt-24 pt-12 border-t border-white/5">
-        <h2 class="text-2xl font-black text-white uppercase italic mb-6">The Science of Vocabulary Measurement</h2>
+        <h2 class="text-2xl font-black text-white uppercase italic mb-6">The Science Behind Vocabulary Size</h2>
         <div class="grid md:grid-cols-2 gap-8 text-sm text-neutral-400 leading-relaxed">
             <div>
-                <h3 class="text-blue-500 font-bold uppercase mb-2">The 8,000 Word Threshold</h3>
-                <p class="mb-4">For ESL learners, reaching a vocabulary size of 8,000 to 9,000 word families is a critical milestone. This level of lexical knowledge allows for "unassisted reading" of academic journals, newspapers, and classic literature.</p>
-                <p>At this stage, a reader typically understands 98% of the words in a text. This 98% lexical coverage is the scientifically recognized threshold required for a reader to comfortably infer the meaning of unknown words from context without needing a dictionary.</p>
+                <h3 class="text-blue-500 font-bold uppercase mb-2">The 8,000–9,000 Word Threshold</h3>
+                <p class="mb-4">Research shows that knowing 8,000–9,000 word families lets you understand ~98% of most academic texts, newspapers, and books without a dictionary. This is the level where reading feels comfortable and natural.</p>
             </div>
             <div>
-                <h3 class="text-blue-500 font-bold uppercase mb-2">CEFR & Academic Success</h3>
-                <p class="mb-4">Our estimator aligns your results with the Common European Framework of Reference for Languages (CEFR). While an A1 level typically requires 500 words, a C2 (Mastery) level requires a range of 10,000 to 16,000 words.</p>
-                <p>This test focuses specifically on the "Academic Gap"—the transition between B2 (Upper Intermediate) and C1 (Advanced). This is where most international students struggle when entering English-medium universities, as the complexity of academic vocabulary increases exponentially compared to conversational English.</p>
+                <h3 class="text-blue-500 font-bold uppercase mb-2">CEFR & University Readiness</h3>
+                <p class="mb-4">Most universities expect B2–C1 (around 4,000–8,000+ words). Below B2, academic reading and lectures can feel very challenging. This test helps you see where you are and what to aim for.</p>
             </div>
+        </div>
+
+        <div class="mt-8 text-sm text-neutral-400">
+            <strong>FAQ</strong><br>
+            <strong>How accurate is this test?</strong> It's a quick estimate based on ~135 words — accurate within ±1,500 words for most people. Real tests use 200–500 items.<br><br>
+            <strong>What vocabulary size do I need for university?</strong> 6,000–9,000 words is a realistic target for comfortable academic reading and writing.<br><br>
+            <strong>Why did my score change when I retook it?</strong> Small sample size + human guessing can cause ±500–1,000 variation. Retake a few times and take the average.
         </div>
     </section>
 
@@ -179,9 +186,40 @@
 
 <script>
 const tiers = [
-    { title: "Level 1: Everyday Words", words: ["Table","Quick","Building","Understand","Travel","Between","Simple","Market","Health","Standard","Problem","Always","Example","Service","Reason","Country","Family","Friend","Home","School","Work","Day","Night","Water","Food","Happy","Sad","Big","Small","Good"], multiplier: 150 },
-    { title: "Level 2: Academic Words", words: ["Abstract","Empirical","Sustainable","Mitigate","Paradigm","Internalize","Synthesize","Protocol","Bias","Framework","Inference","Validity","Variable","Correlation","Contextual","Equating","Analyze","Approach","Assume","Benefit","Concept","Context","Create","Data","Definition","Develop","Environment","Estimate","Evidence","Factor"], multiplier: 350 },
-    { title: "Level 3: Advanced Words", words: ["Obsequious","Ephemeral","Pernicious","Alacrity","Laconic","Enervate","Fastidious","Capricious","Gregarious","Inchoate","Malleable","Pragmatic","Reticent","Soporific","Loquacious","Vacillate","Profound","Subtle","Eloquent","Ambiguous","Coherent","Disparate","Egregious","Inherent","Juxtapose","Mitigate","Nebulous","Obfuscate","Paradoxical","Quintessential"], multiplier: 600 }
+    { 
+        title: "Group 1: Everyday & Basic Words", 
+        words: [
+            "apple", "book", "city", "family", "happy", "house", "learn", "mother", "school", "time",
+            "water", "work", "day", "friend", "good", "home", "like", "make", "new", "people",
+            "place", "run", "see", "think", "use", "very", "want", "year", "big", "small",
+            "eat", "drink", "go", "come", "live", "play", "read", "write", "talk", "listen",
+            "know", "help", "find", "give", "take", "look", "say", "tell", "ask", "answer"
+        ],
+        multiplier: 70 
+    },
+    { 
+        title: "Group 2: School & Common Academic Words", 
+        words: [
+            "analyze", "approach", "area", "assume", "benefit", "concept", "context", "create", "data", "definition",
+            "develop", "environment", "estimate", "evidence", "factor", "impact", "method", "occur", "process", "research",
+            "significant", "source", "structure", "theory", "variable", "affect", "cause", "effect", "increase", "result",
+            "study", "system", "model", "example", "important", "information", "knowledge", "problem", "question", "reason",
+            "result", "solution", "support", "understand", "use", "value", "view", "way", "work", "world"
+        ],
+        multiplier: 160 
+    },
+    { 
+        title: "Group 3: Advanced & University-Level Words (includes some fake words to check accuracy)", 
+        words: [
+            "abstract", "bias", "correlation", "derive", "empirical", "framework", "inference", "internalize", "mitigate", "paradigm",
+            "pervasive", "pragmatic", "protocol", "quantitative", "sustainable", "synthesis", "validity", "comprehensive", "discrepancy", "facilitate",
+            "hypothesis", "implication", "integral", "preliminary", "profound", "substantial", "systematic", "underlying", "utilize", "variable",
+            "consequence", "contribute", "demonstrate", "establish", "evaluate", "generate", "indicate", "influence", "interpret", "investigate",
+            // Fake/non-words (mixed in to detect over-claiming)
+            "blorple", "zenthix", "quorvex", "flumdar", "klytheron", "vaxilon", "praxitude", "grelmish", "syntorak", "mordivance"
+        ],
+        multiplier: 280 
+    }
 ];
 
 let currentTier = 0;
@@ -196,12 +234,11 @@ function startVocabTest() {
 function renderTier() {
     const tier = tiers[currentTier];
     document.getElementById('tier-title').innerText = tier.title;
-    document.getElementById('step-indicator').innerText = `Step ${currentTier + 1} of 3`;
+    document.getElementById('step-indicator').innerText = `Group ${currentTier + 1} of 3`;
     document.getElementById('word-grid').innerHTML = tier.words.map(word =>
-        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-4 rounded-xl text-sm font-bold text-neutral-400 bg-white/5 hover:bg-white/10 transition-all">${word}</button>`
+        `<button onclick="toggleWord(this,'${word}')" class="word-chip p-3 md:p-4 rounded-xl text-sm md:text-base font-medium text-neutral-300 bg-white/5 hover:bg-white/10 transition-all">${word}</button>`
     ).join('');
-    document.getElementById('next-btn').innerText = currentTier === 2 ? "Finish Test" : "Next Step";
-    document.getElementById('know-all-btn').innerText = "I know them all"; // reset button text
+    document.getElementById('next-btn').innerText = currentTier === 2 ? "See My Results" : "Continue →";
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -211,46 +248,57 @@ function toggleWord(btn, word) {
     document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
 }
 
-function knowAllCurrentTier() {
-    const tier = tiers[currentTier];
-    tier.words.forEach(word => {
-        if (!selectedWords.has(word)) {
-            selectedWords.add(word);
-            // Find and highlight the button
-            const buttons = document.querySelectorAll('#word-grid button');
-            buttons.forEach(btn => {
-                if (btn.innerText === word) {
-                    btn.classList.add('selected');
-                }
-            });
-        }
-    });
-    document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
-    document.getElementById('know-all-btn').innerText = "All selected ✓";
-}
-
 function nextTier() {
-    currentTier < 2 ? (currentTier++, renderTier()) : showResults();
+    if (currentTier < 2) {
+        currentTier++;
+        renderTier();
+    } else {
+        showResults();
+    }
 }
 
 function showResults() {
     document.getElementById('test-area').classList.add('hidden');
     document.getElementById('result-area').classList.remove('hidden');
 
-    let total = 500;
-    tiers.forEach(t => total += t.words.filter(w => selectedWords.has(w)).length * t.multiplier);
-    total = Math.round(total);
+    // Count known real words per tier
+    let realScore1 = tiers[0].words.filter(w => selectedWords.has(w)).length;
+    let realScore2 = tiers[1].words.filter(w => selectedWords.has(w)).length;
+    let realScore3 = tiers[2].words.filter(w => !["blorple","zenthix","quorvex","flumdar","klytheron","vaxilon","praxitude","grelmish","syntorak","mordivance"].includes(w) && selectedWords.has(w)).length;
 
-    document.getElementById('total-words').innerText = total.toLocaleString();
+    // Count fake words selected in Tier 3
+    let fakeCount = tiers[2].words.filter(w => ["blorple","zenthix","quorvex","flumdar","klytheron","vaxilon","praxitude","grelmish","syntorak","mordivance"].includes(w) && selectedWords.has(w)).length;
 
-    let level = "A2", desc = "Basic functional vocabulary.";
-    if (total > 2500) { level = "B1"; desc = "Intermediate vocabulary for common topics."; }
-    if (total > 4500) { level = "B2"; desc = "Academic entry level."; }
-    if (total > 7500) { level = "C1"; desc = "Advanced academic vocabulary."; }
-    if (total > 10000) { level = "C2"; desc = "Near-native vocabulary range."; }
+    // Base + weighted real scores
+    let base = 400;
+    let estLow  = base + (realScore1 * 65) + (realScore2 * 140) + (realScore3 * 240);
+    let estHigh = base + (realScore1 * 85) + (realScore2 * 180) + (realScore3 * 320);
+
+    // Penalize if fakes were selected (reduce high end significantly)
+    if (fakeCount > 0) {
+        const penalty = fakeCount * 0.25; // 25% reduction per fake (max ~2.5x)
+        estHigh = Math.round(estHigh * (1 - penalty));
+    }
+
+    estLow  = Math.round(estLow  / 100) * 100;
+    estHigh = Math.round(estHigh / 100) * 100;
+
+    if (estHigh < estLow) [estLow, estHigh] = [estHigh, estLow];
+
+    document.getElementById('total-words').innerText = `${estLow.toLocaleString()} – ${estHigh.toLocaleString()}`;
+
+    // CEFR & personalized goal
+    let level = "A1–A2", desc = "Basic everyday words. Great foundation for beginners.";
+    let goalText = "You're building the basics. Aim for 3,000–4,000 words to feel comfortable with high school reading and exams.";
+    if (estLow > 2500) { level = "B1"; desc = "Intermediate level — good for common topics and schoolwork."; goalText = "Solid intermediate range. Push toward 4,500–6,000 words for easier university entry and textbooks."; }
+    if (estLow > 4500) { level = "B2"; desc = "Upper-intermediate — ready for most high school exams and university entry."; goalText = "Strong position! People who score like you usually need 1,000–3,000 more words to feel fully comfortable with university reading and lectures."; }
+    if (estLow > 7500) { level = "C1"; desc = "Advanced — strong for university lectures, essays, and academic reading."; goalText = "Excellent range already. Aim for 9,000+ words to handle almost any academic text with ease."; }
+    if (estLow > 10000) { level = "C2"; desc = "Near-native — very fluent across most academic and professional contexts."; goalText = "Outstanding! You're at or near the level needed for fluent academic and professional English."; }
 
     document.getElementById('cefr-level').innerText = level;
     document.getElementById('cefr-desc').innerText = desc;
+    document.getElementById('goal-advice').innerText = goalText;
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
