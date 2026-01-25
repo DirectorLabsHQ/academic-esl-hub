@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Collocation Checker | Academic ESL Hub</title>
+    <link rel="canonical" href="https://academiceslhub.com/collocation-checker.html" />
+    <meta name="description" content="Search 2,400+ academic collocations for university essays, research papers, and IELTS/TOEFL writing.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
+        .result-card { background: #111111; border: 1px solid #1a1a1a; transition: all 0.2s; height: 100%; }
+        .result-card:hover { border-color: #3b82f6; transform: translateY(-2px); background: #0a0a0a; }
+        .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; overflow-x: auto; display: flex; }
+        .nav-scroll::-webkit-scrollbar { display: none; }
+        .loading-spinner { border: 3px solid rgba(59, 130, 246, 0.1); border-top: 3px solid #3b82f6; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #10b981; color: white; padding: 12px 24px; border-radius: 8px; opacity: 0; transition: opacity 0.3s; z-index: 1000; pointer-events: none; }
+        .toast.show { opacity: 1; }
+        .highlight { color: #3b82f6; font-weight: 700; }
+        .show-more { background: #3b82f6; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 12px; display: inline-block; font-size: 0.875rem; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col antialiased hero-gradient">
+
+<div id="shared-header"></div>
+
+<main class="flex-grow max-w-4xl mx-auto px-6 py-16 w-full">
+    <div class="text-center mb-12">
+        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest rounded-full border border-blue-500/20">Writing Accuracy Tool</span>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mt-4 mb-4">Academic <span class="text-blue-500">Collocation</span> Checker</h1>
+        <p class="text-neutral-400 text-lg max-w-2xl mx-auto">
+            The ultimate dictionary for university-level word pairings. Sound more professional in your essays.
+        </p>
+    </div>
+
+    <!-- Static content: What are Academic Collocations? -->
+    <section class="prose prose-invert max-w-none mb-16">
+        <h2 class="text-3xl font-bold text-white mb-6">What are Academic Collocations?</h2>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+            Collocations are words that naturally go together in English. In academic writing, using the right collocations makes your essays, research papers, and reports sound more professional and natural.
+        </p>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+            For example, native speakers say <span class="highlight">"conduct research"</span> instead of "do research", or <span class="highlight">"significant impact"</span> instead of "big effect". Wrong collocations can lower your IELTS/TOEFL writing score or make university professors notice your English is not yet at the required level.
+        </p>
+
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4">Why Use the Academic Collocation List (ACL)?</h3>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+            The ACL is a list of 2,469 high-frequency word combinations used in academic texts across all subjects. Mastering these collocations helps you:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-neutral-300 mb-6">
+            <li>Reach B2/C1 vocabulary level faster</li>
+            <li>Write more accurate and sophisticated essays</li>
+            <li>Understand research papers and textbooks without a dictionary</li>
+            <li>Improve IELTS Writing Task 2 and TOEFL integrated writing scores</li>
+            <li>Sound more like a native academic writer</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4">How to Use This Tool</h3>
+        <ol class="list-decimal pl-6 space-y-2 text-neutral-300 mb-6">
+            <li>Type any word (e.g. "theory", "analysis", "significant") into the search box.</li>
+            <li>See the most common academic collocations that pair with it.</li>
+            <li>Copy the collocation and use it directly in your essay or report.</li>
+            <li>Practice replacing simple phrases (e.g. "big problem" → "major issue") to raise your lexical resource score.</li>
+        </ol>
+
+        <p class="text-neutral-400 italic text-sm mt-6">
+            Pro tip: Combine this tool with the <a href="vocab-estimator.html" class="text-blue-400 hover:underline">Vocabulary Estimator</a> to track your progress toward 9,000+ words.
+        </p>
+    </section>
+
+    <div class="relative group max-w-2xl mx-auto mb-16">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="relative">
+            <input 
+                type="text" id="word-input" 
+                placeholder="Search (e.g. theory, analysis, evidence)..." 
+                class="w-full bg-black border border-white/10 text-white placeholder-neutral-600 rounded-xl px-8 py-6 text-xl focus:outline-none focus:border-blue-500 transition shadow-2xl touch-manipulation"
+                oninput="debouncedSearch()"
+            >
+            <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-3">
+                <span id="loading" class="loading-spinner hidden"></span>
+                <kbd class="hidden md:block px-2 py-1 bg-neutral-900 border border-neutral-800 rounded text-xs">ESC</kbd>
+            </div>
+        </div>
+    </div>
+
+    <div id="results-area" class="space-y-12 min-h-[300px]" aria-live="polite">
+        <div id="welcome-state" class="text-center py-12 opacity-50">
+            <p class="text-neutral-500 uppercase tracking-widest text-xs font-bold mb-4">Quick Search Suggestions:</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="fillSearch('analysis')" class="px-5 py-2 rounded-full border border-white/10 hover:border-blue-500 transition text-base">analysis</button>
+                <button onclick="fillSearch('theory')" class="px-5 py-2 rounded-full border border-white/10 hover:border-blue-500 transition text-base">theory</button>
+                <button onclick="fillSearch('significant')" class="px-5 py-2 rounded-full border border-white/10 hover:border-blue-500 transition text-base">significant</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Static content: Why Collocations Matter -->
+    <section class="prose prose-invert max-w-none mt-20 pt-10 border-t border-white/5">
+        <h2 class="text-3xl font-bold text-white mb-6">Why Collocations Matter for University & Exams</h2>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+            Examiners and professors notice when students use collocations correctly. Using "make research" instead of "conduct research" can lower your band score in IELTS Writing by 0.5–1.0 points.
+        </p>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+            At B2 level, you need ~6,000–8,000 words. At C1 level (graduate entry), you need 9,000+. But it's not just quantity — it's about using words in the right combinations.
+        </p>
+        <p class="text-neutral-300 leading-relaxed">
+            This tool is based on the Academic Collocation List (ACL), a research-based resource used by universities worldwide. Start with the suggestions above, then search any word from your reading or essay feedback.
+        </p>
+    </section>
+
+    <div id="toast" class="toast hidden">Copied to clipboard!</div>
+
+</main>
+
+<footer class="border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                Free English assessment tools for ESL students and teachers.
+                Based on CEFR standards and academic English research.
+            </p>
+            <p class="text-neutral-500 text-xs font-bold uppercase">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+            </div>
+            <p class="text-xs text-neutral-700 font-bold uppercase">
+                © 2026 Academic ESL Hub
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    fetch('./shared-header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('shared-header').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load shared header:', err));
+</script>
+
+<script>
+let collocations = [];
+let isLoaded = false;
+let currentInput = '';
+
+// Load external JSON
+async function loadData() {
+    const status = document.getElementById('db-status');
+    try {
+        const response = await fetch('./collocations.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        collocations = await response.json();
+        isLoaded = true;
+        status.innerText = `READY: ${collocations.length} HEADWORDS`;
+        status.classList.add('status-ready');
+        status.classList.remove('status-error');
+    } catch (err) {
+        console.error('Fetch error:', err);
+        status.innerText = "DB OFFLINE";
+        status.classList.add('status-error');
+    }
+}
+loadData();
+
+// Debounce
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), wait);
+    };
+}
+const debouncedSearch = debounce(searchCollocation, 250);
+
+function fillSearch(val) {
+    document.getElementById('word-input').value = val;
+    searchCollocation();
+}
+
+function searchCollocation() {
+    const input = document.getElementById('word-input').value.toLowerCase().trim();
+    const area = document.getElementById('results-area');
+    const loading = document.getElementById('loading');
+
+    if (!isLoaded) {
+        area.innerHTML = `<div class="text-center py-20 opacity-40">Loading database... Please wait a moment.</div>`;
+        return;
+    }
+
+    if (input.length === 0) {
+        area.innerHTML = document.getElementById('welcome-state').outerHTML;
+        return;
+    }
+
+    if (input.length < 2) return;
+
+    loading.classList.remove('hidden');
+
+    const exact = collocations.filter(item => item.word.toLowerCase() === input);
+    const related = collocations.filter(item => 
+        (item.word.toLowerCase().includes(input) || item.pairs.some(p => p.c.toLowerCase().includes(input)))
+        && item.word.toLowerCase() !== input
+    ).slice(0, 10);
+
+    const allResults = [...exact, ...related];
+
+    loading.classList.add('hidden');
+
+    if (allResults.length === 0) {
+        area.innerHTML = `
+            <div class="text-center py-20 bg-neutral-900/30 rounded-3xl border border-dashed border-white/5">
+                <p class="text-neutral-500">No results found for "${input}".</p>
+                <p class="text-sm text-blue-500 mt-2">
+                    Try 'theory', 'analysis', 'significant', or 'evidence'.
+                </p>
+            </div>`;
+        return;
+    }
+
+    area.innerHTML = allResults.map((item, index) => {
+        const isExact = item.word.toLowerCase() === input;
+        const pairsToShow = item.pairs.slice(0, 15);
+        const hasMore = item.pairs.length > 15;
+
+        return `
+        <div class="animate-in fade-in slide-in-from-bottom-2 duration-300">
+            ${!isExact && index === exact.length ? '<div class="mt-12 mb-6 border-b border-white/5 text-[10px] font-bold text-neutral-600 uppercase tracking-[0.2em]">Related Results</div>' : ''}
+            <h2 class="text-xs font-black uppercase tracking-widest ${isExact ? 'text-blue-500' : 'text-neutral-500'} mb-4 flex items-center gap-2">
+                Headword: <span class="text-white">${item.word}</span>
+                ${isExact ? '<span class="px-2 py-0.5 bg-blue-500 text-black rounded-sm text-[8px] font-black">EXACT MATCH</span>' : ''}
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                ${pairsToShow.map(p => `
+                    <div class="result-card p-5 rounded-2xl group flex flex-col justify-between border ${isExact ? 'border-blue-500/20' : 'border-white/5'}">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold text-white group-hover:text-blue-400 transition">${p.c}</h3>
+                                <button onclick="copyText('${p.c}')" class="text-[10px] uppercase font-black text-neutral-600 hover:text-white transition" aria-label="Copy collocation">Copy</button>
+                            </div>
+                            <p class="text-neutral-500 text-[11px] italic leading-relaxed">
+                                ${p.e || "Academic pairing."}
+                            </p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            ${hasMore ? `<button class="show-more text-xs mt-4 text-blue-400 hover:text-blue-300" onclick="alert('Show more coming soon!')">Show more (${item.pairs.length - 15})</button>` : ''}
+        </div>`;
+    }).join('<hr class="border-transparent my-8">');
+}
+
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') fillSearch('');
+});
+</script>
+
+</body>
+</html>
