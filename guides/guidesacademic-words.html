@@ -21,278 +21,281 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased hero-gradient">
 
-<!-- Header – paste your full header here if needed; simplified version shown -->
-<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
-            ACADEMIC<span class="text-white">ESL</span>HUB
-        </a>
-        <!-- Add your full nav here if desired -->
-    </div>
-</header>
+    <!-- Shared header/nav will load here -->
+    <div id="shared-header"></div>
 
-<main class="flex-grow max-w-4xl mx-auto px-6 py-12">
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-12">
 
-    <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-8 text-center">
-        Master Essential Academic Words
-    </h1>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-8 text-center">
+            Master Essential Academic Words
+        </h1>
 
-    <p class="text-neutral-300 text-lg leading-relaxed mb-12 text-center max-w-3xl mx-auto">
-        University textbooks, lectures, and essays rely on a specific set of words that rarely appear in everyday conversation. 
-        These come from the <strong>Academic Word List (AWL)</strong>. Mastering the top ones will make reading faster and your writing more professional.
-    </p>
-
-    <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-16 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-            <h4 class="text-white font-bold text-lg">Not sure where to start?</h4>
-            <p class="text-neutral-400 text-sm">Check your current vocabulary level first with our free tool.</p>
-        </div>
-        <a href="vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition">
-            Take Vocabulary Estimator →
-        </a>
-    </div>
-
-    <section class="mb-16">
-        <h2 class="text-3xl font-bold text-white mb-6">Why These Words Matter</h2>
-        <div class="grid md:grid-cols-2 gap-8 text-neutral-400 leading-relaxed">
-            <p>
-                Studies show that knowing high-frequency academic vocabulary helps you understand <strong>80–90%</strong> of university-level texts without constant dictionary use. 
-                The <strong>Academic Word List (AWL)</strong> contains 570 word families used across subjects like science, business, and social sciences.
-            </p>
-            <p>
-                You don’t need to learn all 570 right away. Start with <strong>Sublist 1</strong> — the most common ones. Mastering these will make lectures easier to follow and essays sound more academic.
-            </p>
-        </div>
-    </section>
-
-    <section class="mb-16">
-        <h2 class="text-3xl font-bold text-white mb-6 text-center">Top 20 Words from AWL Sublist 1</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Full 20 words -->
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">analyze</h3>
-                <p class="text-neutral-300 text-sm">To examine something carefully</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Researchers analyze data to find patterns."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">approach</h3>
-                <p class="text-neutral-300 text-sm">A way of dealing with something</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"This new approach improves learning outcomes."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">area</h3>
-                <p class="text-neutral-300 text-sm">A subject or region</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"The study focuses on urban areas."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">assume</h3>
-                <p class="text-neutral-300 text-sm">To accept as true without proof</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Many assume technology always helps education."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">authority</h3>
-                <p class="text-neutral-300 text-sm">Power or expert source</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"The report cites government authority."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">available</h3>
-                <p class="text-neutral-300 text-sm">Ready to be used</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Resources are available online."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">benefit</h3>
-                <p class="text-neutral-300 text-sm">Advantage or positive result</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Regular practice brings many benefits."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">concept</h3>
-                <p class="text-neutral-300 text-sm">An idea or principle</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"The concept of sustainability is key."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">consistent</h3>
-                <p class="text-neutral-300 text-sm">Always behaving the same way</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Results were consistent across tests."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">constitutional</h3>
-                <p class="text-neutral-300 text-sm">Related to a country's laws</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Constitutional changes were discussed."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">context</h3>
-                <p class="text-neutral-300 text-sm">The situation that explains meaning</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Read the full context for clarity."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">contract</h3>
-                <p class="text-neutral-300 text-sm">A formal agreement</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"They signed a research contract."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">create</h3>
-                <p class="text-neutral-300 text-sm">To make something new</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Teams create solutions together."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">data</h3>
-                <p class="text-neutral-300 text-sm">Facts and information</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Data shows a clear trend."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">definition</h3>
-                <p class="text-neutral-300 text-sm">Explanation of meaning</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Check the official definition."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">derived</h3>
-                <p class="text-neutral-300 text-sm">Obtained from a source</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Many terms are derived from Latin."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">distribution</h3>
-                <p class="text-neutral-300 text-sm">The way something is spread</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"The distribution of resources varies."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">environment</h3>
-                <p class="text-neutral-300 text-sm">Surroundings or conditions</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Protect the natural environment."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">established</h3>
-                <p class="text-neutral-300 text-sm">Officially set up or proven</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"The theory is well established."</p>
-            </div>
-            <div class="card p-5 rounded-xl">
-                <h3 class="text-xl font-bold text-blue-400">estimate</h3>
-                <p class="text-neutral-300 text-sm">To calculate approximately</p>
-                <p class="text-neutral-500 text-xs mt-2 italic">"Experts estimate costs at $2 million."</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="mb-16 bg-neutral-900/50 p-8 rounded-3xl border border-white/5">
-        <h2 class="text-3xl font-bold text-white mb-2">Interactive Practice Quiz</h2>
-        <p class="text-neutral-400 mb-8 text-sm uppercase tracking-widest font-bold">Test your knowledge – 5 random questions</p>
-
-        <div id="quiz-container" class="space-y-8"></div>
-
-        <button id="new-quiz-btn" class="mt-10 w-full bg-white text-black hover:bg-neutral-200 font-black py-4 px-6 rounded-xl transition">
-            GENERATE NEW QUESTIONS
-        </button>
-    </section>
-
-    <section class="text-center mt-12">
-        <p class="text-neutral-400 text-lg mb-6">
-            Want to track your progress? <a href="vocab-estimator.html" class="text-blue-400 hover:underline font-bold">Retake the Vocabulary Estimator</a>
+        <p class="text-neutral-300 text-lg leading-relaxed mb-12 text-center max-w-3xl mx-auto">
+            University textbooks, lectures, and essays rely on a specific set of words that rarely appear in everyday conversation. 
+            These come from the <strong>Academic Word List (AWL)</strong>. Mastering the top ones will make reading faster and your writing more professional.
         </p>
-        <a href="guides.html" class="text-blue-500 font-bold hover:underline text-xl">← Back to All Guides</a>
-    </section>
 
-</main>
-
-<!-- Footer – paste your full footer if needed -->
-<footer class="border-t border-white/5 py-16 px-6 bg-black">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        <div>
-            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
-            </p>
-            <p class="text-neutral-500 text-xs font-bold uppercase">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
-            </p>
-        </div>
-        <div class="flex flex-col md:items-end justify-center gap-6">
-            <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+        <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-16 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <h4 class="text-white font-bold text-lg">Not sure where to start?</h4>
+                <p class="text-neutral-400 text-sm">Check your current vocabulary level first with our free tool.</p>
             </div>
-            <p class="text-xs text-neutral-700 font-bold uppercase">
-                © 2026 Academic ESL Hub
-            </p>
+            <a href="/vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition">
+                Take Vocabulary Estimator →
+            </a>
         </div>
-    </div>
-</footer>
 
-<script>
-    const words = [
-        { word: "analyze", def: "To examine something carefully", ex: "Researchers analyze data to find patterns.", wrong: ["To make something new", "A formal agreement", "Power or expert source"] },
-        { word: "approach", def: "A way of dealing with something", ex: "This new approach improves learning outcomes.", wrong: ["Facts and information", "To accept as true", "The way something is spread"] },
-        { word: "area", def: "A subject or region", ex: "The study focuses on urban areas.", wrong: ["An idea or principle", "Ready to be used", "Surroundings or conditions"] },
-        { word: "assume", def: "To accept as true without proof", ex: "Many assume technology always helps education.", wrong: ["To calculate approximately", "Officially set up", "To come near"] },
-        { word: "authority", def: "Power or expert source", ex: "The report cites government authority.", wrong: ["Explanation of meaning", "Advantage or positive result", "Always behaving the same way"] },
-        { word: "available", def: "Ready to be used", ex: "Resources are available online.", wrong: ["To make something new", "A formal agreement", "The situation that explains meaning"] },
-        { word: "benefit", def: "Advantage or positive result", ex: "Regular practice brings many benefits.", wrong: ["Facts and information", "To examine something carefully", "Related to a country's laws"] },
-        { word: "concept", def: "An idea or principle", ex: "The concept of sustainability is key.", wrong: ["To accept as true", "A way of dealing with something", "Power or expert source"] },
-        { word: "consistent", def: "Always behaving the same way", ex: "Results were consistent across tests.", wrong: ["The way something is spread", "Officially set up", "To calculate approximately"] },
-        { word: "constitutional", def: "Related to a country's laws", ex: "Constitutional changes were discussed.", wrong: ["Surroundings or conditions", "A subject or region", "Explanation of meaning"] },
-        { word: "context", def: "The situation that explains meaning", ex: "Read the full context for clarity.", wrong: ["To make something new", "Advantage or positive result", "Ready to be used"] },
-        { word: "contract", def: "A formal agreement", ex: "They signed a research contract.", wrong: ["Facts and information", "To examine something carefully", "Power or expert source"] },
-        { word: "create", def: "To make something new", ex: "Teams create solutions together.", wrong: ["A way of dealing with something", "To accept as true", "An idea or principle"] },
-        { word: "data", def: "Facts and information", ex: "The data shows a clear trend.", wrong: ["Officially set up", "The way something is spread", "Always behaving the same way"] },
-        { word: "definition", def: "Explanation of meaning", ex: "Check the official definition.", wrong: ["To calculate approximately", "Related to a country's laws", "Surroundings or conditions"] },
-        { word: "derived", def: "Obtained from a source", ex: "Many terms are derived from Latin.", wrong: ["A subject or region", "The situation that explains meaning", "A formal agreement"] },
-        { word: "distribution", def: "The way something is spread", ex: "The distribution of resources varies.", wrong: ["To make something new", "Advantage or positive result", "Ready to be used"] },
-        { word: "environment", def: "Surroundings or conditions", ex: "Protect the natural environment.", wrong: ["Facts and information", "To examine something carefully", "Power or expert source"] },
-        { word: "established", def: "Officially set up or proven", ex: "The theory is well established.", wrong: ["A way of dealing with something", "To accept as true", "An idea or principle"] },
-        { word: "estimate", def: "To calculate approximately", ex: "Experts estimate costs at $2 million.", wrong: ["Explanation of meaning", "Always behaving the same way", "Related to a country's laws"] }
-    ];
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">Why These Words Matter</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-neutral-400 leading-relaxed">
+                <p>
+                    Studies show that knowing high-frequency academic vocabulary helps you understand <strong>80–90%</strong> of university-level texts without constant dictionary use. 
+                    The <strong>Academic Word List (AWL)</strong> contains 570 word families used across subjects like science, business, and social sciences.
+                </p>
+                <p>
+                    You don’t need to learn all 570 right away. Start with <strong>Sublist 1</strong> — the most common ones. Mastering these will make lectures easier to follow and essays sound more academic.
+                </p>
+            </div>
+        </section>
 
-    function shuffle(array) {
-        return array.sort(() => Math.random() - 0.5);
-    }
-
-    function generateQuiz() {
-        const container = document.getElementById('quiz-container');
-        container.innerHTML = '';
-        const selectedWords = shuffle([...words]).slice(0, 5);
-
-        selectedWords.forEach((item, index) => {
-            const options = shuffle([item.def, ...item.wrong]);
-            const questionDiv = document.createElement('div');
-            questionDiv.className = 'border-l-4 border-blue-500 bg-black/40 p-6 rounded-r-xl';
-            questionDiv.innerHTML = `
-                <h3 class="text-xl font-bold text-white mb-4">Question ${index + 1}: What is the meaning of <span class="text-blue-400 underline underline-offset-4">"${item.word}"</span>?</h3>
-                <div class="grid gap-3">
-                    ${options.map((opt, i) => `
-                        <div class="option bg-neutral-900 border border-white/5" data-correct="${opt === item.def}" onclick="checkAnswer(this, '${item.ex.replace(/'/g, "\\'")}')">
-                            <span class="text-neutral-500 mr-2 text-xs font-bold">${String.fromCharCode(65 + i)}.</span> ${opt}
-                        </div>
-                    `).join('')}
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Top 20 Words from AWL Sublist 1</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">analyze</h3>
+                    <p class="text-neutral-300 text-sm">To examine something carefully</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Researchers analyze data to find patterns."</p>
                 </div>
-                <p class="mt-4 p-3 bg-blue-500/10 text-blue-300 text-sm rounded-lg hidden answer-text"></p>
-            `;
-            container.appendChild(questionDiv);
-        });
-    }
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">approach</h3>
+                    <p class="text-neutral-300 text-sm">A way of dealing with something</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"This new approach improves learning outcomes."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">area</h3>
+                    <p class="text-neutral-300 text-sm">A subject or region</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"The study focuses on urban areas."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">assume</h3>
+                    <p class="text-neutral-300 text-sm">To accept as true without proof</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Many assume technology always helps education."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">authority</h3>
+                    <p class="text-neutral-300 text-sm">Power or expert source</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"The report cites government authority."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">available</h3>
+                    <p class="text-neutral-300 text-sm">Ready to be used</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Resources are available online."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">benefit</h3>
+                    <p class="text-neutral-300 text-sm">Advantage or positive result</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Regular practice brings many benefits."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">concept</h3>
+                    <p class="text-neutral-300 text-sm">An idea or principle</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"The concept of sustainability is key."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">consistent</h3>
+                    <p class="text-neutral-300 text-sm">Always behaving the same way</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Results were consistent across tests."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">constitutional</h3>
+                    <p class="text-neutral-300 text-sm">Related to a country's laws</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Constitutional changes were discussed."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">context</h3>
+                    <p class="text-neutral-300 text-sm">The situation that explains meaning</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Read the full context for clarity."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">contract</h3>
+                    <p class="text-neutral-300 text-sm">A formal agreement</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"They signed a research contract."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">create</h3>
+                    <p class="text-neutral-300 text-sm">To make something new</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Teams create solutions together."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">data</h3>
+                    <p class="text-neutral-300 text-sm">Facts and information</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Data shows a clear trend."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">definition</h3>
+                    <p class="text-neutral-300 text-sm">Explanation of meaning</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Check the official definition."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">derived</h3>
+                    <p class="text-neutral-300 text-sm">Obtained from a source</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Many terms are derived from Latin."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">distribution</h3>
+                    <p class="text-neutral-300 text-sm">The way something is spread</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"The distribution of resources varies."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">environment</h3>
+                    <p class="text-neutral-300 text-sm">Surroundings or conditions</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Protect the natural environment."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">established</h3>
+                    <p class="text-neutral-300 text-sm">Officially set up or proven</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"The theory is well established."</p>
+                </div>
+                <div class="card p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-blue-400">estimate</h3>
+                    <p class="text-neutral-300 text-sm">To calculate approximately</p>
+                    <p class="text-neutral-500 text-xs mt-2 italic">"Experts estimate costs at $2 million."</p>
+                </div>
+            </div>
+        </section>
 
-    function checkAnswer(element, example) {
-        const parent = element.parentElement.parentElement;
-        const isCorrect = element.dataset.correct === 'true';
-        const options = parent.querySelectorAll('.option');
+        <section class="mb-16 bg-neutral-900/50 p-8 rounded-3xl border border-white/5">
+            <h2 class="text-3xl font-bold text-white mb-2">Interactive Practice Quiz</h2>
+            <p class="text-neutral-400 mb-8 text-sm uppercase tracking-widest font-bold">Test your knowledge – 5 random questions</p>
 
-        options.forEach(opt => {
-            opt.onclick = null;
-            if (opt.dataset.correct === 'true') opt.classList.add('correct');
-            else if (opt === element) opt.classList.add('incorrect');
-        });
+            <div id="quiz-container" class="space-y-8"></div>
 
-        const answerText = parent.querySelector('.answer-text');
-        answerText.classList.remove('hidden');
-        answerText.innerHTML = isCorrect 
-            ? `<strong>Correct!</strong> Example: <em>"${example}"</em>` 
-            : `<strong>Not quite.</strong> The correct definition is highlighted above.`;
-    }
+            <button id="new-quiz-btn" class="mt-10 w-full bg-white text-black hover:bg-neutral-200 font-black py-4 px-6 rounded-xl transition">
+                GENERATE NEW QUESTIONS
+            </button>
+        </section>
 
-    window.onload = generateQuiz;
-    document.getElementById('new-quiz-btn')?.addEventListener('click', generateQuiz);
-</script>
+        <section class="text-center mt-12">
+            <p class="text-neutral-400 text-lg mb-6">
+                Want to track your progress? <a href="/vocab-estimator.html" class="text-blue-400 hover:underline font-bold">Retake the Vocabulary Estimator</a>
+            </p>
+            <a href="/guides.html" class="text-blue-500 font-bold hover:underline text-xl">← Back to All Guides</a>
+        </section>
+
+    </main>
+
+    <!-- Your existing footer (unchanged, but links already root-relative) -->
+    <footer class="border-t border-white/5 py-16 px-6 bg-black">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <a href="/index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                    ACADEMIC<span class="text-white">ESL</span>HUB
+                </a>
+                <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                    Free English assessment tools for ESL students and teachers.
+                    Based on CEFR standards and academic English research.
+                </p>
+                <p class="text-neutral-500 text-xs font-bold uppercase">
+                    Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+                </p>
+            </div>
+            <div class="flex flex-col md:items-end justify-center gap-6">
+                <div class="flex gap-8">
+                    <a href="/privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                    <a href="/terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                    <a href="/about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+                </div>
+                <p class="text-xs text-neutral-700 font-bold uppercase">
+                    © 2026 Academic ESL Hub
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load the shared header/nav -->
+    <script>
+        fetch('../shared-header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('shared-header').innerHTML = data;
+            })
+            .catch(err => console.error('Failed to load shared header:', err));
+    </script>
+
+    <!-- Your existing quiz script (unchanged) -->
+    <script>
+        const words = [
+            { word: "analyze", def: "To examine something carefully", ex: "Researchers analyze data to find patterns.", wrong: ["To make something new", "A formal agreement", "Power or expert source"] },
+            { word: "approach", def: "A way of dealing with something", ex: "This new approach improves learning outcomes.", wrong: ["Facts and information", "To accept as true", "The way something is spread"] },
+            { word: "area", def: "A subject or region", ex: "The study focuses on urban areas.", wrong: ["An idea or principle", "Ready to be used", "Surroundings or conditions"] },
+            { word: "assume", def: "To accept as true without proof", ex: "Many assume technology always helps education.", wrong: ["To calculate approximately", "Officially set up", "To come near"] },
+            { word: "authority", def: "Power or expert source", ex: "The report cites government authority.", wrong: ["Explanation of meaning", "Advantage or positive result", "Always behaving the same way"] },
+            { word: "available", def: "Ready to be used", ex: "Resources are available online.", wrong: ["To make something new", "A formal agreement", "The situation that explains meaning"] },
+            { word: "benefit", def: "Advantage or positive result", ex: "Regular practice brings many benefits.", wrong: ["Facts and information", "To examine something carefully", "Related to a country's laws"] },
+            { word: "concept", def: "An idea or principle", ex: "The concept of sustainability is key.", wrong: ["To accept as true", "A way of dealing with something", "Power or expert source"] },
+            { word: "consistent", def: "Always behaving the same way", ex: "Results were consistent across tests.", wrong: ["The way something is spread", "Officially set up", "To calculate approximately"] },
+            { word: "constitutional", def: "Related to a country's laws", ex: "Constitutional changes were discussed.", wrong: ["Surroundings or conditions", "A subject or region", "Explanation of meaning"] },
+            { word: "context", def: "The situation that explains meaning", ex: "Read the full context for clarity.", wrong: ["To make something new", "Advantage or positive result", "Ready to be used"] },
+            { word: "contract", def: "A formal agreement", ex: "They signed a research contract.", wrong: ["Facts and information", "To examine something carefully", "Power or expert source"] },
+            { word: "create", def: "To make something new", ex: "Teams create solutions together.", wrong: ["A way of dealing with something", "To accept as true", "An idea or principle"] },
+            { word: "data", def: "Facts and information", ex: "The data shows a clear trend.", wrong: ["Officially set up", "The way something is spread", "Always behaving the same way"] },
+            { word: "definition", def: "Explanation of meaning", ex: "Check the official definition.", wrong: ["To calculate approximately", "Related to a country's laws", "Surroundings or conditions"] },
+            { word: "derived", def: "Obtained from a source", ex: "Many terms are derived from Latin.", wrong: ["A subject or region", "The situation that explains meaning", "A formal agreement"] },
+            { word: "distribution", def: "The way something is spread", ex: "The distribution of resources varies.", wrong: ["To make something new", "Advantage or positive result", "Ready to be used"] },
+            { word: "environment", def: "Surroundings or conditions", ex: "Protect the natural environment.", wrong: ["Facts and information", "To examine something carefully", "Power or expert source"] },
+            { word: "established", def: "Officially set up or proven", ex: "The theory is well established.", wrong: ["A way of dealing with something", "To accept as true", "An idea or principle"] },
+            { word: "estimate", def: "To calculate approximately", ex: "Experts estimate costs at $2 million.", wrong: ["Explanation of meaning", "Always behaving the same way", "Related to a country's laws"] }
+        ];
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function generateQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            const selectedWords = shuffle([...words]).slice(0, 5);
+
+            selectedWords.forEach((item, index) => {
+                const options = shuffle([item.def, ...item.wrong]);
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'border-l-4 border-blue-500 bg-black/40 p-6 rounded-r-xl';
+                questionDiv.innerHTML = `
+                    <h3 class="text-xl font-bold text-white mb-4">Question ${index + 1}: What is the meaning of <span class="text-blue-400 underline underline-offset-4">"${item.word}"</span>?</h3>
+                    <div class="grid gap-3">
+                        ${options.map((opt, i) => `
+                            <div class="option bg-neutral-900 border border-white/5" data-correct="${opt === item.def}" onclick="checkAnswer(this, '${item.ex.replace(/'/g, "\\'")}')">
+                                <span class="text-neutral-500 mr-2 text-xs font-bold">${String.fromCharCode(65 + i)}.</span> ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <p class="mt-4 p-3 bg-blue-500/10 text-blue-300 text-sm rounded-lg hidden answer-text"></p>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(element, example) {
+            const parent = element.parentElement.parentElement;
+            const isCorrect = element.dataset.correct === 'true';
+            const options = parent.querySelectorAll('.option');
+
+            options.forEach(opt => {
+                opt.onclick = null;
+                if (opt.dataset.correct === 'true') opt.classList.add('correct');
+                else if (opt === element) opt.classList.add('incorrect');
+            });
+
+            const answerText = parent.querySelector('.answer-text');
+            answerText.classList.remove('hidden');
+            answerText.innerHTML = isCorrect 
+                ? `<strong>Correct!</strong> Example: <em>"${example}"</em>` 
+                : `<strong>Not quite.</strong> The correct definition is highlighted above.`;
+        }
+
+        window.onload = generateQuiz;
+        document.getElementById('new-quiz-btn')?.addEventListener('click', generateQuiz);
+    </script>
 
 </body>
 </html>
