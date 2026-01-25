@@ -26,24 +26,10 @@
         .nav-scroll::-webkit-scrollbar { display: none; }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col antialiased hero-gradient">
 
-<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-6">
-            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <nav class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-6 nav-scroll">
-                <a href="index.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Home</a>
-                <a href="score-matrix.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-[10px] md:text-xs font-bold text-white uppercase tracking-widest whitespace-nowrap">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest whitespace-nowrap">Vocabulary</a>
-                <a href="about.html" class="text-[10px] md:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-4 whitespace-nowrap">About</a>
-            </nav>
-        </div>
-    </div>
-</header>
+<div id="shared-header"></div>
 
 <main class="flex-grow">
     <section class="max-w-4xl mx-auto px-6 pt-16 pb-8 animate-fade">
@@ -211,6 +197,15 @@
         </div>
     </div>
 </footer>
+
+<script>
+    fetch('./shared-header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('shared-header').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load shared header:', err));
+</script>
 
 <script>
 const pool = {
