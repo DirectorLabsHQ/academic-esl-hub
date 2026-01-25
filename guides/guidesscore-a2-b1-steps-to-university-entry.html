@@ -19,121 +19,130 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased hero-gradient">
 
-<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50 text-center">
-    <a href="index.html" class="text-xl font-black tracking-tighter text-white uppercase italic">Academic<span class="text-blue-500">ESL</span>Hub</a>
-</header>
+    <!-- Shared nav will load here -->
+    <div id="shared-header"></div>
 
-<main class="flex-grow max-w-4xl mx-auto px-6 py-12">
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-12">
 
-    <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-8">
-            A2–B1 Score:<br><span class="text-blue-500">Your Path to University</span>
-        </h1>
-        <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto">
-            Starting at an A2 or B1 level is perfectly normal. While most universities require a <strong>B2 (Upper-Intermediate)</strong> for full admission, you can bridge this gap in roughly 6 months with a disciplined plan.
-        </p>
-    </div>
-
-    <div class="bg-blue-600/10 border border-blue-500/20 p-8 rounded-3xl mb-16 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-            <h4 class="text-white font-bold text-xl">Is your vocabulary ready?</h4>
-            <p class="text-neutral-400 text-sm">A2 learners usually need 2,000+ words for university entry.</p>
-        </div>
-        <a href="vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold transition">
-            Check Vocabulary Now →
-        </a>
-    </div>
-
-    <section class="space-y-12">
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6">1. Understanding the Goal</h2>
-            <p class="text-neutral-400 mb-6">"University Entry" means you can follow a lecture without a translator. Here is what you need:</p>
-            <ul class="text-neutral-300 space-y-4 list-disc pl-6">
-                <li><strong>B2 Proficiency:</strong> The ability to understand complex ideas and speak fluently with native speakers.</li>
-                <li><strong>Pathway Programs:</strong> Many universities offer "Foundation" years if you are at a B1 level.</li>
-                <li><strong>Test Scores:</strong> Target an IELTS 6.0 or TOEFL 80.</li>
-            </ul>
-        </div>
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-8">2. Your 6-Month Roadmap</h2>
-            <div class="space-y-8">
-                <div class="timeline-step">
-                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Phase 1: Months 1–2</h4>
-                    <p class="text-white font-bold mb-1">Foundations & Immersion</p>
-                    <p class="text-neutral-400 text-sm">Focus on high-frequency vocabulary and grammar. Switch your phone and social media to English.</p>
-                </div>
-                <div class="timeline-step">
-                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Phase 2: Months 3–4</h4>
-                    <p class="text-white font-bold mb-1">Academic Transition</p>
-                    <p class="text-neutral-400 text-sm">Start reading news articles and writing 300-word summaries. Listen to "English Learning" podcasts daily.</p>
-                </div>
-                <div class="timeline-step">
-                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Phase 3: Months 5–6</h4>
-                    <p class="text-white font-bold mb-1">Exam Readiness</p>
-                    <p class="text-neutral-400 text-sm">Take timed practice tests. Focus on academic essay structure and formal speaking drills.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6">3. Daily Skill Integration</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white/5 p-4 rounded-xl">
-                    <p class="text-blue-400 font-black mb-1">Reading</p>
-                    <p class="text-neutral-400 text-xs leading-relaxed">Read "Graded Readers" at Level 3 or 4. Do not use a dictionary for every word.</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl">
-                    <p class="text-blue-400 font-black mb-1">Listening</p>
-                    <p class="text-neutral-400 text-xs leading-relaxed">Watch TED-Ed videos. They have clear pronunciation and academic topics.</p>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="text-center mt-20">
-        <h3 class="text-2xl font-bold text-white mb-8">Next Steps</h3>
-        <div class="flex flex-wrap gap-4 justify-center">
-            <a href="score-matrix.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition">
-                View Score Matrix →
-            </a>
-            <a href="guides.html" class="bg-neutral-900 border border-white/10 text-white px-8 py-4 rounded-xl font-bold transition">
-                Browse All Guides
-            </a>
-        </div>
-    </section>
-
-</main>
-
-<!-- Consistent footer from index.html -->
-<footer class="border-t border-white/5 py-16 px-6 bg-black">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        <div>
-            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
-            </p>
-            <p class="text-neutral-500 text-xs font-bold uppercase">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-8">
+                A2–B1 Score:<br><span class="text-blue-500">Your Path to University</span>
+            </h1>
+            <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                Starting at an A2 or B1 level is perfectly normal. While most universities require a <strong>B2 (Upper-Intermediate)</strong> for full admission, you can bridge this gap in roughly 6 months with a disciplined plan.
             </p>
         </div>
-        <div class="flex flex-col md:items-end justify-center gap-6">
-            <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+
+        <div class="bg-blue-600/10 border border-blue-500/20 p-8 rounded-3xl mb-16 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <h4 class="text-white font-bold text-xl">Is your vocabulary ready?</h4>
+                <p class="text-neutral-400 text-sm">A2 learners usually need 2,000+ words for university entry.</p>
             </div>
-            <p class="text-xs text-neutral-700 font-bold uppercase">
-                © 2026 Academic ESL Hub
-            </p>
+            <a href="/vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold transition">
+                Check Vocabulary Now →
+            </a>
         </div>
-    </div>
-</footer>
+
+        <section class="space-y-12">
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-6">1. Understanding the Goal</h2>
+                <p class="text-neutral-400 mb-6">"University Entry" means you can follow a lecture without a translator. Here is what you need:</p>
+                <ul class="text-neutral-300 space-y-4 list-disc pl-6">
+                    <li><strong>B2 Proficiency:</strong> The ability to understand complex ideas and speak fluently with native speakers.</li>
+                    <li><strong>Pathway Programs:</strong> Many universities offer "Foundation" years if you are at a B1 level.</li>
+                    <li><strong>Test Scores:</strong> Target an IELTS 6.0 or TOEFL 80.</li>
+                </ul>
+            </div>
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-8">2. Your 6-Month Roadmap</h2>
+                <div class="space-y-8">
+                    <div class="timeline-step">
+                        <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Phase 1: Months 1–2</h4>
+                        <p class="text-white font-bold mb-1">Foundations & Immersion</p>
+                        <p class="text-neutral-400 text-sm">Focus on high-frequency vocabulary and grammar. Switch your phone and social media to English.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Phase 2: Months 3–4</h4>
+                        <p class="text-white font-bold mb-1">Academic Transition</p>
+                        <p class="text-neutral-400 text-sm">Start reading news articles and writing 300-word summaries. Listen to "English Learning" podcasts daily.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Phase 3: Months 5–6</h4>
+                        <p class="text-white font-bold mb-1">Exam Readiness</p>
+                        <p class="text-neutral-400 text-sm">Take timed practice tests. Focus on academic essay structure and formal speaking drills.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-6">3. Daily Skill Integration</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/5 p-4 rounded-xl">
+                        <p class="text-blue-400 font-black mb-1">Reading</p>
+                        <p class="text-neutral-400 text-xs leading-relaxed">Read "Graded Readers" at Level 3 or 4. Do not use a dictionary for every word.</p>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl">
+                        <p class="text-blue-400 font-black mb-1">Listening</p>
+                        <p class="text-neutral-400 text-xs leading-relaxed">Watch TED-Ed videos. They have clear pronunciation and academic topics.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="text-center mt-20">
+            <h3 class="text-2xl font-bold text-white mb-8">Next Steps</h3>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="/score-matrix.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition">
+                    View Score Matrix →
+                </a>
+                <a href="/guides.html" class="bg-neutral-900 border border-white/10 text-white px-8 py-4 rounded-xl font-bold transition">
+                    Browse All Guides
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Consistent footer (links root-relative) -->
+    <footer class="border-t border-white/5 py-16 px-6 bg-black">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <a href="/index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                    ACADEMIC<span class="text-white">ESL</span>HUB
+                </a>
+                <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                    Free English assessment tools for ESL students and teachers.
+                    Based on CEFR standards and academic English research.
+                </p>
+                <p class="text-neutral-500 text-xs font-bold uppercase">
+                    Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+                </p>
+            </div>
+            <div class="flex flex-col md:items-end justify-center gap-6">
+                <div class="flex gap-8">
+                    <a href="/privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                    <a href="/terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                    <a href="/about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+                </div>
+                <p class="text-xs text-neutral-700 font-bold uppercase">
+                    © 2026 Academic ESL Hub
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load shared header/nav -->
+    <script>
+        fetch('../shared-header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('shared-header').innerHTML = data;
+            })
+            .catch(err => console.error('Failed to load shared header:', err));
+    </script>
 
 </body>
 </html>
