@@ -25,22 +25,7 @@
 
 <body class="min-h-screen flex flex-col antialiased hero-gradient">
 
-<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-6">
-            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="text-xs font-bold text-white uppercase tracking-widest">Home</a>
-                <a href="score-matrix.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
-            </nav>
-        </div>
-    </div>
-</header>
+<div id="shared-header"></div>
 
 <main class="flex-grow">
 
@@ -51,26 +36,25 @@
         </h1>
 
         <p class="text-neutral-400 text-lg max-w-3xl mx-auto leading-relaxed mb-12">
-           Academic ESL Hub provides free, practical tools to help students and teachers
-            understand reading speed, vocabulary level, and test scores — and what to do next
-            to improve academic English skills.
+            These free tools help you check your reading speed, vocabulary level, and test scores in a quick, practical way. 
+            You'll get clear feedback and simple ideas on how to get stronger for university classes, exams, and long academic texts.
         </p>
 
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
             <div class="bg-white/5 border border-white/10 rounded-xl p-6">
                 <h2 class="text-white font-bold text-lg mb-3">For Students</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    Check your current English level, see how it compares to CEFR standards,
-                    and understand whether your reading speed and vocabulary are strong enough
-                    for exams, textbooks, and university study.
+                    Wondering if your English is ready for university textbooks, lectures, or timed exams? 
+                    These tools show your current level using CEFR standards and help you see exactly what to improve next. 
+                    No stress—just useful information to guide your practice.
                 </p>
             </div>
 
             <div class="bg-white/5 border border-white/10 rounded-xl p-6">
                 <h2 class="text-white font-bold text-lg mb-3">For Teachers</h2>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    Use clear diagnostic tools to assess students quickly, identify weaknesses,
-                    and support lesson planning with CEFR-aligned benchmarks and explanations.
+                    Get fast, reliable insights into what your students can do and where they need support. 
+                    Use the results to plan better lessons, give targeted feedback, and track progress with CEFR-aligned benchmarks.
                 </p>
             </div>
         </div>
@@ -84,9 +68,8 @@
                 <div>
                     <h3 class="text-2xl font-bold text-white mb-4">Vocabulary Estimator</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                        Estimate your vocabulary size and CEFR level based on academic word usage.
-                        Designed to help learners understand whether their vocabulary is sufficient
-                        for academic reading and exams.
+                        Find out roughly how many academic words you know and what CEFR level that matches. 
+                        This helps you understand if your vocabulary is ready for university reading without needing a dictionary constantly.
                     </p>
                 </div>
                 <span class="text-blue-500 text-sm font-bold">Start vocabulary check →</span>
@@ -96,8 +79,8 @@
                 <div>
                     <h3 class="text-2xl font-bold text-white mb-4">Reading Speed (WPM)</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                        Measure your reading speed in words per minute using academic-style texts.
-                        Reading speed is a key factor in comprehension, exam performance, and study efficiency.
+                        Time yourself reading real academic-style passages and see your words-per-minute speed. 
+                        Good speed makes studying easier and helps you do better on timed tests.
                     </p>
                 </div>
                 <span class="text-blue-500 text-sm font-bold">Measure reading speed →</span>
@@ -107,8 +90,8 @@
                 <div>
                     <h3 class="text-2xl font-bold text-white mb-4">Test Score Matrix</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                        Convert IELTS, TOEFL, and TOEIC scores into CEFR levels (A1–C2).
-                        Useful for students, teachers, and institutions comparing test results.
+                        Turn your IELTS, TOEFL, or TOEIC score into a CEFR level (A1–C2). 
+                        Quickly see what your test result really means for university admission or class placement.
                     </p>
                 </div>
                 <span class="text-blue-500 text-sm font-bold">View score matrix →</span>
@@ -183,6 +166,15 @@
         </div>
     </div>
 </footer>
+
+<script>
+    fetch('./shared-header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('shared-header').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load shared header:', err));
+</script>
 
 </body>
 </html>
