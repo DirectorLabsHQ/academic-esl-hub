@@ -234,7 +234,6 @@ function knowAllCurrentTier() {
         }
     });
 
-    // Update all chips in current grid to selected
     document.querySelectorAll('#word-grid .word-chip').forEach(chip => {
         chip.classList.add('selected');
     });
@@ -269,6 +268,23 @@ function showResults() {
 
     document.getElementById('cefr-level').innerText = level;
     document.getElementById('cefr-desc').innerText = desc;
+
+    // NEW: Personalized advice in "What This Means for You"
+    let advice = "";
+    if (total < 2500) {
+        advice = "You're at a beginner/intermediate level (A2–B1). Focus on everyday and high-frequency academic words first. Try our <a href='/guides/guidesvocab-a2-b1-build-4000-6000-words.html' class='text-blue-400 hover:underline'>A2–B1 Vocabulary Plan</a> to build a strong foundation for high school or university entry.";
+    } else if (total < 4500) {
+        advice = "Solid B1 level — you're making good progress! Aim for 4,000–6,000 words to feel comfortable in university classes. Check our <a href='/guides/guidesvocab-a2-b1-build-4000-6000-words.html' class='text-blue-400 hover:underline'>A2–B1 4,000–6,000 Word Guide</a> for the next steps.";
+    } else if (total < 7500) {
+        advice = "You're in a strong B2 range — great for most undergraduate programs! To handle denser academic texts and essays more easily, target 6,000–8,000 words. Our <a href='/guides/guidesvocab-b1-b2-expand-6000-8000-words.html' class='text-blue-400 hover:underline'>B1–B2 Expansion Guide</a> is perfect for this stage.";
+    } else if (total < 10000) {
+        advice = "Excellent C1 territory — you're at an advanced academic level! With 7,500–9,000+ words, graduate-level reading and writing should feel manageable. Keep refining precision with our <a href='/guides/guidesvocab-b2-c1-master-9000-plus-words.html' class='text-blue-400 hover:underline'>B2–C1 Mastery Guide</a>.";
+    } else {
+        advice = "Elite range (C2 / near-native proficiency)! You’re already in the top tier for academic English. Focus on specialized field-specific vocabulary and nuanced usage to stay sharp for research, theses, or professional work.";
+    }
+
+    document.getElementById('goal-advice').innerHTML = advice;
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
