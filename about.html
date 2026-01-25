@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>The Framework | Academic ESL Hub</title>
 
     <link rel="canonical" href="https://academiceslhub.com/about.html">
@@ -147,7 +146,7 @@
 </footer>
 
 <script>
-    fetch('../shared-header.html')
+    fetch('./shared-header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('shared-header').innerHTML = data;
