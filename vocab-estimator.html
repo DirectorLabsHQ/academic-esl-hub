@@ -216,13 +216,39 @@ function renderTier() {
 }
 
 function toggleWord(btn, word) {
-    selectedWords.has(word) ? selectedWords.delete(word) : selectedWords.add(word);
-    btn.classList.toggle('selected');
+    if (selectedWords.has(word)) {
+        selectedWords.delete(word);
+        btn.classList.remove('selected');
+    } else {
+        selectedWords.add(word);
+        btn.classList.add('selected');
+    }
+    document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
+}
+
+function knowAllCurrentTier() {
+    const currentWords = tiers[currentTier].words;
+    currentWords.forEach(word => {
+        if (!selectedWords.has(word)) {
+            selectedWords.add(word);
+        }
+    });
+
+    // Update all chips in current grid to selected
+    document.querySelectorAll('#word-grid .word-chip').forEach(chip => {
+        chip.classList.add('selected');
+    });
+
     document.getElementById('word-counter').innerText = `Selected: ${selectedWords.size}`;
 }
 
 function nextTier() {
-    currentTier < 2 ? (currentTier++, renderTier()) : showResults();
+    if (currentTier < 2) {
+        currentTier++;
+        renderTier();
+    } else {
+        showResults();
+    }
 }
 
 function showResults() {
