@@ -25,166 +25,175 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased hero-gradient">
 
-<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50 text-center">
-    <a href="index.html" class="text-xl font-black tracking-tighter text-white uppercase italic">Academic<span class="text-blue-500">ESL</span>Hub</a>
-</header>
+    <!-- Shared nav will load here -->
+    <div id="shared-header"></div>
 
-<main class="flex-grow max-w-4xl mx-auto px-6 py-12">
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-12">
 
-    <div class="text-center mb-16">
-        <span class="vocab-badge">Foundation Level</span>
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-8">
-            Building 4,000–6,000<br><span class="text-blue-500">Words for Success</span>
-        </h1>
-        <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto">
-            At A2 or B1 level, you know basic words for daily life. But school exams and university entry need more words — about 4,000–6,000.  
-            This simple plan helps you learn and remember new words step by step.
-        </p>
-    </div>
-
-    <!-- Benchmark Table -->
-    <div class="card p-8 rounded-2xl mb-16">
-        <h4 class="text-white font-bold text-lg mb-4 text-center">Where Your Word Count Fits</h4>
-        <table class="benchmark-table">
-            <tr>
-                <th>Word Count</th>
-                <th>What You Can Do</th>
-                <th>School/University Level</th>
-            </tr>
-            <tr>
-                <td>2,000–3,000</td>
-                <td>Understand basic conversations and simple stories</td>
-                <td>A2–B1 (your current level)</td>
-            </tr>
-            <tr>
-                <td>4,000–6,000</td>
-                <td>Read school books, news, and easy university texts</td>
-                <td>B1–B2 (university entry goal)</td>
-            </tr>
-            <tr>
-                <td>6,000+</td>
-                <td>Understand most university lectures and articles</td>
-                <td>Strong for university success</td>
-            </tr>
-        </table>
-        <p class="text-neutral-400 text-sm text-center mt-4 italic">
-            Your goal: Reach 4,000–6,000 words → ready for school and university!
-        </p>
-    </div>
-
-    <div class="bg-blue-600/10 border border-blue-500/20 p-8 rounded-3xl mb-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-        <div>
-            <h4 class="text-white font-bold text-xl mb-1">Do you know 4,000 words?</h4>
-            <p class="text-neutral-400 text-sm">Most B1 students are surprised by their actual word count.</p>
-        </div>
-        <a href="vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-blue-900/40">
-            Check Your Word Count →
-        </a>
-    </div>
-
-    <section class="space-y-12">
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span class="text-blue-500">01.</span> The Power of the Word Bank
-            </h2>
-            <p class="text-neutral-400 leading-relaxed mb-6">
-                Think of vocabulary as money for your brain. More words = more things you can understand.
-            </p>
-            <ul class="text-neutral-300 space-y-4 list-disc pl-6">
-                <li><strong>4,000 Words:</strong> You can read high school books and news with subtitles.</li>
-                <li><strong>6,000 Words:</strong> You reach B2 level — good for university entry tests.</li>
-                <li><strong>Tip:</strong> You don’t need fancy words yet; focus on common words used in school and life.</li>
-            </ul>
-        </div>
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span class="text-blue-500">02.</span> The 10-Word Daily Habit
-            </h2>
-            <p class="text-neutral-400 leading-relaxed mb-6">
-                Learn 10 new words every day. In one year, that’s 3,650 new words!
-            </p>
-            <ul class="text-neutral-300 space-y-4 list-disc pl-6">
-                <li>Pick words from school books, news, or things you like (games, music, sports).</li>
-                <li>Write each word + its meaning + one easy sentence about **you**.</li>
-                <li>Read your list out loud while brushing your teeth or waiting for the bus.</li>
-                <li><strong>Tip:</strong> Do this at the same time every day — it becomes a habit.</li>
-            </ul>
-        </div>
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span class="text-blue-500">03.</span> The "Use it or Lose it" Rule
-            </h2>
-            <p class="text-neutral-400 leading-relaxed mb-6">
-                Your brain forgets words you don’t use. To keep them, use them today.
-            </p>
-            <ul class="text-neutral-300 space-y-4 list-disc pl-6">
-                <li>Use your 10 new words in a text message, note, or conversation today.</li>
-                <li>Even writing them in a private journal helps your brain remember.</li>
-            </ul>
-        </div>
-
-        <div class="card p-8 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span class="text-blue-500">04.</span> Review with Spaced Repetition
-            </h2>
-            <p class="text-neutral-400 leading-relaxed mb-6">
-                Look at old words again after 1 day, then 3 days, then 7 days.
-            </p>
-            <ul class="text-neutral-300 space-y-4 list-disc pl-6">
-                <li>Every Sunday, review all the words you learned that week.</li>
-                <li>Tick off the ones you know perfectly. Focus only on the ones you forgot.</li>
-            </ul>
-        </div>
-
-    </section>
-
-    <section class="text-center mt-20">
-        <h3 class="text-2xl font-bold text-white mb-8">Move to the Next Level</h3>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition">
-                Check Progress →
-            </a>
-            <a href="guides/vocab-b1-b2-academic-word-list.html" class="bg-neutral-900 border border-white/10 hover:border-blue-500 text-white px-8 py-4 rounded-xl font-bold transition">
-                Level B1-B2: Academic Words →
-            </a>
-        </div>
-        <p class="mt-12">
-            <a href="guides.html" class="text-blue-500 font-bold hover:underline">← Back to All Guides</a>
-        </p>
-    </section>
-
-</main>
-
-<!-- Consistent footer from index.html -->
-<footer class="border-t border-white/5 py-16 px-6 bg-black mt-20">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        <div>
-            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
-                Free English assessment tools for ESL students and teachers.
-                Based on CEFR standards and academic English research.
-            </p>
-            <p class="text-neutral-500 text-xs font-bold uppercase">
-                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+        <div class="text-center mb-16">
+            <span class="vocab-badge">Foundation Level</span>
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-8">
+                Building 4,000–6,000<br><span class="text-blue-500">Words for Success</span>
+            </h1>
+            <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                At A2 or B1 level, you know basic words for daily life. But school exams and university entry need more words — about 4,000–6,000.  
+                This simple plan helps you learn and remember new words step by step.
             </p>
         </div>
-        <div class="flex flex-col md:items-end justify-center gap-6">
-            <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
-                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
-                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+
+        <!-- Benchmark Table -->
+        <div class="card p-8 rounded-2xl mb-16">
+            <h4 class="text-white font-bold text-lg mb-4 text-center">Where Your Word Count Fits</h4>
+            <table class="benchmark-table">
+                <tr>
+                    <th>Word Count</th>
+                    <th>What You Can Do</th>
+                    <th>School/University Level</th>
+                </tr>
+                <tr>
+                    <td>2,000–3,000</td>
+                    <td>Understand basic conversations and simple stories</td>
+                    <td>A2–B1 (your current level)</td>
+                </tr>
+                <tr>
+                    <td>4,000–6,000</td>
+                    <td>Read school books, news, and easy university texts</td>
+                    <td>B1–B2 (university entry goal)</td>
+                </tr>
+                <tr>
+                    <td>6,000+</td>
+                    <td>Understand most university lectures and articles</td>
+                    <td>Strong for university success</td>
+                </tr>
+            </table>
+            <p class="text-neutral-400 text-sm text-center mt-4 italic">
+                Your goal: Reach 4,000–6,000 words → ready for school and university!
+            </p>
+        </div>
+
+        <div class="bg-blue-600/10 border border-blue-500/20 p-8 rounded-3xl mb-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <h4 class="text-white font-bold text-xl mb-1">Do you know 4,000 words?</h4>
+                <p class="text-neutral-400 text-sm">Most B1 students are surprised by their actual word count.</p>
             </div>
-            <p class="text-xs text-neutral-700 font-bold uppercase">
-                © 2026 Academic ESL Hub
-            </p>
+            <a href="/vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-blue-900/40">
+                Check Your Word Count →
+            </a>
         </div>
-    </div>
-</footer>
+
+        <section class="space-y-12">
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="text-blue-500">01.</span> The Power of the Word Bank
+                </h2>
+                <p class="text-neutral-400 leading-relaxed mb-6">
+                    Think of vocabulary as money for your brain. More words = more things you can understand.
+                </p>
+                <ul class="text-neutral-300 space-y-4 list-disc pl-6">
+                    <li><strong>4,000 Words:</strong> You can read high school books and news with subtitles.</li>
+                    <li><strong>6,000 Words:</strong> You reach B2 level — good for university entry tests.</li>
+                    <li><strong>Tip:</strong> You don’t need fancy words yet; focus on common words used in school and life.</li>
+                </ul>
+            </div>
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="text-blue-500">02.</span> The 10-Word Daily Habit
+                </h2>
+                <p class="text-neutral-400 leading-relaxed mb-6">
+                    Learn 10 new words every day. In one year, that’s 3,650 new words!
+                </p>
+                <ul class="text-neutral-300 space-y-4 list-disc pl-6">
+                    <li>Pick words from school books, news, or things you like (games, music, sports).</li>
+                    <li>Write each word + its meaning + one easy sentence about **you**.</li>
+                    <li>Read your list out loud while brushing your teeth or waiting for the bus.</li>
+                    <li><strong>Tip:</strong> Do this at the same time every day — it becomes a habit.</li>
+                </ul>
+            </div>
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="text-blue-500">03.</span> The "Use it or Lose it" Rule
+                </h2>
+                <p class="text-neutral-400 leading-relaxed mb-6">
+                    Your brain forgets words you don’t use. To keep them, use them today.
+                </p>
+                <ul class="text-neutral-300 space-y-4 list-disc pl-6">
+                    <li>Use your 10 new words in a text message, note, or conversation today.</li>
+                    <li>Even writing them in a private journal helps your brain remember.</li>
+                </ul>
+            </div>
+
+            <div class="card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="text-blue-500">04.</span> Review with Spaced Repetition
+                </h2>
+                <p class="text-neutral-400 leading-relaxed mb-6">
+                    Look at old words again after 1 day, then 3 days, then 7 days.
+                </p>
+                <ul class="text-neutral-300 space-y-4 list-disc pl-6">
+                    <li>Every Sunday, review all the words you learned that week.</li>
+                    <li>Tick off the ones you know perfectly. Focus only on the ones you forgot.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="text-center mt-20">
+            <h3 class="text-2xl font-bold text-white mb-8">Move to the Next Level</h3>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vocab-estimator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition">
+                    Check Progress →
+                </a>
+                <a href="/guides/guidesvocab-b1-b2-expand-6000-8000-words.html" class="bg-neutral-900 border border-white/10 hover:border-blue-500 text-white px-8 py-4 rounded-xl font-bold transition">
+                    Level B1-B2: Academic Words →
+                </a>
+            </div>
+            <p class="mt-12">
+                <a href="/guides.html" class="text-blue-500 font-bold hover:underline">← Back to All Guides</a>
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Consistent footer (links root-relative) -->
+    <footer class="border-t border-white/5 py-16 px-6 bg-black mt-20">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <a href="/index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                    ACADEMIC<span class="text-white">ESL</span>HUB
+                </a>
+                <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                    Free English assessment tools for ESL students and teachers.
+                    Based on CEFR standards and academic English research.
+                </p>
+                <p class="text-neutral-500 text-xs font-bold uppercase">
+                    Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+                </p>
+            </div>
+            <div class="flex flex-col md:items-end justify-center gap-6">
+                <div class="flex gap-8">
+                    <a href="/privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                    <a href="/terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                    <a href="/about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+                </div>
+                <p class="text-xs text-neutral-700 font-bold uppercase">
+                    © 2026 Academic ESL Hub
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load shared header/nav -->
+    <script>
+        fetch('../shared-header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('shared-header').innerHTML = data;
+            })
+            .catch(err => console.error('Failed to load shared header:', err));
+    </script>
 
 </body>
 </html>
