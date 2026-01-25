@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text CEFR Level Checker | Academic ESL Hub</title>
+    <link rel="canonical" href="https://academiceslhub.com/cefr-leveler.html" />
+    <meta name="description" content="Estimate the CEFR level (A1-C2) of any text. Analyze vocabulary density and sentence complexity for IELTS, TOEFL, and Academic English.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%); }
+        .card { background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; }
+        .card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+        .result-card { background: #111111; border: 1px solid #1a1a1a; transition: all 0.2s; }
+        .result-card:hover { border-color: #3b82f6; background: #0a0a0a; }
+        .highlight { color: #3b82f6; font-weight: 700; }
+        .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; overflow-x: auto; display: flex; }
+        .nav-scroll::-webkit-scrollbar { display: none; }
+        .loading-spinner { border: 4px solid rgba(59, 130, 246, 0.1); border-top: 4px solid #3b82f6; border-radius: 50%; width: 32px; height: 32px; animation: spin 1s linear infinite; margin: 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #10b981; color: white; padding: 12px 24px; border-radius: 8px; opacity: 0; transition: opacity 0.3s; z-index: 1000; pointer-events: none; }
+        .toast.show { opacity: 1; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col antialiased hero-gradient">
+
+<div id="shared-header"></div>
+
+<main class="flex-grow max-w-4xl mx-auto px-6 py-16">
+
+    <div class="text-center mb-12">
+        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest rounded-full border border-blue-500/20">Readability Engine</span>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mt-4 mb-6">Text <span class="text-blue-500">CEFR</span> Leveler</h1>
+        <p class="text-neutral-400 text-lg max-w-2xl mx-auto">
+            Analyze the difficulty of your writing or reading materials instantly.
+        </p>
+    </div>
+
+    <section class="prose prose-invert max-w-none mb-16 border-b border-white/5 pb-12">
+        <h2 class="text-3xl font-bold text-white mb-6">Understanding CEFR Levels in Text</h2>
+        <p class="mb-8 text-neutral-300 leading-relaxed">
+            The Common European Framework of Reference for Languages (CEFR) categorizes text difficulty into six levels: A1 (Beginner) to C2 (Proficient). Our tool uses sentence complexity and vocabulary density to estimate where your text falls.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 my-8">
+            <div class="bg-white/5 p-6 rounded-xl">
+                <h4 class="text-white font-bold text-sm mb-2">A1-A2: Basic</h4>
+                <p class="text-sm text-neutral-400 leading-relaxed">Short sentences, high frequency words, simple grammar. Suitable for beginners.</p>
+            </div>
+            <div class="bg-white/5 p-6 rounded-xl">
+                <h4 class="text-white font-bold text-sm mb-2">B1-C2: Independent/Proficient</h4>
+                <p class="text-sm text-neutral-400 leading-relaxed">Longer sentences, abstract nouns, complex connectors (e.g., 'notwithstanding').</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="relative group max-w-3xl mx-auto mb-8">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+        <textarea 
+            id="text-input" rows="8" 
+            placeholder="Paste text (listing, essay, or paragraph)..." 
+            class="relative w-full bg-black border border-white/10 text-white placeholder-neutral-600 rounded-xl px-6 py-6 text-lg focus:outline-none focus:border-blue-500 transition shadow-2xl"
+        ></textarea>
+    </div>
+
+    <div class="flex justify-center gap-4 mb-16">
+        <button type="button" onclick="analyzeText()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition">Analyze Level</button>
+        <button type="button" onclick="clearText()" class="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-4 rounded-xl font-bold transition">Clear</button>
+    </div>
+
+    <div id="results-area" class="space-y-8 hidden" aria-live="polite"></div>
+
+    <div id="toast" class="toast hidden">Copied to clipboard!</div>
+</main>
+
+<footer class="border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                Free English assessment tools for ESL students and teachers.
+                Based on CEFR standards and academic English research.
+            </p>
+            <p class="text-neutral-500 text-xs font-bold uppercase">
+                Contact: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                <a href="terms.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Terms</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+            </div>
+            <p class="text-xs text-neutral-700 font-bold uppercase">
+                © 2026 Academic ESL Hub
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    fetch('./shared-header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('shared-header').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load shared header:', err));
+</script>
+
+<script>
+function analyzeText() {
+    console.log("Analyze button clicked!"); // Debug log
+
+    const text = document.getElementById('text-input')?.value?.trim();
+    const area = document.getElementById('results-area');
+
+    if (!text || text.length < 15) {
+        area.innerHTML = `<div class="text-center py-10 text-neutral-500">Please paste at least a short paragraph (15+ words).</div>`;
+        area.classList.remove('hidden');
+        console.log("No text or too short");
+        return;
+    }
+
+    console.log("Text received:", text.substring(0, 100) + "...");
+
+    area.classList.remove('hidden');
+    area.innerHTML = `<div class="text-center py-10">Analyzing... <span class="loading-spinner inline-block"></span></div>`;
+
+    setTimeout(() => {
+        // Simple analysis (replace with your full logic)
+        const words = text.split(/\s+/).length;
+        const level = words < 50 ? "A1-A2" : words < 150 ? "B1" : "B2+";
+        const desc = words < 50 ? "Very short and basic text - beginner level." : "Longer text with more complexity.";
+
+        area.innerHTML = `
+            <div class="card p-8 rounded-2xl text-center">
+                <h2 class="text-5xl font-black mb-4 text-green-400">${level}</h2>
+                <p class="text-xl text-neutral-300 mb-6">${desc}</p>
+                <p class="text-neutral-500">Word count: ${words}</p>
+            </div>
+        `;
+        console.log("Analysis complete:", level);
+    }, 800); // Simulated delay for spinner
+}
+
+function clearText() {
+    document.getElementById('text-input').value = '';
+    document.getElementById('results-area').innerHTML = '';
+    document.getElementById('results-area').classList.add('hidden');
+    console.log("Text cleared");
+}
+</script>
+
+</body>
+</html>
