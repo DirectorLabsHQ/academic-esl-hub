@@ -22,22 +22,7 @@
 
 <body class="min-h-screen flex flex-col antialiased">
 
-<header class="p-6 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-6">
-            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-500 italic uppercase">
-                ACADEMIC<span class="text-white">ESL</span>HUB
-            </a>
-            <nav class="hidden lg:flex items-center gap-6 border-l border-white/10 pl-6">
-                <a href="index.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Home</a>
-                <a href="score-matrix.html" class="text-xs font-bold text-white uppercase tracking-widest">Score Matrix</a>
-                <a href="wpm-lab.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Reading Speed</a>
-                <a href="vocab-estimator.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest">Vocabulary</a>
-                <a href="about.html" class="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest border-l border-white/10 pl-6">About</a>
-            </nav>
-        </div>
-    </div>
-</header>
+<div id="shared-header"></div>
 
 <main class="flex-grow max-w-5xl mx-auto p-6 md:p-12 w-full">
 
@@ -103,21 +88,6 @@
                     <ul id="cefr-tips" class="text-neutral-400 text-sm space-y-3 list-disc pl-4"></ul>
                 </div>
             </div>
-
-            <!-- NEW: Amazon affiliate recommendation box (clean, matches your style) -->
-            <div class="mt-10 p-6 bg-[#111] border border-[#222] rounded-2xl text-center">
-                <p class="text-neutral-300 text-base mb-4">
-                    Ready to improve your score? This popular book helps many students prepare effectively for TOEFL and similar exams.
-                </p>
-                <a href="https://amzn.to/4bQxuMP" 
-                   target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg transition">
-                    Barron's TOEFL iBT → (Amazon)
-                </a>
-                <p class="text-neutral-500 text-xs mt-4 italic">
-                    As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
-                </p>
-            </div>
         </div>
     </section>
 
@@ -176,7 +146,7 @@
         </div>
         <div class="flex flex-col md:items-end justify-center gap-6">
             <div class="flex gap-8">
-                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy</a>
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
                 <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
             </div>
             <p class="text-xs text-neutral-700 font-bold uppercase">
@@ -185,6 +155,15 @@
         </div>
     </div>
 </footer>
+
+<script>
+    fetch('./shared-header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('shared-header').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load shared header:', err));
+</script>
 
 <script>
 const scores = [
@@ -263,5 +242,6 @@ function resetDisplay() {
     document.getElementById('placeholder-content').classList.remove('hidden');
 }
 </script>
+
 </body>
 </html>
