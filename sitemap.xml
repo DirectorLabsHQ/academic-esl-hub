@@ -1,38 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Root / Homepage -->
     <url>
         <loc>https://academiceslhub.com/index.html</loc>
         <lastmod>2026-01-22</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
+
+    <!-- Core Tools -->
     <url>
         <loc>https://academiceslhub.com/vocab-estimator.html</loc>
-        <lastmod>2026-01-22</lastmod>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://academiceslhub.com/wpm-lab.html</loc>
-        <lastmod>2026-01-22</lastmod>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://academiceslhub.com/score-matrix.html</loc>
-        <lastmod>2026-01-22</lastmod>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- Guides Index -->
+    <url>
+        <loc>https://academiceslhub.com/guides.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Individual Guides (all in /guides/ folder) -->
+    <!-- General Guides -->
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesacademic-words.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidescefr-explained.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesclassroom-use.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesconfidence-building.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesreading-barriers.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesreading-faster.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidestest-scores-plan.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesvocab-acquisition.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesvocab-size.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Personalized / Score-Based Guides -->
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesscore-a2-b1-steps-to-university-entry.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesscore-b1-b2-strengthen-undergrad-skills.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesscore-b2-c1-graduate-admissions-strategies.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Reading Speed Series -->
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesreading-a2-b1-increase-180-220-wpm.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesreading-b1-b2-boost-250-350-wpm.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesreading-b2-c1-achieve-350-500-wpm.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Vocabulary Series -->
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesvocab-a2-b1-build-4000-6000-words.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesvocab-b1-b2-expand-6000-8000-words.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://academiceslhub.com/guides/guidesvocab-b2-c1-master-9000-plus-words.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Static Pages -->
     <url>
         <loc>https://academiceslhub.com/about.html</loc>
         <lastmod>2026-01-22</lastmod>
-        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://academiceslhub.com/privacy.html</loc>
         <lastmod>2026-01-22</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://academiceslhub.com/terms.html</loc>
         <lastmod>2026-01-22</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
 </urlset>
