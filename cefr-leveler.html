@@ -132,18 +132,58 @@ function analyzeText() {
     area.innerHTML = `<div class="text-center py-10">Analyzing... <span class="loading-spinner inline-block"></span></div>`;
 
     setTimeout(() => {
-        // Simple analysis (replace with your full logic)
+        // Simple analysis (replace with your full logic if needed)
         const words = text.split(/\s+/).length;
-        const level = words < 50 ? "A1-A2" : words < 150 ? "B1" : "B2+";
-        const desc = words < 50 ? "Very short and basic text - beginner level." : "Longer text with more complexity.";
+        const level = words < 50 ? "A1-A2" : words < 150 ? "B1" : words < 300 ? "B2" : "C1+";
+        const desc = words < 50 ? "Very short and basic text - beginner level." : 
+                     words < 150 ? "Intermediate text with moderate complexity." : 
+                     words < 300 ? "Upper-intermediate academic-style text." : 
+                     "Advanced or proficient-level text.";
 
         area.innerHTML = `
-            <div class="card p-8 rounded-2xl text-center">
+            <div class="card p-8 rounded-2xl text-center result-card">
                 <h2 class="text-5xl font-black mb-4 text-green-400">${level}</h2>
                 <p class="text-xl text-neutral-300 mb-6">${desc}</p>
                 <p class="text-neutral-500">Word count: ${words}</p>
             </div>
         `;
+
+        // NEW: TEFL affiliate recommendation (conditional based on level)
+        let teflAdvice = "";
+        let teflLink = "https://tidd.ly/4qGokqI"; // your affiliate link
+        let teflCourseName = "";
+
+        if (level.includes("C1") || level.includes("C2")) {
+            teflAdvice = "You're already at an advanced level — perfect for professional teaching roles.";
+            teflCourseName = "Level 5 Regulated TEFL Course";
+        } else if (level.includes("B2")) {
+            teflAdvice = "Solid upper-intermediate level — you're ready for a recognized entry-level TEFL certification.";
+            teflCourseName = "120-Hour Premier TEFL Course";
+        } else {
+            // A1–B1: no link shown
+            teflAdvice = "";
+        }
+
+        if (teflAdvice) {
+            const teflBox = document.createElement('div');
+            teflBox.className = 'bg-neutral-900/50 border border-white/10 p-6 rounded-2xl mt-8 text-center';
+            teflBox.innerHTML = `
+                <h4 class="text-blue-400 font-bold text-lg mb-3">Ready to Teach English?</h4>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                    ${teflAdvice}
+                </p>
+                <a href="${teflLink}" 
+                   target="_blank" rel="noopener noreferrer nofollow"
+                   class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition">
+                    Explore the ${teflCourseName} →
+                </a>
+                <p class="text-neutral-500 text-xs mt-4 italic">
+                    Affiliate link — we may earn a small commission at no extra cost to you.
+                </p>
+            `;
+            area.appendChild(teflBox);
+        }
+
         console.log("Analysis complete:", level);
     }, 800); // Simulated delay for spinner
 }
