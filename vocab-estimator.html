@@ -112,6 +112,22 @@
             <p id="goal-advice" class="text-neutral-300 leading-relaxed"></p>
         </div>
 
+        <!-- NEW: TEFL affiliate box (only shows for high vocab core / C1-C2) -->
+        <div id="tefl-recommendation" class="hidden bg-neutral-900/50 border border-white/10 p-6 rounded-2xl mt-8 text-center">
+            <h4 class="text-blue-400 font-bold text-lg mb-3">Ready to Teach or Share Your English Skills?</h4>
+            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                With a high vocabulary core (C1–C2 level), you're in an excellent position for professional teaching. A recognized TEFL certification can open doors to teaching opportunities worldwide.
+            </p>
+            <a href="https://tidd.ly/4qGokqI" 
+               target="_blank" rel="noopener noreferrer nofollow"
+               class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition">
+                Explore The TEFL Institute Courses →
+            </a>
+            <p class="text-neutral-500 text-xs mt-4 italic">
+                Affiliate link — we may earn a small commission at no extra cost to you.
+            </p>
+        </div>
+
         <p class="text-neutral-600 text-[11px] italic text-center max-w-2xl mx-auto mb-12">
             <strong>Disclaimer:</strong> This is a fast estimate for learning and planning only.  
             It is not an official test and should not replace certified exams like IELTS, TOEFL, or TOEIC.
@@ -269,7 +285,7 @@ function showResults() {
     document.getElementById('cefr-level').innerText = level;
     document.getElementById('cefr-desc').innerText = desc;
 
-    // NEW: Personalized advice in "What This Means for You"
+    // Personalized advice in "What This Means for You"
     let advice = "";
     if (total < 2500) {
         advice = "You're at a beginner/intermediate level (A2–B1). Focus on everyday and high-frequency academic words first. Try our <a href='/guides/guidesvocab-a2-b1-build-4000-6000-words.html' class='text-blue-400 hover:underline'>A2–B1 Vocabulary Plan</a> to build a strong foundation for high school or university entry.";
@@ -284,6 +300,27 @@ function showResults() {
     }
 
     document.getElementById('goal-advice').innerHTML = advice;
+
+    // NEW: TEFL affiliate recommendation - only for high vocab core (C1-C2)
+    if (total > 7500) {  // Shows only for C1 or C2
+        const teflBox = document.createElement('div');
+        teflBox.className = 'bg-neutral-900/50 border border-white/10 p-6 rounded-2xl mt-8 text-center';
+        teflBox.innerHTML = `
+            <h4 class="text-blue-400 font-bold text-lg mb-3">Ready to Teach or Share Your English Skills?</h4>
+            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                With a high vocabulary core (C1–C2 level), you're in an excellent position for professional teaching. A recognized TEFL certification can open doors to teaching opportunities worldwide.
+            </p>
+            <a href="https://tidd.ly/4qGokqI" 
+               target="_blank" rel="noopener noreferrer nofollow"
+               class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition">
+                Explore The TEFL Institute Courses →
+            </a>
+            <p class="text-neutral-500 text-xs mt-4 italic">
+                Affiliate link — we may earn a small commission at no extra cost to you.
+            </p>
+        `;
+        document.getElementById('result-area').appendChild(teflBox);
+    }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
