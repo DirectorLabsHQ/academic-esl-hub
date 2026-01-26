@@ -152,6 +152,22 @@
                     <h3 class="text-2xl font-bold text-white mb-4">Your Results</h3>
                     <p id="result-text" class="text-neutral-300 leading-relaxed"></p>
                 </div>
+
+                <!-- TEFL Affiliate Recommendation (added here - appears after self-check results) -->
+                <div id="tefl-recommendation" class="hidden bg-neutral-900/50 border border-white/10 p-6 rounded-2xl mt-8 text-center">
+                    <h4 class="text-blue-400 font-bold text-lg mb-3">Ready to Take Your Teaching to the Next Level?</h4>
+                    <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                        If you're passionate about helping students succeed in English classrooms, a recognized TEFL certification can give you more tools, confidence, and opportunities.
+                    </p>
+                    <a href="https://tidd.ly/4qGokqI" 
+                       target="_blank" rel="noopener noreferrer nofollow"
+                       class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition">
+                        Explore The TEFL Institute Courses →
+                    </a>
+                    <p class="text-neutral-500 text-xs mt-4 italic">
+                        Affiliate link — we may earn a small commission at no extra cost to you.
+                    </p>
+                </div>
             </div>
 
         </section>
@@ -213,7 +229,7 @@
             .catch(err => console.error('Failed to load shared header:', err));
     </script>
 
-    <!-- Existing interactive self-check script -->
+    <!-- Existing interactive self-check script + NEW TEFL logic -->
     <script>
         document.getElementById('check-results-btn').addEventListener('click', function() {
             const checkboxes = document.querySelectorAll('input[name="check"]:checked');
@@ -234,7 +250,26 @@
 
             resultText.innerHTML = `<strong>${score}/6 Yes</strong><br><br>${message}`;
             resultsDiv.classList.remove('hidden');
-            this.textContent = 'Recheck Results'; // Optional: change button text after first click
+            this.textContent = 'Recheck Results';
+
+            // NEW: Show TEFL recommendation after results (always relevant for teachers)
+            const teflBox = document.createElement('div');
+            teflBox.className = 'bg-neutral-900/50 border border-white/10 p-6 rounded-2xl mt-8 text-center';
+            teflBox.innerHTML = `
+                <h4 class="text-blue-400 font-bold text-lg mb-3">Want to Take Your Teaching Further?</h4>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                    If you're passionate about helping students succeed in English classrooms, a recognized TEFL certification can give you more tools, confidence, and opportunities.
+                </p>
+                <a href="https://tidd.ly/4qGokqI" 
+                   target="_blank" rel="noopener noreferrer nofollow"
+                   class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition">
+                    Explore The TEFL Institute Courses →
+                </a>
+                <p class="text-neutral-500 text-xs mt-4 italic">
+                    Affiliate link — we may earn a small commission at no extra cost to you.
+                </p>
+            `;
+            resultsDiv.appendChild(teflBox);
         });
     </script>
 
