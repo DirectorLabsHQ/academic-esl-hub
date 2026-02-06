@@ -1,3 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Matrix | IELTS, TOEFL, TOEIC, OPIc to CEFR Alignment</title>
+    <link rel="canonical" href="https://academiceslhub.com/score-matrix.html">
+    <meta name="description" content="Check your English level easily. Convert IELTS, TOEFL, TOEIC, or OPIc scores and get simple study tips to improve your English.">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3979959488510560" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background:#050505; color:#e5e5e5; font-family:'Inter', sans-serif; }
+        .card { background:#111; border: 1px solid #222; }
+        input, select { background:#0a0a0a; border:1px solid #222; transition: all 0.2s; }
+        input:focus, select:focus { outline:none; border-color:#3b82f6; background: #111; }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        ::selection { background:#3b82f6; color:#fff; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col antialiased">
+
+<div id="shared-header"></div>
+
+<main class="flex-grow max-w-5xl mx-auto p-6 md:p-12 w-full">
+
+    <section class="mb-10">
+        <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 italic leading-none">
+            Score <span class="text-blue-500">Matrix</span>
+        </h1>
+        <p class="text-neutral-500 text-sm max-w-2xl leading-relaxed">
+            Wondering what your test score actually means? Enter your score below to see your English level (CEFR) and get simple tips on how to improve for university or work.
+        </p>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+        <div class="card p-5 rounded-2xl">
+            <label for="ielts" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">IELTS Band</label>
+            <input id="ielts" type="number" step="0.1" placeholder="e.g. 6.5" aria-label="IELTS Band Score" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('ielts', this.value)">
+        </div>
+        <div class="card p-5 rounded-2xl">
+            <label for="toefl" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEFL iBT</label>
+            <input id="toefl" type="number" placeholder="e.g. 80" aria-label="TOEFL iBT Score" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('toefl', this.value)">
+        </div>
+        <div class="card p-5 rounded-2xl">
+            <label for="toeic" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">TOEIC Total</label>
+            <input id="toeic" type="number" placeholder="e.g. 700" aria-label="TOEIC Total Score" class="w-full mt-2 p-3 rounded-xl text-xl font-bold text-white" oninput="convert('toeic', this.value)">
+        </div>
+        <div class="card p-5 rounded-2xl">
+            <label for="opic" class="text-[10px] uppercase font-bold tracking-widest text-neutral-500">OPIc Level</label>
+            <select id="opic" aria-label="OPIc Proficiency Level" class="w-full mt-2 p-3 rounded-xl text-lg font-bold text-white cursor-pointer" onchange="convert('opic', this.value)">
+                <option value="">Select...</option>
+                <option value="AL">AL (Advanced Low)</option>
+                <option value="IH">IH (Intermediate High)</option>
+                <option value="IM3">IM3 (Intermediate Mid 3)</option>
+                <option value="IM2">IM2 (Intermediate Mid 2)</option>
+                <option value="IM1">IM1 (Intermediate Mid 1)</option>
+                <option value="IL">IL (Intermediate Low)</option>
+            </select>
+        </div>
+    </section>
+
+    <p class="text-[10px] text-neutral-600 italic mb-12 ml-2">
+        *Estimates are based on the standard entry requirements for each level.
+    </p>
+
+    <section class="card p-10 md:p-16 rounded-[2.5rem] border-l-8 border-blue-600 transition-all mb-16 shadow-2xl">
+        <div id="placeholder-content" class="text-center py-10">
+            <p class="text-neutral-600 italic uppercase tracking-widest text-xs">Type in a score to see your results!</p>
+        </div>
+
+        <div id="result-content" class="hidden">
+            <div class="text-center mb-12">
+                <p class="text-xs font-black uppercase tracking-[0.4em] text-blue-500 mb-4">Your English Level</p>
+                <div id="cefr-display" class="text-8xl md:text-9xl font-black tracking-tighter mb-4">—</div>
+                <p id="cefr-desc" class="text-white text-xl font-bold italic"></p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 text-left border-t border-white/5 pt-10">
+                <div>
+                    <h3 class="text-blue-500 font-bold uppercase text-xs tracking-widest mb-4">What you can do now</h3>
+                    <p id="cefr-can-do" class="text-neutral-300 text-sm leading-relaxed"></p>
+                </div>
+                <div>
+                    <h3 class="text-blue-500 font-bold uppercase text-xs tracking-widest mb-4">How to reach the next level</h3>
+                    <ul id="cefr-tips" class="text-neutral-400 text-sm space-y-3 list-disc pl-4"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-16 p-8 rounded-3xl bg-blue-600/5 border border-blue-500/20">
+        <h2 class="text-xl font-black text-white uppercase italic mb-6">Why do my scores look different?</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-[13px] text-neutral-400 leading-relaxed">
+            <div>
+                <strong class="text-blue-500 uppercase block mb-2">Mixed Skills vs. Single Skills</strong>
+                <p>The <strong>TOEFL iBT</strong> often asks you to do two things at once, like listening to a lecture and then writing about it. <strong>IELTS</strong> usually tests your reading, writing, and listening separately. If you are good at multi-tasking, you might find TOEFL easier!</p>
+            </div>
+            <div>
+                <strong class="text-blue-500 uppercase block mb-2">Speaking to Humans vs. Computers</strong>
+                <p><strong>OPIc</strong> feels like a real conversation, while <strong>TOEFL</strong> has you talk to a computer timer. Some students feel more relaxed talking to a person, while others prefer the computer. This can make a big difference in your speaking score.</p>
+            </div>
+            <div>
+                <strong class="text-blue-500 uppercase block mb-2">The "College Wall"</strong>
+                <p>Most universities want an <strong>IELTS 6.5</strong>. This is because college reading is very fast and difficult. If your score is lower, you might find yourself spending hours looking up words in the dictionary. Aim for <strong>C1</strong> to feel comfortable in class.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-16 mb-12">
+        <div>
+            <h2 class="text-white font-bold text-2xl mb-6 uppercase italic">What is CEFR?</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                Think of CEFR (A1 to C2) as a global "ruler" for English. While tests like <strong>IELTS</strong> give you a number, CEFR tells teachers and jobs what you can actually do—like ordering food, writing an email, or giving a speech.
+            </p>
+            <p class="text-neutral-400 text-sm leading-relaxed mt-4">
+                Getting to <strong>B2</strong> is the big goal for most students. At this level, you can finally stop "translating" in your head and start thinking in English!
+            </p>
+        </div>
+        <div>
+            <h2 class="text-white font-bold text-2xl mb-6 uppercase italic">About our Matrix</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                We use the latest data to compare these tests side-by-side. Since <strong>TOEIC</strong> is for business and <strong>TOEFL</strong> is for school, they aren't exactly the same, but this table helps you see where you are on the map.
+            </p>
+            <p class="text-neutral-600 text-[11px] italic leading-relaxed">
+                Note: These are estimates. Always check with your specific university to see exactly what score they need from you.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="border-t border-white/5 py-16 px-6 bg-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+            <a href="index.html" class="text-sm font-black tracking-tighter text-blue-500 italic uppercase mb-6 block">
+                ACADEMIC<span class="text-white">ESL</span>HUB
+            </a>
+            <p class="text-neutral-600 text-xs leading-relaxed max-w-sm mb-6">
+                Easy-to-use English tools for students. We help you understand your level and get ready for university.
+            </p>
+            <p class="text-neutral-500 text-xs font-bold">
+                Questions? Email us: <a href="mailto:thedirectorlabs@gmail.com" class="text-blue-500 hover:underline">thedirectorlabs@gmail.com</a>
+            </p>
+        </div>
+        <div class="flex flex-col md:items-end justify-center gap-6">
+            <div class="flex gap-8">
+                <a href="privacy.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">Privacy Policy</a>
+                <a href="about.html" class="text-xs text-neutral-500 hover:text-white font-bold uppercase">About</a>
+            </div>
+            <p class="text-xs text-neutral-700 font-bold uppercase">
+                © 2026 Academic ESL Hub
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    fetch('./shared-header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('shared-header').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load shared header:', err));
+</script>
+
 <script>
 const scores = [
     { 
@@ -55,7 +222,7 @@ function convert(source, val) {
 function updateUI(data, source) {
     if (source !== 'ielts') document.getElementById('ielts').value = data.ielts;
     if (source !== 'toefl') document.getElementById('toefl').value = data.toefl;
-    if (source !== 'toeic') document.getElementById('toeic').value = data.toefl;
+    if (source !== 'toeic') document.getElementById('toeic').value = data.toeic;
     if (source !== 'opic') document.getElementById('opic').value = data.opic;
 
     document.getElementById('cefr-display').innerText = data.cefr;
@@ -64,21 +231,6 @@ function updateUI(data, source) {
     
     const tipsList = document.getElementById('cefr-tips');
     tipsList.innerHTML = data.tips.map(tip => `<li>${tip}</li>`).join('');
-
-    // Add uTalk affiliate recommendation for B1–C1 levels
-    if (['B1', 'B2', 'C1'].includes(data.cefr)) {
-        const utalkLi = document.createElement('li');
-        utalkLi.innerHTML = `
-            Build practical vocabulary quickly with real native-speaker audio lessons and game-based practice. 
-            <a href="https://tidd.ly/3MaWhkg" 
-               target="_blank" rel="noopener noreferrer nofollow" 
-               class="text-blue-400 hover:text-blue-300 underline">
-               Try uTalk (150+ languages, great for everyday phrases)
-            </a> 
-            — ideal alongside your academic English prep. (Affiliate link — we may earn a commission at no extra cost to you.)
-        `;
-        tipsList.appendChild(utalkLi);
-    }
     
     document.getElementById('result-content').classList.remove('hidden');
     document.getElementById('placeholder-content').classList.add('hidden');
@@ -90,3 +242,6 @@ function resetDisplay() {
     document.getElementById('placeholder-content').classList.remove('hidden');
 }
 </script>
+
+</body>
+</html>
